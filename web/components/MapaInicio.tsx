@@ -145,9 +145,12 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
         <BuscaCursos cursos={cursos} atalhos={[]} ano={anoBusca} aoEscolher={(c) => {
           setExtra({ curso: c.curso, slug: c.slug });
           escolher(c.slug);
-          const el = mapaRef.current;
-          if (el && el.getBoundingClientRect().top > window.innerHeight * 0.5)
-            el.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+          // Rola só depois que a lista de resultados some (senão o mapa "pula" para baixo da Topbar).
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            const el = mapaRef.current;
+            if (el && el.getBoundingClientRect().top > window.innerHeight * 0.5)
+              el.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+          }));
         }} />
       </div>
       <div className="inicio-controles">

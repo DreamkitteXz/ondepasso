@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { nota } from "@/lib/formato";
 
 type Item = { curso: string; slug: string; ofertas: number; ampla_min: number | null; ampla_max: number | null };
@@ -9,6 +9,9 @@ const sem = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCas
 /** Na home, `aoEscolher` faz o resultado mostrar o curso no mapa em vez de abrir a página do curso. */
 export function BuscaCursos({ cursos, atalhos, ano, aoEscolher }: { cursos: Item[]; atalhos: Item[]; ano: number; aoEscolher?: (c: Item) => void }) {
   const [q, setQ] = useState("");
+  // Se a pessoa digitou antes do JavaScript carregar, aproveita o que já está no campo.
+  const campo = useRef<HTMLInputElement>(null);
+  useEffect(() => { const v = campo.current?.value; if (v) setQ(v); }, []);
   const achados = useMemo(() => {
     const t = sem(q.trim());
     if (t.length < 2) return [];
@@ -20,7 +23,7 @@ export function BuscaCursos({ cursos, atalhos, ano, aoEscolher }: { cursos: Item
     <>
       <label className="busca">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--fg-4)" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
-        <input id="busca" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Busque um curso, ex.: Medicina" aria-label="Buscar curso" autoComplete="off" />
+        <input id="busca" ref={campo} value={q} onChange={(e) => setQ(e.target.value)} placeholder="Busque um curso, ex.: Medicina" aria-label="Buscar curso" autoComplete="off" />
       </label>
       {q.trim().length >= 2 ? (
         <div className="cartao lista" style={{ marginTop: 12 }}>

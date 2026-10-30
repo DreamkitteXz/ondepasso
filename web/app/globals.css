@@ -285,3 +285,5 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
 .link-lista { color: var(--fg-2); font-weight: 500; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
 .link-lista:hover { color: var(--fg-1); }
 .mapa-cartao .chips + * { margin-top: 0; }
+.inicio-mapa, .estado-vista, .inicio { scroll-margin-top: 76px; }
+@media (min-width: 1024px) { .inicio-mapa, .estado-vista, .inicio { scroll-margin-top: 88px; } }
