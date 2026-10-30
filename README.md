@@ -20,10 +20,12 @@ python pipeline/inspecionar.py    # opcional: confere colunas de arquivos novos
 Para adicionar um ano, salve `sisuANO_inscricoes_notas_corte.xlsx` e `sisuANO_vagas_ofertadas.xlsx` em `dados/brutos/` e rode de novo.
 Se aparecer "SEM PAR" no relatório, inclua a grafia em `pipeline/municipios.py` › `APELIDOS`.
 
-## Publicar (Cloudflare Pages)
+## Publicar (Cloudflare Workers, só arquivos estáticos)
+Em Workers & Pages › ondepasso › Settings › Build:
 - Root directory: `web`
 - Build command: `npm run build`
-- Build output directory: `out`
-- Variável de ambiente: `NODE_VERSION=22`
+- Deploy command: `npx wrangler deploy` (usa `web/wrangler.jsonc`, que publica a pasta `out/`)
+- Variável de build: `NODE_VERSION=22`
 
-O build lê `dados/saida/site/` (versionado). Para atualizar os dados: rode o pipeline, faça commit da pasta e o Cloudflare publica de novo.
+Não use o OpenNext (`opennextjs-cloudflare`): o site é 100% estático.
+O build lê `dados/saida/site/` (versionado). Para atualizar os dados, rode o pipeline, faça commit da pasta e dê push.

@@ -1,0 +1,11 @@
+// Publica a pasta out/ (gerada por `npm run build`) como site estático no Cloudflare Workers.
+// Sem servidor: não use o OpenNext. Limite do plano gratuito: 20.000 arquivos por versão (hoje ~15 mil).
+{
+  "name": "ondepasso",
+  "compatibility_date": "2026-10-30",
+  "assets": {
+    "directory": "./out/",
+    "not_found_handling": "404-page",
+    "html_handling": "force-trailing-slash"
+  }
+}
