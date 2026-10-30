@@ -19,14 +19,14 @@ export function BuscaCursos({ cursos, atalhos, ano }: { cursos: Item[]; atalhos:
     <>
       <label className="busca">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--fg-4)" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
-        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Busque um curso, ex.: Medicina" aria-label="Buscar curso" autoComplete="off" />
+        <input id="busca" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Busque um curso, ex.: Medicina" aria-label="Buscar curso" autoComplete="off" />
       </label>
       {q.trim().length >= 2 ? (
         <div className="cartao lista" style={{ marginTop: 12 }}>
           {achados.length === 0 && <div className="vazio">Nenhum curso com “{q}”. Tente outra palavra.</div>}
           {achados.map((c) => <LinhaCurso key={c.slug} c={c} ano={ano} />)}
         </div>
-      ) : (
+      ) : atalhos.length > 0 && (
         <div className="chips">
           {atalhos.map((c) => <a key={c.slug} className="chip" href={`/curso/${c.slug}/`}>{c.curso}</a>)}
         </div>

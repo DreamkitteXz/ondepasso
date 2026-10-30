@@ -32,7 +32,7 @@ export default async function PaginaOferta({ params }: P) {
   const piso = vs.length ? Math.floor(Math.min(...vs) / 50) * 50 - 50 : 0, teto = vs.length ? Math.max(...vs) : 1000;
   const iguais = PESOS.every(([k]) => o.pesos[k] === o.pesos.red);
   return (
-    <>
+    <div className="estreito">
       <a className="voltar" href={`/curso/${c.slug}/`}>‹ {c.curso}</a>
       <h1>{c.curso}</h1>
       <p className="sub">{o.ies_nome} · {o.campus} · {o.municipio}/{o.uf} · {o.turno} · {o.grau}</p>
@@ -81,6 +81,6 @@ export default async function PaginaOferta({ params }: P) {
         ))}
         {(o.media_minima ?? 0) > 1 && <div className="peso"><span>Média mínima</span><span>{nota(o.media_minima)}</span></div>}
       </section>
-    </>
+    </div>
   );
 }

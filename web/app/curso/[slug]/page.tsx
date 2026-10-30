@@ -23,7 +23,7 @@ export default async function PaginaCurso({ params }: P) {
   }));
   const ufs = new Set(c.ofertas.map((o) => o.uf)).size;
   return (
-    <>
+    <div className="estreito">
       <a className="voltar" href="/">‹ Buscar</a>
       <p className="rotulo">Sisu {ano} · ampla concorrência</p>
       <h1>{c.curso}</h1>
@@ -32,6 +32,6 @@ export default async function PaginaCurso({ params }: P) {
         {cortes.length > 0 && <> O corte da ampla vai de <strong>{nota(Math.min(...cortes))}</strong> a <strong>{nota(Math.max(...cortes))}</strong>.</>}
       </p>
       <ListaOfertas itens={itens} cursoSlug={c.slug} ano={ano} />
-    </>
+    </div>
   );
 }
