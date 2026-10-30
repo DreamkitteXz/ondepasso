@@ -23,7 +23,12 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
   const minha = useNota();
   const [editando, setEditando] = useState(false);
   const [uf, setUfBruto] = useState<string | null>(null);
-  const [sel, setSel] = useState<Ponto | null>(null);
+  const [sel, setSelBruto] = useState<Ponto | null>(null);
+  // Ações de teclado respondem sem animação (abrir ou fechar o cartão).
+  const viaTeclado = useRef(false);
+  const setSel = (p: Ponto | null, teclado = false) => { viaTeclado.current = teclado; setSelBruto(p); };
+  // Conta só confirmações de nota nova (não teclas, não a nota que já estava salva ao abrir a página).
+  const [revelacao, setRevelacao] = useState(0);
   const [mod, setMod] = useState("AC");
   const topoRef = useRef<HTMLDivElement>(null);
 
@@ -53,7 +58,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
   }
 
   useEffect(() => {
-    const f = (e: KeyboardEvent) => { if (e.key === "Escape" && uf) { if (sel) setSel(null); else setUf(null); } };
+    const f = (e: KeyboardEvent) => { if (e.key === "Escape" && uf) { if (sel) setSel(null, true); else setUf(null); } };
     window.addEventListener("keydown", f);
     return () => window.removeEventListener("keydown", f);
   });
@@ -79,7 +84,8 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
   );
   const pilula = minha != null && !editando ? <PilulaNota minha={minha} editar={() => setEditando(true)} /> : null;
   const entrada = (compacta: boolean) => (minha == null || editando) && (
-    <EntradaNota ano={dados.ano} inicial={editando && minha != null ? fmt(minha) : ""} pronto={() => setEditando(false)} compacta={compacta} />
+    <EntradaNota ano={dados.ano} inicial={editando && minha != null ? fmt(minha) : ""} compacta={compacta}
+      pronto={(v) => { if (v != null && v !== minha) setRevelacao((n) => n + 1); setEditando(false); }} />
   );
 
   // ---------- 01c / W1c: estado aproximado ----------
@@ -88,7 +94,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
     const doEstado = pontos.filter((p) => p.u === uf);
     const st = (p: Ponto): Status | null => (minha == null ? null : statusNota(corte(p), minha));
     const conta = contar(doEstado, minha, corte);
-    const cartao = sel && <CartaoPonto p={sel} curso={dados} corte={corte(sel)} minha={minha} />;
+    const cartao = (ponto: Ponto) => <CartaoPonto p={ponto} curso={dados} corte={corte(ponto)} minha={minha} />;
     return (
       <div className="estado-vista" ref={topoRef}>
         <button className="voltar link" onClick={() => setUf(null)}>‹ Brasil</button>
@@ -101,7 +107,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
             </div>
             {entrada(true)}
             {minha != null ? (
-              <p className="contagem">
+              <p className={`contagem${revelacao ? " revela" : ""}`} key={`r${revelacao}`}>
                 <span className="t-supera">{plural(conta.supera, "supera", "superam")} o corte</span><i>·</i>
                 <span className="t-pouco">{conta.pouco} por pouco</span><i>·</i>
                 <span className="t-abaixo">{conta.abaixo} abaixo do corte</span>
@@ -112,12 +118,12 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
             {comparando}
             <Mapa geo={geo} pontos={pontos} corte={corte} st={st} uf={uf} caixa={est.box as Caixa} sel={sel}
               aoEstado={(u) => u !== uf && setUf(u)} aoPonto={setSel} />
-            {cartao && <div className="so-mobile">{cartao}</div>}
+            <Presenca valor={sel} teclado={viaTeclado.current} className="so-mobile">{cartao}</Presenca>
             <Legenda comNota={minha != null} />
           </section>
           <aside className="estado-lado">
-            {cartao && <div className="so-desktop">{cartao}</div>}
-            <ListaEstado uf={uf} pontos={doEstado} curso={dados} mod={modAtual} corte={corte} minha={minha} sel={sel} aoEscolher={setSel} />
+            <Presenca valor={sel} teclado={viaTeclado.current} className="so-desktop">{cartao}</Presenca>
+            <ListaEstado uf={uf} pontos={doEstado} curso={dados} mod={modAtual} corte={corte} minha={minha} sel={sel} aoEscolher={(p, teclado) => setSel(p, teclado)} />
           </aside>
         </div>
       </div>
@@ -144,9 +150,11 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
           ) : (
             <>
               {pilula && <div className="mapa-linha">{pilula}</div>}
+              <div className={`resumo${revelacao ? " revela" : ""}`} key={`r${revelacao}`}>
               <h2 className="manchete-mapa">Sua nota supera o corte de {dados.ano} em {conta.supera} de {plural(pontos.length, "opção", "opções")}</h2>
               <p className="miudo aviso-hist">Comparação histórica · não garante aprovação</p>
               <p className="contagem"><span className="t-pouco">{conta.pouco} por pouco</span><i>·</i><span className="t-abaixo">{conta.abaixo} abaixo do corte</span></p>
+              </div>
               {comparando}
             </>
           )}
@@ -166,6 +174,36 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
   );
 }
 
+/**
+ * Mantém o cartão montado durante a saída. Entrada (CSS .cp-entra): só na primeira abertura — trocar de
+ * campus com o cartão aberto só troca o conteúdo. Saída: opacidade, e o cartão fica `inert` (fora do foco).
+ * Reabrir durante a saída reverte a opacidade sem remontar. Teclado: abre e fecha sem animação.
+ */
+function Presenca({ valor, teclado, className, children }: { valor: Ponto | null; teclado: boolean; className: string; children: (p: Ponto) => ReactNode }) {
+  const [ultimo, setUltimo] = useState(valor);
+  const [anterior, setAnterior] = useState(valor);
+  const [saindo, setSaindo] = useState(false);
+  const [semEntrada, setSemEntrada] = useState(teclado);
+  if (valor !== anterior) {
+    if (valor == null && anterior != null && !teclado) setSaindo(true);
+    if (valor != null) { setUltimo(valor); setSaindo(false); if (anterior == null) setSemEntrada(teclado); }
+    setAnterior(valor);
+  }
+  useEffect(() => {
+    if (!saindo) return;
+    const ms = matchMedia("(prefers-reduced-motion: reduce)").matches ? 80 : 100;
+    const t = setTimeout(() => setSaindo(false), ms);
+    return () => clearTimeout(t);
+  }, [saindo]);
+  const p = valor ?? (saindo ? ultimo : null);
+  if (!p) return null;
+  return (
+    <div className={`${className} cp-entra${semEntrada ? " sem-anim" : ""}${!valor ? " saindo" : ""}`} inert={!valor}>
+      {children(p)}
+    </div>
+  );
+}
+
 function contar(pontos: Ponto[], minha: number | null, corte: (p: Ponto) => number) {
   const c = { supera: 0, pouco: 0, abaixo: 0 };
   if (minha != null) for (const p of pontos) c[statusNota(corte(p), minha)]++;
@@ -181,7 +219,7 @@ function PilulaNota({ minha, editar }: { minha: number; editar: () => void }) {
   );
 }
 
-function EntradaNota({ ano, inicial, pronto, compacta }: { ano: number; inicial: string; pronto: () => void; compacta: boolean }) {
+function EntradaNota({ ano, inicial, pronto, compacta }: { ano: number; inicial: string; pronto: (v: number | null) => void; compacta: boolean }) {
   const [texto, setTexto] = useState(inicial);
   const [erro, setErro] = useState(false);
   const ref = useRef<HTMLInputElement>(null);
@@ -190,7 +228,7 @@ function EntradaNota({ ano, inicial, pronto, compacta }: { ano: number; inicial:
     e.preventDefault();
     const v = lerNota(texto);
     setErro(v == null);
-    if (v != null) { salvarNota(v); pronto(); }
+    if (v != null) { pronto(v); salvarNota(v); }
   }
   return (
     <form className={`entrada-nota${compacta ? " compacta" : " cartao"}`} onSubmit={enviar}>
@@ -203,7 +241,7 @@ function EntradaNota({ ano, inicial, pronto, compacta }: { ano: number; inicial:
       {erro
         ? <p className="erro">Digite uma média entre 0 e 1000, como 712,40.</p>
         : !compacta && <p className="privado"><span className="ponto" />Sua nota não sai do seu navegador</p>}
-      {inicial && <button type="button" className="link-mudo limpar" onClick={() => { salvarNota(null); pronto(); }}>apagar minha nota</button>}
+      {inicial && <button type="button" className="link-mudo limpar" onClick={() => { salvarNota(null); pronto(null); }}>apagar minha nota</button>}
     </form>
   );
 }
@@ -354,7 +392,7 @@ function CartaoPonto({ p, curso, corte, minha }: { p: Ponto; curso: DadosMapa; c
   );
 }
 
-type LinhaProps = { titulo: string; meta: string; valor: number; s: Status | null; ativa?: boolean; href?: string; onClick?: () => void };
+type LinhaProps = { titulo: string; meta: string; valor: number; s: Status | null; ativa?: boolean; href?: string; onClick?: (e: React.MouseEvent) => void };
 function LinhaPonto({ titulo, meta, valor, s, ativa, href, onClick }: LinhaProps) {
   const dentro = (
     <>
@@ -369,7 +407,7 @@ function LinhaPonto({ titulo, meta, valor, s, ativa, href, onClick }: LinhaProps
 
 function ListaEstado({ uf, pontos, curso, mod, corte, minha, sel, aoEscolher }: {
   uf: string; pontos: Ponto[]; curso: DadosMapa; mod: { cod: string; nome: string }; corte: (p: Ponto) => number;
-  minha: number | null; sel: Ponto | null; aoEscolher: (p: Ponto) => void;
+  minha: number | null; sel: Ponto | null; aoEscolher: (p: Ponto, teclado: boolean) => void;
 }) {
   const [todos, setTodos] = useState(false);
   const ord = [...pontos].sort((a, b) => corte(a) - corte(b));
@@ -379,7 +417,7 @@ function ListaEstado({ uf, pontos, curso, mod, corte, minha, sel, aoEscolher }: 
       <div className="cabeca"><h2>Campi em {uf}</h2><span className="miudo">{curso.curso} · {curtaMod(mod.cod, mod.nome)}</span></div>
       {vis.map((p) => (
         <LinhaPonto key={p.r} titulo={`${curso.curso} · ${p.i}`} meta={`${p.c} · ${curtaMod(mod.cod, mod.nome)}`} valor={corte(p)}
-          s={minha == null ? null : statusNota(corte(p), minha)} ativa={sel?.r === p.r} onClick={() => aoEscolher(p)} />
+          s={minha == null ? null : statusNota(corte(p), minha)} ativa={sel?.r === p.r} onClick={(e) => aoEscolher(p, e.detail === 0)} />
       ))}
       {ord.length > 5 && !todos && <button className="ver-mais" onClick={() => setTodos(true)}>Ver as {ord.length} opções em {uf}</button>}
     </section>

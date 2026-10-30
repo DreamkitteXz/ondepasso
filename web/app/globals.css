@@ -199,7 +199,7 @@ body { padding-bottom: calc(73px + env(safe-area-inset-bottom)); }
 
 .mapa { position: relative; }
 .mapa svg { display: block; width: 100%; height: auto; max-height: 70vh; overflow: visible; }
-.uf { fill: var(--panel-2); stroke: var(--line-2); cursor: pointer; transition: fill .15s, opacity .3s; }
+.uf { fill: var(--panel-2); stroke: var(--line-2); cursor: pointer; transition: opacity .3s; }
 .uf:hover { fill: var(--panel-3); }
 .uf.fora { opacity: 0; pointer-events: none; } .uf.atual { cursor: default; }
 .uf.atual:hover { fill: var(--panel-2); }
@@ -261,3 +261,24 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
 .ver-mais { display: block; width: 100%; background: none; border: 0; border-top: 1px solid var(--line-1); padding: 12px 16px 8px; text-align: left; font: inherit; font-size: 13px; font-weight: 500; color: var(--fg-1); cursor: pointer; }
 .cabeca { flex-wrap: wrap; row-gap: 2px; }
 .cabeca h2 { white-space: nowrap; }
+
+/* ---------- Movimento (só transform e opacity) ---------- */
+:root { --entrada: cubic-bezier(0.23, 1, 0.32, 1); }
+@keyframes cp-entra { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes so-opacidade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes reduzido { from { opacity: .9; } to { opacity: 1; } }
+/* Cartão do campus: entra uma vez; troca de campus não reanima; sai só por opacidade. */
+.cp-entra { animation: cp-entra 180ms var(--entrada); transition: opacity 100ms ease-in; }
+.cp-entra.sem-anim { animation: none; }
+.cp-entra.saindo { opacity: 0; pointer-events: none; }
+/* Resumo da nota: aparece por opacidade após confirmar uma nota nova; números já finais. */
+.revela { animation: so-opacidade 140ms var(--entrada); }
+.resumo { display: grid; gap: 12px; }
+.resumo > p { margin: 0; }
+@media (max-width: 1023px) { .manchete-mapa { min-height: 2.5em; } }
+@media (prefers-reduced-motion: reduce) {
+  .cp-entra { animation: reduzido 80ms linear; transition: opacity 80ms ease-in; }
+  .cp-entra.sem-anim { animation: none; }
+  .revela { animation: reduzido 80ms linear; }
+  .uf { transition: none; }
+}
