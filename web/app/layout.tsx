@@ -5,7 +5,12 @@ import "./globals.css";
 import { Logo } from "@/components/Logo";
 import { indice } from "@/lib/dados";
 
+import { SITE } from "@/lib/site";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE),
+  alternates: { canonical: "/" },
+  openGraph: { siteName: "onde passo", locale: "pt_BR", type: "website" },
   title: { default: "onde passo · notas de corte do Sisu", template: "%s · onde passo" },
   description: "Notas de corte do Sisu por curso, universidade, cota e ano. Grátis e sem cadastro.",
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/favicon.ico" }], apple: "/apple-touch-icon.png" },

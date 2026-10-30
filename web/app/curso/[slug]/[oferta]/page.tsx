@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: P): Promise<Metadata> {
   return {
     title: `Nota de corte de ${c.curso} na ${o.ies} (${o.municipio}/${o.uf}) — Sisu ${ano}`,
     description: `Corte da ampla em ${ano}: ${nota(corteAmpla(o, ano))}. Cotas, histórico de ${c.anos[0]} a ${ano}, pesos e notas mínimas.`,
+    alternates: { canonical: `/curso/${c.slug}/${slugOferta(o)}/` },
   };
 }
 

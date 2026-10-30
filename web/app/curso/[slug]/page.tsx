@@ -10,7 +10,7 @@ export function generateStaticParams() { return indice().cursos.map((c) => ({ sl
 
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const c = curso((await params).slug); const ano = Math.max(...c.anos);
-  return { title: `Nota de corte de ${c.curso} no Sisu ${ano}`, description: `Notas de corte de ${c.curso} em ${c.ofertas.length} opções do Sisu ${ano}, por universidade, cota e ano.` };
+  return { title: `Nota de corte de ${c.curso} no Sisu ${ano}`, description: `Notas de corte de ${c.curso} em ${c.ofertas.length} opções do Sisu ${ano}, por universidade, cota e ano.`, alternates: { canonical: `/curso/${c.slug}/` } };
 }
 
 export default async function PaginaCurso({ params }: P) {
