@@ -1,34 +1,33 @@
 import { indice } from "@/lib/dados";
-import { GEO, dadosMapa } from "@/lib/mapa";
-import { BuscaCursos, LinhaCurso } from "@/components/BuscaCursos";
+import { GEO, dadosMapa, maisDisputados } from "@/lib/mapa";
+import { BuscaCursos } from "@/components/BuscaCursos";
 import { MapaInicio } from "@/components/MapaInicio";
 
-// Atalhos do mapa e "mais procurados": lista editorial fixa até termos analytics.
-const POPULARES = ["medicina", "direito", "psicologia", "enfermagem", "engenharia-civil", "odontologia", "ciencia-da-computacao", "medicina-veterinaria"];
+// Chips do mapa (Figma 01a: Medicina, Direito, Psicologia; no desktop W1 entram mais dois).
+const ATALHOS = [
+  { slug: "medicina" }, { slug: "direito" }, { slug: "psicologia" },
+  { slug: "enfermagem", soDesktop: true }, { slug: "engenharia-civil", soDesktop: true },
+];
 
 export default function Inicio() {
   const { cursos, anos } = indice();
   const ano = Math.max(...anos);
   const slim = cursos.map(({ curso, slug, ofertas, ampla_min, ampla_max }) => ({ curso, slug, ofertas, ampla_min, ampla_max }));
-  const populares = POPULARES.map((s) => slim.find((c) => c.slug === s)).filter((c): c is (typeof slim)[number] => !!c);
+  const atalhos = ATALHOS.map((a) => ({ ...a, curso: cursos.find((c) => c.slug === a.slug)!.curso }));
+  const disputados = maisDisputados(["medicina", "direito", "psicologia"]).map(({ curso, slug, r, i, c, m }) => ({ curso, slug, r, i, c, m: { AC: m.AC } }));
   return (
     <MapaInicio
       geo={GEO}
       inicial={dadosMapa("medicina")}
-      atalhos={populares.slice(0, 5).map(({ curso, slug }) => ({ curso, slug }))}
+      atalhos={atalhos}
+      disputados={disputados}
       topo={
         <>
-          <p className="rotulo">Sisu {ano} · notas de corte</p>
+          <p className="rotulo">Sisu {ano + 1} · notas de corte</p>
           <h1>Quanto você precisa tirar, e onde?</h1>
-          <p className="sub">Notas de corte de {cursos.length} cursos em todas as universidades do Sisu, por cota e por ano. Sem cadastro.</p>
+          <p className="sub so-desktop">Notas de corte de {cursos.length} cursos em todas as universidades do Sisu, por cota e por ano. Sem cadastro.</p>
           <BuscaCursos cursos={slim} atalhos={[]} ano={ano} />
         </>
-      }
-      lista={
-        <section className="cartao lista">
-          <div className="cabeca"><h2 style={{ margin: 0 }}>Mais procurados</h2><span className="miudo">Sisu {ano} · ampla concorrência</span></div>
-          {populares.map((c) => <LinhaCurso key={c.slug} c={c} ano={ano} />)}
-        </section>
       }
     />
   );

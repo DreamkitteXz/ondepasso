@@ -3,6 +3,8 @@ import { GeistSans } from "geist/font/sans";
 import "@fontsource/faustina/600.css";
 import "./globals.css";
 import { Logo } from "@/components/Logo";
+import { BotaoTema, SCRIPT_TEMA } from "@/components/Tema";
+import { NavTopo, Tabbar } from "@/components/Navegacao";
 import { indice } from "@/lib/dados";
 
 import { SITE } from "@/lib/site";
@@ -19,12 +21,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const { anos, atualizado } = indice();
   return (
-    <html lang="pt-BR" className={GeistSans.variable} style={{ ["--font-faustina" as string]: "Faustina" }}>
+    <html lang="pt-BR" className={GeistSans.variable} style={{ ["--font-faustina" as string]: "Faustina" }} suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} /></head>
       <body>
         <header className="topbar">
           <div className="wrap">
             <a href="/" aria-label="onde passo — início"><Logo /></a>
-            <span className="selo"><span className="ponto" />Sisu {Math.max(...anos)}</span>
+            <NavTopo />
+            <div className="acoes">
+              <span className="selo"><span className="ponto" />Sisu {Math.max(...anos) + 1} · jan</span>
+              <BotaoTema />
+            </div>
           </div>
         </header>
         <main className="wrap">{children}</main>
@@ -34,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <p>Atualizado em {atualizado.split("-").reverse().join("/")}. Suas notas nunca saem do seu navegador.</p>
           </div>
         </footer>
+        <Tabbar />
       </body>
     </html>
   );

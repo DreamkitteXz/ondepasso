@@ -1,25 +1,41 @@
 "use client";
-// Home com mapa (Figma W1a–W1c / mobile 01a–01c): chips escolhem o curso, a nota colore os pontos,
-// clicar num estado aproxima e clicar num ponto abre o cartão do campus.
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+// Home com mapa — segue o Figma: mobile 01a (sem nota), 01b (com nota), 01c (estado aproximado + cartão)
+// e desktop W1a–W1c. Os chips escolhem o curso, a nota colore os pontos, "trocar" muda a modalidade,
+// tocar num estado aproxima e tocar num ponto abre o cartão do campus.
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { DadosMapa, Geo, Ponto } from "@/lib/mapa";
 import { lerNota, nota as fmt, ROTULO, statusNota, type Status } from "@/lib/formato";
 import { salvarNota, useNota } from "@/lib/nota";
 
-type Atalho = { curso: string; slug: string };
+type Atalho = { curso: string; slug: string; soDesktop?: boolean };
+type Disputado = { curso: string; slug: string; r: string; i: string; c: string; m: Record<string, number> };
 type Caixa = [number, number, number, number];
 
 const plural = (n: number, um: string, varios: string) => `${n} ${n === 1 ? um : varios}`;
+const curtaMod = (cod: string, nome: string) => (cod === "AC" ? "ampla" : nome.replace(/^Escola pública/, "Esc. pública"));
 
-export function MapaInicio({ geo, inicial, atalhos, topo, lista }: {
-  geo: Geo; inicial: DadosMapa; atalhos: Atalho[]; topo: ReactNode; lista: ReactNode;
+export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
+  geo: Geo; inicial: DadosMapa; atalhos: Atalho[]; topo: ReactNode; disputados: Disputado[];
 }) {
   const [dados, setDados] = useState(inicial);
   const [carregando, setCarregando] = useState<string | null>(null);
   const cache = useRef(new Map([[inicial.slug, inicial]]));
   const minha = useNota();
-  const [uf, setUf] = useState<string | null>(null);
+  const [editando, setEditando] = useState(false);
+  const [uf, setUfBruto] = useState<string | null>(null);
   const [sel, setSel] = useState<Ponto | null>(null);
+  const [mod, setMod] = useState("AC");
+  const topoRef = useRef<HTMLDivElement>(null);
+
+  const modAtual = dados.mods.find((m) => m.cod === mod) ?? dados.mods[0];
+  const pontos = useMemo(() => dados.pontos.filter((p) => p.m[modAtual.cod] != null), [dados, modAtual]);
+  const corte = (p: Ponto) => p.m[modAtual.cod];
+
+  function setUf(u: string | null) {
+    setUfBruto(u);
+    setSel(null);
+    requestAnimationFrame(() => { const el = topoRef.current; if (el && el.getBoundingClientRect().top < 0) el.scrollIntoView({ block: "start" }); });
+  }
 
   async function escolher(slug: string) {
     if (slug === dados.slug) return;
@@ -36,139 +52,176 @@ export function MapaInicio({ geo, inicial, atalhos, topo, lista }: {
     }
   }
 
+  useEffect(() => {
+    const f = (e: KeyboardEvent) => { if (e.key === "Escape" && uf) { if (sel) setSel(null); else setUf(null); } };
+    window.addEventListener("keydown", f);
+    return () => window.removeEventListener("keydown", f);
+  });
+
+  const chips = (
+    <div className="chips" role="group" aria-label="Curso mostrado no mapa">
+      {atalhos.map((a) => (
+        <button key={a.slug} className={`chip${a.slug === dados.slug ? " ativo" : ""}${a.soDesktop ? " so-desktop" : ""}`} aria-pressed={a.slug === dados.slug} onClick={() => escolher(a.slug)}>
+          {carregando === a.slug ? "…" : a.curso}
+        </button>
+      ))}
+      <a className="chip" href="#busca" onClick={() => { setUf(null); setTimeout(() => document.getElementById("busca")?.focus(), 50); }}>Mais cursos</a>
+    </div>
+  );
+  const comparando = (
+    <p className="comparando">
+      comparando com: <label className="trocar"><b>{modAtual.nome}</b> · <i>trocar</i>
+        <select value={modAtual.cod} onChange={(e) => { setMod(e.target.value); setSel(null); }} aria-label="Modalidade para comparar">
+          {dados.mods.map((m) => <option key={m.cod} value={m.cod}>{m.nome}</option>)}
+        </select>
+      </label>
+    </p>
+  );
+  const pilula = minha != null && !editando ? <PilulaNota minha={minha} editar={() => setEditando(true)} /> : null;
+  const entrada = (compacta: boolean) => (minha == null || editando) && (
+    <EntradaNota ano={dados.ano} inicial={editando && minha != null ? fmt(minha) : ""} pronto={() => setEditando(false)} compacta={compacta} />
+  );
+
+  // ---------- 01c / W1c: estado aproximado ----------
+  if (uf) {
+    const est = geo.ufs.find((u) => u.uf === uf)!;
+    const doEstado = pontos.filter((p) => p.u === uf);
+    const st = (p: Ponto): Status | null => (minha == null ? null : statusNota(corte(p), minha));
+    const conta = contar(doEstado, minha, corte);
+    const cartao = sel && <CartaoPonto p={sel} curso={dados} corte={corte(sel)} minha={minha} />;
+    return (
+      <div className="estado-vista" ref={topoRef}>
+        <button className="voltar link" onClick={() => setUf(null)}>‹ Brasil</button>
+        {chips}
+        <div className="estado-grade">
+          <section className="cartao mapa-cartao" aria-label={`${dados.curso} em ${est.nome}`}>
+            <div className="mapa-linha">
+              <h2 className="titulo-estado">{est.nome}</h2>
+              {pilula}
+            </div>
+            {entrada(true)}
+            {minha != null ? (
+              <p className="contagem">
+                <span className="t-supera">{plural(conta.supera, "supera", "superam")} o corte</span><i>·</i>
+                <span className="t-pouco">{conta.pouco} por pouco</span><i>·</i>
+                <span className="t-abaixo">{conta.abaixo} abaixo do corte</span>
+              </p>
+            ) : (
+              <p className="miudo">{plural(doEstado.length, "opção", "opções")} de {dados.curso} · Sisu {dados.ano}</p>
+            )}
+            {comparando}
+            <Mapa geo={geo} pontos={pontos} corte={corte} st={st} uf={uf} caixa={est.box as Caixa} sel={sel}
+              aoEstado={(u) => u !== uf && setUf(u)} aoPonto={setSel} />
+            {cartao && <div className="so-mobile">{cartao}</div>}
+            <Legenda comNota={minha != null} />
+          </section>
+          <aside className="estado-lado">
+            {cartao && <div className="so-desktop">{cartao}</div>}
+            <ListaEstado uf={uf} pontos={doEstado} curso={dados} mod={modAtual} corte={corte} minha={minha} sel={sel} aoEscolher={setSel} />
+          </aside>
+        </div>
+      </div>
+    );
+  }
+
+  // ---------- 01a/01b · W1a/W1b: Brasil ----------
+  const st = (p: Ponto): Status | null => (minha == null ? null : statusNota(corte(p), minha));
+  const conta = contar(pontos, minha, corte);
   return (
-    <div className="inicio">
+    <div className="inicio" ref={topoRef}>
       <div className="inicio-topo">{topo}</div>
       <div className="inicio-controles">
-        <div className="chips" role="group" aria-label="Curso mostrado no mapa">
-          {atalhos.map((a) => (
-            <button key={a.slug} className={`chip${a.slug === dados.slug ? " ativo" : ""}`} aria-pressed={a.slug === dados.slug} onClick={() => escolher(a.slug)}>
-              {carregando === a.slug ? "…" : a.curso}
-            </button>
-          ))}
-          <a className="chip" href="#busca" onClick={() => setTimeout(() => document.getElementById("busca")?.focus(), 0)}>Mais cursos</a>
-        </div>
-        <EntradaNota minha={minha} ano={dados.ano} />
+        {chips}
+        {entrada(false)}
       </div>
       <div className="inicio-mapa">
-        <CartaoMapa geo={geo} dados={dados} minha={minha} uf={uf} setUf={(u) => { setUf(u); setSel(null); }} sel={sel} setSel={setSel} />
+        <section className="cartao mapa-cartao" aria-label={`Mapa de ${dados.curso}`}>
+          {minha == null ? (
+            <div className="mapa-linha">
+              <h2 className="titulo-mapa">{dados.curso} no Sisu</h2>
+              <span className="miudo">{plural(pontos.length, "opção", "opções")} · Sisu {dados.ano}</span>
+            </div>
+          ) : (
+            <>
+              {pilula && <div className="mapa-linha">{pilula}</div>}
+              <h2 className="manchete-mapa">Sua nota supera o corte de {dados.ano} em {conta.supera} de {plural(pontos.length, "opção", "opções")}</h2>
+              <p className="miudo aviso-hist">Comparação histórica · não garante aprovação</p>
+              <p className="contagem"><span className="t-pouco">{conta.pouco} por pouco</span><i>·</i><span className="t-abaixo">{conta.abaixo} abaixo do corte</span></p>
+              {comparando}
+            </>
+          )}
+          <Mapa geo={geo} pontos={pontos} corte={corte} st={st} uf={null} caixa={null} sel={null}
+            aoEstado={setUf} aoPonto={(p) => { setUf(p.u); setSel(p); }} />
+          <Legenda comNota={minha != null} />
+          <p className="miudo">
+            <span className="so-mobile">Toque</span><span className="so-desktop">Clique</span> num estado para ver os campi
+            {minha != null && ` · base: Sisu ${dados.ano}, chamada regular`}
+          </p>
+        </section>
       </div>
-      <div className="inicio-lista">{lista}</div>
+      <div className="inicio-lista">
+        <MaisDisputados itens={disputados} minha={minha} ano={dados.ano} />
+      </div>
     </div>
   );
 }
 
-function EntradaNota({ minha, ano }: { minha: number | null; ano: number }) {
-  const [editando, setEditando] = useState(false);
-  const [texto, setTexto] = useState("");
+function contar(pontos: Ponto[], minha: number | null, corte: (p: Ponto) => number) {
+  const c = { supera: 0, pouco: 0, abaixo: 0 };
+  if (minha != null) for (const p of pontos) c[statusNota(corte(p), minha)]++;
+  return c;
+}
+
+function PilulaNota({ minha, editar }: { minha: number; editar: () => void }) {
+  return (
+    <span className="pilula-nota">
+      <span>Sua média</span><strong>{fmt(minha)}</strong>
+      <button className="link-mudo" onClick={editar}>editar</button>
+    </span>
+  );
+}
+
+function EntradaNota({ ano, inicial, pronto, compacta }: { ano: number; inicial: string; pronto: () => void; compacta: boolean }) {
+  const [texto, setTexto] = useState(inicial);
   const [erro, setErro] = useState(false);
   const ref = useRef<HTMLInputElement>(null);
-  useEffect(() => { if (editando) ref.current?.focus(); }, [editando]);
-
-  if (minha != null && !editando) {
-    return (
-      <div className="nota-salva">
-        <span className="miudo">Sua média</span>
-        <strong>{fmt(minha)}</strong>
-        <button className="link" onClick={() => { setTexto(fmt(minha)); setEditando(true); }}>editar</button>
-        <button className="link" onClick={() => salvarNota(null)}>limpar</button>
-      </div>
-    );
-  }
+  useEffect(() => { if (inicial) ref.current?.focus(); }, [inicial]);
   function enviar(e: React.FormEvent) {
     e.preventDefault();
     const v = lerNota(texto);
     setErro(v == null);
-    if (v != null) { salvarNota(v); setEditando(false); }
+    if (v != null) { salvarNota(v); pronto(); }
   }
   return (
-    <form className="cartao entrada-nota" onSubmit={enviar}>
-      <label htmlFor="nota" className="entrada-titulo">Digite sua nota e compare com os cortes de {ano}</label>
+    <form className={`entrada-nota${compacta ? " compacta" : " cartao"}`} onSubmit={enviar}>
+      {!compacta && <label htmlFor="nota" className="entrada-titulo">Digite sua nota e compare com os cortes de {ano}</label>}
       <div className="entrada-linha">
-        <input id="nota" ref={ref} inputMode="decimal" placeholder="Sua média do Enem, ex.: 712,40" value={texto}
-          onChange={(e) => { setTexto(e.target.value); setErro(false); }} aria-invalid={erro} aria-describedby="nota-ajuda" />
-        <button className="botao" type="submit">Comparar nota</button>
+        <input id="nota" ref={ref} inputMode="decimal" placeholder="Sua média do Enem" value={texto}
+          onChange={(e) => { setTexto(e.target.value); setErro(false); }} aria-invalid={erro} aria-label="Sua média do Enem" />
+        <button className="botao" type="submit">{compacta ? "Salvar" : "Comparar nota"}</button>
       </div>
-      <p id="nota-ajuda" className={erro ? "erro" : "miudo"}>
-        {erro ? "Digite uma média entre 0 e 1000, como 712,40." : "Sua nota não sai do seu navegador."}
-      </p>
+      {erro
+        ? <p className="erro">Digite uma média entre 0 e 1000, como 712,40.</p>
+        : !compacta && <p className="privado"><span className="ponto" />Sua nota não sai do seu navegador</p>}
+      {inicial && <button type="button" className="link-mudo limpar" onClick={() => { salvarNota(null); pronto(); }}>apagar minha nota</button>}
     </form>
   );
 }
 
-function CartaoMapa({ geo, dados, minha, uf, setUf, sel, setSel }: {
-  geo: Geo; dados: DadosMapa; minha: number | null; uf: string | null; setUf: (u: string | null) => void;
-  sel: Ponto | null; setSel: (p: Ponto | null) => void;
-}) {
-  const est = uf ? geo.ufs.find((u) => u.uf === uf)! : null;
-  const visiveis = uf ? dados.pontos.filter((p) => p.u === uf) : dados.pontos;
-  const st = (p: Ponto): Status | null => (minha == null ? null : statusNota(p.k, minha));
-  const conta = { supera: 0, pouco: 0, abaixo: 0 };
-  if (minha != null) for (const p of visiveis) conta[statusNota(p.k, minha)]++;
-  const nUfs = new Set(dados.pontos.map((p) => p.u)).size;
-
-  useEffect(() => {
-    const f = (e: KeyboardEvent) => { if (e.key === "Escape") { if (sel) setSel(null); else setUf(null); } };
-    window.addEventListener("keydown", f);
-    return () => window.removeEventListener("keydown", f);
-  }, [sel, setSel, setUf]);
-
-  return (
-    <section className="cartao mapa-cartao" aria-label={`Mapa de ${dados.curso}`}>
-      {uf && <button className="voltar link" onClick={() => setUf(null)}>‹ Brasil</button>}
-      <div className="mapa-cabeca">
-        {minha == null ? (
-          <>
-            <h2 className="mapa-titulo">{uf ? est!.nome : `${dados.curso} no Sisu`}</h2>
-            <p className="miudo">
-              {plural(visiveis.length, "opção", "opções")}{!uf && ` em ${plural(nUfs, "estado", "estados")}`} · Sisu {dados.ano}, ampla concorrência
-            </p>
-          </>
-        ) : (
-          <>
-            <h2 className="mapa-titulo">
-              {uf ? `${dados.curso} em ${est!.nome}` : `Sua nota supera o corte de ${dados.ano} em ${conta.supera} de ${plural(visiveis.length, "opção", "opções")}`}
-            </h2>
-            <p className="contagem">
-              <span className="t-supera">{plural(conta.supera, "supera", "superam")} o corte</span> ·{" "}
-              <span className="t-pouco">{conta.pouco} por pouco</span> ·{" "}
-              <span className="t-abaixo">{conta.abaixo} abaixo do corte</span>
-              <span className="miudo"> · {dados.curso}, ampla concorrência</span>
-            </p>
-          </>
-        )}
-      </div>
-
-      <Mapa geo={geo} pontos={dados.pontos} uf={uf} caixa={est ? (est.box as Caixa) : null} st={st} sel={sel}
-        aoEstado={(u) => setUf(u)} aoPonto={(p) => { setSel(p); if (!uf) setUf(p.u); }} />
-
-      <Legenda comNota={minha != null} />
-      <p className="miudo dica">
-        {uf ? "Clique num ponto para ver o campus. Esc ou “Brasil” volta ao mapa inteiro." : "Passe o mouse num ponto para ver o campus; clique num estado para aproximar."}
-      </p>
-
-      {sel && <CartaoCampus p={sel} curso={dados} minha={minha} fechar={() => setSel(null)} />}
-      {uf && <ListaEstado pontos={visiveis} curso={dados} minha={minha} aoEscolher={setSel} sel={sel} />}
-    </section>
-  );
-}
-
-function Mapa({ geo, pontos, uf, caixa, st, sel, aoEstado, aoPonto }: {
-  geo: Geo; pontos: Ponto[]; uf: string | null; caixa: Caixa | null; st: (p: Ponto) => Status | null; sel: Ponto | null;
-  aoEstado: (u: string) => void; aoPonto: (p: Ponto) => void;
+function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto }: {
+  geo: Geo; pontos: Ponto[]; corte: (p: Ponto) => number; st: (p: Ponto) => Status | null; uf: string | null;
+  caixa: Caixa | null; sel: Ponto | null; aoEstado: (u: string) => void; aoPonto: (p: Ponto) => void;
 }) {
   const alvo = useMemo<Caixa>(() => {
     if (!caixa) return [0, 0, geo.w, geo.h];
-    // Margem e proporção do mapa inteiro, para o estado não ficar espremido.
-    const [x, y, w, h] = caixa; const m = Math.max(w, h) * 0.08;
-    let W = w + 2 * m, H = h + 2 * m; const r = geo.w / geo.h;
-    if (W / H < r) W = H * r; else H = W / r;
-    return [x + w / 2 - W / 2, y + h / 2 - H / 2, W, H];
+    const [x, y, w, h] = caixa; const m = Math.max(w, h) * 0.06;
+    return [x - m, y - m, w + 2 * m, h + 2 * m];
   }, [caixa, geo]);
   const [vb, setVb] = useState<Caixa>(alvo);
   const vbRef = useRef(vb); vbRef.current = vb;
   useEffect(() => {
-    const de = vbRef.current; const t0 = performance.now(); const dur = matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 380;
+    const de = vbRef.current; const t0 = performance.now();
+    const dur = matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 380;
     let id = 0;
     const passo = (t: number) => {
       const a = dur ? Math.min(1, (t - t0) / dur) : 1; const e = 1 - Math.pow(1 - a, 3);
@@ -179,104 +232,167 @@ function Mapa({ geo, pontos, uf, caixa, st, sel, aoEstado, aoPonto }: {
     return () => cancelAnimationFrame(id);
   }, [alvo]);
 
+  // Pontos e textos com tamanho fixo na tela (7 px no Brasil, 14 px no estado), qualquer que seja o zoom.
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [px, setPx] = useState(326);
+  useLayoutEffect(() => {
+    const el = svgRef.current; if (!el) return;
+    const medir = () => setPx(el.clientWidth || 326);
+    medir();
+    const ro = new ResizeObserver(medir);
+    ro.observe(el); return () => ro.disconnect();
+  }, []);
+  const u = vb[2] / px;
+  const tam = (uf ? 14 : 7) * u;
+
   const [foco, setFoco] = useState<Ponto | null>(null);
-  const esc = vb[2] / geo.w; // unidades do SVG por "pixel" do mapa inteiro
-  const r = (uf ? 5.5 : 4.2) * esc;
   const pos = (p: Ponto) => ({ left: `${((p.x - vb[0]) / vb[2]) * 100}%`, top: `${((p.y - vb[1]) / vb[3]) * 100}%` });
+  const visiveis = uf ? pontos.filter((p) => p.u === uf) : pontos;
+
+  // Nomes das 5 cidades com mais inscritos no estado (como no 01c).
+  const rotulos = useMemo(() => {
+    if (!uf) return [];
+    const por = new Map<string, { c: string; x: number; y: number; n: number }>();
+    for (const p of visiveis) { const a = por.get(p.c) ?? { c: p.c, x: p.x, y: p.y, n: 0 }; a.n += p.n; por.set(p.c, a); }
+    return [...por.values()].sort((a, b) => b.n - a.n);
+  }, [uf, visiveis]);
+  // Sem sobrepor: estima a caixa de cada nome na tela (≈6,6 px por letra a 12 px) e pula o que colidir.
+  const caixas: [number, number, number, number][] = [];
+  const rotulosVisiveis = rotulos.flatMap((r) => {
+    if (caixas.length >= 5) return [];
+    const sx = (r.x - vb[0]) / u, sy = (r.y - vb[1]) / u, w = r.c.length * 6.6, d = tam / u / 2 + 5;
+    const dir = sx + d + w < px;
+    const box: [number, number, number, number] = [dir ? sx + d : sx - d - w, sy - 9, w, 18];
+    if (caixas.some((b) => box[0] < b[0] + b[2] + 4 && b[0] < box[0] + box[2] + 4 && box[1] < b[1] + b[3] && b[1] < box[1] + box[3])) return [];
+    caixas.push(box); return [{ ...r, dir }];
+  });
 
   return (
     <div className="mapa" onMouseLeave={() => setFoco(null)}>
-      <svg viewBox={vb.join(" ")} role="img" aria-label={uf ? `Mapa do estado ${uf}` : "Mapa do Brasil"}>
+      <svg ref={svgRef} viewBox={vb.join(" ")} role="img" aria-label={uf ? `Mapa do estado ${uf}` : "Mapa do Brasil"} style={{ aspectRatio: `${vb[2]} / ${vb[3]}` }}>
         <g className="ufs">
-          {geo.ufs.map((u) => (
-            <path key={u.uf} d={u.d} className={u.uf === uf ? "uf atual" : uf ? "uf fora" : "uf"} onClick={() => aoEstado(u.uf)}>
-              <title>{u.nome}</title>
+          {geo.ufs.map((g) => (
+            <path key={g.uf} d={g.d} className={`uf${g.uf === uf ? " atual" : uf ? " fora" : ""}`} strokeWidth={(uf ? 1.2 : 0.8) * u} onClick={() => aoEstado(g.uf)}>
+              <title>{g.nome}</title>
             </path>
           ))}
         </g>
+        {sel && uf && <line className="conector so-mobile" x1={sel.x} y1={sel.y + 13 * u} x2={sel.x} y2={vb[1] + vb[3]} strokeWidth={u} />}
         <g>
-          {pontos.map((p) => {
+          {visiveis.map((p) => {
             const s = st(p);
-            const dim = uf && p.u !== uf;
-            const cls = `pt ${s ?? "neutro"}${dim ? " fora" : ""}${sel?.r === p.r ? " sel" : ""}`;
             return (
-              <g key={p.r} className={cls} transform={`translate(${p.x} ${p.y})`} onMouseEnter={() => setFoco(p)} onClick={(e) => { e.stopPropagation(); aoPonto(p); }}>
-                <circle r={r * 2.4} className="alvo" />
-                {s === "abaixo" ? (
-                  <path d={`M${-r * 0.8} ${-r * 0.8}L${r * 0.8} ${r * 0.8}M${r * 0.8} ${-r * 0.8}L${-r * 0.8} ${r * 0.8}`} />
-                ) : (
-                  <circle r={s === "pouco" ? r * 0.85 : r} />
-                )}
-                {sel?.r === p.r && <circle r={r * 2} className="anel" />}
+              <g key={p.r} className={`pt ${s ?? "neutro"}`} transform={`translate(${p.x} ${p.y})`}
+                onMouseEnter={() => setFoco(p)} onClick={(e) => { e.stopPropagation(); setFoco(null); aoPonto(p); }}>
+                <circle r={tam * 1.4} className="alvo" />
+                <Marca s={s} tam={tam} />
               </g>
             );
           })}
         </g>
+        {rotulosVisiveis.map((r) => {
+          const dir = r.dir;
+          return <text key={r.c} className="rotulo-cidade" x={r.x + (dir ? 1 : -1) * (tam / 2 + 5 * u)} y={r.y + 4.2 * u} fontSize={12 * u} textAnchor={dir ? "start" : "end"}>{r.c}</text>;
+        })}
+        {sel && uf && <circle className="selecionado" cx={sel.x} cy={sel.y} r={13 * u} strokeWidth={1.5 * u} />}
       </svg>
-      {foco && (
+      {foco && !sel && (
         <div className="dica-ponto" style={pos(foco)} role="tooltip">
           <strong>{foco.i}</strong> · {foco.c}/{foco.u}
-          <span>corte {fmt(foco.k)}</span>
+          <span>corte {fmt(corte(foco))}</span>
         </div>
       )}
     </div>
   );
 }
 
-function Legenda({ comNota }: { comNota: boolean }) {
-  if (!comNota) return <div className="legenda"><span><i className="lg neutro" />Campus com o curso</span></div>;
-  return (
-    <div className="legenda">
-      <span><i className="lg supera" />Supera o corte</span>
-      <span><i className="lg pouco" />Por pouco (até 10 pts)</span>
-      <span><i className="lg abaixo" />Abaixo do corte</span>
-    </div>
-  );
+/** Ponto do mapa (componente "Ponto do mapa" do Figma): neutro, supera (cheio), por pouco (anel), abaixo (cheio com ×). */
+function Marca({ s, tam }: { s: Status | null; tam: number }) {
+  const r = tam / 2;
+  if (s === "pouco") { const sw = tam * 0.21; return <circle r={r - sw / 2} strokeWidth={sw} />; }
+  if (s === "abaixo") {
+    const a = tam * 0.18;
+    return <><circle r={r} /><path d={`M${-a} ${-a}L${a} ${a}M${a} ${-a}L${-a} ${a}`} strokeWidth={tam * 0.14} /></>;
+  }
+  return <circle r={r} />;
 }
 
-function CartaoCampus({ p, curso, minha, fechar }: { p: Ponto; curso: DadosMapa; minha: number | null; fechar: () => void }) {
-  const s = minha == null ? null : statusNota(p.k, minha);
-  const dif = minha == null ? null : minha - p.k;
+function Legenda({ comNota }: { comNota: boolean }) {
+  if (!comNota) return <p className="legenda miudo">Cada ponto representa um campus</p>;
+  const item = (s: Status, t: string) => (
+    <span><svg width="10" height="10" viewBox="-5 -5 10 10" className={`pt ${s}`} aria-hidden="true"><Marca s={s} tam={10} /></svg>{t}</span>
+  );
+  return <div className="legenda">{item("supera", "Supera o corte")}{item("pouco", "Por pouco (até 10 pts)")}{item("abaixo", "Abaixo do corte")}</div>;
+}
+
+function CartaoPonto({ p, curso, corte, minha }: { p: Ponto; curso: DadosMapa; corte: number; minha: number | null }) {
+  const s = minha == null ? null : statusNota(corte, minha);
+  const dif = minha == null ? null : minha - corte;
+  const texto =
+    s === "pouco" ? `Até 10 pontos abaixo do corte do Sisu ${curso.ano}. O corte muda de um ano para o outro.`
+    : s === "supera" ? `Sua nota supera o corte do Sisu ${curso.ano}. O corte muda de um ano para o outro, então não é garantia.`
+    : s === "abaixo" ? `Faltam ${fmt(-dif!)} pontos para o corte do Sisu ${curso.ano}.`
+    : `Digite sua nota para comparar com este corte.`;
   return (
-    <div className="campus" role="dialog" aria-label={`${curso.curso} · ${p.i}`}>
-      <button className="fechar link" onClick={fechar} aria-label="Fechar">×</button>
-      <div className="campus-nome">{curso.curso} · {p.i}</div>
-      <div className="miudo">{p.c}/{p.u}</div>
-      {s && <span className={`selo-status ${s}`}>{ROTULO[s]}</span>}
-      <div className="campus-numeros">
-        <div><span>Corte {curso.ano}</span><strong>{fmt(p.k)}</strong></div>
-        {minha != null && <div><span>Você</span><strong>{fmt(minha)}</strong></div>}
-        {dif != null && <div><span>Diferença</span><strong className={`t-${s}`}>{dif >= 0 ? "+" : "−"}{fmt(Math.abs(dif))}</strong></div>}
+    <div className="cartao-ponto">
+      <div className="cp-topo">
+        <div>
+          <div className="cp-nome">{curso.curso} · {p.i}</div>
+          <div className="cp-meta">{p.c} · {p.t}</div>
+        </div>
+        {s && <span className={`selo-status ${s}`}>{ROTULO[s]}</span>}
       </div>
-      {s === "pouco" && <p className="miudo">Até 10 pontos abaixo do corte de {curso.ano}. O corte muda de um ano para o outro.</p>}
-      {p.b && <p className="miudo">Este curso dá bônus regional: confira no edital se você tem direito antes de comparar.</p>}
+      <div className="cp-numeros">
+        <div><span>Corte</span><strong>{fmt(corte)}</strong></div>
+        {minha != null
+          ? <><div><span>Você</span><strong>{fmt(minha)}</strong></div><div><span>Diferença</span><strong className={`t-${s}`}>{dif! >= 0 ? "+" : "−"}{fmt(Math.abs(dif!))}</strong></div></>
+          : <div><span>Inscritos (ampla)</span><strong>{p.n.toLocaleString("pt-BR")}</strong></div>}
+      </div>
+      <p>{texto}{p.b ? " Este curso dá bônus regional: confira no edital se você tem direito." : ""}</p>
       <a className="botao" href={`/curso/${curso.slug}/${p.r}/`}>Ver curso</a>
     </div>
   );
 }
 
-function ListaEstado({ pontos, curso, minha, aoEscolher, sel }: {
-  pontos: Ponto[]; curso: DadosMapa; minha: number | null; aoEscolher: (p: Ponto) => void; sel: Ponto | null;
+type LinhaProps = { titulo: string; meta: string; valor: number; s: Status | null; ativa?: boolean; href?: string; onClick?: () => void };
+function LinhaPonto({ titulo, meta, valor, s, ativa, href, onClick }: LinhaProps) {
+  const dentro = (
+    <>
+      <div className="info"><div className="nome">{titulo}</div><div className="meta">{meta}</div></div>
+      <div className="valor"><strong>{fmt(valor)}</strong>{s ? <span className={`detalhe t-${s}`}>{ROTULO[s]}</span> : <span className="detalhe">corte</span>}</div>
+    </>
+  );
+  return href
+    ? <a className="linha" href={href}>{dentro}</a>
+    : <button className={`linha${ativa ? " ativa" : ""}`} onClick={onClick}>{dentro}</button>;
+}
+
+function ListaEstado({ uf, pontos, curso, mod, corte, minha, sel, aoEscolher }: {
+  uf: string; pontos: Ponto[]; curso: DadosMapa; mod: { cod: string; nome: string }; corte: (p: Ponto) => number;
+  minha: number | null; sel: Ponto | null; aoEscolher: (p: Ponto) => void;
 }) {
   const [todos, setTodos] = useState(false);
-  const ord = [...pontos].sort((a, b) => a.k - b.k);
-  const vis = todos ? ord : ord.slice(0, 6);
+  const ord = [...pontos].sort((a, b) => corte(a) - corte(b));
+  const vis = todos ? ord : ord.slice(0, 5);
   return (
-    <div className="lista-estado">
-      <div className="cabeca"><h2 style={{ margin: 0 }}>Opções no estado</h2><span className="miudo">{curso.curso} · menor corte primeiro</span></div>
-      {vis.map((p) => {
-        const s = minha == null ? null : statusNota(p.k, minha);
-        return (
-          <button key={p.r} className={`linha${sel?.r === p.r ? " ativa" : ""}`} onClick={() => aoEscolher(p)}>
-            <div className="info"><div className="nome">{p.i}</div><div className="meta">{p.c}/{p.u}</div></div>
-            <div className="valor">
-              <strong>{fmt(p.k)}</strong>
-              {s ? <span className={`t-${s} miudo-status`}>{ROTULO[s]}</span> : <span className="miudo">corte</span>}
-            </div>
-          </button>
-        );
-      })}
-      {ord.length > 6 && !todos && <button className="linha mais" onClick={() => setTodos(true)}>Ver as {ord.length} opções</button>}
-    </div>
+    <section className="cartao lista">
+      <div className="cabeca"><h2>Campi em {uf}</h2><span className="miudo">{curso.curso} · {curtaMod(mod.cod, mod.nome)}</span></div>
+      {vis.map((p) => (
+        <LinhaPonto key={p.r} titulo={`${curso.curso} · ${p.i}`} meta={`${p.c} · ${curtaMod(mod.cod, mod.nome)}`} valor={corte(p)}
+          s={minha == null ? null : statusNota(corte(p), minha)} ativa={sel?.r === p.r} onClick={() => aoEscolher(p)} />
+      ))}
+      {ord.length > 5 && !todos && <button className="ver-mais" onClick={() => setTodos(true)}>Ver as {ord.length} opções em {uf}</button>}
+    </section>
+  );
+}
+
+function MaisDisputados({ itens, minha, ano }: { itens: Disputado[]; minha: number | null; ano: number }) {
+  return (
+    <section className="cartao lista">
+      <div className="cabeca"><h2>Mais disputados</h2><span className="miudo">{minha == null ? `Sisu ${ano} · ampla, por inscritos` : "com a sua nota"}</span></div>
+      {itens.map((d) => (
+        <LinhaPonto key={d.r} titulo={d.curso} meta={`${d.i} · ${d.c}`} valor={d.m.AC} s={minha == null ? null : statusNota(d.m.AC, minha)} href={`/curso/${d.slug}/${d.r}/`} />
+      ))}
+    </section>
   );
 }
