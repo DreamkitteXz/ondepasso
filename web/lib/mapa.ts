@@ -22,6 +22,15 @@ export function projetar(lon: number, lat: number) {
   return [geo.k * lon * RAD + geo.tx, -geo.k * Math.log(Math.tan(Math.PI / 4 + (lat * RAD) / 2)) + geo.ty];
 }
 
+/** Corte de cada modalidade da Lei de Cotas no ano (só as que existem na oferta). */
+export function cortesPorMod(cortes: Record<string, Record<string, { corte: number | null }>>, ano: number) {
+  const doAno = cortes[String(ano)] ?? {};
+  const m: Record<string, number> = {};
+  for (const cod of MODS) { const v = doAno[cod]?.corte; if (v != null) m[cod] = v; }
+  return m;
+}
+export const nomesMods = (cods: Iterable<string>) => { const set = new Set(["AC", ...cods]); return MODS.filter((c) => set.has(c)).map((cod) => ({ cod, nome: nomeModalidade(cod) })); };
+
 export function dadosMapa(slug: string): DadosMapa {
   const c = curso(slug);
   const ano = Math.max(...c.anos);
@@ -37,7 +46,8 @@ export function dadosMapa(slug: string): DadosMapa {
   }
   // Abaixo do corte por baixo, quem supera por cima: desenhar do maior corte para o menor.
   pontos.sort((a, b) => b.m.AC - a.m.AC);
-  const mods = MODS.filter((cod) => (usadas.get(cod) ?? 0) > 0).map((cod) => ({ cod, nome: nomeModalidade(cod) }));
+  // A ampla sempre aparece (mesmo num curso sem corte no ano), para o seletor nunca ficar vazio.
+  const mods = MODS.filter((cod) => cod === "AC" || (usadas.get(cod) ?? 0) > 0).map((cod) => ({ cod, nome: nomeModalidade(cod) }));
   return { slug, curso: c.curso, ano, mods, pontos };
 }
 

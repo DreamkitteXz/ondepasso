@@ -287,3 +287,54 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
 .mapa-cartao .chips + * { margin-top: 0; }
 .inicio-mapa, .estado-vista, .inicio { scroll-margin-top: 76px; }
 @media (min-width: 1024px) { .inicio-mapa, .estado-vista, .inicio { scroll-margin-top: 88px; } }
+
+/* ---------- Página do curso com nota (Figma 02 / W2) ---------- */
+.pagina-curso { display: grid; gap: 16px; }
+.pagina-curso .voltar { margin: 0; font-size: 13px; }
+.pagina-curso h1 { font-size: 30px; margin-bottom: 8px; }
+.pagina-curso .sub { margin: 0; font-size: 14px; }
+.curso-cabecalho { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
+.curso-acoes { gap: 8px; flex: none; }
+.botao-contorno { background: none; color: var(--fg-1); border: 1px solid var(--line-2); gap: 8px; }
+.botao-contorno:hover { background: var(--panel-2); opacity: 1; }
+.curso-grade { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "nota" "principal"; }
+.curso-nota { grid-area: nota; min-width: 0; } .curso-principal { grid-area: principal; } .curso-lado { grid-area: lado; }
+.curso-principal { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.curso-principal .filtros { margin: 0; }
+.filtros select { height: 44px; padding: 0 12px; font-weight: 500; }
+.nota-curso { margin: 0; padding: 16px; display: grid; gap: 8px; }
+.nota-curso .entrada-nota.cartao { padding: 0; border: 0; background: none; }
+.nota-curso .comparando { margin: 0; }
+.manchete-curso { font-family: var(--serif); font-weight: 600; font-size: 20px; line-height: 1.25; margin: 0; }
+.tabela-curso { padding: 4px 0; }
+.lc-cabeca, .lc-linha { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 0 16px; }
+.lc-cabeca { padding-top: 8px; padding-bottom: 6px; font-size: 12px; color: var(--fg-4); }
+.lc-cabeca .lc-corte { text-align: right; }
+.lc-linha { padding-top: 14px; padding-bottom: 14px; border-top: 1px solid var(--line-1); }
+.lc-linha:hover { background: var(--panel-2); }
+.lc-uni { display: grid; gap: 3px; min-width: 0; }
+.lc-uni .nome { font-weight: 500; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lc-uni .meta { font-size: 12px; color: var(--fg-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lc-corte { text-align: right; font-variant-numeric: tabular-nums; }
+.lc-corte strong { display: block; font-size: 17px; font-weight: 600; }
+.lc-corte .detalhe { display: block; font-size: 11px; font-weight: 500; margin-top: 3px; }
+.lc-delta { font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; }
+.lc-cidade { font-size: 14px; color: var(--fg-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.curso-principal > .botao { width: 100%; }
+.mini-mapa .mapa svg { max-height: none; }
+.mini-mapa-vazio { aspect-ratio: 600 / 630; }
+@media (min-width: 1024px) {
+  .pagina-curso { gap: 24px; padding-top: 8px; }
+  .pagina-curso h1 { font-size: 48px; }
+  .pagina-curso .sub { font-size: 17px; }
+  .curso-acoes.so-desktop { display: flex; }
+  .curso-grade { grid-template-columns: minmax(0, 1fr) 360px; grid-template-rows: auto 1fr; grid-template-areas: "principal nota" "principal lado"; gap: 16px 32px; }
+  .curso-lado { display: grid !important; gap: 16px; align-content: start; }
+  .lc-cabeca, .lc-linha { grid-template-columns: minmax(0, 1fr) 190px 100px 80px 140px; gap: 16px; padding-left: 20px; padding-right: 20px; }
+  .lc-cabeca .lc-delta, .lc-cabeca .lc-status { text-align: right; }
+  .lc-status { text-align: right; }
+  .lc-uni .nome { font-size: 14px; }
+  .manchete-curso { font-size: 24px; }
+}
+.lc-cabeca .lc-uni { display: block; }
+.lc-cabeca .lc-cidade { font-size: 12px; color: var(--fg-4); }

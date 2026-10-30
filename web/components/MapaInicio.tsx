@@ -22,6 +22,16 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   // Curso escolhido pela busca que não está nos chips: ganha um chip próprio e vai para o mapa como os outros.
   const [extra, setExtra] = useState<Atalho | null>(null);
   const mapaRef = useRef<HTMLDivElement>(null);
+  // "Ver no mapa" da página do curso chega como /?curso=<slug>.
+  useEffect(() => {
+    const slug = new URLSearchParams(location.search).get("curso");
+    const c = slug && cursos.find((x) => x.slug === slug);
+    if (!c) return;
+    setExtra({ curso: c.curso, slug: c.slug });
+    escolher(c.slug);
+    requestAnimationFrame(() => mapaRef.current?.scrollIntoView({ block: "start" }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [dados, setDados] = useState(inicial);
   const [carregando, setCarregando] = useState<string | null>(null);
   const cache = useRef(new Map([[inicial.slug, inicial]]));
@@ -228,7 +238,7 @@ function contar(pontos: Ponto[], minha: number | null, corte: (p: Ponto) => numb
   return c;
 }
 
-function PilulaNota({ minha, editar }: { minha: number; editar: () => void }) {
+export function PilulaNota({ minha, editar }: { minha: number; editar: () => void }) {
   return (
     <span className="pilula-nota">
       <span>Sua média</span><strong>{fmt(minha)}</strong>
@@ -237,7 +247,7 @@ function PilulaNota({ minha, editar }: { minha: number; editar: () => void }) {
   );
 }
 
-function EntradaNota({ ano, inicial, pronto, compacta }: { ano: number; inicial: string; pronto: (v: number | null) => void; compacta: boolean }) {
+export function EntradaNota({ ano, inicial, pronto, compacta }: { ano: number; inicial: string; pronto: (v: number | null) => void; compacta: boolean }) {
   const [texto, setTexto] = useState(inicial);
   const [erro, setErro] = useState(false);
   const ref = useRef<HTMLInputElement>(null);
@@ -264,7 +274,7 @@ function EntradaNota({ ano, inicial, pronto, compacta }: { ano: number; inicial:
   );
 }
 
-function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto }: {
+export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto }: {
   geo: Geo; pontos: Ponto[]; corte: (p: Ponto) => number; st: (p: Ponto) => Status | null; uf: string | null;
   caixa: Caixa | null; sel: Ponto | null; aoEstado: (u: string) => void; aoPonto: (p: Ponto) => void;
 }) {
@@ -363,7 +373,7 @@ function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto }: {
 }
 
 /** Ponto do mapa (componente "Ponto do mapa" do Figma): neutro, supera (cheio), por pouco (anel), abaixo (cheio com ×). */
-function Marca({ s, tam }: { s: Status | null; tam: number }) {
+export function Marca({ s, tam }: { s: Status | null; tam: number }) {
   const r = tam / 2;
   if (s === "pouco") { const sw = tam * 0.21; return <circle r={r - sw / 2} strokeWidth={sw} />; }
   if (s === "abaixo") {
@@ -373,7 +383,7 @@ function Marca({ s, tam }: { s: Status | null; tam: number }) {
   return <circle r={r} />;
 }
 
-function Legenda({ comNota }: { comNota: boolean }) {
+export function Legenda({ comNota }: { comNota: boolean }) {
   if (!comNota) return <p className="legenda miudo">Cada ponto representa um campus</p>;
   const item = (s: Status, t: string) => (
     <span><svg width="10" height="10" viewBox="-5 -5 10 10" className={`pt ${s}`} aria-hidden="true"><Marca s={s} tam={10} /></svg>{t}</span>
