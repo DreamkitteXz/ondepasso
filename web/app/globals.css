@@ -91,10 +91,11 @@ footer { border-top: 1px solid var(--line-1); padding: 24px 0 40px; font-size: 1
 footer p { margin: 0 0 6px; max-width: 70ch; }
 
 /* ---------- Home com mapa (Figma W1a–W1c / 01a–01c) ---------- */
-.inicio { display: grid; gap: 0 48px; grid-template-columns: 1fr; grid-template-areas: "topo" "controles" "mapa" "lista"; }
+.inicio { display: grid; gap: 0 48px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "topo" "controles" "mapa" "lista"; }
+.inicio > * { min-width: 0; }
 .inicio-topo { grid-area: topo; } .inicio-controles { grid-area: controles; } .inicio-mapa { grid-area: mapa; } .inicio-lista { grid-area: lista; }
 @media (min-width: 1024px) {
-  .inicio { grid-template-columns: 440px 1fr; grid-template-rows: auto auto 1fr; grid-template-areas: "topo mapa" "controles mapa" "lista mapa"; padding-top: 16px; }
+  .inicio { grid-template-columns: 440px minmax(0, 1fr); grid-template-rows: auto auto 1fr; grid-template-areas: "topo mapa" "controles mapa" "lista mapa"; padding-top: 16px; }
   .inicio-mapa { align-self: start; }
   .inicio h1 { font-size: 48px; }
 }
@@ -106,6 +107,17 @@ footer p { margin: 0 0 6px; max-width: 70ch; }
 .entrada-nota { padding: 16px; margin-bottom: 20px; }
 .entrada-titulo { display: block; font-weight: 600; margin-bottom: 10px; }
 .entrada-linha { display: flex; gap: 8px; }
+@media (max-width: 420px) { .entrada-linha { flex-direction: column; } .entrada-nota .entrada-linha input { flex: none; } .entrada-linha .botao { width: 100%; } }
+.cabeca { flex-wrap: wrap; row-gap: 2px; }
+.cabeca h2 { white-space: nowrap; }
+@media (max-width: 1023px) {
+  .inicio .chips { flex-wrap: nowrap; overflow-x: auto; margin-left: -16px; margin-right: -16px; padding: 0 16px; scrollbar-width: none; }
+  .inicio .chips::-webkit-scrollbar { display: none; }
+  .inicio .chip { flex: none; }
+  .mapa-cartao { padding: 16px; }
+  .lista-estado { margin: 16px -16px -16px; }
+  .lista-estado .cabeca, .lista-estado button.linha { padding-left: 16px; padding-right: 16px; }
+}
 .entrada-linha input { flex: 1; min-width: 0; height: 44px; padding: 0 12px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 10px; color: var(--fg-1); font: inherit; font-size: 16px; font-variant-numeric: tabular-nums; }
 .entrada-linha input:focus { outline: 0; border-color: var(--fg-3); }
 .entrada-linha input[aria-invalid="true"] { border-color: var(--vermelho); }
@@ -124,7 +136,7 @@ footer p { margin: 0 0 6px; max-width: 70ch; }
 .mapa svg { display: block; width: 100%; height: auto; max-height: 72vh; }
 .uf { fill: var(--panel-2); stroke: var(--line-2); stroke-width: 1; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill .15s; }
 .uf:hover { fill: var(--panel-3); }
-.uf.fora { fill: var(--panel); opacity: .6; } .uf.atual { fill: var(--panel-3); cursor: default; }
+.uf.fora { fill: var(--panel-2); opacity: .45; } .uf.atual { fill: var(--panel-3); cursor: default; }
 .pt { cursor: pointer; }
 .pt .alvo { fill: transparent; stroke: none; }
 .pt circle:not(.alvo):not(.anel), .pt path { vector-effect: non-scaling-stroke; }

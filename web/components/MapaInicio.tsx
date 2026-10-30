@@ -181,7 +181,7 @@ function Mapa({ geo, pontos, uf, caixa, st, sel, aoEstado, aoPonto }: {
 
   const [foco, setFoco] = useState<Ponto | null>(null);
   const esc = vb[2] / geo.w; // unidades do SVG por "pixel" do mapa inteiro
-  const r = 4.2 * esc;
+  const r = (uf ? 5.5 : 4.2) * esc;
   const pos = (p: Ponto) => ({ left: `${((p.x - vb[0]) / vb[2]) * 100}%`, top: `${((p.y - vb[1]) / vb[3]) * 100}%` });
 
   return (
