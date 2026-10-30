@@ -6,17 +6,22 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode }
 import type { DadosMapa, Geo, Ponto } from "@/lib/mapa";
 import { lerNota, nota as fmt, ROTULO, statusNota, type Status } from "@/lib/formato";
 import { salvarNota, useNota } from "@/lib/nota";
+import { BuscaCursos } from "@/components/BuscaCursos";
 
 type Atalho = { curso: string; slug: string; soDesktop?: boolean };
+type ItemBusca = { curso: string; slug: string; ofertas: number; ampla_min: number | null; ampla_max: number | null };
 type Disputado = { curso: string; slug: string; r: string; i: string; c: string; m: Record<string, number> };
 type Caixa = [number, number, number, number];
 
 const plural = (n: number, um: string, varios: string) => `${n} ${n === 1 ? um : varios}`;
 const curtaMod = (cod: string, nome: string) => (cod === "AC" ? "ampla" : nome.replace(/^Escola pública/, "Esc. pública"));
 
-export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
-  geo: Geo; inicial: DadosMapa; atalhos: Atalho[]; topo: ReactNode; disputados: Disputado[];
+export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, anoBusca }: {
+  geo: Geo; inicial: DadosMapa; atalhos: Atalho[]; topo: ReactNode; disputados: Disputado[]; cursos: ItemBusca[]; anoBusca: number;
 }) {
+  // Curso escolhido pela busca que não está nos chips: ganha um chip próprio e vai para o mapa como os outros.
+  const [extra, setExtra] = useState<Atalho | null>(null);
+  const mapaRef = useRef<HTMLDivElement>(null);
   const [dados, setDados] = useState(inicial);
   const [carregando, setCarregando] = useState<string | null>(null);
   const cache = useRef(new Map([[inicial.slug, inicial]]));
@@ -65,7 +70,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
 
   const chips = (
     <div className="chips" role="group" aria-label="Curso mostrado no mapa">
-      {atalhos.map((a) => (
+      {[...atalhos, ...(extra && !atalhos.some((a) => a.slug === extra.slug) ? [extra] : [])].map((a) => (
         <button key={a.slug} className={`chip${a.slug === dados.slug ? " ativo" : ""}${a.soDesktop ? " so-desktop" : ""}`} aria-pressed={a.slug === dados.slug} onClick={() => escolher(a.slug)}>
           {carregando === a.slug ? "…" : a.curso}
         </button>
@@ -135,12 +140,21 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
   const conta = contar(pontos, minha, corte);
   return (
     <div className="inicio" ref={topoRef}>
-      <div className="inicio-topo">{topo}</div>
+      <div className="inicio-topo">
+        {topo}
+        <BuscaCursos cursos={cursos} atalhos={[]} ano={anoBusca} aoEscolher={(c) => {
+          setExtra({ curso: c.curso, slug: c.slug });
+          escolher(c.slug);
+          const el = mapaRef.current;
+          if (el && el.getBoundingClientRect().top > window.innerHeight * 0.5)
+            el.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+        }} />
+      </div>
       <div className="inicio-controles">
         {chips}
         {entrada(false)}
       </div>
-      <div className="inicio-mapa">
+      <div className="inicio-mapa" ref={mapaRef}>
         <section className="cartao mapa-cartao" aria-label={`Mapa de ${dados.curso}`}>
           {minha == null ? (
             <div className="mapa-linha">
@@ -164,6 +178,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados }: {
           <p className="miudo">
             <span className="so-mobile">Toque</span><span className="so-desktop">Clique</span> num estado para ver os campi
             {minha != null && ` · base: Sisu ${dados.ano}, chamada regular`}
+            {" · "}<a className="link-lista" href={`/curso/${dados.slug}/`}>ver lista de {dados.curso} ›</a>
           </p>
         </section>
       </div>

@@ -6,7 +6,8 @@ type Item = { curso: string; slug: string; ofertas: number; ampla_min: number | 
 const sem = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
 /** Busca instantânea no índice de cursos (roda só no navegador, sem servidor). */
-export function BuscaCursos({ cursos, atalhos, ano }: { cursos: Item[]; atalhos: Item[]; ano: number }) {
+/** Na home, `aoEscolher` faz o resultado mostrar o curso no mapa em vez de abrir a página do curso. */
+export function BuscaCursos({ cursos, atalhos, ano, aoEscolher }: { cursos: Item[]; atalhos: Item[]; ano: number; aoEscolher?: (c: Item) => void }) {
   const [q, setQ] = useState("");
   const achados = useMemo(() => {
     const t = sem(q.trim());
@@ -24,7 +25,7 @@ export function BuscaCursos({ cursos, atalhos, ano }: { cursos: Item[]; atalhos:
       {q.trim().length >= 2 ? (
         <div className="cartao lista" style={{ marginTop: 12 }}>
           {achados.length === 0 && <div className="vazio">Nenhum curso com “{q}”. Tente outra palavra.</div>}
-          {achados.map((c) => <LinhaCurso key={c.slug} c={c} ano={ano} />)}
+          {achados.map((c) => <LinhaCurso key={c.slug} c={c} ano={ano} aoEscolher={aoEscolher && (() => { setQ(""); aoEscolher(c); })} />)}
         </div>
       ) : atalhos.length > 0 && (
         <div className="chips">
@@ -35,17 +36,20 @@ export function BuscaCursos({ cursos, atalhos, ano }: { cursos: Item[]; atalhos:
   );
 }
 
-export function LinhaCurso({ c, ano }: { c: Item; ano: number }) {
-  return (
-    <a className="linha" href={`/curso/${c.slug}/`}>
+export function LinhaCurso({ c, ano, aoEscolher }: { c: Item; ano: number; aoEscolher?: () => void }) {
+  const dentro = (
+    <>
       <div className="info">
         <div className="nome">{c.curso}</div>
-        <div className="meta">{c.ofertas} {c.ofertas === 1 ? "opção" : "opções"} no Sisu {ano}</div>
+        <div className="meta">{c.ofertas} {c.ofertas === 1 ? "opção" : "opções"} no Sisu {ano}{aoEscolher ? " · ver no mapa" : ""}</div>
       </div>
       <div className="valor">
         <strong>{nota(c.ampla_min)}</strong>
         <span className="miudo">menor corte, ampla</span>
       </div>
-    </a>
+    </>
   );
+  return aoEscolher
+    ? <button className="linha" onClick={aoEscolher}>{dentro}</button>
+    : <a className="linha" href={`/curso/${c.slug}/`}>{dentro}</a>;
 }
