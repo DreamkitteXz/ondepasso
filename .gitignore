@@ -1,0 +1,14 @@
+# dados
+dados/brutos/
+dados/cache/
+dados/saida/ondepasso.sqlite*
+dados/*.tgz
+*.tgz
+# python
+__pycache__/
+.venv/
+# site
+web/node_modules/
+web/.next/
+web/out/
+web/next-env.d.ts
