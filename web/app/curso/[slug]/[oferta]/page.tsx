@@ -4,6 +4,7 @@ import { corteAmpla, variacao, nota, nomeModalidade, PESOS } from "@/lib/formato
 import { slugOferta, idDaRota } from "@/lib/rotas";
 import { GEO, projetar } from "@/lib/mapa";
 import { pesosCompactos } from "@/lib/minhas";
+import { slugIes } from "@/lib/universidades";
 import { DetalheOferta, type LinhaCota, type Local } from "@/components/DetalheOferta";
 
 type P = { params: Promise<{ slug: string; oferta: string }> };
@@ -56,7 +57,7 @@ export default async function PaginaOferta({ params }: P) {
       <a className="voltar" href={`/curso/${c.slug}/`}>‹ {c.curso}</a>
       <header className="oferta-cabecalho">
         <h1>{c.curso}<span className="so-desktop"> · {o.ies}</span></h1>
-        <p className="sub">{[o.ies_nome, o.campus, `${o.municipio}/${o.uf}`, o.turno, o.grau].filter(Boolean).join(" · ")}</p>
+        <p className="sub"><a className="link-uni" href={`/universidades/${slugIes(o.ies)}/`}>{o.ies_nome}</a>{" · " + [o.campus, `${o.municipio}/${o.uf}`, o.turno, o.grau].filter(Boolean).join(" · ")}</p>
       </header>
       <DetalheOferta
         slug={c.slug} rota={slugOferta(o)} curso={c.curso} ies={o.ies} cidade={`${o.municipio}/${o.uf}`} ano={ano}

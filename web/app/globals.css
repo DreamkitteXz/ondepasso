@@ -518,3 +518,127 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
   .entrada-nota.cartao.por-area .entrada-areas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .voce .entrada-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* ---------- Universidades (Figma 06a/06b · W6a/W6b) ---------- */
+.link-uni { color: inherit; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+.link-uni:hover { color: var(--fg-1); }
+.pagina-unis, .pagina-uni { display: grid; gap: 16px; padding: 4px 0 24px; }
+.pagina-unis > *, .pagina-uni > *, .unis-grade > *, .uni-grade > *, .uni-principal > *, .uni-lado > * { min-width: 0; }
+.unis-grade, .uni-grade { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+.unis-principal, .uni-principal, .uni-lado { display: grid; gap: 16px; align-content: start; }
+.unis-grade .cartao, .uni-grade .cartao, .pagina-uni > .cartao { margin: 0; }
+.unis-controles { display: grid; gap: 12px; }
+.unis-filtros { display: flex; flex-wrap: wrap; gap: 8px; }
+.unis-lista .cabeca { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.unis-linha { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-top: 1px solid var(--line-1); color: var(--fg-4); }
+.unis-linha:hover { background: var(--panel-2); }
+.unis-linha .info { display: grid; gap: 3px; flex: 1; min-width: 0; }
+.unis-linha strong { font-size: 15px; font-weight: 500; color: var(--fg-1); }
+.unis-linha .nome { font-size: 12px; color: var(--fg-3); }
+.unis-linha .meta { font-size: 12px; color: var(--fg-4); }
+.unis-vazio { margin: 0; padding: 14px 16px; border-top: 1px solid var(--line-1); color: var(--fg-3); font-size: 14px; }
+.unis-estados { display: grid; gap: 12px; padding: 20px; }
+.unis-estados h2 { margin: 0; font-size: 16px; }
+.unis-estados .miudo { margin: 0; font-size: 13px; color: var(--fg-3); line-height: 1.4; }
+.unis-ufs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.unis-ufs button { display: flex; justify-content: space-between; align-items: center; height: 36px; padding: 0 10px; background: var(--panel-2); border: 1px solid var(--line-1); border-radius: 8px; color: var(--fg-1); font: inherit; cursor: pointer; }
+.unis-ufs button strong { font-size: 13px; font-weight: 600; }
+.unis-ufs button span { font-size: 12px; color: var(--fg-3); }
+.unis-ufs button:hover { border-color: var(--line-2); }
+.unis-ufs button.ativo { background: var(--fg-1); border-color: var(--fg-1); color: var(--bg); }
+.unis-ufs button.ativo span { color: var(--bg); }
+
+.pagina-uni > .voltar { margin: 0; justify-self: start; font-size: 13px; min-height: 44px; align-items: center; }
+.uni-abertura { display: grid; gap: 16px; padding: 16px; }
+.uni-id { display: grid; gap: 8px; align-content: center; min-width: 0; }
+.uni-id h1 { margin: 0; font-size: 40px; line-height: 1.1; }
+.uni-id .sub { margin: 0; font-size: 16px; color: var(--fg-3); max-width: 62ch; line-height: 1.45; }
+.uni-site { justify-self: start; font-size: 14px; font-weight: 500; color: var(--fg-1); text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+.uni-site:hover { text-decoration-color: currentColor; }
+.uni-creditos { margin: 0; font-size: 12px; line-height: 1.5; color: var(--fg-4); }
+.uni-creditos a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.uni-creditos a:hover { color: var(--fg-2); }
+.carrossel { position: relative; border-radius: 10px; overflow: hidden; background: var(--panel-2); }
+.carrossel-trilho { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.carrossel-trilho::-webkit-scrollbar { display: none; }
+.carrossel-trilho:focus-visible { outline: 2px solid var(--fg-1); outline-offset: -2px; }
+.carrossel-trilho img { flex: 0 0 100%; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; scroll-snap-align: start; display: block; }
+.carrossel-pontos { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); display: flex; gap: 2px; padding: 2px 4px; border-radius: 999px; background: rgba(15, 14, 13, .55); }
+.carrossel-pontos button { width: 22px; height: 22px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.carrossel-pontos button::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: rgba(250, 250, 249, .5); }
+.carrossel-pontos button[aria-current]::before { background: #3DD68C; }
+
+.uni-topo { display: grid; gap: 16px; }
+.uni-nota { display: grid; gap: 12px; padding: 20px; }
+.uni-nota .entrada-nota.cartao { padding: 0; border: 0; background: none; }
+.uni-nota .manchete-curso { margin: 0; }
+.uni-nota .contagem { margin: 4px 0 0; }
+.uni-mod { display: grid; gap: 2px; }
+.uni-mod .trocar { display: flex; justify-content: space-between; align-items: center; min-height: 44px; font-size: 14px; }
+.uni-mod .trocar b { font-weight: 400; color: var(--fg-1); }
+.uni-numeros { display: flex; gap: 24px; padding: 16px; margin: 0; }
+.uni-numeros div { display: grid; gap: 4px; }
+.uni-numeros strong { font-size: 28px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.uni-numeros span { font-size: 12px; color: var(--fg-3); }
+
+.uni-filtros { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: center; }
+.uni-filtros select { height: 48px; padding: 0 14px; background: var(--panel-3); border: 1px solid var(--line-2); border-radius: 10px; color: var(--fg-1); font: inherit; font-size: 14px; font-weight: 500; min-width: 0; }
+.uni-filtros .uni-ordem { grid-column: 1; }
+.uni-filtros select:only-of-type, .uni-filtros select:nth-of-type(odd):last-of-type { grid-column: 1; }
+.uni-filtros .miudo { justify-self: end; font-size: 13px; }
+
+.uni-cursos { display: grid; gap: 12px; }
+.uni-curso { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "nome corte" "campus campus" "delta status"; gap: 4px 12px; padding: 14px 16px 16px; background: var(--panel); border: 1px solid var(--line-1); border-radius: 14px; }
+.uni-curso:hover { border-color: var(--line-2); }
+.uc-nome { grid-area: nome; display: grid; gap: 3px; min-width: 0; }
+.uc-nome strong { font-size: 15px; font-weight: 500; }
+.uni-curso .meta { font-size: 12px; color: var(--fg-3); }
+.uc-corte { grid-area: corte; display: grid; gap: 3px; justify-items: end; text-align: right; }
+.uc-corte strong { font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.uc-corte .meta, .uc-delta .meta, .uc-status .meta { font-size: 11px; color: var(--fg-4); }
+.uc-campus { grid-area: campus; font-size: 13px; color: var(--fg-2); padding: 8px 0 10px; border-bottom: 1px solid var(--line-1); margin-bottom: 4px; }
+.uc-delta { grid-area: delta; display: grid; gap: 4px; align-content: end; font-size: 13px; font-variant-numeric: tabular-nums; }
+.uc-status { grid-area: status; display: grid; gap: 4px; justify-items: end; align-content: end; }
+.uni-mais { height: 48px; background: none; border: 1px solid var(--line-2); border-radius: 10px; color: var(--fg-1); font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; }
+.uni-mais:hover { background: var(--panel-2); }
+.uni-cursos > .miudo { margin: 0; }
+
+.uni-onde h2 { margin: 0 0 4px; font-size: 16px; }
+.uni-onde .uf:not(.atual) { fill: var(--panel-2); opacity: .5; }
+.uni-campi { list-style: none; margin: 8px 0 0; padding: 0; }
+.uni-campi li { display: grid; gap: 2px; padding: 12px 0; border-top: 1px solid var(--line-1); }
+.uni-campi strong { font-size: 14px; font-weight: 500; }
+.uni-campi span { font-size: 13px; color: var(--fg-3); }
+.uni-lado > .botao { width: 100%; }
+.uni-lado > .miudo { margin: 0; line-height: 1.45; }
+
+@media (min-width: 1024px) {
+  .pagina-unis, .pagina-uni { gap: 24px; padding: 8px 0 40px; }
+  .unis-grade, .uni-grade { grid-template-columns: minmax(0, 1fr) 360px; gap: 32px; }
+  .unis-controles { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+  .unis-filtros { flex-wrap: nowrap; }
+  .unis-linha { padding: 14px 20px; }
+  .unis-lista .cabeca { padding: 0 20px 8px; }
+  .uni-abertura { grid-template-columns: 400px minmax(0, 1fr); gap: 32px; padding: 20px; }
+  .uni-abertura:not(:has(.carrossel)) { grid-template-columns: 1fr; }
+  .uni-id h1 { font-size: 48px; }
+  .uni-id .sub { font-size: 17px; }
+  .uni-id .uni-creditos { margin-top: 4px; font-size: 12px; }
+  .uni-topo { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; }
+  .uni-topo .uni-numeros { order: -1; align-self: start; }
+  .uni-filtros { display: flex; flex-wrap: wrap; }
+  .uni-filtros select { height: 44px; }
+  .uni-filtros .miudo { justify-self: auto; }
+  .uni-cursos { gap: 0; background: var(--panel); border: 1px solid var(--line-1); border-radius: 14px; overflow: hidden; }
+  .uni-cabeca.so-desktop, .uni-curso { display: grid; grid-template-columns: minmax(0, 1fr) 160px 96px 80px 130px; grid-template-areas: "nome campus corte delta status"; gap: 16px; align-items: center; padding: 14px 20px; }
+  .uni-cabeca.so-desktop { padding-top: 12px; padding-bottom: 10px; font-size: 12px; color: var(--fg-4); }
+  .uni-cabeca .n { text-align: right; }
+  .uni-curso { background: none; border: 0; border-top: 1px solid var(--line-1); border-radius: 0; }
+  .uni-curso:hover { background: var(--panel-2); }
+  .uc-campus { padding: 0; border: 0; margin: 0; font-size: 14px; }
+  .uc-corte strong { font-size: 16px; }
+  .uc-delta { justify-items: end; align-content: center; }
+  .uc-status { align-content: center; }
+  .uni-mais { height: auto; padding: 14px 20px 12px; border: 0; border-top: 1px solid var(--line-1); border-radius: 0; text-align: left; }
+  .uni-cursos > .miudo { padding: 0 20px 14px; }
+}

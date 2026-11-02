@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 // Navegação do site: no desktop fica na Topbar (Topbar web), no celular vira a Tabbar fixa embaixo.
-// Ao vivo e Universidades ainda não existem: aparecem como no Figma, mas desativadas.
+// Ao vivo ainda não existe: aparecem como no Figma, mas desativadas.
 const ICONES = {
   buscar: <><path d="M10.08 17.42a7.33 7.33 0 1 0 0-14.67 7.33 7.33 0 0 0 0 14.67Z" /><path d="m19.25 19.25-3.94-3.94" /></>,
   aovivo: <path d="M20.17 11H16.5l-2.75 8.25-5.5-16.5L5.5 11H1.83" />,
@@ -11,14 +11,14 @@ const ICONES = {
 /** Aba atual pelo caminho: /calcular é Calcular; o resto (home, cursos) é Buscar. */
 function useAtual() {
   const p = usePathname() ?? "/";
-  return p.startsWith("/calcular") ? "calcular" : "buscar";
+  return p.startsWith("/calcular") ? "calcular" : p.startsWith("/universidades") ? "universidades" : "buscar";
 }
 
 const ITENS: { chave: keyof typeof ICONES; rotulo: string; href?: string }[] = [
   { chave: "buscar", rotulo: "Buscar", href: "/" },
   { chave: "aovivo", rotulo: "Ao vivo" },
   { chave: "calcular", rotulo: "Calcular", href: "/calcular/" },
-  { chave: "universidades", rotulo: "Universidades" },
+  { chave: "universidades", rotulo: "Universidades", href: "/universidades/" },
 ];
 
 export function NavTopo() {
