@@ -4,7 +4,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Geo, Ponto } from "@/lib/mapa";
 import { nota as fmt, ROTULO, statusNota, type Status } from "@/lib/formato";
-import { useNota } from "@/lib/nota";
+import { salvarMod, useMod, useNota } from "@/lib/nota";
 import { EntradaNota, Legenda, Mapa, PilulaNota } from "@/components/MapaInicio";
 
 export type ItemCurso = Ponto & { campus: string; grau: string; delta: number | null; temMapa: boolean };
@@ -17,7 +17,7 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
   const minha = useNota();
   const [editando, setEditando] = useState(false);
   const [revelacao, setRevelacao] = useState(0);
-  const [mod, setMod] = useState("AC");
+  const mod = useMod(); const setMod = salvarMod;
   const [uf, setUf] = useState("");
   const [turno, setTurno] = useState("");
   const [ordem, setOrdem] = useState<"menor" | "maior">("menor");

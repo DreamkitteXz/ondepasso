@@ -1,38 +1,37 @@
 "use client";
-// A média do aluno fica só no navegador (localStorage). Nada é enviado a servidor nenhum.
+// A média e a modalidade do aluno ficam só no navegador (localStorage). Nada é enviado a servidor nenhum.
 import { useSyncExternalStore } from "react";
 
-const CHAVE = "ondepasso.nota";
-const EVENTO = "ondepasso:nota";
-
-function ler(): number | null {
-  try {
-    const v = Number(localStorage.getItem(CHAVE));
-    return Number.isFinite(v) && v > 0 ? v : null;
-  } catch {
-    return null;
+/** Um valor guardado no localStorage, lido com useSyncExternalStore (no HTML estático vale `vazio`). */
+function guardado<T>(chave: string, ler: (s: string | null) => T, escrever: (v: T) => string | null, vazio: T) {
+  const evento = `ondepasso:${chave}`;
+  let memoria: { v: T } | undefined;
+  const lerAgora = () => { try { return ler(localStorage.getItem(`ondepasso.${chave}`)); } catch { return vazio; } };
+  function salvar(v: T) {
+    try {
+      const s = escrever(v);
+      if (s == null) localStorage.removeItem(`ondepasso.${chave}`); else localStorage.setItem(`ondepasso.${chave}`, s);
+    } catch {}
+    memoria = { v };
+    window.dispatchEvent(new Event(evento));
   }
+  function assinar(cb: () => void) {
+    const f = () => { memoria = { v: lerAgora() }; cb(); };
+    window.addEventListener(evento, cb);
+    window.addEventListener("storage", f);
+    return () => { window.removeEventListener(evento, cb); window.removeEventListener("storage", f); };
+  }
+  const atual = () => (memoria ??= { v: lerAgora() }).v;
+  const useValor = () => useSyncExternalStore(assinar, atual, () => vazio);
+  return { salvar, useValor };
 }
 
-export function salvarNota(v: number | null) {
-  try {
-    if (v == null) localStorage.removeItem(CHAVE);
-    else localStorage.setItem(CHAVE, String(v));
-  } catch {}
-  memoria = v;
-  window.dispatchEvent(new Event(EVENTO));
-}
+const nota = guardado<number | null>("nota", (s) => { const v = Number(s); return s && Number.isFinite(v) && v > 0 ? v : null; }, (v) => (v == null ? null : String(v)), null);
+/** Modalidade com que o aluno compara (a dele). Vale para a home, a lista e o detalhe; "AC" se nunca escolheu. */
+const modalidade = guardado<string>("mod", (s) => (s && /^[A-Z0-9_]{1,12}$/.test(s) ? s : "AC"), (v) => (v === "AC" ? null : v), "AC");
 
-let memoria: number | null | undefined;
-function assinar(cb: () => void) {
-  const f = () => { memoria = ler(); cb(); };
-  window.addEventListener(EVENTO, cb);
-  window.addEventListener("storage", f);
-  return () => { window.removeEventListener(EVENTO, cb); window.removeEventListener("storage", f); };
-}
-const atual = () => (memoria === undefined ? (memoria = ler()) : memoria);
-
+export const salvarNota = nota.salvar;
 /** Média salva (ou null). No HTML estático é sempre null; o valor real entra depois que a página carrega. */
-export function useNota() {
-  return useSyncExternalStore(assinar, atual, () => null);
-}
+export const useNota = nota.useValor;
+export const salvarMod = modalidade.salvar;
+export const useMod = modalidade.useValor;

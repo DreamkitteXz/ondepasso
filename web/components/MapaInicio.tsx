@@ -5,7 +5,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { DadosMapa, Geo, Ponto } from "@/lib/mapa";
 import { lerNota, nota as fmt, ROTULO, statusNota, type Status } from "@/lib/formato";
-import { salvarNota, useNota } from "@/lib/nota";
+import { salvarMod, salvarNota, useMod, useNota } from "@/lib/nota";
 import { BuscaCursos } from "@/components/BuscaCursos";
 
 type Atalho = { curso: string; slug: string; soDesktop?: boolean };
@@ -24,12 +24,17 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   const mapaRef = useRef<HTMLDivElement>(null);
   // "Ver no mapa" da página do curso chega como /?curso=<slug>.
   useEffect(() => {
-    const slug = new URLSearchParams(location.search).get("curso");
+    // Do detalhe de uma opção chega também &campus=<rota>: abre o estado com o cartão daquele campus.
+    const q = new URLSearchParams(location.search);
+    const slug = q.get("curso"), campus = q.get("campus");
     const c = slug && cursos.find((x) => x.slug === slug);
     if (!c) return;
     setExtra({ curso: c.curso, slug: c.slug });
-    escolher(c.slug);
-    requestAnimationFrame(() => mapaRef.current?.scrollIntoView({ block: "start" }));
+    escolher(c.slug).then((d) => {
+      const p = campus ? d?.pontos.find((x) => x.r === campus) : null;
+      if (p) { setUfBruto(p.u); setSel(p); }
+      requestAnimationFrame(() => (mapaRef.current ?? topoRef.current)?.scrollIntoView({ block: "start" }));
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const [dados, setDados] = useState(inicial);
@@ -44,7 +49,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   const setSel = (p: Ponto | null, teclado = false) => { viaTeclado.current = teclado; setSelBruto(p); };
   // Conta só confirmações de nota nova (não teclas, não a nota que já estava salva ao abrir a página).
   const [revelacao, setRevelacao] = useState(0);
-  const [mod, setMod] = useState("AC");
+  const mod = useMod(); const setMod = salvarMod;
   const topoRef = useRef<HTMLDivElement>(null);
 
   const modAtual = dados.mods.find((m) => m.cod === mod) ?? dados.mods[0];
@@ -57,16 +62,17 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
     requestAnimationFrame(() => { const el = topoRef.current; if (el && el.getBoundingClientRect().top < 0) el.scrollIntoView({ block: "start" }); });
   }
 
-  async function escolher(slug: string) {
-    if (slug === dados.slug) return;
+  async function escolher(slug: string): Promise<DadosMapa | undefined> {
+    if (slug === dados.slug) return dados;
     setSel(null);
     const pronto = cache.current.get(slug);
-    if (pronto) return setDados(pronto);
+    if (pronto) { setDados(pronto); return pronto; }
     setCarregando(slug);
     try {
       const d: DadosMapa = await (await fetch(`/mapa/${slug}.json`)).json();
       cache.current.set(slug, d);
       setDados(d);
+      return d;
     } finally {
       setCarregando(null);
     }

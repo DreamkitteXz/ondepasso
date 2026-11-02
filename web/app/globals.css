@@ -338,3 +338,109 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
 }
 .lc-cabeca .lc-uni { display: block; }
 .lc-cabeca .lc-cidade { font-size: 12px; color: var(--fg-4); }
+
+/* ---------- Curso × universidade (Figma 03/03b · W3/W3b) ---------- */
+.pagina-oferta { display: grid; gap: 16px; padding-bottom: 24px; }
+.pagina-oferta .voltar { margin: 0; font-size: 13px; justify-self: start; }
+.oferta-cabecalho h1 { font-size: 30px; margin: 0 0 8px; }
+.oferta-cabecalho .sub { margin: 0; font-size: 14px; max-width: 70ch; }
+.oferta-grade { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+.oferta-principal, .oferta-lado { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.oferta-grade .cartao, .oferta-grade .aviso { margin: 0; }
+.oferta-grade h2 { font-size: 15px; margin: 0 0 10px; }
+
+.corte-oferta { display: grid; gap: 6px; }
+.corte-oferta .rotulo { margin: 0 0 6px; }
+.corte-oferta .figura { font-size: 52px; }
+.corte-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 6px 0 0; }
+.corte-meta .miudo { font-size: 11px; }
+.voce { background: var(--panel-2); border-radius: 10px; padding: 10px 12px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 6px; }
+.voce-texto { display: grid; gap: 2px; min-width: 0; }
+.voce-titulo { margin: 0; font-size: 13px; color: var(--fg-2); }
+.voce-titulo strong { font-weight: 600; color: var(--fg-1); }
+.voce-titulo .link-mudo { margin-left: 4px; font-size: 11px; }
+.voce .miudo { margin: 0; }
+.voce .entrada-nota { flex: 1 1 100%; align-self: stretch; }
+.selo-tinta { flex: none; padding: 3px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.selo-tinta.supera { color: var(--verde); background: var(--verde-tint); }
+.selo-tinta.pouco { color: var(--ambar); background: var(--ambar-tint); }
+.selo-tinta.abaixo { color: var(--vermelho); background: var(--vermelho-tint); }
+
+.aviso-bonus { display: grid; gap: 6px; margin: 0; }
+.aviso-bonus strong { font-size: 14px; font-weight: 600; }
+.aviso-bonus p { margin: 0; font-size: 13px; line-height: 1.45; }
+
+.cotas-topo { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; }
+.cotas-topo h2 { margin: 0; }
+.cotas-topo .trocar { font-size: 12px; }
+.cotas-nota { margin: 8px 0 0; }
+.tabela-cotas { table-layout: fixed; margin-top: 8px; font-size: 13px; }
+.tabela-cotas th { font-size: 11px; font-weight: 400; padding: 12px 0 8px; }
+.tabela-cotas th:nth-child(2), .tabela-cotas th:nth-child(3) { width: 52px; }
+.tabela-cotas th:nth-child(4) { width: 60px; }
+.tabela-cotas td { padding: 10px 0; vertical-align: middle; color: var(--fg-1); }
+.tabela-cotas td.n { color: var(--fg-2); padding-left: 8px; }
+.tabela-cotas td.corte { color: var(--fg-1); font-weight: 600; }
+.tabela-cotas .cota-nome { overflow-wrap: anywhere; }
+.tabela-cotas tr.sua td { background: var(--panel-2); border-bottom-color: transparent; }
+.tabela-cotas tr.sua td:first-child { border-radius: 8px 0 0 8px; padding-left: 8px; }
+.tabela-cotas tr.sua td:last-child { border-radius: 0 8px 8px 0; padding-right: 8px; }
+.tabela-cotas tr.sua .cota-nome { font-weight: 500; }
+.cota-sua { color: var(--fg-4); font-size: 11px; }
+.ver-todas { background: none; border: 0; padding: 10px 0 0; font: inherit; font-size: 13px; font-weight: 500; color: var(--fg-1); cursor: pointer; }
+.ver-todas:hover { text-decoration: underline; }
+
+.oferta-lado .barra { grid-template-columns: 30px 1fr 52px; font-size: 12px; margin: 0 0 10px; }
+.oferta-lado .barra .n { text-align: right; font-size: 13px; font-variant-numeric: tabular-nums; }
+.oferta-lado .barra.atual .n { font-weight: 600; }
+.pesos-texto { margin: 0; font-size: 13px; color: var(--fg-3); line-height: 1.45; }
+.oferta-lado .pesos .peso { font-size: 13px; }
+.onde-fica .mapa svg { max-height: none; }
+.onde-fica .pt { cursor: default; }
+.onde-fica .uf.atual { cursor: default; }
+.onde-fica .miudo { margin: 10px 0 0; font-size: 13px; color: var(--fg-3); }
+.oferta-acoes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.oferta-acoes .botao { padding: 0 12px; }
+
+@media (max-width: 1023px) {
+  /* No celular a cota escolhida vira duas linhas: nome e "sua modalidade" embaixo (Figma 03). */
+  .tabela-cotas tr.sua .cota-sua { display: block; margin-top: 2px; }
+  .tabela-cotas tr.extra { display: none; }
+}
+@media (min-width: 1024px) {
+  .pagina-oferta { gap: 24px; padding-top: 8px; padding-bottom: 40px; }
+  .pagina-oferta .voltar { font-size: 14px; }
+  .oferta-cabecalho h1 { font-size: 48px; margin-bottom: 8px; }
+  .oferta-cabecalho .sub { font-size: 17px; }
+  .oferta-grade { grid-template-columns: minmax(0, 1fr) 360px; gap: 32px; }
+  .oferta-grade h2 { font-size: 16px; }
+  .oferta-lado .cartao { padding: 20px; }
+  .corte-oferta { padding: 20px; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 24px; }
+  .corte-oferta .figura { font-size: 80px; }
+  .corte-meta { margin-top: 10px; }
+  .voce { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 6px; border-radius: 12px; padding: 14px 16px; margin: 0; min-width: 160px; max-width: 280px; }
+  .voce:has(.entrada-nota) { min-width: 300px; }
+  .voce-titulo { font-size: 14px; }
+  .voce-texto { display: contents; }
+  .voce-texto .miudo { order: 3; }
+  .voce .selo-tinta { order: 2; }
+  .cotas { padding: 20px 0 0; }
+  .cotas-topo, .cotas > .miudo { padding: 0 20px; }
+  .cotas > .miudo:last-child { padding-bottom: 16px; }
+  .tabela-cotas { font-size: 14px; margin-top: 12px; }
+  .tabela-cotas th { font-size: 12px; padding: 8px 0; }
+  .tabela-cotas th, .tabela-cotas td { padding-left: 16px; }
+  .tabela-cotas th:first-child, .tabela-cotas td:first-child { padding-left: 20px; }
+  .tabela-cotas th:last-child, .tabela-cotas td:last-child { padding-right: 20px; }
+  .tabela-cotas th:nth-child(2), .tabela-cotas th:nth-child(3) { width: 96px; }
+  .tabela-cotas th:nth-child(4) { width: 126px; }
+  .tabela-cotas td { padding-top: 12px; padding-bottom: 12px; }
+  .tabela-cotas td.n { padding-left: 16px; }
+  .tabela-cotas tr:last-child td { border-bottom: 0; }
+  .tabela-cotas tr.sua td, .tabela-cotas tr.sua td:first-child, .tabela-cotas tr.sua td:last-child { border-radius: 0; border-bottom-color: var(--line-1); }
+  .tabela-cotas tr.sua td:first-child { padding-left: 20px; }
+  .tabela-cotas tr.sua td:last-child { padding-right: 20px; }
+  .ver-todas { display: none; }
+  .cotas { padding-bottom: 4px; }
+  .cota-sua::before { content: "  ·  "; white-space: pre; }
+}
