@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(atualizado);
   return [
     { url: `${SITE}/`, lastModified, priority: 1 },
+    { url: `${SITE}/calcular/`, lastModified, priority: 0.9 },
     ...cursos.flatMap((c) => [
       { url: `${SITE}/curso/${c.slug}/`, lastModified, priority: 0.8 },
       ...curso(c.slug).ofertas.map((o) => ({ url: `${SITE}/curso/${c.slug}/${slugOferta(o)}/`, lastModified, priority: 0.6 })),

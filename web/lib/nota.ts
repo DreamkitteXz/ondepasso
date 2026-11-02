@@ -30,6 +30,12 @@ const nota = guardado<number | null>("nota", (s) => { const v = Number(s); retur
 /** Modalidade com que o aluno compara (a dele). Vale para a home, a lista e o detalhe; "AC" se nunca escolheu. */
 const modalidade = guardado<string>("mod", (s) => (s && /^[A-Z0-9_]{1,12}$/.test(s) ? s : "AC"), (v) => (v === "AC" ? null : v), "AC");
 
+/** Notas por área da calculadora (texto como digitado, para não reformatar enquanto a pessoa digita). */
+export type Areas = Partial<Record<"red" | "lin" | "mat" | "ch" | "cn", string>>;
+const areas = guardado<Areas>("areas", (s) => { try { const v = s ? JSON.parse(s) : {}; return v && typeof v === "object" ? v : {}; } catch { return {}; } }, (v) => (Object.values(v).some(Boolean) ? JSON.stringify(v) : null), {});
+export const salvarAreas = areas.salvar;
+export const useAreas = areas.useValor;
+
 export const salvarNota = nota.salvar;
 /** Média salva (ou null). No HTML estático é sempre null; o valor real entra depois que a página carrega. */
 export const useNota = nota.useValor;
