@@ -2,9 +2,10 @@
 // Detalhe de uma opção (Figma 03/03b e W3/W3b). A parte da média e da modalidade vem do navegador;
 // todo o resto já sai pronto no HTML estático.
 import { useState } from "react";
-import { nota as fmt, ROTULO, statusNota } from "@/lib/formato";
-import { salvarMod, useMod, useNota } from "@/lib/nota";
-import { EntradaNota, Marca } from "@/components/MapaInicio";
+import { nota as fmt, ROTULO, type Status } from "@/lib/formato";
+import { statusPara, suaMedia, temPesos, type Pesos } from "@/lib/minhas";
+import { salvarMod, useMinhas, useMod } from "@/lib/nota";
+import { AvisoPesos, EntradaNota, Marca } from "@/components/MapaInicio";
 import { IconeMapa } from "@/components/ListaCurso";
 import { Compartilhar } from "@/components/Compartilhar";
 
@@ -15,14 +16,14 @@ type Props = {
   atual: number | null; delta: number | null; bonus: number;
   cotas: LinhaCota[]; hist: { ano: number; v: number | null }[]; piso: number; teto: number;
   iguais: boolean; minimas: { area: string; v: number }[]; pesos: { area: string; peso: number | null; minima: number | null }[];
-  mediaMinima: number | null; local: Local | null;
+  mediaMinima: number | null; local: Local | null; peso: Pesos;
 };
 
 const MOSTRAR = 6;
 const inteiro = (v: number | null) => (v == null ? "—" : v.toLocaleString("pt-BR"));
 
 export function DetalheOferta(p: Props) {
-  const minha = useNota();
+  const minha = useMinhas();
   const modSalva = useMod();
   const [editando, setEditando] = useState(false);
   const [todas, setTodas] = useState(false);
@@ -32,8 +33,9 @@ export function DetalheOferta(p: Props) {
   const minhaCota = comCorte.find((c) => c.cod === modSalva) ?? comCorte.find((c) => c.cod === "AC") ?? null;
   const semAMinha = modSalva !== "AC" && minhaCota?.cod !== modSalva;
   const corte = minhaCota?.corte ?? null;
-  const s = minha != null && corte != null ? statusNota(corte, minha) : null;
-  const dif = minha != null && corte != null ? Math.round((minha - corte) * 100) / 100 : null;
+  const sua = minha == null ? null : suaMedia(minha, p.peso);
+  const s = minha != null && corte != null ? statusPara(minha, p.peso, corte) : null;
+  const dif = sua != null && corte != null ? Math.round((sua.v - corte) * 100) / 100 : null;
 
   const idxMinha = p.cotas.findIndex((c) => c.cod === minhaCota?.cod);
   const cortar = !todas && p.cotas.length > MOSTRAR + 1 && idxMinha < MOSTRAR;
@@ -42,14 +44,16 @@ export function DetalheOferta(p: Props) {
     <div className="voce">
       {minha == null || editando ? (
         <>
-          <p className="voce-titulo">{minha == null ? "Compare com a sua média" : "Editar sua média"}</p>
-          <EntradaNota ano={p.ano} inicial={editando && minha != null ? fmt(minha) : ""} compacta pronto={() => setEditando(false)} />
+          <p className="voce-titulo">{minha == null ? "Compare com a sua nota" : "Editar sua nota"}</p>
+          <EntradaNota ano={p.ano} minha={editando ? minha : null} compacta pronto={() => setEditando(false)} />
         </>
       ) : (
         <>
           <div className="voce-texto">
-            <p className="voce-titulo">Sua média <strong>{fmt(minha)}</strong> <button className="link-mudo" onClick={() => setEditando(true)}>editar</button></p>
-            {dif != null && (
+            <p className="voce-titulo">{sua!.ponderada ? "Sua média aqui" : "Sua média"} <strong>{fmt(sua!.v)}</strong> <button className="link-mudo" onClick={() => setEditando(true)}>editar</button></p>
+            {sua!.ponderada && <p className="miudo">com os pesos deste curso</p>}
+            {sua!.minimo && <p className="miudo t-abaixo">não atinge a {sua!.minimo}</p>}
+            {dif != null && !sua!.minimo && (
               <p className="miudo">
                 {dif < 0 ? `faltam ${fmt(-dif)} pontos` : dif === 0 ? "exatamente no corte" : `${fmt(dif)} pontos acima`}
                 {minhaCota && minhaCota.cod !== "AC" ? ` · ${minhaCota.nome}` : ""}
@@ -57,6 +61,7 @@ export function DetalheOferta(p: Props) {
             )}
           </div>
           {s ? <span className={`selo-tinta ${s}`}>{ROTULO[s]}</span> : <span className="miudo">sem corte para comparar</span>}
+          {!minha.n && temPesos(p.peso) && <AvisoPesos />}
         </>
       )}
     </div>
@@ -157,7 +162,7 @@ export function DetalheOferta(p: Props) {
 }
 
 /** Estado da opção com o ponto do campus (só no desktop, como no W3). */
-function OndeFica({ local, cidade, s }: { local: Local; cidade: string; s: ReturnType<typeof statusNota> | null }) {
+function OndeFica({ local, cidade, s }: { local: Local; cidade: string; s: Status | null }) {
   const [x, y, w, h] = local.box; const m = Math.max(w, h) * 0.06;
   const vb = [x - m, y - m, w + 2 * m, h + 2 * m];
   const u = vb[2] / 318; // largura do cartão no desktop: o ponto fica com ~14 px, como no mapa do estado

@@ -3,6 +3,7 @@ import { indice, curso, modalidades } from "@/lib/dados";
 import { corteAmpla, variacao, nota, nomeModalidade, PESOS } from "@/lib/formato";
 import { slugOferta, idDaRota } from "@/lib/rotas";
 import { GEO, projetar } from "@/lib/mapa";
+import { pesosCompactos } from "@/lib/minhas";
 import { DetalheOferta, type LinhaCota, type Local } from "@/components/DetalheOferta";
 
 type P = { params: Promise<{ slug: string; oferta: string }> };
@@ -62,7 +63,7 @@ export default async function PaginaOferta({ params }: P) {
         atual={corteAmpla(o, ano)} delta={variacao(o, ano)} bonus={o.bonus_regional_pct ?? 0}
         cotas={cotas} hist={hist} piso={piso} teto={teto}
         iguais={iguais} minimas={minimas} pesos={pesos} mediaMinima={(o.media_minima ?? 0) > 1 ? o.media_minima : null}
-        local={local}
+        local={local} peso={pesosCompactos(o)}
       />
     </div>
   );

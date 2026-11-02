@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { indice, curso } from "@/lib/dados";
 import { corteAmpla, variacao, nota } from "@/lib/formato";
 import { slugOferta } from "@/lib/rotas";
+import { pesosCompactos } from "@/lib/minhas";
 import { cortesPorMod, nomesMods, projetar } from "@/lib/mapa";
 import { ListaCurso, IconeMapa, type ItemCurso } from "@/components/ListaCurso";
 import { Compartilhar } from "@/components/Compartilhar";
@@ -28,7 +29,7 @@ export default async function PaginaCurso({ params }: P) {
     return {
       r: slugOferta(o), i: o.ies, c: o.municipio, u: o.uf, x: +x.toFixed(1), y: +y.toFixed(1), t: o.turno,
       n: o.cortes[String(ano)]?.AC?.inscritos ?? 0, m, ...((o.bonus_regional_pct ?? 0) > 0 ? { b: 1 as const } : {}),
-      campus: o.campus, grau: o.grau, delta: variacao(o, ano), temMapa,
+      ...pesosCompactos(o), campus: o.campus, grau: o.grau, delta: variacao(o, ano), temMapa,
     };
   });
   const ufs = new Set(c.ofertas.map((o) => o.uf)).size;

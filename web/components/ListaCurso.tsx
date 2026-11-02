@@ -3,8 +3,9 @@
 // A média vem do mesmo localStorage da home; cada linha ganha o status e o topo resume "supera em X de N".
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Geo, Ponto } from "@/lib/mapa";
-import { nota as fmt, ROTULO, statusNota, type Status } from "@/lib/formato";
-import { salvarMod, useMod, useNota } from "@/lib/nota";
+import { nota as fmt, ROTULO, type Status } from "@/lib/formato";
+import { statusPara, temPesos } from "@/lib/minhas";
+import { salvarMod, useMinhas, useMod } from "@/lib/nota";
 import { EntradaNota, Legenda, Mapa, PilulaNota } from "@/components/MapaInicio";
 
 export type ItemCurso = Ponto & { campus: string; grau: string; delta: number | null; temMapa: boolean };
@@ -14,7 +15,7 @@ const plural = (n: number, um: string, varios: string) => `${n} ${n === 1 ? um :
 const POR_PAGINA = 20;
 
 export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; curso: string; ano: number; itens: ItemCurso[]; mods: Mod[] }) {
-  const minha = useNota();
+  const minha = useMinhas();
   const [editando, setEditando] = useState(false);
   const [revelacao, setRevelacao] = useState(0);
   const mod = useMod(); const setMod = salvarMod;
@@ -38,8 +39,9 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
 
   const comCorte = itens.filter((i) => corte(i) != null);
   const conta = { supera: 0, pouco: 0, abaixo: 0 };
-  if (minha != null) for (const i of comCorte) conta[statusNota(corte(i)!, minha)]++;
-  const st = (p: Ponto): Status | null => { const c = corte(p); return minha == null || c == null ? null : statusNota(c, minha); };
+  if (minha != null) for (const i of comCorte) conta[statusPara(minha, i, corte(i)!)]++;
+  const comPesos = itens.filter((i) => temPesos(i)).length;
+  const st = (p: Ponto): Status | null => { const c = corte(p); return minha == null || c == null ? null : statusPara(minha, p, c); };
 
   const comparando = (
     <p className="comparando">
@@ -54,13 +56,16 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
   const cartaoNota = (
     <section className="cartao nota-curso" aria-label="Sua nota neste curso">
       {minha == null || editando ? (
-        <EntradaNota ano={ano} inicial={editando && minha != null ? fmt(minha) : ""} compacta={false}
-          pronto={(v) => { if (v != null && v !== minha) setRevelacao((n) => n + 1); setEditando(false); }} />
+        <EntradaNota ano={ano} minha={editando ? minha : null} compacta={false}
+          pronto={(salvou) => { if (salvou) setRevelacao((n) => n + 1); setEditando(false); }} />
       ) : (
         <>
           <div className="mapa-linha"><PilulaNota minha={minha} editar={() => setEditando(true)} /></div>
           <div className={`resumo${revelacao ? " revela" : ""}`} key={`r${revelacao}`}>
             <h2 className="manchete-curso">Você supera o corte em {conta.supera} de {comCorte.length}</h2>
+            {minha.n
+              ? <p className="miudo">Com os pesos de cada opção{comPesos ? ` (${plural(comPesos, "usa", "usam")} pesos diferentes por área)` : ""}.</p>
+              : comPesos > 0 && <p className="aviso-pesos">{plural(comPesos, "opção usa", "opções usam")} pesos diferentes por área: nelas a sua média pode ser outra. <a href="/calcular/">Digite por área</a></p>}
             <p className="contagem"><span className="t-pouco">{conta.pouco} por pouco</span><i>·</i><span className="t-abaixo">{conta.abaixo} abaixo do corte</span></p>
           </div>
         </>

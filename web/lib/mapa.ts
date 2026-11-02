@@ -3,6 +3,7 @@ import geo from "./geo-br.json";
 import { curso } from "./dados";
 import { nomeModalidade } from "./formato";
 import { slugOferta } from "./rotas";
+import { pesosCompactos, type Pesos } from "./minhas";
 
 export type Geo = typeof geo;
 export const GEO: Geo = geo;
@@ -14,7 +15,7 @@ const MODS = ["AC", "LI_EP", "LB_EP", "LI_PPI", "LB_PPI", "LI_PP", "LB_PP", "LI_
  * Um campus no mapa. r = rota da oferta, x/y já projetados, t = turno, n = inscritos na ampla,
  * m = corte por modalidade no último ano (só as que existem nessa oferta).
  */
-export type Ponto = { r: string; i: string; c: string; u: string; x: number; y: number; t: string; n: number; m: Record<string, number>; b?: 1 };
+export type Ponto = { r: string; i: string; c: string; u: string; x: number; y: number; t: string; n: number; m: Record<string, number>; b?: 1 } & Pesos;
 export type DadosMapa = { slug: string; curso: string; ano: number; mods: { cod: string; nome: string }[]; pontos: Ponto[] };
 
 const RAD = Math.PI / 180;
@@ -42,7 +43,7 @@ export function dadosMapa(slug: string): DadosMapa {
     const m: Record<string, number> = {};
     for (const cod of MODS) { const v = doAno[cod]?.corte; if (v != null) { m[cod] = v; usadas.set(cod, (usadas.get(cod) ?? 0) + 1); } }
     const [x, y] = projetar(o.lon, o.lat);
-    pontos.push({ r: slugOferta(o), i: o.ies, c: o.municipio, u: o.uf, x: +x.toFixed(1), y: +y.toFixed(1), t: o.turno, n: doAno.AC?.inscritos ?? 0, m, ...((o.bonus_regional_pct ?? 0) > 0 ? { b: 1 as const } : {}) });
+    pontos.push({ r: slugOferta(o), i: o.ies, c: o.municipio, u: o.uf, x: +x.toFixed(1), y: +y.toFixed(1), t: o.turno, n: doAno.AC?.inscritos ?? 0, m, ...((o.bonus_regional_pct ?? 0) > 0 ? { b: 1 as const } : {}), ...pesosCompactos(o) });
   }
   // Abaixo do corte por baixo, quem supera por cima: desenhar do maior corte para o menor.
   pontos.sort((a, b) => b.m.AC - a.m.AC);

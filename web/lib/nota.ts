@@ -1,6 +1,8 @@
 "use client";
 // A média e a modalidade do aluno ficam só no navegador (localStorage). Nada é enviado a servidor nenhum.
-import { useSyncExternalStore } from "react";
+import { useMemo, useSyncExternalStore } from "react";
+import { lerNota } from "./formato";
+import { AREAS, type Minhas } from "./minhas";
 
 /** Um valor guardado no localStorage, lido com useSyncExternalStore (no HTML estático vale `vazio`). */
 function guardado<T>(chave: string, ler: (s: string | null) => T, escrever: (v: T) => string | null, vazio: T) {
@@ -41,3 +43,21 @@ export const salvarNota = nota.salvar;
 export const useNota = nota.useValor;
 export const salvarMod = modalidade.salvar;
 export const useMod = modalidade.useValor;
+
+/** Salva a média única e descarta as notas por área (a última forma digitada é a que vale). */
+export function salvarMedia(v: number | null) { salvarAreas({}); salvarNota(v); }
+/** Salva as 5 notas por área e descarta a média única. */
+export function salvarNotasAreas(a: Areas) { salvarNota(null); salvarAreas(a); }
+/** Apaga tudo. */
+export function apagarNotas() { salvarAreas({}); salvarNota(null); }
+
+/** O que o aluno informou: as 5 notas por área (se completas) ou a média única. */
+export function useMinhas(): Minhas | null {
+  const areas = useAreas();
+  const media = useNota();
+  return useMemo(() => {
+    const n = AREAS.map((k) => lerNota(areas[k] ?? ""));
+    if (n.every((v): v is number => v != null)) return { n, media: Math.round((n.reduce((a, b) => a + b, 0) / 5) * 100) / 100 };
+    return media != null ? { n: null, media } : null;
+  }, [areas, media]);
+}

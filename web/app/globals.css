@@ -502,3 +502,19 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
   .calc-topo .miudo { font-size: 14px; }
 }
 .nav-topo a:hover, .tabbar a:hover { color: var(--fg-1); }
+
+/* ---------- Nota por área (média única ou 5 notas) ---------- */
+.entrada-areas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.entrada-areas .calc-nota { padding: 8px 10px; gap: 2px; background: var(--bg); }
+.entrada-areas .calc-nota span { font-size: 11px; }
+.entrada-areas .calc-nota input { font-size: 16px; }
+.entrada-areas .calc-nota:has(input[aria-invalid="true"]) { border-color: var(--vermelho); }
+.entrada-areas .botao { height: auto; min-height: 44px; }
+.entrada-explica { font-size: 12px; }
+.entrada-opcoes { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.aviso-pesos { margin: 0; font-size: 12px; line-height: 1.4; color: var(--ambar); flex: 1 1 100%; }
+.aviso-pesos a { color: var(--fg-1); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+@media (min-width: 1024px) {
+  .entrada-nota.cartao.por-area .entrada-areas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .voce .entrada-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

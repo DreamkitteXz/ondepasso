@@ -4,13 +4,14 @@
 // tocar num estado aproxima e tocar num ponto abre o cartão do campus.
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { DadosMapa, Geo, Ponto } from "@/lib/mapa";
-import { lerNota, nota as fmt, ROTULO, statusNota, type Status } from "@/lib/formato";
-import { salvarMod, salvarNota, useMod, useNota } from "@/lib/nota";
+import { lerNota, nota as fmt, ROTULO, type Status } from "@/lib/formato";
+import { apagarNotas, salvarMedia, salvarMod, salvarNotasAreas, useMinhas, useMod, type Areas } from "@/lib/nota";
+import { AREAS, statusPara, suaMedia, temPesos, type Minhas, type Pesos } from "@/lib/minhas";
 import { BuscaCursos } from "@/components/BuscaCursos";
 
 type Atalho = { curso: string; slug: string; soDesktop?: boolean };
 type ItemBusca = { curso: string; slug: string; ofertas: number; ampla_min: number | null; ampla_max: number | null };
-type Disputado = { curso: string; slug: string; r: string; i: string; c: string; m: Record<string, number> };
+type Disputado = { curso: string; slug: string; r: string; i: string; c: string; m: Record<string, number> } & Pesos;
 type Caixa = [number, number, number, number];
 
 const plural = (n: number, um: string, varios: string) => `${n} ${n === 1 ? um : varios}`;
@@ -40,7 +41,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   const [dados, setDados] = useState(inicial);
   const [carregando, setCarregando] = useState<string | null>(null);
   const cache = useRef(new Map([[inicial.slug, inicial]]));
-  const minha = useNota();
+  const minha = useMinhas();
   const [editando, setEditando] = useState(false);
   const [uf, setUfBruto] = useState<string | null>(null);
   const [sel, setSelBruto] = useState<Ponto | null>(null);
@@ -105,15 +106,15 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   );
   const pilula = minha != null && !editando ? <PilulaNota minha={minha} editar={() => setEditando(true)} /> : null;
   const entrada = (compacta: boolean) => (minha == null || editando) && (
-    <EntradaNota ano={dados.ano} inicial={editando && minha != null ? fmt(minha) : ""} compacta={compacta}
-      pronto={(v) => { if (v != null && v !== minha) setRevelacao((n) => n + 1); setEditando(false); }} />
+    <EntradaNota ano={dados.ano} minha={editando ? minha : null} compacta={compacta}
+      pronto={(salvou) => { if (salvou) setRevelacao((n) => n + 1); setEditando(false); }} />
   );
 
   // ---------- 01c / W1c: estado aproximado ----------
   if (uf) {
     const est = geo.ufs.find((u) => u.uf === uf)!;
     const doEstado = pontos.filter((p) => p.u === uf);
-    const st = (p: Ponto): Status | null => (minha == null ? null : statusNota(corte(p), minha));
+    const st = (p: Ponto): Status | null => (minha == null ? null : statusPara(minha, p, corte(p)));
     const conta = contar(doEstado, minha, corte);
     const cartao = (ponto: Ponto) => <CartaoPonto p={ponto} curso={dados} corte={corte(ponto)} minha={minha} />;
     return (
@@ -152,7 +153,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   }
 
   // ---------- 01a/01b · W1a/W1b: Brasil ----------
-  const st = (p: Ponto): Status | null => (minha == null ? null : statusNota(corte(p), minha));
+  const st = (p: Ponto): Status | null => (minha == null ? null : statusPara(minha, p, corte(p)));
   const conta = contar(pontos, minha, corte);
   return (
     <div className="inicio" ref={topoRef}>
@@ -184,7 +185,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
             <>
               {pilula && <div className="mapa-linha">{pilula}</div>}
               <div className={`resumo${revelacao ? " revela" : ""}`} key={`r${revelacao}`}>
-              <h2 className="manchete-mapa">Sua nota supera o corte de {dados.ano} em {conta.supera} de {plural(pontos.length, "opção", "opções")}</h2>
+              <h2 className="manchete-mapa">{minha.n ? "Suas notas superam" : "Sua nota supera"} o corte de {dados.ano} em {conta.supera} de {plural(pontos.length, "opção", "opções")}</h2>
               <p className="miudo aviso-hist">Comparação histórica · não garante aprovação</p>
               <p className="contagem"><span className="t-pouco">{conta.pouco} por pouco</span><i>·</i><span className="t-abaixo">{conta.abaixo} abaixo do corte</span></p>
               </div>
@@ -238,44 +239,88 @@ function Presenca({ valor, teclado, className, children }: { valor: Ponto | null
   );
 }
 
-function contar(pontos: Ponto[], minha: number | null, corte: (p: Ponto) => number) {
+function contar(pontos: Ponto[], minha: Minhas | null, corte: (p: Ponto) => number) {
   const c = { supera: 0, pouco: 0, abaixo: 0 };
-  if (minha != null) for (const p of pontos) c[statusNota(corte(p), minha)]++;
+  if (minha != null) for (const p of pontos) c[statusPara(minha, p, corte(p))]++;
   return c;
 }
 
-export function PilulaNota({ minha, editar }: { minha: number; editar: () => void }) {
+/** Com as 5 notas, a média muda de opção para opção (pesos), então a pílula não mostra um número só. */
+export function PilulaNota({ minha, editar }: { minha: Minhas; editar: () => void }) {
   return (
     <span className="pilula-nota">
-      <span>Sua média</span><strong>{fmt(minha)}</strong>
+      {minha.n ? <><span>Suas notas</span><strong>por área</strong></> : <><span>Sua média</span><strong>{fmt(minha.media)}</strong></>}
       <button className="link-mudo" onClick={editar}>editar</button>
     </span>
   );
 }
 
-export function EntradaNota({ ano, inicial, pronto, compacta }: { ano: number; inicial: string; pronto: (v: number | null) => void; compacta: boolean }) {
-  const [texto, setTexto] = useState(inicial);
+const CAMPOS_AREA: { k: keyof Areas; rotulo: string }[] = [
+  { k: "red", rotulo: "Redação" }, { k: "mat", rotulo: "Matemática" }, { k: "cn", rotulo: "Natureza" }, { k: "ch", rotulo: "Humanas" }, { k: "lin", rotulo: "Linguagens" },
+];
+
+/** Aviso nas opções com pesos quando o aluno só deu a média única. */
+export function AvisoPesos() {
+  return <p className="aviso-pesos">Este curso usa pesos diferentes por área: sua média aqui pode ser outra. <a href="/calcular/">Digite por área</a></p>;
+}
+
+/**
+ * Entrada da nota: a média única (rápida) ou as 5 notas por área (cada opção calcula a média com os próprios pesos).
+ * As duas ficam salvas no navegador; a última forma digitada é a que vale.
+ */
+export function EntradaNota({ ano, minha, pronto, compacta }: { ano: number; minha: Minhas | null; pronto: (salvou: boolean) => void; compacta: boolean }) {
+  const [modo, setModo] = useState<"media" | "areas">(minha?.n ? "areas" : "media");
+  const [texto, setTexto] = useState(minha && !minha.n ? fmt(minha.media) : "");
+  const [areas, setAreas] = useState<Areas>(() => minha?.n ? Object.fromEntries(AREAS.map((k, i) => [k, fmt(minha.n![i])])) : {});
   const [erro, setErro] = useState(false);
   const ref = useRef<HTMLInputElement>(null);
-  useEffect(() => { if (inicial) ref.current?.focus(); }, [inicial]);
+  useEffect(() => { if (minha) ref.current?.focus(); }, [minha, modo]);
   function enviar(e: React.FormEvent) {
     e.preventDefault();
-    const v = lerNota(texto);
-    setErro(v == null);
-    if (v != null) { pronto(v); salvarNota(v); }
+    if (modo === "media") {
+      const v = lerNota(texto);
+      setErro(v == null);
+      if (v != null) { salvarMedia(v); pronto(true); }
+    } else {
+      const ok = CAMPOS_AREA.every((c) => lerNota(areas[c.k] ?? "") != null);
+      setErro(!ok);
+      if (ok) { salvarNotasAreas(areas); pronto(true); }
+    }
   }
+  const trocar = (m: "media" | "areas") => { setModo(m); setErro(false); };
   return (
-    <form className={`entrada-nota${compacta ? " compacta" : " cartao"}`} onSubmit={enviar}>
-      {!compacta && <label htmlFor="nota" className="entrada-titulo">Digite sua nota e compare com os cortes de {ano}</label>}
-      <div className="entrada-linha">
-        <input id="nota" ref={ref} inputMode="decimal" placeholder="Sua média do Enem" value={texto}
-          onChange={(e) => { setTexto(e.target.value); setErro(false); }} aria-invalid={erro} aria-label="Sua média do Enem" />
-        <button className="botao" type="submit">{compacta ? "Salvar" : "Comparar nota"}</button>
-      </div>
+    <form className={`entrada-nota${compacta ? " compacta" : " cartao"}${modo === "areas" ? " por-area" : ""}`} onSubmit={enviar}>
+      {!compacta && <label htmlFor="nota" className="entrada-titulo">{modo === "media" ? `Digite sua nota e compare com os cortes de ${ano}` : `Digite suas notas do Enem por área`}</label>}
+      {modo === "media" ? (
+        <div className="entrada-linha">
+          <input id="nota" ref={ref} inputMode="decimal" placeholder="Sua média do Enem" value={texto}
+            onChange={(e) => { setTexto(e.target.value); setErro(false); }} aria-invalid={erro} aria-label="Sua média do Enem" />
+          <button className="botao" type="submit">{compacta ? "Salvar" : "Comparar nota"}</button>
+        </div>
+      ) : (
+        <>
+          <div className="entrada-areas">
+            {CAMPOS_AREA.map((c, i) => (
+              <label key={c.k} className="calc-nota">
+                <span>{c.rotulo}</span>
+                <input id={i === 0 ? "nota" : undefined} ref={i === 0 ? ref : undefined} inputMode="decimal" autoComplete="off" placeholder="0,0" value={areas[c.k] ?? ""}
+                  onChange={(e) => { setAreas({ ...areas, [c.k]: e.target.value }); setErro(false); }} aria-invalid={erro && lerNota(areas[c.k] ?? "") == null} />
+              </label>
+            ))}
+            <button className="botao" type="submit">{compacta ? "Salvar" : "Comparar"}</button>
+          </div>
+          {!compacta && !erro && <p className="miudo entrada-explica">Cada curso dá um peso a cada área. Com as cinco notas, calculamos a sua média em cada opção.</p>}
+        </>
+      )}
       {erro
-        ? <p className="erro">Digite uma média entre 0 e 1000, como 712,40.</p>
-        : !compacta && <p className="privado"><span className="ponto" />Sua nota não sai do seu navegador</p>}
-      {inicial && <button type="button" className="link-mudo limpar" onClick={() => { salvarNota(null); pronto(null); }}>apagar minha nota</button>}
+        ? <p className="erro">{modo === "media" ? "Digite uma média entre 0 e 1000, como 712,40." : "Preencha as cinco notas, cada uma entre 0 e 1000."}</p>
+        : !compacta && modo === "media" && <p className="privado"><span className="ponto" />Sua nota não sai do seu navegador</p>}
+      <div className="entrada-opcoes">
+        {modo === "media"
+          ? <button type="button" className="link-mudo" onClick={() => trocar("areas")}>digitar por área (mais preciso)</button>
+          : <button type="button" className="link-mudo" onClick={() => trocar("media")}>usar só a média</button>}
+        {minha && <button type="button" className="link-mudo" onClick={() => { apagarNotas(); pronto(false); }}>apagar minhas notas</button>}
+      </div>
     </form>
   );
 }
@@ -397,11 +442,13 @@ export function Legenda({ comNota }: { comNota: boolean }) {
   return <div className="legenda">{item("supera", "Supera o corte")}{item("pouco", "Por pouco (até 10 pts)")}{item("abaixo", "Abaixo do corte")}</div>;
 }
 
-function CartaoPonto({ p, curso, corte, minha }: { p: Ponto; curso: DadosMapa; corte: number; minha: number | null }) {
-  const s = minha == null ? null : statusNota(corte, minha);
-  const dif = minha == null ? null : minha - corte;
+function CartaoPonto({ p, curso, corte, minha }: { p: Ponto; curso: DadosMapa; corte: number; minha: Minhas | null }) {
+  const sua = minha == null ? null : suaMedia(minha, p);
+  const s = minha == null ? null : statusPara(minha, p, corte);
+  const dif = sua == null ? null : sua.v - corte;
   const texto =
-    s === "pouco" ? `Até 10 pontos abaixo do corte do Sisu ${curso.ano}. O corte muda de um ano para o outro.`
+    sua?.minimo ? `Não atinge a ${sua.minimo}, então fica fora da disputa nesta opção.`
+    : s === "pouco" ? `Até 10 pontos abaixo do corte do Sisu ${curso.ano}. O corte muda de um ano para o outro.`
     : s === "supera" ? `Sua nota supera o corte do Sisu ${curso.ano}. O corte muda de um ano para o outro, então não é garantia.`
     : s === "abaixo" ? `Faltam ${fmt(-dif!)} pontos para o corte do Sisu ${curso.ano}.`
     : `Digite sua nota para comparar com este corte.`;
@@ -417,10 +464,11 @@ function CartaoPonto({ p, curso, corte, minha }: { p: Ponto; curso: DadosMapa; c
       <div className="cp-numeros">
         <div><span>Corte</span><strong>{fmt(corte)}</strong></div>
         {minha != null
-          ? <><div><span>Você</span><strong>{fmt(minha)}</strong></div><div><span>Diferença</span><strong className={`t-${s}`}>{dif! >= 0 ? "+" : "−"}{fmt(Math.abs(dif!))}</strong></div></>
+          ? <><div><span>{sua!.ponderada ? "Você (com pesos)" : "Você"}</span><strong>{fmt(sua!.v)}</strong></div><div><span>Diferença</span><strong className={`t-${s}`}>{dif! >= 0 ? "+" : "−"}{fmt(Math.abs(dif!))}</strong></div></>
           : <div><span>Inscritos (ampla)</span><strong>{p.n.toLocaleString("pt-BR")}</strong></div>}
       </div>
       <p>{texto}{p.b ? " Este curso dá bônus regional: confira no edital se você tem direito." : ""}</p>
+      {minha && !minha.n && temPesos(p) && <AvisoPesos />}
       <a className="botao" href={`/curso/${curso.slug}/${p.r}/`}>Ver curso</a>
     </div>
   );
@@ -441,7 +489,7 @@ function LinhaPonto({ titulo, meta, valor, s, ativa, href, onClick }: LinhaProps
 
 function ListaEstado({ uf, pontos, curso, mod, corte, minha, sel, aoEscolher }: {
   uf: string; pontos: Ponto[]; curso: DadosMapa; mod: { cod: string; nome: string }; corte: (p: Ponto) => number;
-  minha: number | null; sel: Ponto | null; aoEscolher: (p: Ponto, teclado: boolean) => void;
+  minha: Minhas | null; sel: Ponto | null; aoEscolher: (p: Ponto, teclado: boolean) => void;
 }) {
   const [todos, setTodos] = useState(false);
   const ord = [...pontos].sort((a, b) => corte(a) - corte(b));
@@ -451,19 +499,19 @@ function ListaEstado({ uf, pontos, curso, mod, corte, minha, sel, aoEscolher }: 
       <div className="cabeca"><h2>Campi em {uf}</h2><span className="miudo">{curso.curso} · {curtaMod(mod.cod, mod.nome)}</span></div>
       {vis.map((p) => (
         <LinhaPonto key={p.r} titulo={`${curso.curso} · ${p.i}`} meta={`${p.c} · ${curtaMod(mod.cod, mod.nome)}`} valor={corte(p)}
-          s={minha == null ? null : statusNota(corte(p), minha)} ativa={sel?.r === p.r} onClick={(e) => aoEscolher(p, e.detail === 0)} />
+          s={minha == null ? null : statusPara(minha, p, corte(p))} ativa={sel?.r === p.r} onClick={(e) => aoEscolher(p, e.detail === 0)} />
       ))}
       {ord.length > 5 && !todos && <button className="ver-mais" onClick={() => setTodos(true)}>Ver as {ord.length} opções em {uf}</button>}
     </section>
   );
 }
 
-function MaisDisputados({ itens, minha, ano }: { itens: Disputado[]; minha: number | null; ano: number }) {
+function MaisDisputados({ itens, minha, ano }: { itens: Disputado[]; minha: Minhas | null; ano: number }) {
   return (
     <section className="cartao lista">
       <div className="cabeca"><h2>Mais disputados</h2><span className="miudo">{minha == null ? `Sisu ${ano} · ampla, por inscritos` : "com a sua nota"}</span></div>
       {itens.map((d) => (
-        <LinhaPonto key={d.r} titulo={d.curso} meta={`${d.i} · ${d.c}`} valor={d.m.AC} s={minha == null ? null : statusNota(d.m.AC, minha)} href={`/curso/${d.slug}/${d.r}/`} />
+        <LinhaPonto key={d.r} titulo={d.curso} meta={`${d.i} · ${d.c}`} valor={d.m.AC} s={minha == null ? null : statusPara(minha, d, d.m.AC)} href={`/curso/${d.slug}/${d.r}/`} />
       ))}
     </section>
   );
