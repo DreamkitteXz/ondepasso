@@ -15,6 +15,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sisu, municipios
+from cursos import canonico, redirecionamentos, regras_de
 
 SAIDA = sisu.RAIZ / "dados" / "saida"
 MINUSCULAS = {"de", "da", "do", "das", "dos", "e", "em", "para", "a", "o", "com"}
@@ -74,7 +75,7 @@ def main():
     rel += ["## Consistência entre anos",
             f"- ofertas cujo nome de curso muda entre anos: {(nomes_mudaram > 1).sum()} (usa-se o nome mais recente)", ""]
     oferta = pd.DataFrame({
-        "processo": "sisu", "id": rec.CO_IES_CURSO, "curso": rec.NO_CURSO.map(titulo), "curso_slug": rec.NO_CURSO.map(slug),
+        "processo": "sisu", "id": rec.CO_IES_CURSO, "curso": rec.NO_CURSO.map(lambda n: canonico(titulo(n))), "curso_slug": rec.NO_CURSO.map(lambda n: slug(canonico(titulo(n)))),
         "ies_id": rec.CO_IES, "ies": rec.SG_IES, "ies_nome": rec.NO_IES.map(titulo), "categoria": rec.DS_CATEGORIA_ADM,
         "campus": rec.NO_CAMPUS.map(titulo), "municipio": rec.nome.fillna(rec.NO_MUNICIPIO_CAMPUS), "uf": rec.SG_UF_CAMPUS,
         "regiao": rec.DS_REGIAO, "ibge": rec.codigo_ibge, "lat": pd.to_numeric(rec.latitude), "lon": pd.to_numeric(rec.longitude),
@@ -142,6 +143,14 @@ def main():
                        "ampla_min": min(amplas) if amplas else None, "ampla_max": max(amplas) if amplas else None})
     indice.sort(key=lambda x: -x["ofertas"])
     (site / "cursos.json").write_text(json.dumps({"atualizado": f"{date.today():%Y-%m-%d}", "fonte": "Sisu/MEC — sisu.mec.gov.br › Relatórios", "anos": anos, "cursos": indice}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    # Endereços antigos dos cursos juntados (pipeline/cursos.py) -> novos, para não quebrar links.
+    redir = sisu.RAIZ / "web" / "public" / "_redirects"
+    linhas = redirecionamentos(rec.NO_CURSO.map(titulo).unique(), slug)
+    antigas = redir.read_text(encoding="utf-8").splitlines() if redir.exists() else []
+    todas = {l for x in antigas if x.startswith("/curso/") and "*" in x for l in regras_de(x)} | set(linhas)
+    redir.write_text("# Gerado por pipeline/cursos.py: cursos com nomes diferentes que foram juntados.\n"
+                     + "\n".join(sorted(l for l in todas if "*" not in l) + sorted(l for l in todas if "*" in l)) + "\n", encoding="utf-8")
+    rel += ["## Cursos juntados", f"- {sum('*' in l for l in todas)} nomes antigos redirecionam para o nome canônico (limite do Cloudflare: 100)", ""]
     (site / "modalidades.json").write_text(json.dumps(modalidades, ensure_ascii=False, indent=0), encoding="utf-8")
 
     tam = sum(f.stat().st_size for f in (site / "curso").glob("*.json"))

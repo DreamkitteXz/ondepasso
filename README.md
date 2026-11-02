@@ -20,6 +20,10 @@ python pipeline/inspecionar.py    # opcional: confere colunas de arquivos novos
 Para adicionar um ano, salve `sisuANO_inscricoes_notas_corte.xlsx` e `sisuANO_vagas_ofertadas.xlsx` em `dados/brutos/` e rode de novo.
 Se aparecer "SEM PAR" no relatório, inclua a grafia em `pipeline/municipios.py` › `APELIDOS`.
 
+Cursos com nomes diferentes para o mesmo curso ("Sistema de Informação" e "Sistemas de Informação") são juntados por `pipeline/cursos.py`.
+Para juntar mais um, acrescente a variação lá e rode `python pipeline/unificar_site.py` (não precisa das planilhas).
+Os endereços antigos ficam em `web/public/_redirects` (301); o Cloudflare aceita até 100 regras com `*`.
+
 ## Publicar (Cloudflare Workers, só arquivos estáticos)
 Em Workers & Pages › ondepasso › Settings › Build:
 - Root directory: `web`
