@@ -57,8 +57,8 @@ export async function desenharStory(d: DadosStory): Promise<Blob> {
 
   // topo: logo e curso (a partir de 250 px, fora da faixa coberta pelo Instagram/TikTok)
   let y = 250;
-  if (logo) { const lh = 58; ctx.drawImage(logo, X, y, lh * (logo.naturalWidth / logo.naturalHeight || 7.93), lh); }
-  y += 58 + 72;
+  if (logo) { const lh = 66; ctx.drawImage(logo, X, y, lh * (logo.naturalWidth / logo.naturalHeight || 5.9), lh); }
+  y += 66 + 64;
   ctx.font = f(500, 30); ctx.fillStyle = COR.fg3;
   ctx.letterSpacing = "2px"; ctx.fillText(d.rotulo.toUpperCase(), X, y); ctx.letterSpacing = "0px";
   y += 30;

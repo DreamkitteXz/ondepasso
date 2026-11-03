@@ -725,7 +725,7 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
   .topbar .wrap { gap: 10px; }
   .acoes { gap: 6px; }
   .selo { padding: 6px 9px; font-size: 12px; }
-  .marca img { height: 20px !important; width: auto; }
+  .marca img { height: 23px !important; width: auto; }
 }
 .linha .detalhe.t-supera { color: var(--verde); } .linha .detalhe.t-pouco { color: var(--ambar); } .linha .detalhe.t-abaixo { color: var(--vermelho); }
 

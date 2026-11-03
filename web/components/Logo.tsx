@@ -1,6 +1,6 @@
-// Logo "Crescendo" como arquivo estático (uma cópia por tema), para não repetir o desenho em cada uma das ~7.500 páginas.
+// Logo "Rota até a vaga" (visto que termina numa estação) como arquivo estático (uma cópia por tema), para não repetir o desenho em cada uma das ~7.500 páginas.
 // Qual aparece é decidido no CSS (.logo-claro / .logo-escuro), que respeita o botão de tema.
-export function Logo({ altura = 22 }: { altura?: number }) {
+export function Logo({ altura = 25 }: { altura?: number }) {
   const s = { height: altura, width: "auto" } as const;
   return (
     <>
