@@ -325,29 +325,61 @@ export function EntradaNota({ ano, minha, pronto, compacta }: { ano: number; min
   );
 }
 
+// ---------- Placa inclinada (2,5D) da vista do estado ----------
+// O estado vira uma "maquete": inclina até INCLINACAO graus durante o zoom, com espessura e sombra.
+// A perspectiva é calculada nas próprias coordenadas (sem transform 3D no SVG), então textos e toques continuam retos.
+const INCLINACAO = 28;
+type Projecao = (x: number, y: number) => [number, number];
+function projecao(caixa: Caixa | null, inc: number): { p: Projecao; cos: number } {
+  if (!caixa || inc <= 0) return { p: (x, y) => [x, y], cos: 1 };
+  const [bx, by, bw, bh] = caixa; const cx = bx + bw / 2, cy = by + bh / 2;
+  const t = (INCLINACAO * Math.PI / 180) * inc, sen = Math.sin(t), cos = Math.cos(t), D = 2.4 * Math.max(bw, bh);
+  return { cos, p: (x, y) => { const f = D / (D - (y - cy) * sen); return [cx + (x - cx) * f, cy + (y - cy) * cos * f]; } };
+}
+const aneis = (d: string) => d.split("M").filter(Boolean).map((r) => r.replace(/Z/g, "").split("L").map((par) => par.split(",").map(Number) as [number, number]));
+const desenhar = (rs: [number, number][][], p: Projecao, dy = 0) =>
+  rs.map((r) => "M" + r.map(([x, y]) => { const [a, b] = p(x, y); return `${a.toFixed(1)},${(b + dy).toFixed(1)}`; }).join("L") + "Z").join("");
+
 export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto }: {
   geo: Geo; pontos: Ponto[]; corte: (p: Ponto) => number; st: (p: Ponto) => Status | null; uf: string | null;
   caixa: Caixa | null; sel: Ponto | null; aoEstado: (u: string) => void; aoPonto: (p: Ponto) => void;
 }) {
+  // A placa só existe na vista do estado da home (uf + caixa). Ao voltar ao Brasil, ela desinclina com o mesmo zoom.
+  const placa = uf && caixa ? uf : null;
+  const ultimo = useRef<{ uf: string; caixa: Caixa } | null>(null);
+  if (placa && caixa) ultimo.current = { uf: placa, caixa };
+  const rs = useMemo(() => { const u0 = ultimo.current?.uf; const e = u0 ? geo.ufs.find((g) => g.uf === u0) : null; return e ? aneis(e.d) : []; },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [geo, placa ?? ultimo.current?.uf]);
+
   const alvo = useMemo<Caixa>(() => {
     if (!caixa) return [0, 0, geo.w, geo.h];
-    const [x, y, w, h] = caixa; const m = Math.max(w, h) * 0.06;
-    return [x - m, y - m, w + 2 * m, h + 2 * m];
-  }, [caixa, geo]);
+    // Enquadra a placa já inclinada, contando a espessura e a sombra embaixo.
+    const { p } = projecao(caixa, 1);
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const r of rs) for (const [x, y] of r) { const [a, b] = p(x, y); x0 = Math.min(x0, a); x1 = Math.max(x1, a); y0 = Math.min(y0, b); y1 = Math.max(y1, b); }
+    if (!isFinite(x0)) { const [x, y, w, h] = caixa; x0 = x; y0 = y; x1 = x + w; y1 = y + h; }
+    const w = x1 - x0, h = y1 - y0, m = Math.max(w, h) * 0.06;
+    return [x0 - m, y0 - m * 1.4, w + 2 * m, h + m * 1.4 + m + Math.max(w, h) * 0.05];
+  }, [caixa, geo, rs]);
   const [vb, setVb] = useState<Caixa>(alvo);
+  const [inc, setInc] = useState(placa ? 1 : 0);
   const vbRef = useRef(vb); vbRef.current = vb;
+  const incRef = useRef(inc); incRef.current = inc;
+  const alvoInc = placa ? 1 : 0;
   useEffect(() => {
-    const de = vbRef.current; const t0 = performance.now();
+    const de = vbRef.current, deInc = incRef.current; const t0 = performance.now();
     const dur = matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 380;
     let id = 0;
     const passo = (t: number) => {
       const a = dur ? Math.min(1, (t - t0) / dur) : 1; const e = 1 - Math.pow(1 - a, 3);
       setVb(de.map((v, i) => v + (alvo[i] - v) * e) as Caixa);
+      setInc(deInc + (alvoInc - deInc) * e);
       if (a < 1) id = requestAnimationFrame(passo);
     };
     id = requestAnimationFrame(passo);
     return () => cancelAnimationFrame(id);
-  }, [alvo]);
+  }, [alvo, alvoInc]);
 
   // Pontos e textos com tamanho fixo na tela (7 px no Brasil, 14 px no estado), qualquer que seja o zoom.
   const svgRef = useRef<SVGSVGElement>(null);
@@ -361,9 +393,11 @@ export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto
   }, []);
   const u = vb[2] / px;
   const tam = (uf ? 14 : 7) * u;
+  const { p: proj, cos } = projecao(ultimo.current?.caixa ?? null, inc);
+  const pr = (p: { x: number; y: number }) => proj(p.x, p.y);
 
   const [foco, setFoco] = useState<Ponto | null>(null);
-  const pos = (p: Ponto) => ({ left: `${((p.x - vb[0]) / vb[2]) * 100}%`, top: `${((p.y - vb[1]) / vb[3]) * 100}%` });
+  const pos = (p: Ponto) => { const [x, y] = pr(p); return { left: `${((x - vb[0]) / vb[2]) * 100}%`, top: `${((y - vb[1]) / vb[3]) * 100}%` }; };
   const visiveis = uf ? pontos.filter((p) => p.u === uf) : pontos;
 
   // Nomes das 5 cidades com mais inscritos no estado (como no 01c).
@@ -377,41 +411,79 @@ export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto
   const caixas: [number, number, number, number][] = [];
   const rotulosVisiveis = rotulos.flatMap((r) => {
     if (caixas.length >= 5) return [];
-    const sx = (r.x - vb[0]) / u, sy = (r.y - vb[1]) / u, w = r.c.length * 6.6, d = tam / u / 2 + 5;
+    const [rx, ry] = pr(r);
+    const sx = (rx - vb[0]) / u, sy = (ry - vb[1]) / u, w = r.c.length * 6.6, d = tam / u / 2 + 5;
     const dir = sx + d + w < px;
     const box: [number, number, number, number] = [dir ? sx + d : sx - d - w, sy - 9, w, 18];
     if (caixas.some((b) => box[0] < b[0] + b[2] + 4 && b[0] < box[0] + box[2] + 4 && box[1] < b[1] + b[3] && b[1] < box[1] + box[3])) return [];
-    caixas.push(box); return [{ ...r, dir }];
+    caixas.push(box); return [{ ...r, rx, ry, dir }];
   });
+
+  // Pino do campus escolhido: sobe ao escolher; o anterior desce em 100 ms (ver .pino no CSS).
+  const [saindo, setSaindo] = useState<Ponto | null>(null);
+  const [anterior, setAnterior] = useState(sel);
+  if (sel !== anterior) { if (anterior && placa) setSaindo(anterior); setAnterior(sel); }
+  useEffect(() => { if (!saindo) return; const t = setTimeout(() => setSaindo(null), 110); return () => clearTimeout(t); }, [saindo]);
+  const H = 30 * u;
+  const pino = (p: Ponto, sai: boolean) => {
+    const [x, y] = pr(p); const s = st(p);
+    return (
+      <g key={(sai ? "sai-" : "") + p.r} className={`pino${sai ? " desce" : ""}`} transform={`translate(${x} ${y})`} style={{ "--h": `${H}px` } as React.CSSProperties} aria-hidden="true">
+        {!sai && <ellipse className="onda" rx={16 * u} ry={16 * u * cos} />}
+        <ellipse className="pino-sombra" rx={6 * u} ry={6 * u * cos} />
+        <line className="pino-haste" x1={0} y1={0} x2={0} y2={-H} strokeWidth={2 * u} />
+        <g transform={`translate(0 ${-H})`}><g className={`pino-cabeca pt ${s ?? "neutro"}`}><Marca s={s} tam={16 * u} /></g></g>
+      </g>
+    );
+  };
+  const espessura = 9 * u * inc;
+  const comPlaca = inc > 0.001 && rs.length > 0;
+  const ufPlaca = ultimo.current?.uf;
 
   return (
     <div className="mapa" onMouseLeave={() => setFoco(null)}>
       <svg ref={svgRef} viewBox={vb.join(" ")} role="img" aria-label={uf ? `Mapa do estado ${uf}` : "Mapa do Brasil"} style={{ aspectRatio: `${vb[2]} / ${vb[3]}` }}>
+        {comPlaca && (
+          <defs><filter id="sombra-placa" x="-20%" y="-20%" width="140%" height="160%"><feGaussianBlur stdDeviation={6 * u} /></filter></defs>
+        )}
         <g className="ufs">
-          {geo.ufs.map((g) => (
-            <path key={g.uf} d={g.d} className={`uf${g.uf === uf ? " atual" : uf ? " fora" : ""}`} strokeWidth={(uf ? 1.2 : 0.8) * u} onClick={() => aoEstado(g.uf)}>
-              <title>{g.nome}</title>
-            </path>
-          ))}
+          {geo.ufs.map((g) => {
+            const cls = `uf${g.uf === uf ? " atual" : uf ? " fora" : ""}`;
+            if (comPlaca && g.uf === ufPlaca) return (
+              <g key={g.uf} className="placa">
+                <path d={desenhar(rs, proj, espessura + 10 * u * inc)} className="placa-sombra" filter="url(#sombra-placa)" style={{ opacity: 0.55 * inc }} />
+                <path d={desenhar(rs, proj, espessura)} className="placa-lado" strokeWidth={1.2 * u} />
+                <path d={desenhar(rs, proj)} className={cls} strokeWidth={(uf ? 1.2 : 0.8) * u} onClick={() => aoEstado(g.uf)}><title>{g.nome}</title></path>
+              </g>
+            );
+            return (
+              <path key={g.uf} d={g.d} className={cls} strokeWidth={(uf ? 1.2 : 0.8) * u} onClick={() => aoEstado(g.uf)}>
+                <title>{g.nome}</title>
+              </path>
+            );
+          })}
         </g>
-        {sel && uf && <line className="conector so-mobile" x1={sel.x} y1={sel.y + 13 * u} x2={sel.x} y2={vb[1] + vb[3]} strokeWidth={u} />}
+        {sel && uf && (() => { const [x, y] = pr(sel); return <line className="conector so-mobile" x1={x} y1={y + 8 * u} x2={x} y2={vb[1] + vb[3]} strokeWidth={u} />; })()}
         <g>
           {visiveis.map((p) => {
-            const s = st(p);
+            const s = st(p); const [x, y] = pr(p); const escolhido = placa && sel?.r === p.r;
             return (
-              <g key={p.r} className={`pt ${s ?? "neutro"}`} transform={`translate(${p.x} ${p.y})`}
+              <g key={p.r} className={`pt ${s ?? "neutro"}`} transform={`translate(${x} ${y})`}
                 onMouseEnter={() => setFoco(p)} onClick={(e) => { e.stopPropagation(); setFoco(null); aoPonto(p); }}>
                 <circle r={tam * 1.4} className="alvo" />
-                <Marca s={s} tam={tam} />
+                {/* Achatado no chão da placa; o escolhido vira pino (abaixo). */}
+                {!escolhido && <g transform={`scale(1 ${cos})`}><Marca s={s} tam={tam} /></g>}
               </g>
             );
           })}
         </g>
         {rotulosVisiveis.map((r) => {
           const dir = r.dir;
-          return <text key={r.c} className="rotulo-cidade" x={r.x + (dir ? 1 : -1) * (tam / 2 + 5 * u)} y={r.y + 4.2 * u} fontSize={12 * u} textAnchor={dir ? "start" : "end"}>{r.c}</text>;
+          return <text key={r.c} className="rotulo-cidade" x={r.rx + (dir ? 1 : -1) * (tam / 2 + 5 * u)} y={r.ry + 4.2 * u} fontSize={12 * u} textAnchor={dir ? "start" : "end"}>{r.c}</text>;
         })}
-        {sel && uf && <circle className="selecionado" cx={sel.x} cy={sel.y} r={13 * u} strokeWidth={1.5 * u} />}
+        {placa && saindo && saindo.r !== sel?.r && pino(saindo, true)}
+        {placa && sel && pino(sel, false)}
+        {sel && uf && !placa && <circle className="selecionado" cx={sel.x} cy={sel.y} r={13 * u} strokeWidth={1.5 * u} />}
       </svg>
       {foco && !sel && (
         <div className="dica-ponto" style={pos(foco)} role="tooltip">

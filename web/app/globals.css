@@ -642,3 +642,27 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
   .uni-mais { height: auto; padding: 14px 20px 12px; border: 0; border-top: 1px solid var(--line-1); border-radius: 0; text-align: left; }
   .uni-cursos > .miudo { padding: 0 20px 14px; }
 }
+
+/* ---------- Placa inclinada (2,5D) e pino do campus escolhido ---------- */
+.placa-lado { fill: color-mix(in srgb, var(--panel-2) 55%, #000); stroke: var(--line-2); pointer-events: none; }
+.placa-sombra { fill: #000; pointer-events: none; }
+.pino { pointer-events: none; }
+.pino-haste { stroke: var(--fg-2); stroke-linecap: round; transform-box: fill-box; transform-origin: 50% 100%; animation: haste-sobe 220ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+.pino-cabeca { animation: cabeca-sobe 220ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+.pino-cabeca circle:not(.alvo) { stroke-linejoin: round; }
+.pino-sombra { fill: #000; opacity: .35; }
+.onda { fill: none; stroke: var(--fg-1); stroke-width: 1.5px; vector-effect: non-scaling-stroke; transform-box: fill-box; transform-origin: center; opacity: 0; animation: onda 400ms cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+.pino.desce .pino-haste { animation: haste-desce 100ms ease-in forwards; }
+.pino.desce .pino-cabeca { animation: cabeca-desce 100ms ease-in forwards; }
+.pino.desce .pino-sombra { opacity: 0; transition: opacity 100ms ease-in; }
+@keyframes haste-sobe { from { transform: scaleY(0); } }
+@keyframes cabeca-sobe { from { transform: translateY(var(--h)); opacity: 0; } }
+@keyframes haste-desce { to { transform: scaleY(0); } }
+@keyframes cabeca-desce { to { transform: translateY(var(--h)); opacity: 0; } }
+@keyframes onda { from { transform: scale(.3); opacity: .6; } to { transform: scale(1.6); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .pino-haste, .pino-cabeca { animation: none; }
+  .onda, .pino.desce { display: none; }
+}
+.placa .uf.atual, .placa .uf.atual:hover { fill: var(--panel-3); }
+.placa-lado { fill: color-mix(in srgb, var(--panel-3) 50%, #000); }
