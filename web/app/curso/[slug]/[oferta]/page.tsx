@@ -60,7 +60,7 @@ export default async function PaginaOferta({ params }: P) {
         <p className="sub"><a className="link-uni" href={`/universidades/${slugIes(o.ies)}/`}>{o.ies_nome}</a>{" · " + [o.campus, `${o.municipio}/${o.uf}`, o.turno, o.grau].filter(Boolean).join(" · ")}</p>
       </header>
       <DetalheOferta
-        slug={c.slug} rota={slugOferta(o)} curso={c.curso} ies={o.ies} cidade={`${o.municipio}/${o.uf}`} ano={ano}
+        slug={c.slug} rota={slugOferta(o)} curso={c.curso} ies={o.ies} cidade={`${o.municipio}/${o.uf}`} ano={ano} turno={o.turno} grau={o.grau}
         atual={corteAmpla(o, ano)} delta={variacao(o, ano)} bonus={o.bonus_regional_pct ?? 0}
         cotas={cotas} hist={hist} piso={piso} teto={teto}
         iguais={iguais} minimas={minimas} pesos={pesos} mediaMinima={(o.media_minima ?? 0) > 1 ? o.media_minima : null}

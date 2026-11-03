@@ -7,14 +7,15 @@ import { statusPara, suaMedia, temPesos, type Pesos } from "@/lib/minhas";
 import { salvarMod, useMinhas, useMod } from "@/lib/nota";
 import { AvisoPesos, EntradaNota, Marca } from "@/components/MapaInicio";
 import { IconeMapa } from "@/components/ListaCurso";
-import { Compartilhar } from "@/components/Compartilhar";
+import { PainelStory, type DadosStory } from "@/components/CardStory";
+import { SITE } from "@/lib/site";
 import { Termo } from "@/components/Termo";
 import { NoSisu } from "@/components/NoSisu";
 
 export type LinhaCota = { cod: string; nome: string; titulo: string; vagas: number | null; inscritos: number | null; corte: number | null };
 export type Local = { d: string; box: [number, number, number, number]; x: number | null; y: number | null };
 type Props = {
-  slug: string; rota: string; curso: string; ies: string; cidade: string; ano: number;
+  slug: string; rota: string; curso: string; ies: string; cidade: string; ano: number; turno: string; grau: string;
   atual: number | null; delta: number | null; bonus: number;
   cotas: LinhaCota[]; hist: { ano: number; v: number | null }[]; piso: number; teto: number;
   iguais: boolean; minimas: { area: string; v: number }[]; pesos: { area: string; peso: number | null; minima: number | null }[];
@@ -29,6 +30,7 @@ export function DetalheOferta(p: Props) {
   const modSalva = useMod();
   const [editando, setEditando] = useState(false);
   const [todas, setTodas] = useState(false);
+  const [compartilhando, setCompartilhando] = useState(false);
 
   // A modalidade do aluno só vale aqui se ela tiver corte nesta opção; senão, compara com a ampla.
   const comCorte = p.cotas.filter((c) => c.corte != null);
@@ -44,6 +46,13 @@ export function DetalheOferta(p: Props) {
   const destaque = cota ? cota.corte : p.atual;
   const idxMinha = p.cotas.findIndex((c) => c.cod === minhaCota?.cod);
   const cortar = !todas && p.cotas.length > MOSTRAR + 1 && idxMinha < MOSTRAR;
+
+  const dadosStory = (comNota: boolean): DadosStory => ({
+    curso: p.curso, ies: p.ies, cidade: p.cidade, turno: p.turno, grau: p.grau, ano: p.ano,
+    rotulo: cota ? `Corte · ${cota.nome} · ${p.ano}` : `Nota de corte · Sisu ${p.ano} · ampla`,
+    corte: destaque, delta: cota ? null : p.delta, hist: p.hist, url: `${SITE}/curso/${p.slug}/${p.rota}/`,
+    minha: comNota && sua && s && dif != null ? { media: sua.v, ponderada: sua.ponderada, status: s, dif } : null,
+  });
 
   const voce = (
     <div className="voce">
@@ -163,8 +172,12 @@ export function DetalheOferta(p: Props) {
 
         <div className="oferta-acoes">
           <a className="botao botao-contorno" href={`/?curso=${p.slug}&campus=${p.rota}`}><IconeMapa /> Ver no mapa</a>
-          <Compartilhar titulo={`Nota de corte de ${p.curso} na ${p.ies}`} />
+          <button className="botao botao-contorno" aria-expanded={compartilhando} onClick={() => setCompartilhando((v) => !v)}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="m16 6-4-4-4 4" /><path d="M12 2v13" /></svg>
+            Compartilhar
+          </button>
         </div>
+        {compartilhando && <PainelStory dados={dadosStory} nomeArquivo={`ondepasso-${p.slug}-${p.rota}.png`} temNota={minha != null && s != null} onFechar={() => setCompartilhando(false)} />}
       </aside>
     </div>
   );
