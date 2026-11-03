@@ -28,7 +28,7 @@ function guardado<T>(chave: string, ler: (s: string | null) => T, escrever: (v: 
   return { salvar, useValor };
 }
 
-const nota = guardado<number | null>("nota", (s) => { const v = Number(s); return s && Number.isFinite(v) && v > 0 ? v : null; }, (v) => (v == null ? null : String(v)), null);
+const nota = guardado<number | null>("nota", (s) => { const v = Number(s); return s && Number.isFinite(v) && v >= 0 && v <= 1000 ? v : null; }, (v) => (v == null ? null : String(v)), null);
 /** Modalidade com que o aluno compara (a dele). Vale para a home, a lista e o detalhe; "AC" se nunca escolheu. */
 const modalidade = guardado<string>("mod", (s) => (s && /^[A-Z0-9_]{1,12}$/.test(s) ? s : "AC"), (v) => (v === "AC" ? null : v), "AC");
 
@@ -57,7 +57,7 @@ export function useMinhas(): Minhas | null {
   const media = useNota();
   return useMemo(() => {
     const n = AREAS.map((k) => lerNota(areas[k] ?? ""));
-    if (n.every((v): v is number => v != null)) return { n, media: Math.round((n.reduce((a, b) => a + b, 0) / 5) * 100) / 100 };
+    if (n.every((v): v is number => v != null)) return { n, media: n.reduce((a, b) => a + b, 0) / 5 };
     return media != null ? { n: null, media } : null;
   }, [areas, media]);
 }

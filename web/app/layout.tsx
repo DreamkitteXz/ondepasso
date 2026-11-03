@@ -37,8 +37,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="wrap">{children}</main>
         <footer>
           <div className="wrap">
-            <p>Cortes do Sisu {anos[0]} a {anos[anos.length - 1]} (chamada regular), dados públicos do MEC. O onde passo não é oficial: confira sempre no portal do Sisu.</p>
-            <p>Atualizado em {atualizado.split("-").reverse().join("/")}. Suas notas nunca saem do seu navegador.</p>
+            <p>Cortes do Sisu {anos[0]} a {anos[anos.length - 1]} (chamada regular), dados públicos do MEC. O onde passo não é oficial: confira sempre no <a href="https://acessounico.mec.gov.br/">portal do Sisu</a>.</p>
+            <p><a href="/sobre-dados/">Fonte e metodologia</a></p>
+            <p>Base atualizada em {atualizado.split("-").reverse().join("/")}. Suas notas nunca saem do seu navegador.</p>
           </div>
         </footer>
         <Tabbar />

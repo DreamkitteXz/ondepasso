@@ -1,9 +1,10 @@
 "use client";
 // Página da universidade (Figma "UFMG · Universidade · Mobile" e W6b). Tudo vem do Sisu, menos fotos e site oficial.
+import { AvisoComparacao, CoberturaComparacao, ContagemComparacao } from "@/components/ResumoComparacao";
 import { Apoio } from "@/components/Apoio";
 import { useMemo, useState } from "react";
 import type { CursoUni, Universidade } from "@/lib/universidades";
-import { nota as fmt, ROTULO, type Status } from "@/lib/formato";
+import { nota as fmt, ROTULO, nomeModalidade, contagemVazia, type Status } from "@/lib/formato";
 import { statusPara } from "@/lib/minhas";
 import { salvarMod, useMinhas, useMod } from "@/lib/nota";
 import { EntradaNota, Marca, PilulaNota } from "@/components/MapaInicio";
@@ -25,7 +26,7 @@ export function PaginaUniversidade({ u, ano, mods, contorno }: {
   const [turno, setTurno] = useState("");
   const [ordem, setOrdem] = useState<Ordem>("maior");
   const [limite, setLimite] = useState(POR_PAGINA);
-  const mod = mods.find((m) => m.cod === modSalva) ?? mods[0];
+  const mod = mods.find((m) => m.cod === modSalva) ?? { cod: modSalva, nome: nomeModalidade(modSalva) };
   const corte = (c: CursoUni) => c.m[mod.cod] as number | undefined;
   const st = (c: CursoUni): Status | null => { const v = corte(c); return minha == null || v == null ? null : statusPara(minha, c, v); };
 
@@ -41,7 +42,7 @@ export function PaginaUniversidade({ u, ano, mods, contorno }: {
   }, [u, campus, turno, ordem, mod.cod]);
 
   const comCorte = u.cursos.filter((c) => corte(c) != null);
-  const conta = { supera: 0, pouco: 0, abaixo: 0 };
+  const conta = contagemVazia();
   if (minha) for (const c of comCorte) conta[statusPara(minha, c, corte(c)!)]++;
 
   const descricao = [u.nome, u.tipo, campiTexto(u)].join(" · ");
@@ -69,15 +70,17 @@ export function PaginaUniversidade({ u, ano, mods, contorno }: {
         <>
           <div className="mapa-linha"><PilulaNota minha={minha} editar={() => setEditando(true)} /></div>
           <div className={`resumo${revelacao ? " revela" : ""}`} key={`r${revelacao}`}>
-            <h2 className="manchete-curso">{minha.n ? "Suas notas superam" : "Sua nota supera"} o corte de {ano} em {conta.supera} de {comCorte.length} cursos</h2>
-            <p className="contagem"><span className="t-pouco">{conta.pouco} por pouco</span><i>·</i><span className="t-abaixo">{conta.abaixo} abaixo do corte</span></p>
+            <h2 className="manchete-curso">{conta.supera} de {comCorte.length} opções acima do corte de {ano}</h2>
+            <ContagemComparacao conta={conta} /><AvisoComparacao minha={minha} />
           </div>
         </>
       )}
+      <CoberturaComparacao total={u.cursos.length} comparaveis={comCorte.length} />
       <div className="uni-mod">
         <span className="miudo">comparando com:</span>
         <label className="trocar"><b>{mod.nome}</b> <i>trocar</i>
           <select value={mod.cod} onChange={(e) => salvarMod(e.target.value)} aria-label="Modalidade para comparar">
+            {!mods.some((m) => m.cod === modSalva) && <option value={modSalva}>{nomeModalidade(modSalva)} · sem corte</option>}
             {mods.map((m) => <option key={m.cod} value={m.cod}>{m.nome}</option>)}
           </select>
         </label>

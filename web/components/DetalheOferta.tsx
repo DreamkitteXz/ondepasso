@@ -3,7 +3,7 @@
 // todo o resto já sai pronto no HTML estático.
 import { Apoio } from "@/components/Apoio";
 import { useState } from "react";
-import { nota as fmt, ROTULO, type Status } from "@/lib/formato";
+import { nota as fmt, diferenca, ROTULO, nomeModalidade, type Status } from "@/lib/formato";
 import { statusPara, suaMedia, temPesos, type Pesos } from "@/lib/minhas";
 import { salvarMod, useMinhas, useMod } from "@/lib/nota";
 import { AvisoPesos, EntradaNota, Marca } from "@/components/MapaInicio";
@@ -33,24 +33,23 @@ export function DetalheOferta(p: Props) {
   const [todas, setTodas] = useState(false);
   const [compartilhando, setCompartilhando] = useState(false);
 
-  // A modalidade do aluno só vale aqui se ela tiver corte nesta opção; senão, compara com a ampla.
-  const comCorte = p.cotas.filter((c) => c.corte != null);
-  const minhaCota = comCorte.find((c) => c.cod === modSalva) ?? comCorte.find((c) => c.cod === "AC") ?? null;
-  const semAMinha = modSalva !== "AC" && minhaCota?.cod !== modSalva;
+  // Ausência de corte nunca troca silenciosamente a modalidade do aluno.
+  const minhaCota = p.cotas.find((c) => c.cod === modSalva) ?? null;
+  const semAMinha = minhaCota?.corte == null;
   const corte = minhaCota?.corte ?? null;
   const sua = minha == null ? null : suaMedia(minha, p.peso);
   const s = minha != null && corte != null ? statusPara(minha, p.peso, corte) : null;
-  const dif = sua != null && corte != null ? Math.round((sua.v - corte) * 100) / 100 : null;
+  const dif = sua != null && corte != null ? sua.v - corte : null;
 
   // Com uma cota escolhida, o número grande é o corte dela; a ampla fica menor, logo abaixo.
   const cota = minhaCota && minhaCota.cod !== "AC" ? minhaCota : null;
-  const destaque = cota ? cota.corte : p.atual;
+  const destaque = modSalva === "AC" ? p.atual : corte;
   const idxMinha = p.cotas.findIndex((c) => c.cod === minhaCota?.cod);
   const cortar = !todas && p.cotas.length > MOSTRAR + 1 && idxMinha < MOSTRAR;
 
   const dadosStory = (comNota: boolean): DadosStory => ({
     curso: p.curso, ies: p.ies, cidade: p.cidade, turno: p.turno, grau: p.grau, ano: p.ano,
-    rotulo: cota ? `Corte · ${cota.nome} · ${p.ano}` : `Nota de corte · Sisu ${p.ano} · ampla`,
+    rotulo: modSalva !== "AC" ? `Corte · ${minhaCota?.nome ?? nomeModalidade(modSalva)} · ${p.ano}` : `Nota de corte · Sisu ${p.ano} · ampla`,
     corte: destaque, delta: cota ? null : p.delta, hist: p.hist, url: `${SITE}/curso/${p.slug}/${p.rota}/`,
     minha: comNota && sua && s && dif != null ? { media: sua.v, ponderada: sua.ponderada, status: s, dif } : null,
   });
@@ -70,7 +69,7 @@ export function DetalheOferta(p: Props) {
             {sua!.minimo && <p className="miudo t-abaixo">não atinge a {sua!.minimo}</p>}
             {dif != null && !sua!.minimo && (
               <p className="miudo">
-                {dif < 0 ? `faltam ${fmt(-dif)} pontos` : dif === 0 ? "exatamente no corte" : `${fmt(dif)} pontos acima do corte de ${p.ano} (não é garantia)`}
+                {dif < 0 ? `faltam ${diferenca(-dif)} pontos` : dif === 0 ? "exatamente no corte histórico; confira os critérios de desempate" : `${diferenca(dif)} pontos acima do corte de ${p.ano} (não é garantia)`}
                 {minhaCota && minhaCota.cod !== "AC" ? ` · ${minhaCota.nome}` : ""}
               </p>
             )}
@@ -87,7 +86,7 @@ export function DetalheOferta(p: Props) {
       <div className="oferta-principal">
         <section className="cartao corte-oferta" aria-label="Nota de corte">
           <div className="corte-numero">
-            <p className="rotulo">{cota ? <>Corte da sua cota · {p.ano}</> : <><Termo id="corte">Nota de corte</Termo> · Sisu {p.ano} · ampla</>}</p>
+            <p className="rotulo">{modSalva !== "AC" ? <>Corte · {minhaCota?.nome ?? nomeModalidade(modSalva)} · {p.ano}</> : <><Termo id="corte">Nota de corte</Termo> · Sisu {p.ano} · ampla</>}</p>
             <div className="figura">{destaque == null ? "sem corte" : fmt(destaque)}</div>
             {cota && <p className="corte-cota">{cota.nome} · <Termo id="modalidade">ampla</Termo>: {p.atual == null ? "sem corte" : fmt(p.atual)}</p>}
             <p className="corte-meta">
@@ -109,16 +108,17 @@ export function DetalheOferta(p: Props) {
         <section className="cartao cotas" aria-labelledby="t-cotas">
           <div className="cotas-topo">
             <h2 id="t-cotas">Cortes por <Termo id="modalidade">cota</Termo> · {p.ano}</h2>
-            {comCorte.length > 1 && (
+            {p.cotas.length > 0 && (
               <label className="trocar miudo">sua modalidade · <i>trocar</i>
-                <select value={minhaCota?.cod ?? "AC"} onChange={(e) => salvarMod(e.target.value)} aria-label="Sua modalidade">
-                  {comCorte.map((c) => <option key={c.cod} value={c.cod}>{c.nome}</option>)}
+                <select value={modSalva} onChange={(e) => salvarMod(e.target.value)} aria-label="Sua modalidade">
+                  {!minhaCota && <option value={modSalva}>{nomeModalidade(modSalva)} · sem corte</option>}
+                  {p.cotas.map((c) => <option key={c.cod} value={c.cod}>{c.nome}{c.corte == null ? " · sem corte" : ""}</option>)}
                 </select>
               </label>
             )}
           </div>
           {minha == null && <p className="miudo cotas-nota">Olhe a linha da sua cota. Vagas e inscritos mostram a concorrência.</p>}
-          {semAMinha && <p className="miudo cotas-nota">Sua modalidade não tem corte nesta opção em {p.ano}; a comparação usa a ampla.</p>}
+          {semAMinha && <p className="miudo cotas-nota">Sua modalidade não tem corte nesta opção em {p.ano}. Não há dados para comparar; nenhuma outra modalidade foi usada no lugar dela.</p>}
           <table className="tabela-cotas">
             <thead><tr><th>Modalidade</th><th className="n">Vagas</th><th className="n">Inscritos</th><th className="n">Corte</th></tr></thead>
             <tbody>
@@ -138,7 +138,7 @@ export function DetalheOferta(p: Props) {
             </tbody>
           </table>
           {cortar && <button className="ver-todas" onClick={() => setTodas(true)}>Ver todas as {p.cotas.length} modalidades</button>}
-          {p.cotas.some((c) => c.corte == null) && <p className="miudo cotas-nota">“Sem corte”: a modalidade não teve candidatos suficientes para formar uma nota de corte.</p>}
+          {p.cotas.some((c) => c.corte == null) && <p className="miudo cotas-nota">“Sem corte”: não há nota disponível na base para esta edição e modalidade. Não significa nota zero nem impossibilidade de aprovação.</p>}
         </section>
       </div>
 
@@ -180,6 +180,7 @@ export function DetalheOferta(p: Props) {
         </div>
         {compartilhando && <PainelStory dados={dadosStory} nomeArquivo={`ondepasso-${p.slug}-${p.rota}.png`} temNota={minha != null && s != null} onFechar={() => setCompartilhando(false)} />}
 
+        <p className="orientacao-comparacao">Comparação histórica · não garante aprovação. <a href="/sobre-dados/">Fonte e metodologia</a> · <a href="https://acessounico.mec.gov.br/" target="_blank" rel="noopener noreferrer">Consultar portal oficial</a>.</p>
         <Apoio />
       </aside>
     </div>

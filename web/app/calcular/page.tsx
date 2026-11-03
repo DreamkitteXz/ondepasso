@@ -16,7 +16,7 @@ export default function PaginaCalcular() {
       <header className="calc-cabecalho">
         <p className="rotulo">Calculadora</p>
         <h1>Compare sua média com os cortes</h1>
-        <p className="sub">Digite suas notas do Enem e compare sua média ponderada com os cortes históricos.</p>
+        <p className="sub">Informe as cinco notas. Cada opção usa os pesos do curso para calcular sua média.</p>
         <p className="privado"><span className="ponto" />Suas notas não saem do seu navegador</p>
       </header>
       <Calculadora ano={ano} />

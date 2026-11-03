@@ -16,7 +16,7 @@ const MODS = ["AC", "LI_EP", "LB_EP", "LI_PPI", "LB_PPI", "LI_PP", "LB_PP", "LI_
  * m = corte por modalidade no último ano (só as que existem nessa oferta).
  */
 export type Ponto = { r: string; i: string; c: string; u: string; x: number; y: number; t: string; n: number; m: Record<string, number>; b?: 1 } & Pesos;
-export type DadosMapa = { slug: string; curso: string; ano: number; mods: { cod: string; nome: string }[]; pontos: Ponto[] };
+export type DadosMapa = { slug: string; curso: string; ano: number; mods: { cod: string; nome: string }[]; pontos: Ponto[]; total: number; comCorte: Record<string, number> };
 
 const RAD = Math.PI / 180;
 export function projetar(lon: number, lat: number) {
@@ -37,26 +37,29 @@ export function dadosMapa(slug: string): DadosMapa {
   const ano = Math.max(...c.anos);
   const pontos: Ponto[] = [];
   const usadas = new Map<string, number>();
+  const comCorte: Record<string, number> = {};
   for (const o of c.ofertas) {
     const doAno = o.cortes[String(ano)] ?? {};
-    if (o.lat == null || o.lon == null || doAno.AC?.corte == null) continue;
+    for (const [cod] of Object.entries(cortesPorMod(o.cortes, ano))) comCorte[cod] = (comCorte[cod] ?? 0) + 1;
+    if (o.lat == null || o.lon == null) continue;
     const m: Record<string, number> = {};
     for (const cod of MODS) { const v = doAno[cod]?.corte; if (v != null) { m[cod] = v; usadas.set(cod, (usadas.get(cod) ?? 0) + 1); } }
+    if (Object.keys(m).length === 0) continue;
     const [x, y] = projetar(o.lon, o.lat);
     pontos.push({ r: slugOferta(o), i: o.ies, c: o.municipio, u: o.uf, x: +x.toFixed(1), y: +y.toFixed(1), t: o.turno, n: doAno.AC?.inscritos ?? 0, m, ...((o.bonus_regional_pct ?? 0) > 0 ? { b: 1 as const } : {}), ...pesosCompactos(o) });
   }
   // Abaixo do corte por baixo, quem supera por cima: desenhar do maior corte para o menor.
-  pontos.sort((a, b) => b.m.AC - a.m.AC);
+  pontos.sort((a, b) => (b.m.AC ?? 0) - (a.m.AC ?? 0));
   // A ampla sempre aparece (mesmo num curso sem corte no ano), para o seletor nunca ficar vazio.
   const mods = MODS.filter((cod) => cod === "AC" || (usadas.get(cod) ?? 0) > 0).map((cod) => ({ cod, nome: nomeModalidade(cod) }));
-  return { slug, curso: c.curso, ano, mods, pontos };
+  return { slug, curso: c.curso, ano, mods, pontos, total: c.ofertas.length, comCorte };
 }
 
 /** "Mais disputados": a opção com mais inscritos na ampla de cada curso pedido. */
 export function maisDisputados(slugs: string[]) {
   return slugs.map((s) => {
     const d = dadosMapa(s);
-    const p = [...d.pontos].sort((a, b) => b.n - a.n)[0];
+    const p = d.pontos.filter((p) => p.m.AC != null).sort((a, b) => b.n - a.n)[0];
     return { curso: d.curso, slug: s, ...p };
   });
 }

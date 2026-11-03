@@ -735,3 +735,32 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
 .apoio p { margin: 0; font-size: 13px; line-height: 1.45; color: var(--fg-3); }
 .apoio .botao { justify-self: start; margin-top: 4px; }
 .apoio-rotulo { font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-4); }
+
+/* Revisão do Figma: leitura, empate e estados sem dados. */
+.miudo, .mapa-cartao > .miudo, .mapa-linha .miudo, .calc-topo .miudo, .calc-ajuda { font-size: 13px; line-height: 1.45; color: var(--fg-3); }
+.orientacao-comparacao { font-size: 13px; line-height: 1.5; color: var(--fg-2); overflow-wrap: anywhere; }
+.orientacao-comparacao p { margin: 0 0 6px; }
+.orientacao-comparacao a { text-decoration: underline; text-underline-offset: 3px; }
+.cobertura-comparacao { margin: 8px 0 0; }
+.t-igual, .selo-status.igual { color: var(--ambar); }
+.t-minimo, .selo-status.minimo { color: var(--vermelho); }
+.selo-tinta.igual { color: var(--ambar); background: var(--ambar-tint); }
+.selo-tinta.minimo { color: var(--vermelho); background: var(--vermelho-tint); }
+.pt.igual circle:not(.alvo) { fill: var(--ambar); }
+.pt.igual path { stroke: var(--bg); stroke-linecap: round; }
+.pt.minimo circle:not(.alvo) { fill: var(--vermelho); }
+.pt.minimo path { stroke: var(--bg); stroke-linecap: round; }
+.legenda { font-size: 12px; row-gap: 10px; }
+.calc-topo { gap: 8px; padding-bottom: 16px; }
+.calc-vazio .botao { white-space: normal; min-height: 44px; height: auto; padding: 12px 16px; }
+.calc-nota span { color: var(--fg-3); }
+.pagina-informativa { max-width: 760px; margin: 28px auto; }
+.pagina-informativa h1 { font-size: clamp(28px, 5vw, 42px); }
+.estado-comparacao { display: grid; gap: 16px; margin: 24px 0; line-height: 1.6; }
+.estado-comparacao h2, .estado-comparacao p { margin: 0; }
+.estado-comparacao .botao { justify-self: start; }
+.selo-status, .selo-tinta { white-space: normal; }
+@media (min-width: 1024px) and (max-width: 1250px) {
+  .calc-grade { grid-template-columns: 300px minmax(0, 1fr); gap: 24px; }
+  .calc-cabeca.so-desktop, .calc-linha { grid-template-columns: minmax(120px, 1fr) 80px 80px 72px 110px; gap: 8px; padding-inline: 12px; }
+}

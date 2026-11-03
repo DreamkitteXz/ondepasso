@@ -42,16 +42,26 @@ export const PESOS: [keyof Oferta["pesos"], string][] = [
   ["red", "Redação"], ["lin", "Linguagens"], ["mat", "Matemática"], ["ch", "Ciências Humanas"], ["cn", "Ciências da Natureza"],
 ];
 
-export type Status = "supera" | "pouco" | "abaixo";
+export type Status = "supera" | "igual" | "pouco" | "abaixo" | "minimo";
 /** Por pouco = até 10 pontos abaixo do corte. Vocabulário fixo: Supera o corte / Por pouco / Abaixo do corte. */
 export const POR_POUCO = 10;
 export function statusNota(corte: number, minha: number): Status {
-  return corte <= minha ? "supera" : corte - minha <= POR_POUCO ? "pouco" : "abaixo";
+  // Tolerância apenas para ruído de ponto flutuante, sem arredondar a média.
+  if (Math.abs(minha - corte) < 1e-9) return "igual";
+  return minha > corte ? "supera" : corte - minha <= POR_POUCO ? "pouco" : "abaixo";
 }
-export const ROTULO: Record<Status, string> = { supera: "Supera o corte", pouco: "Por pouco", abaixo: "Abaixo do corte" };
+export const ROTULO: Record<Status, string> = { supera: "Supera o corte", igual: "Iguala o corte", pouco: "Por pouco", abaixo: "Abaixo do corte", minimo: "Não atinge mínimo" };
+export const contagemVazia = (): Record<Status, number> => ({ supera: 0, igual: 0, pouco: 0, abaixo: 0, minimo: 0 });
 
 /** "765,4" ou "765.40" → 765.4; null se não for uma média válida do Enem. */
 export function lerNota(s: string): number | null {
-  const v = Number(s.trim().replace(/\s/g, "").replace(",", "."));
-  return Number.isFinite(v) && v > 0 && v <= 1000 ? Math.round(v * 100) / 100 : null;
+  const texto = s.trim();
+  if (!/^\d+(?:[.,]\d+)?$/.test(texto)) return null;
+  const v = Number(texto.replace(",", "."));
+  return Number.isFinite(v) && v >= 0 && v <= 1000 ? v : null;
 }
+
+/** Não exibe uma diferença não nula como se fosse empate. */
+export const diferenca = (v: number) => Math.abs(v) < 1e-9 ? nota(0) : Math.abs(v) < 0.005
+  ? v.toLocaleString("pt-BR", { minimumFractionDigits: 4, maximumFractionDigits: 6 })
+  : nota(v);

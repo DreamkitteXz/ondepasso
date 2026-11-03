@@ -2,10 +2,11 @@
 // Home com mapa — segue o Figma: mobile 01a (sem nota), 01b (com nota), 01c (estado aproximado + cartão)
 // e desktop W1a–W1c. Os chips escolhem o curso, a nota colore os pontos, "trocar" muda a modalidade,
 // tocar num estado aproxima e tocar num ponto abre o cartão do campus.
+import { AvisoComparacao, CoberturaComparacao, ContagemComparacao } from "@/components/ResumoComparacao";
 import { Apoio } from "@/components/Apoio";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { DadosMapa, Geo, Ponto } from "@/lib/mapa";
-import { lerNota, nota as fmt, ROTULO, type Status } from "@/lib/formato";
+import { lerNota, nota as fmt, diferenca, ROTULO, nomeModalidade, contagemVazia, type Status } from "@/lib/formato";
 import { apagarNotas, salvarMedia, salvarMod, salvarNotasAreas, useMinhas, useMod, type Areas } from "@/lib/nota";
 import { AREAS, statusPara, suaMedia, temPesos, type Minhas, type Pesos } from "@/lib/minhas";
 import { BuscaCursos } from "@/components/BuscaCursos";
@@ -42,6 +43,8 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   }, []);
   const [dados, setDados] = useState(inicial);
   const [carregando, setCarregando] = useState<string | null>(null);
+  const [erroMapa, setErroMapa] = useState<string | null>(null);
+  const pedidoMapa = useRef(0);
   const cache = useRef(new Map([[inicial.slug, inicial]]));
   const minha = useMinhas();
   const [editando, setEditando] = useState(false);
@@ -55,7 +58,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   const mod = useMod(); const setMod = salvarMod;
   const topoRef = useRef<HTMLDivElement>(null);
 
-  const modAtual = dados.mods.find((m) => m.cod === mod) ?? dados.mods[0];
+  const modAtual = dados.mods.find((m) => m.cod === mod) ?? { cod: mod, nome: nomeModalidade(mod) };
   const pontos = useMemo(() => dados.pontos.filter((p) => p.m[modAtual.cod] != null), [dados, modAtual]);
   const corte = (p: Ponto) => p.m[modAtual.cod];
 
@@ -66,18 +69,26 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   }
 
   async function escolher(slug: string): Promise<DadosMapa | undefined> {
-    if (slug === dados.slug) return dados;
+    const pedido = ++pedidoMapa.current;
+    setErroMapa(null);
+    if (slug === dados.slug) { setCarregando(null); return dados; }
     setSel(null);
     const pronto = cache.current.get(slug);
     if (pronto) { setDados(pronto); return pronto; }
     setCarregando(slug);
     try {
-      const d: DadosMapa = await (await fetch(`/mapa/${slug}.json`)).json();
+      const resposta = await fetch(`/mapa/${slug}.json`);
+      if (!resposta.ok) throw new Error("Mapa indisponível");
+      const d: DadosMapa = await resposta.json();
       cache.current.set(slug, d);
+      if (pedido !== pedidoMapa.current) return;
       setDados(d);
       return d;
+    } catch {
+      if (pedido === pedidoMapa.current) setErroMapa(slug);
+      return;
     } finally {
-      setCarregando(null);
+      if (pedido === pedidoMapa.current) setCarregando(null);
     }
   }
 
@@ -101,6 +112,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
     <p className="comparando">
       comparando com: <label className="trocar"><b>{modAtual.nome}</b> · <i>trocar</i>
         <select value={modAtual.cod} onChange={(e) => { setMod(e.target.value); setSel(null); }} aria-label="Modalidade para comparar">
+          {!dados.mods.some((m) => m.cod === mod) && <option value={mod}>{nomeModalidade(mod)} · sem corte</option>}
           {dados.mods.map((m) => <option key={m.cod} value={m.cod}>{m.nome}</option>)}
         </select>
       </label>
@@ -133,6 +145,8 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
             {minha != null ? (
               <p className={`contagem${revelacao ? " revela" : ""}`} key={`r${revelacao}`}>
                 <span className="t-supera">{plural(conta.supera, "supera", "superam")} o corte</span><i>·</i>
+                {conta.igual > 0 && <><span className="t-igual">{conta.igual} no mesmo corte</span><i>·</i></>}
+                {conta.minimo > 0 && <><span className="t-minimo">{conta.minimo} sem atingir mínimo</span><i>·</i></>}
                 <span className="t-pouco">{conta.pouco} por pouco</span><i>·</i>
                 <span className="t-abaixo">{conta.abaixo} abaixo do corte</span>
               </p>
@@ -173,6 +187,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
         }} />
       </div>
       <div className="inicio-controles">
+        {erroMapa && <p className="erro" role="alert">Não foi possível carregar o curso escolhido. O mapa anterior continua visível. <button className="link" onClick={() => escolher(erroMapa)}>Tentar novamente</button></p>}
         {chips}
         {entrada(false)}
       </div>
@@ -187,9 +202,9 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
             <>
               {pilula && <div className="mapa-linha">{pilula}</div>}
               <div className={`resumo${revelacao ? " revela" : ""}`} key={`r${revelacao}`}>
-              <h2 className="manchete-mapa">{minha.n ? "Suas notas superam" : "Sua nota supera"} o corte de {dados.ano} em {conta.supera} de {plural(pontos.length, "opção", "opções")}</h2>
-              <p className="miudo aviso-hist">Comparação histórica · não garante aprovação</p>
-              <p className="contagem"><span className="t-pouco">{conta.pouco} por pouco</span><i>·</i><span className="t-abaixo">{conta.abaixo} abaixo do corte</span></p>
+              <h2 className="manchete-mapa">{conta.supera} de {plural(pontos.length, "opção", "opções")} acima do corte de {dados.ano}</h2>
+              <AvisoComparacao minha={minha} />
+              <ContagemComparacao conta={conta} />
               </div>
               {comparando}
             </>
@@ -197,6 +212,8 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
           <Mapa geo={geo} pontos={pontos} corte={corte} st={st} uf={null} caixa={null} sel={null}
             aoEstado={setUf} aoPonto={(p) => { setUf(p.u); setSel(p); }} />
           <Legenda comNota={minha != null} />
+          <CoberturaComparacao total={dados.total ?? dados.pontos.length} comparaveis={dados.comCorte?.[modAtual.cod] ?? pontos.length} mapeadas={pontos.length} />
+          {pontos.length === 0 && <p className="orientacao-comparacao">Sem opções com corte e localização para esta modalidade no mapa. Consulte a lista completa.</p>}
           <p className="miudo">
             <span className="so-mobile">Toque</span><span className="so-desktop">Clique</span> num estado para aproximar
             {minha != null && ` · base: Sisu ${dados.ano}, chamada regular`}
@@ -243,7 +260,7 @@ function Presenca({ valor, teclado, className, children }: { valor: Ponto | null
 }
 
 function contar(pontos: Ponto[], minha: Minhas | null, corte: (p: Ponto) => number) {
-  const c = { supera: 0, pouco: 0, abaixo: 0 };
+  const c = contagemVazia();
   if (minha != null) for (const p of pontos) c[statusPara(minha, p, corte(p))]++;
   return c;
 }
@@ -318,9 +335,10 @@ export function EntradaNota({ ano, minha, pronto, compacta }: { ano: number; min
       {erro
         ? <p className="erro">{modo === "media" ? "Digite uma média entre 0 e 1000, como 712,40." : "Preencha as cinco notas, cada uma entre 0 e 1000."}</p>
         : !compacta && modo === "media" && <p className="privado"><span className="ponto" />Sua nota não sai do seu navegador</p>}
+      {modo === "media" && <p className="orientacao-comparacao">A média simples é uma estimativa. Os pesos podem mudar o resultado.</p>}
       <div className="entrada-opcoes">
         {modo === "media"
-          ? <button type="button" className="link-mudo" onClick={() => trocar("areas")}>digitar por área (mais preciso)</button>
+          ? <button type="button" className="link-mudo" onClick={() => trocar("areas")}>Usar as cinco notas do Enem</button>
           : <button type="button" className="link-mudo" onClick={() => trocar("media")}>usar só a média</button>}
         {minha && <button type="button" className="link-mudo" onClick={() => { apagarNotas(); pronto(false); }}>apagar minhas notas</button>}
       </div>
@@ -501,8 +519,9 @@ export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto
 /** Ponto do mapa (componente "Ponto do mapa" do Figma): neutro, supera (cheio), por pouco (anel), abaixo (cheio com ×). */
 export function Marca({ s, tam }: { s: Status | null; tam: number }) {
   const r = tam / 2;
+  if (s === "igual") return <><circle r={r} /><path d={`M${-r * .45} ${-r * .2}H${r * .45}M${-r * .45} ${r * .2}H${r * .45}`} strokeWidth={tam * .14} /></>;
   if (s === "pouco") { const sw = tam * 0.21; return <circle r={r - sw / 2} strokeWidth={sw} />; }
-  if (s === "abaixo") {
+  if (s === "abaixo" || s === "minimo") {
     const a = tam * 0.18;
     return <><circle r={r} /><path d={`M${-a} ${-a}L${a} ${a}M${a} ${-a}L${-a} ${a}`} strokeWidth={tam * 0.14} /></>;
   }
@@ -510,11 +529,11 @@ export function Marca({ s, tam }: { s: Status | null; tam: number }) {
 }
 
 export function Legenda({ comNota }: { comNota: boolean }) {
-  if (!comNota) return <p className="legenda miudo">Cada ponto é um campus. Digite sua nota para ver as cores.</p>;
+  if (!comNota) return <p className="legenda miudo">Cada ponto representa uma opção. Digite sua nota para ver as cores.</p>;
   const item = (s: Status, t: string) => (
     <span><svg width="10" height="10" viewBox="-5 -5 10 10" className={`pt ${s}`} aria-hidden="true"><Marca s={s} tam={10} /></svg>{t}</span>
   );
-  return <div className="legenda">{item("supera", "Supera o corte")}<span><svg width="10" height="10" viewBox="-5 -5 10 10" className="pt pouco" aria-hidden="true"><Marca s="pouco" tam={10} /></svg><Termo id="pouco">Por pouco (até 10 pts)</Termo></span>{item("abaixo", "Abaixo do corte")}</div>;
+  return <div className="legenda">{item("supera", "Supera o corte")}{item("igual", "Iguala o corte")}<span><svg width="10" height="10" viewBox="-5 -5 10 10" className="pt pouco" aria-hidden="true"><Marca s="pouco" tam={10} /></svg><Termo id="pouco">Por pouco (até 10 pts)</Termo></span>{item("abaixo", "Abaixo do corte")}{item("minimo", "Não atinge mínimo")}</div>;
 }
 
 function CartaoPonto({ p, curso, corte, minha }: { p: Ponto; curso: DadosMapa; corte: number; minha: Minhas | null }) {
@@ -523,9 +542,10 @@ function CartaoPonto({ p, curso, corte, minha }: { p: Ponto; curso: DadosMapa; c
   const dif = sua == null ? null : sua.v - corte;
   const texto =
     sua?.minimo ? `Não atinge a ${sua.minimo}, então fica fora da disputa nesta opção.`
-    : s === "pouco" ? `Até 10 pontos abaixo do corte do Sisu ${curso.ano}. O corte muda de um ano para o outro.`
+    : s === "igual" ? "Sua nota iguala o corte histórico. Confira os critérios de desempate no edital; isso não garante uma vaga."
+    : s === "pouco" ? `Até 10 pontos abaixo do corte do Sisu ${curso.ano}. Essa faixa não é uma probabilidade de aprovação.`
     : s === "supera" ? `Sua nota supera o corte do Sisu ${curso.ano}. O corte muda de um ano para o outro, então não é garantia.`
-    : s === "abaixo" ? `Faltam ${fmt(-dif!)} pontos para o corte do Sisu ${curso.ano}.`
+    : s === "abaixo" ? `Faltam ${diferenca(-dif!)} pontos para o corte do Sisu ${curso.ano}.`
     : `Digite sua nota para comparar com este corte.`;
   return (
     <div className="cartao-ponto">
@@ -539,7 +559,7 @@ function CartaoPonto({ p, curso, corte, minha }: { p: Ponto; curso: DadosMapa; c
       <div className="cp-numeros">
         <div><span>Corte</span><strong>{fmt(corte)}</strong></div>
         {minha != null
-          ? <><div><span>{sua!.ponderada ? "Você (com pesos)" : "Você"}</span><strong>{fmt(sua!.v)}</strong></div><div><span>Diferença</span><strong className={`t-${s}`}>{dif! >= 0 ? "+" : "−"}{fmt(Math.abs(dif!))}</strong></div></>
+          ? <><div><span>{sua!.ponderada ? "Você (com pesos)" : "Você"}</span><strong>{fmt(sua!.v)}</strong></div><div><span>Diferença</span><strong className={`t-${s}`}>{dif! >= 0 ? "+" : "−"}{diferenca(Math.abs(dif!))}</strong></div></>
           : <div><span>Inscritos (ampla)</span><strong>{p.n.toLocaleString("pt-BR")}</strong></div>}
       </div>
       <p>{texto}{p.b ? " Este curso dá bônus regional: confira no edital se você tem direito." : ""}</p>

@@ -1,10 +1,11 @@
 "use client";
 // Página do curso com a nota do aluno — Figma 02 (mobile) e W2 (desktop).
 // A média vem do mesmo localStorage da home; cada linha ganha o status e o topo resume "supera em X de N".
+import { AvisoComparacao, CoberturaComparacao, ContagemComparacao } from "@/components/ResumoComparacao";
 import { Apoio } from "@/components/Apoio";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Geo, Ponto } from "@/lib/mapa";
-import { nota as fmt, ROTULO, type Status } from "@/lib/formato";
+import { nota as fmt, ROTULO, nomeModalidade, contagemVazia, type Status } from "@/lib/formato";
 import { statusPara, temPesos } from "@/lib/minhas";
 import { salvarMod, useMinhas, useMod } from "@/lib/nota";
 import { EntradaNota, Legenda, Mapa, PilulaNota } from "@/components/MapaInicio";
@@ -24,7 +25,7 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
   const [turno, setTurno] = useState("");
   const [ordem, setOrdem] = useState<"menor" | "maior">("menor");
   const [limite, setLimite] = useState(POR_PAGINA);
-  const modAtual = mods.find((m) => m.cod === mod) ?? mods[0];
+  const modAtual = mods.find((m) => m.cod === mod) ?? { cod: mod, nome: nomeModalidade(mod) };
   const corte = (p: Ponto) => p.m[modAtual.cod] as number | undefined;
 
   const ufs = useMemo(() => [...new Set(itens.map((i) => i.u))].sort(), [itens]);
@@ -39,7 +40,7 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
   }, [itens, uf, turno, ordem, modAtual]);
 
   const comCorte = itens.filter((i) => corte(i) != null);
-  const conta = { supera: 0, pouco: 0, abaixo: 0 };
+  const conta = contagemVazia();
   if (minha != null) for (const i of comCorte) conta[statusPara(minha, i, corte(i)!)]++;
   const comPesos = itens.filter((i) => temPesos(i)).length;
   const st = (p: Ponto): Status | null => { const c = corte(p); return minha == null || c == null ? null : statusPara(minha, p, c); };
@@ -48,6 +49,7 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
     <p className="comparando">
       comparando com: <label className="trocar"><b>{modAtual.nome}</b> · <i>trocar</i>
         <select value={modAtual.cod} onChange={(e) => setMod(e.target.value)} aria-label="Modalidade para comparar">
+          {!mods.some((m) => m.cod === mod) && <option value={mod}>{nomeModalidade(mod)} · sem corte</option>}
           {mods.map((m) => <option key={m.cod} value={m.cod}>{m.nome}</option>)}
         </select>
       </label>
@@ -63,15 +65,17 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
         <>
           <div className="mapa-linha"><PilulaNota minha={minha} editar={() => setEditando(true)} /></div>
           <div className={`resumo${revelacao ? " revela" : ""}`} key={`r${revelacao}`}>
-            <h2 className="manchete-curso">Você supera o corte em {conta.supera} de {comCorte.length}</h2>
+            <h2 className="manchete-curso">{conta.supera} de {comCorte.length} opções acima do corte de {ano}</h2>
             {minha.n
               ? <p className="miudo">Com os pesos de cada opção{comPesos ? ` (${plural(comPesos, "usa", "usam")} pesos diferentes por área)` : ""}.</p>
               : comPesos > 0 && <p className="aviso-pesos">{plural(comPesos, "opção usa", "opções usam")} pesos diferentes por área: nelas a sua média pode ser outra. <a href="/calcular/">Digite por área</a></p>}
-            <p className="contagem"><span className="t-pouco">{conta.pouco} por pouco</span><i>·</i><span className="t-abaixo">{conta.abaixo} abaixo do corte</span></p>
+            <ContagemComparacao conta={conta} /><AvisoComparacao minha={minha} />
           </div>
         </>
       )}
       {comparando}
+      <CoberturaComparacao total={itens.length} comparaveis={comCorte.length} />
+      {comCorte.length === 0 && <p className="orientacao-comparacao">Sem corte para esta modalidade e edição. Um dado ausente não significa nota zero.</p>}
     </section>
   );
 
@@ -116,11 +120,11 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
                 </span>
                 <span className="lc-cidade so-desktop">{i.c}/{i.u}</span>
                 <span className="lc-corte">
-                  <strong>{fmt(c)}</strong>
+                  <strong>{c == null ? "sem corte" : fmt(c)}</strong>
                   <span className="so-mobile detalhe">{s ? <span className={`t-${s}`}>{ROTULO[s]}</span> : <Delta d={modAtual.cod === "AC" ? i.delta : null} sem={c == null} ano={ano} />}</span>
                 </span>
                 <span className="lc-delta so-desktop"><Delta d={modAtual.cod === "AC" ? i.delta : null} sem={c == null} /></span>
-                <span className="lc-status so-desktop">{s ? <span className={`selo-status ${s}`}>{ROTULO[s]}</span> : <span className="miudo">—</span>}</span>
+                <span className="lc-status so-desktop">{s ? <span className={`selo-status ${s}`}>{ROTULO[s]}</span> : <span className="miudo">{c == null ? "Sem dados para comparar" : "—"}</span>}</span>
               </a>
             );
           })}

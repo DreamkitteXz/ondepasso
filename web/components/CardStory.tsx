@@ -2,7 +2,7 @@
 // Card de story 1080 × 1920 (Figma S1/S2), desenhado no navegador com <canvas>: nada sai do aparelho
 // até a pessoa escolher compartilhar ou baixar. A nota só entra se ela marcar "incluir minha nota".
 import { useEffect, useRef, useState } from "react";
-import { nota as fmt, ROTULO, type Status } from "@/lib/formato";
+import { nota as fmt, diferenca, ROTULO, type Status } from "@/lib/formato";
 
 export type DadosStory = {
   curso: string; ies: string; cidade: string; turno: string; grau: string; ano: number;
@@ -13,8 +13,8 @@ export type DadosStory = {
 
 const W = 1080, H = 1920, X = 96, LARG = W - 2 * X;
 const COR = { bg: "#0F0E0D", panel: "#151412", p2: "#1B1A17", p3: "#22201D", linha: "rgba(250,250,249,.08)", fg1: "#FAFAF9", fg2: "#D6D4CF", fg3: "#A6A39C", fg4: "#85827C", verde: "#3DD68C", ambar: "#E8B04B", verm: "#F14242" };
-const TINTA: Record<Status, string> = { supera: "rgba(61,214,140,.14)", pouco: "rgba(0,0,0,0)", abaixo: "rgba(241,66,66,.14)" };
-const COR_ST: Record<Status, string> = { supera: COR.verde, pouco: COR.ambar, abaixo: COR.verm };
+const TINTA: Record<Status, string> = { supera: "rgba(61,214,140,.14)", igual: "rgba(232,176,75,.12)", minimo: "rgba(241,66,66,.14)", pouco: "rgba(0,0,0,0)", abaixo: "rgba(241,66,66,.14)" };
+const COR_ST: Record<Status, string> = { supera: COR.verde, igual: COR.ambar, minimo: COR.verm, pouco: COR.ambar, abaixo: COR.verm };
 
 function familias() {
   const css = getComputedStyle(document.documentElement);
@@ -89,7 +89,7 @@ export async function desenharStory(d: DadosStory): Promise<Blob> {
     caixa(ctx, X, y, LARG, alt, 28, COR.p2);
     ctx.font = f(400, 38); ctx.fillStyle = COR.fg2; ctx.fillText(`${m.ponderada ? "Minha média aqui" : "Minha média"} ${fmt(m.media)}`, X + 36, y + 64);
     ctx.font = f(400, 30); ctx.fillStyle = COR.fg4;
-    ctx.fillText(m.dif < 0 ? `faltam ${fmt(-m.dif)} pontos` : m.dif === 0 ? "exatamente no corte" : `${fmt(m.dif)} pontos acima`, X + 36, y + 110);
+    ctx.fillText(m.dif < 0 ? `faltam ${diferenca(-m.dif)} pontos` : m.dif === 0 ? "exatamente no corte" : `${diferenca(m.dif)} pontos acima`, X + 36, y + 110);
     const st = ROTULO[m.status]; ctx.font = f(600, 34); const sw = ctx.measureText(st).width + 44;
     const sx = X + LARG - 36 - sw, sy = y + (alt - 62) / 2;
     caixa(ctx, sx, sy, sw, 62, 14, TINTA[m.status], m.status === "pouco" ? COR.ambar : undefined);

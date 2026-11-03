@@ -22,7 +22,7 @@ export type LinhaCalc = [number, string, string, string, string, number[], numbe
 export type DadosCalc = { ano: number; cursos: { curso: string; slug: string; g: number }[]; grupos: string[]; mods: { cod: string; nome: string }[]; linhas: LinhaCalc[] };
 
 const AREAS = ["red", "lin", "mat", "ch", "cn"] as const;
-const mais1 = (v: number | null | undefined) => (v != null && v > 1 ? v : 0);
+const mais1 = (v: number | null | undefined) => (v != null && v > 0 ? v : 0);
 
 export function dadosCalc(): DadosCalc {
   const idx = indice();
@@ -35,7 +35,6 @@ export function dadosCalc(): DadosCalc {
     const ci = cursos.push({ curso: c.curso, slug: c.slug, g: NOMES_GRUPOS.indexOf(grupoDe(c.curso)) }) - 1;
     for (const o of c.ofertas) {
       const m = cortesPorMod(o.cortes, ano);
-      if (m.AC == null) continue;
       Object.keys(m).forEach((k) => usadas.add(k));
       linhas.push([ci, slugOferta(o), o.ies, o.municipio, o.uf, AREAS.map((a) => o.pesos[a] ?? 1), AREAS.map((a) => mais1(o.minimas[a])), mais1(o.media_minima), m]);
     }

@@ -11,12 +11,12 @@ const ICONES = {
 /** Aba atual pelo caminho: /calcular é Calcular; o resto (home, cursos) é Buscar. */
 function useAtual() {
   const p = usePathname() ?? "/";
-  return p.startsWith("/calcular") ? "calcular" : p.startsWith("/universidades") ? "universidades" : "buscar";
+  return p.startsWith("/ao-vivo") ? "aovivo" : p.startsWith("/calcular") ? "calcular" : p.startsWith("/universidades") ? "universidades" : "buscar";
 }
 
 const ITENS: { chave: keyof typeof ICONES; rotulo: string; href?: string }[] = [
   { chave: "buscar", rotulo: "Buscar", href: "/" },
-  { chave: "aovivo", rotulo: "Ao vivo" },
+  { chave: "aovivo", rotulo: "Ao vivo", href: "/ao-vivo/" },
   { chave: "calcular", rotulo: "Calcular", href: "/calcular/" },
   { chave: "universidades", rotulo: "Universidades", href: "/universidades/" },
 ];
