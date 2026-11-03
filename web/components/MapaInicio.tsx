@@ -571,7 +571,7 @@ function ListaEstado({ uf, pontos, curso, mod, corte, minha, sel, aoEscolher }: 
     <section className="cartao lista">
       <div className="cabeca"><h2>Campi em {uf}</h2><span className="miudo">{curso.curso} · {curtaMod(mod.cod, mod.nome)}</span></div>
       {vis.map((p) => (
-        <LinhaPonto key={p.r} titulo={`${curso.curso} · ${p.i}`} meta={`${p.c} · ${curtaMod(mod.cod, mod.nome)}`} valor={corte(p)}
+        <LinhaPonto key={p.r} titulo={`${curso.curso} · ${p.i}`} meta={p.c} valor={corte(p)}
           s={minha == null ? null : statusPara(minha, p, corte(p))} ativa={sel?.r === p.r} onClick={(e) => aoEscolher(p, e.detail === 0)} />
       ))}
       {ord.length > 5 && !todos && <button className="ver-mais" onClick={() => setTodos(true)}>Ver as {ord.length} opções em {uf}</button>}

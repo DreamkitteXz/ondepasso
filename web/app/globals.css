@@ -714,3 +714,17 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
 .ps-acoes .botao { padding: 0 12px; }
 .ps-acoes a[aria-disabled="true"] { opacity: .5; pointer-events: none; }
 .painel-story > .miudo { margin: 0; }
+
+/* Textos longos (cotas com nome grande) não podem alargar a página no celular */
+.estado-lado { grid-template-columns: minmax(0, 1fr); }
+.estado-lado > *, .inicio-lista > *, .cartao.lista { min-width: 0; }
+.cartao.lista .cabeca .miudo { min-width: 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.linha .info .nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Celulares estreitos (≤ 380 px): a Topbar encolhe para caber logo, selo e tema */
+@media (max-width: 380px) {
+  .topbar .wrap { gap: 10px; }
+  .acoes { gap: 6px; }
+  .selo { padding: 6px 9px; font-size: 12px; }
+  .marca img { height: 20px !important; width: auto; }
+}
+.linha .detalhe.t-supera { color: var(--verde); } .linha .detalhe.t-pouco { color: var(--ambar); } .linha .detalhe.t-abaixo { color: var(--vermelho); }
