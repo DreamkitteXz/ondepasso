@@ -1,3 +1,4 @@
+import { ComoFunciona } from "@/components/ComoFunciona";
 import { indice } from "@/lib/dados";
 import { GEO, dadosMapa, maisDisputados } from "@/lib/mapa";
 import { MapaInicio } from "@/components/MapaInicio";
@@ -27,6 +28,7 @@ export default function Inicio() {
           <p className="rotulo">Sisu {ano + 1} · notas de corte</p>
           <h1>Quanto você precisa tirar, e onde?</h1>
           <p className="sub so-desktop">Notas de corte de {cursos.length} cursos em todas as universidades do Sisu, por cota e por ano. Sem cadastro.</p>
+          <ComoFunciona />
         </>
       }
     />

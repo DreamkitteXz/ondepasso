@@ -666,3 +666,26 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
 }
 .placa .uf.atual, .placa .uf.atual:hover { fill: var(--panel-3); }
 .placa-lado { fill: color-mix(in srgb, var(--panel-3) 50%, #000); }
+
+/* ---------- Orientação: como funciona, termos explicados, como usar no Sisu ---------- */
+.como-funciona { list-style: none; margin: 4px 0 8px; padding: 0; display: grid; gap: 10px; }
+.como-funciona li { display: flex; gap: 10px; align-items: flex-start; }
+.como-funciona b { flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--line-2); font-size: 12px; font-weight: 600; color: var(--fg-1); }
+.como-funciona span { display: grid; gap: 1px; font-size: 13px; color: var(--fg-3); line-height: 1.4; }
+.como-funciona strong { font-size: 14px; font-weight: 600; color: var(--fg-1); }
+.termo { position: relative; display: inline; }
+.termo-botao { display: inline-grid; place-items: center; width: 16px; height: 16px; margin-left: 4px; padding: 0; vertical-align: 1px; border-radius: 50%; border: 1px solid var(--line-2); background: none; color: var(--fg-3); font: 600 10px/1 var(--sans); letter-spacing: 0; text-transform: none; cursor: pointer; position: relative; }
+.termo-botao::after { content: ""; position: absolute; inset: -14px; }
+.termo-botao:hover, .termo-botao[aria-expanded="true"] { color: var(--fg-1); border-color: var(--fg-3); }
+.termo-dica { position: absolute; z-index: 20; left: 0; top: calc(100% + 8px); width: min(300px, 80vw); display: grid; gap: 4px; padding: 12px 14px; background: var(--panel-3); border: 1px solid var(--line-2); border-radius: 12px; box-shadow: 0 12px 32px rgba(0, 0, 0, .35); font: 400 13px/1.45 var(--sans); letter-spacing: 0; text-transform: none; color: var(--fg-2); text-align: left; white-space: normal; }
+.termo-dica strong { font-size: 13px; font-weight: 600; color: var(--fg-1); }
+.legenda .termo-dica { left: auto; right: -40px; }
+.no-sisu { display: grid; gap: 10px; margin: 0; }
+.no-sisu h2 { margin: 0; font-size: 15px; }
+.no-sisu ol { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 13px; line-height: 1.45; color: var(--fg-2); }
+.no-sisu a { color: var(--fg-1); text-decoration: underline; text-underline-offset: 2px; }
+.no-sisu .miudo { margin: 0; }
+@media (min-width: 1024px) {
+  .como-funciona { gap: 12px; margin-top: 8px; }
+  .no-sisu h2 { font-size: 16px; }
+}

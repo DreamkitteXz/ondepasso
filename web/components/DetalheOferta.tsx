@@ -8,6 +8,8 @@ import { salvarMod, useMinhas, useMod } from "@/lib/nota";
 import { AvisoPesos, EntradaNota, Marca } from "@/components/MapaInicio";
 import { IconeMapa } from "@/components/ListaCurso";
 import { Compartilhar } from "@/components/Compartilhar";
+import { Termo } from "@/components/Termo";
+import { NoSisu } from "@/components/NoSisu";
 
 export type LinhaCota = { cod: string; nome: string; titulo: string; vagas: number | null; inscritos: number | null; corte: number | null };
 export type Local = { d: string; box: [number, number, number, number]; x: number | null; y: number | null };
@@ -72,11 +74,11 @@ export function DetalheOferta(p: Props) {
       <div className="oferta-principal">
         <section className="cartao corte-oferta" aria-label="Nota de corte">
           <div className="corte-numero">
-            <p className="rotulo">Nota de corte · Sisu {p.ano} · ampla</p>
+            <p className="rotulo"><Termo id="corte">Nota de corte</Termo> · Sisu {p.ano} · ampla</p>
             <div className="figura">{p.atual == null ? "sem corte" : fmt(p.atual)}</div>
             <p className="corte-meta">
               {p.delta != null && p.delta !== 0 && <span className={`pill ${p.delta > 0 ? "sobe" : "desce"}`}>{p.delta > 0 ? "▲" : "▼"} {fmt(Math.abs(p.delta))} vs. {p.ano - 1}</span>}
-              <span className="miudo">chamada regular · MEC</span>
+              <span className="miudo"><Termo id="chamada">chamada regular</Termo> · MEC</span>
             </p>
           </div>
           {voce}
@@ -92,7 +94,7 @@ export function DetalheOferta(p: Props) {
 
         <section className="cartao cotas" aria-labelledby="t-cotas">
           <div className="cotas-topo">
-            <h2 id="t-cotas">Cortes por cota · {p.ano}</h2>
+            <h2 id="t-cotas">Cortes por <Termo id="modalidade">cota</Termo> · {p.ano}</h2>
             {comCorte.length > 1 && (
               <label className="trocar miudo">sua modalidade · <i>trocar</i>
                 <select value={minhaCota?.cod ?? "AC"} onChange={(e) => salvarMod(e.target.value)} aria-label="Sua modalidade">
@@ -138,7 +140,7 @@ export function DetalheOferta(p: Props) {
         </section>
 
         <section className="cartao pesos" aria-labelledby="t-pesos">
-          <h2 id="t-pesos">Pesos e notas mínimas</h2>
+          <h2 id="t-pesos"><Termo id="pesos">Pesos</Termo> e notas mínimas</h2>
           {p.iguais ? (
             <>
               <p className="pesos-texto">Todas as áreas valem o mesmo: sua média aqui é a média simples.{p.minimas.length === 0 && " Sem nota mínima por área."}</p>
@@ -151,6 +153,8 @@ export function DetalheOferta(p: Props) {
         </section>
 
         {p.local && <OndeFica local={p.local} cidade={p.cidade} s={s} />}
+
+        <NoSisu ano={p.ano} />
 
         <div className="oferta-acoes">
           <a className="botao botao-contorno" href={`/?curso=${p.slug}&campus=${p.rota}`}><IconeMapa /> Ver no mapa</a>

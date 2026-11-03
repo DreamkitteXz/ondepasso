@@ -8,6 +8,7 @@ import { lerNota, nota as fmt, ROTULO, type Status } from "@/lib/formato";
 import { apagarNotas, salvarMedia, salvarMod, salvarNotasAreas, useMinhas, useMod, type Areas } from "@/lib/nota";
 import { AREAS, statusPara, suaMedia, temPesos, type Minhas, type Pesos } from "@/lib/minhas";
 import { BuscaCursos } from "@/components/BuscaCursos";
+import { Termo } from "@/components/Termo";
 
 type Atalho = { curso: string; slug: string; soDesktop?: boolean };
 type ItemBusca = { curso: string; slug: string; ofertas: number; ampla_min: number | null; ampla_max: number | null };
@@ -511,7 +512,7 @@ export function Legenda({ comNota }: { comNota: boolean }) {
   const item = (s: Status, t: string) => (
     <span><svg width="10" height="10" viewBox="-5 -5 10 10" className={`pt ${s}`} aria-hidden="true"><Marca s={s} tam={10} /></svg>{t}</span>
   );
-  return <div className="legenda">{item("supera", "Supera o corte")}{item("pouco", "Por pouco (até 10 pts)")}{item("abaixo", "Abaixo do corte")}</div>;
+  return <div className="legenda">{item("supera", "Supera o corte")}<span><svg width="10" height="10" viewBox="-5 -5 10 10" className="pt pouco" aria-hidden="true"><Marca s="pouco" tam={10} /></svg><Termo id="pouco">Por pouco (até 10 pts)</Termo></span>{item("abaixo", "Abaixo do corte")}</div>;
 }
 
 function CartaoPonto({ p, curso, corte, minha }: { p: Ponto; curso: DadosMapa; corte: number; minha: Minhas | null }) {
