@@ -1,6 +1,7 @@
 "use client";
 // Página do curso com a nota do aluno — Figma 02 (mobile) e W2 (desktop).
 // A média vem do mesmo localStorage da home; cada linha ganha o status e o topo resume "supera em X de N".
+import { Apoio } from "@/components/Apoio";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Geo, Ponto } from "@/lib/mapa";
 import { nota as fmt, ROTULO, type Status } from "@/lib/formato";
@@ -127,6 +128,7 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
         </div>
         {modAtual.cod !== "AC" && <p className="miudo">* Corte da modalidade “{modAtual.nome}”. A variação contra {ano - 1} aparece só na ampla.</p>}
         <a className="botao botao-contorno so-mobile" href={`/?curso=${slug}`}><IconeMapa /> Ver no mapa</a>
+        <Apoio />
       </div>
       <aside className="curso-lado so-desktop">
         <MiniMapa slug={slug} curso={curso} itens={itens.filter((i) => i.temMapa && corte(i) != null)} corte={(p) => corte(p)!} st={st} comNota={minha != null} />

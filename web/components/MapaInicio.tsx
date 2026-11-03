@@ -2,6 +2,7 @@
 // Home com mapa — segue o Figma: mobile 01a (sem nota), 01b (com nota), 01c (estado aproximado + cartão)
 // e desktop W1a–W1c. Os chips escolhem o curso, a nota colore os pontos, "trocar" muda a modalidade,
 // tocar num estado aproxima e tocar num ponto abre o cartão do campus.
+import { Apoio } from "@/components/Apoio";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { DadosMapa, Geo, Ponto } from "@/lib/mapa";
 import { lerNota, nota as fmt, ROTULO, type Status } from "@/lib/formato";
@@ -205,6 +206,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
       </div>
       <div className="inicio-lista">
         <MaisDisputados itens={disputados} minha={minha} ano={dados.ano} />
+        <Apoio />
       </div>
     </div>
   );

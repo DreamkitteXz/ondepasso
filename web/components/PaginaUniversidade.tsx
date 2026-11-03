@@ -1,5 +1,6 @@
 "use client";
 // Página da universidade (Figma "UFMG · Universidade · Mobile" e W6b). Tudo vem do Sisu, menos fotos e site oficial.
+import { Apoio } from "@/components/Apoio";
 import { useMemo, useState } from "react";
 import type { CursoUni, Universidade } from "@/lib/universidades";
 import { nota as fmt, ROTULO, type Status } from "@/lib/formato";
@@ -154,6 +155,7 @@ export function PaginaUniversidade({ u, ano, mods, contorno }: {
         </div>
         <aside className="uni-lado">
           <OndeFica u={u} contorno={contorno} />
+          <Apoio />
           <p className="miudo">Toque num curso para abrir a opção. Dados de cursos e campi são do Sisu{u.fotos.length ? "; fotos externas, com créditos e licenças indicados acima" : ""}.</p>
         </aside>
       </div>

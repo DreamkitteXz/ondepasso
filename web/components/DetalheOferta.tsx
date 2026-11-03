@@ -1,6 +1,7 @@
 "use client";
 // Detalhe de uma opção (Figma 03/03b e W3/W3b). A parte da média e da modalidade vem do navegador;
 // todo o resto já sai pronto no HTML estático.
+import { Apoio } from "@/components/Apoio";
 import { useState } from "react";
 import { nota as fmt, ROTULO, type Status } from "@/lib/formato";
 import { statusPara, suaMedia, temPesos, type Pesos } from "@/lib/minhas";
@@ -178,6 +179,8 @@ export function DetalheOferta(p: Props) {
           </button>
         </div>
         {compartilhando && <PainelStory dados={dadosStory} nomeArquivo={`ondepasso-${p.slug}-${p.rota}.png`} temNota={minha != null && s != null} onFechar={() => setCompartilhando(false)} />}
+
+        <Apoio />
       </aside>
     </div>
   );
