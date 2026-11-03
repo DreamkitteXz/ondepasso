@@ -1,0 +1,1263 @@
+{
+ "gerado": "2026-11-02",
+ "fonte": "Wikidata e Wikimedia Commons (revisado à mão)",
+ "universidades": {
+  "CEFET/MG": {
+   "wikidata": "Q140081181",
+   "site": "https://www.cefetmg.br/",
+   "fotos": []
+  },
+  "CEFET/RJ": {
+   "wikidata": "Q756916",
+   "site": "http://www.cefet-rj.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Cefetentrada.jpg",
+     "titulo": "Cefetentrada",
+     "autor": "Andrevruas",
+     "licenca": "CC BY 3.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/3.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Cefetentrada.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Cefetentrada.jpg/1920px-Cefetentrada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Cefetentrada.jpg/1920px-Cefetentrada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/cefet-rj-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Cefetentrada.jpg/1920px-Cefetentrada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "CP II": {
+   "wikidata": "Q1113098",
+   "site": "http://www.cp2.g12.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Colégio Pedro II - Rio de Janeiro (4958395123).jpg",
+     "titulo": "Colégio Pedro II - Rio de Janeiro",
+     "autor": "Cyro A. Silva from Rio de Janeiro, Brasil",
+     "licenca": "CC BY 2.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/2.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Col%C3%A9gio_Pedro_II_-_Rio_de_Janeiro_(4958395123).jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Col%C3%A9gio_Pedro_II_-_Rio_de_Janeiro_%284958395123%29.jpg/1920px-Col%C3%A9gio_Pedro_II_-_Rio_de_Janeiro_%284958395123%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Col%C3%A9gio_Pedro_II_-_Rio_de_Janeiro_%284958395123%29.jpg/1920px-Col%C3%A9gio_Pedro_II_-_Rio_de_Janeiro_%284958395123%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/cp-ii-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Col%C3%A9gio_Pedro_II_-_Rio_de_Janeiro_%284958395123%29.jpg/1920px-Col%C3%A9gio_Pedro_II_-_Rio_de_Janeiro_%284958395123%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "ENCE": {
+   "wikidata": "Q10274367",
+   "site": "http://www.ence.ibge.gov.br",
+   "fotos": []
+  },
+  "FAETERJ CAXIAS": {
+   "wikidata": "Q20051910",
+   "site": "http://www.faetec.rj.gov.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Faeterj Duque de Caxias.jpg",
+     "titulo": "Faeterj Duque de Caxias",
+     "autor": "Ascom Faetec",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Faeterj_Duque_de_Caxias.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Faeterj_Duque_de_Caxias.jpg/1920px-Faeterj_Duque_de_Caxias.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Faeterj_Duque_de_Caxias.jpg/1920px-Faeterj_Duque_de_Caxias.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/faeterj-caxias-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Faeterj_Duque_de_Caxias.jpg/1920px-Faeterj_Duque_de_Caxias.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "FAETERJ PARACAMBI": {
+   "wikidata": "Q20051910",
+   "site": "http://www.faetec.rj.gov.br/",
+   "fotos": []
+  },
+  "FAETERJ PETRÓPOLIS": {
+   "wikidata": null,
+   "site": "https://www.faeterj-rio.edu.br/",
+   "fotos": []
+  },
+  "FAETERJ TRÊS RIOS": {
+   "wikidata": null,
+   "site": null,
+   "fotos": []
+  },
+  "FAETERJ-Rio": {
+   "wikidata": null,
+   "site": null,
+   "fotos": []
+  },
+  "FAMA": {
+   "wikidata": "Q106544921",
+   "site": "https://famapr.edu.br/",
+   "fotos": []
+  },
+  "FAMEMA": {
+   "wikidata": "Q5428836",
+   "site": "http://www.famema.br",
+   "fotos": []
+  },
+  "FMP": {
+   "wikidata": "Q5438753",
+   "site": "https://fmpsc.edu.br/a-faculdade/",
+   "fotos": []
+  },
+  "FURG": {
+   "wikidata": "Q5508999",
+   "site": "https://www.furg.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Universidade Federal do Rio Grande, outubro de 2017.png",
+     "titulo": "Universidade Federal do Rio Grande, outubro de 2017",
+     "autor": "Gorka Palazio",
+     "licenca": "CC BY-SA 2.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/2.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Universidade_Federal_do_Rio_Grande,_outubro_de_2017.png",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Universidade_Federal_do_Rio_Grande%2C_outubro_de_2017.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/6/69/Universidade_Federal_do_Rio_Grande%2C_outubro_de_2017.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/furg-1.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/6/69/Universidade_Federal_do_Rio_Grande%2C_outubro_de_2017.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+   ]
+  },
+  "IF Catarinense": {
+   "wikidata": "Q10302474",
+   "site": "http://www.ifc.edu.br",
+   "fotos": []
+  },
+  "IF Fluminense": {
+   "wikidata": "Q10302476",
+   "site": "http://www.iff.edu.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:ㅤㅤㅤㅤㅤLaboratório instalado no Polo de Inovação.jpg",
+     "titulo": "Laboratório instalado no Polo de Inovação",
+     "autor": "Instituto Federal Fluminense",
+     "licenca": "CC BY 3.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/3.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:%E3%85%A4%E3%85%A4%E3%85%A4%E3%85%A4%E3%85%A4Laborat%C3%B3rio_instalado_no_Polo_de_Inova%C3%A7%C3%A3o.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/%E3%85%A4%E3%85%A4%E3%85%A4%E3%85%A4%E3%85%A4Laborat%C3%B3rio_instalado_no_Polo_de_Inova%C3%A7%C3%A3o.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/0/0c/%E3%85%A4%E3%85%A4%E3%85%A4%E3%85%A4%E3%85%A4Laborat%C3%B3rio_instalado_no_Polo_de_Inova%C3%A7%C3%A3o.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/if-fluminense-1.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/0/0c/%E3%85%A4%E3%85%A4%E3%85%A4%E3%85%A4%E3%85%A4Laborat%C3%B3rio_instalado_no_Polo_de_Inova%C3%A7%C3%A3o.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+   ]
+  },
+  "IF Goiano": {
+   "wikidata": "Q10299362",
+   "site": "http://www.ifgoiano.edu.br",
+   "fotos": []
+  },
+  "IF SERTÃO-PE": {
+   "wikidata": "Q10302502",
+   "site": "https://www.ifsertao-pe.edu.br/",
+   "fotos": []
+  },
+  "IF SUL DE MINAS": {
+   "wikidata": "Q52660611",
+   "site": "http://www.ifsuldeminas.edu.br",
+   "fotos": []
+  },
+  "IFAL": {
+   "wikidata": "Q56841525",
+   "site": "http://www.ifal.edu.br",
+   "fotos": []
+  },
+  "IFAM": {
+   "wikidata": "Q10302494",
+   "site": "http://www.ifam.edu.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:IFAM - panoramio.jpg",
+     "titulo": "IFAM - panoramio",
+     "autor": "Madison L. Pereira",
+     "licenca": "CC BY-SA 3.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:IFAM_-_panoramio.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/IFAM_-_panoramio.jpg/1920px-IFAM_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/IFAM_-_panoramio.jpg/1920px-IFAM_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ifam-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/IFAM_-_panoramio.jpg/1920px-IFAM_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "IFAP": {
+   "wikidata": "Q10302493",
+   "site": "http://www.ifap.edu.br",
+   "fotos": []
+  },
+  "IFB": {
+   "wikidata": "Q10302482",
+   "site": "http://www.ifb.edu.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Ifbtaguatinga.jpg",
+     "titulo": "Ifbtaguatinga",
+     "autor": "Senado Federal",
+     "licenca": "CC BY 2.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/2.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Ifbtaguatinga.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Ifbtaguatinga.jpg/1920px-Ifbtaguatinga.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Ifbtaguatinga.jpg/1920px-Ifbtaguatinga.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ifb-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Ifbtaguatinga.jpg/1920px-Ifbtaguatinga.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "IFBA": {
+   "wikidata": "Q4842556",
+   "site": "http://www.ifba.edu.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:IFBA - Reitoria.jpg",
+     "titulo": "IFBA - Reitoria",
+     "autor": "Helen Sampaio",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:IFBA_-_Reitoria.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/IFBA_-_Reitoria.jpg/1920px-IFBA_-_Reitoria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/IFBA_-_Reitoria.jpg/1920px-IFBA_-_Reitoria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ifba-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/IFBA_-_Reitoria.jpg/1920px-IFBA_-_Reitoria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+     "arquivo_commons": "File:IFBA Fachada1.jpg",
+     "titulo": "IFBA Fachada1",
+     "autor": "Ifbacom",
+     "licenca": "Public domain",
+     "licenca_url": null,
+     "pagina": "https://commons.wikimedia.org/wiki/File:IFBA_Fachada1.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/IFBA_Fachada1.jpg/1920px-IFBA_Fachada1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/IFBA_Fachada1.jpg/1920px-IFBA_Fachada1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ifba-2.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/IFBA_Fachada1.jpg/1920px-IFBA_Fachada1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "IFBAIANO": {
+   "wikidata": "Q7665078",
+   "site": "http://www.ifbaiano.edu.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:IF Baiano Campus Bom Jesus da Lapa (3), janeiro de 2017.jpg",
+     "titulo": "IF Baiano Campus Bom Jesus da Lapa (3), janeiro de 2017",
+     "autor": "Fronteira",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:IF_Baiano_Campus_Bom_Jesus_da_Lapa_(3),_janeiro_de_2017.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/IF_Baiano_Campus_Bom_Jesus_da_Lapa_%283%29%2C_janeiro_de_2017.jpg/1920px-IF_Baiano_Campus_Bom_Jesus_da_Lapa_%283%29%2C_janeiro_de_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/IF_Baiano_Campus_Bom_Jesus_da_Lapa_%283%29%2C_janeiro_de_2017.jpg/1920px-IF_Baiano_Campus_Bom_Jesus_da_Lapa_%283%29%2C_janeiro_de_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ifbaiano-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/IF_Baiano_Campus_Bom_Jesus_da_Lapa_%283%29%2C_janeiro_de_2017.jpg/1920px-IF_Baiano_Campus_Bom_Jesus_da_Lapa_%283%29%2C_janeiro_de_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "IFCE": {
+   "wikidata": "Q10302495",
+   "site": "http://www.ifce.edu.br",
+   "fotos": []
+  },
+  "IFES": {
+   "wikidata": "Q10302497",
+   "site": "http://www.ifes.edu.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:DSC00775 wiki.JPG",
+     "titulo": "DSC00775 wiki",
+     "autor": "Assessoria de Comunicação Social - Ifes",
+     "licenca": "Public domain",
+     "licenca_url": null,
+     "pagina": "https://commons.wikimedia.org/wiki/File:DSC00775_wiki.JPG",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/DSC00775_wiki.JPG/1920px-DSC00775_wiki.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/DSC00775_wiki.JPG/1920px-DSC00775_wiki.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ifes-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/DSC00775_wiki.JPG/1920px-DSC00775_wiki.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "IFG": {
+   "wikidata": "Q1665204",
+   "site": "http://www.ifg.edu.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Anexo I do Instituto Federal de Goiás, Campus Goiânia, setembro de 2024 (2).jpg",
+     "titulo": "Anexo I do Instituto Federal de Goiás, Campus Goiânia, setembro de 2024 (2)",
+     "autor": "Fronteira",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Anexo_I_do_Instituto_Federal_de_Goi%C3%A1s,_Campus_Goi%C3%A2nia,_setembro_de_2024_(2).jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Anexo_I_do_Instituto_Federal_de_Goi%C3%A1s%2C_Campus_Goi%C3%A2nia%2C_setembro_de_2024_%282%29.jpg/1920px-Anexo_I_do_Instituto_Federal_de_Goi%C3%A1s%2C_Campus_Goi%C3%A2nia%2C_setembro_de_2024_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Anexo_I_do_Instituto_Federal_de_Goi%C3%A1s%2C_Campus_Goi%C3%A2nia%2C_setembro_de_2024_%282%29.jpg/1920px-Anexo_I_do_Instituto_Federal_de_Goi%C3%A1s%2C_Campus_Goi%C3%A2nia%2C_setembro_de_2024_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ifg-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Anexo_I_do_Instituto_Federal_de_Goi%C3%A1s%2C_Campus_Goi%C3%A2nia%2C_setembro_de_2024_%282%29.jpg/1920px-Anexo_I_do_Instituto_Federal_de_Goi%C3%A1s%2C_Campus_Goi%C3%A2nia%2C_setembro_de_2024_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+     "arquivo_commons": "File:Auditório Demartin Bizerra da Silva, IFG, Goiânia, janeiro de 2020.jpg",
+     "titulo": "Auditório Demartin Bizerra da Silva, IFG, Goiânia, janeiro de 2020",
+     "autor": "Fronteira",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Audit%C3%B3rio_Demartin_Bizerra_da_Silva,_IFG,_Goi%C3%A2nia,_janeiro_de_2020.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Audit%C3%B3rio_Demartin_Bizerra_da_Silva%2C_IFG%2C_Goi%C3%A2nia%2C_janeiro_de_2020.jpg/1920px-Audit%C3%B3rio_Demartin_Bizerra_da_Silva%2C_IFG%2C_Goi%C3%A2nia%2C_janeiro_de_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Audit%C3%B3rio_Demartin_Bizerra_da_Silva%2C_IFG%2C_Goi%C3%A2nia%2C_janeiro_de_2020.jpg/1920px-Audit%C3%B3rio_Demartin_Bizerra_da_Silva%2C_IFG%2C_Goi%C3%A2nia%2C_janeiro_de_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ifg-2.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Audit%C3%B3rio_Demartin_Bizerra_da_Silva%2C_IFG%2C_Goi%C3%A2nia%2C_janeiro_de_2020.jpg/1920px-Audit%C3%B3rio_Demartin_Bizerra_da_Silva%2C_IFG%2C_Goi%C3%A2nia%2C_janeiro_de_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "IFMA": {
+   "wikidata": "Q10302496",
+   "site": "http://www.ifma.edu.br",
+   "fotos": []
+  },
+  "IFMG": {
+   "wikidata": "Q10302487",
+   "site": "http://www.ifmg.edu.br",
+   "fotos": []
+  },
+  "IFMS": {
+   "wikidata": "Q56847211",
+   "site": "http://www.ifms.com.br",
+   "fotos": []
+  },
+  "IFNMG": {
+   "wikidata": "Q10302498",
+   "site": "http://www.ifnmg.edu.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Prédio 2 do Instituto Federal do Norte de Minas Gerais – Campus Almenara.jpg",
+     "titulo": "Prédio 2 do Instituto Federal do Norte de Minas Gerais – Campus Almenara",
+     "autor": "OAlmenarense",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Pr%C3%A9dio_2_do_Instituto_Federal_do_Norte_de_Minas_Gerais_%E2%80%93_Campus_Almenara.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Pr%C3%A9dio_2_do_Instituto_Federal_do_Norte_de_Minas_Gerais_%E2%80%93_Campus_Almenara.jpg/1920px-Pr%C3%A9dio_2_do_Instituto_Federal_do_Norte_de_Minas_Gerais_%E2%80%93_Campus_Almenara.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Pr%C3%A9dio_2_do_Instituto_Federal_do_Norte_de_Minas_Gerais_%E2%80%93_Campus_Almenara.jpg/1920px-Pr%C3%A9dio_2_do_Instituto_Federal_do_Norte_de_Minas_Gerais_%E2%80%93_Campus_Almenara.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ifnmg-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Pr%C3%A9dio_2_do_Instituto_Federal_do_Norte_de_Minas_Gerais_%E2%80%93_Campus_Almenara.jpg/1920px-Pr%C3%A9dio_2_do_Instituto_Federal_do_Norte_de_Minas_Gerais_%E2%80%93_Campus_Almenara.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "IFPB": {
+   "wikidata": "Q10302480",
+   "site": "https://www.ifpb.edu.br/",
+   "fotos": []
+  },
+  "IFPE": {
+   "wikidata": "Q10302488",
+   "site": "http://www.ifpe.edu.br",
+   "fotos": []
+  },
+  "IFPI": {
+   "wikidata": "Q52635592",
+   "site": "https://ifpi.edu.br/",
+   "fotos": []
+  },
+  "IFPR": {
+   "wikidata": "Q56847199",
+   "site": "http://www.ifpr.edu.br",
+   "fotos": []
+  },
+  "IFRJ": {
+   "wikidata": "Q7335377",
+   "site": "http://www.ifrj.edu.br",
+   "fotos": []
+  },
+  "IFRN": {
+   "wikidata": "Q10302501",
+   "site": "http://www.ifrn.edu.br/",
+   "fotos": []
+  },
+  "IFRR": {
+   "wikidata": "Q10302491",
+   "site": "http://www.ifrr.edu.br/",
+   "fotos": []
+  },
+  "IFS": {
+   "wikidata": "Q56841534",
+   "site": "http://www.ifs.edu.br",
+   "fotos": []
+  },
+  "IFSC": {
+   "wikidata": "Q3153255",
+   "site": "https://www.ifsc.edu.br/",
+   "fotos": []
+  },
+  "IFSEMG": {
+   "wikidata": "Q10302504",
+   "site": "https://www.ifsudestemg.edu.br/",
+   "fotos": []
+  },
+  "IFSP": {
+   "wikidata": "Q7665656",
+   "site": "http://www.ifsp.edu.br",
+   "fotos": []
+  },
+  "IFSul": {
+   "wikidata": "Q10302481",
+   "site": "http://www.ifsul.edu.br",
+   "fotos": []
+  },
+  "IFTM": {
+   "wikidata": "Q10266174",
+   "site": "http://www.iftm.edu.br",
+   "fotos": []
+  },
+  "IFTO": {
+   "wikidata": "Q10302507",
+   "site": "http://www.ifto.edu.br",
+   "fotos": []
+  },
+  "ISEPAM": {
+   "wikidata": "Q56846997",
+   "site": "http://isepam.edu.br/",
+   "fotos": []
+  },
+  "ISERJ": {
+   "wikidata": "Q10302696",
+   "site": "http://www.iserj.edu.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:133iserj.jpg",
+     "titulo": "133iserj",
+     "autor": "Henry da silva bernardes",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:133iserj.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/133iserj.jpg/1920px-133iserj.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/133iserj.jpg/1920px-133iserj.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/iserj-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/133iserj.jpg/1920px-133iserj.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+     "arquivo_commons": "File:Fachadaisedorj.jpg",
+     "titulo": "Fachadaisedorj",
+     "autor": "Henry da silva bernardes",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Fachadaisedorj.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Fachadaisedorj.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Fachadaisedorj.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/iserj-2.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Fachadaisedorj.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+     "arquivo_commons": "File:Corredor3iserj.jpg",
+     "titulo": "Corredor3iserj",
+     "autor": "Henry da silva bernardes",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Corredor3iserj.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Corredor3iserj.jpg/1920px-Corredor3iserj.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Corredor3iserj.jpg/1920px-Corredor3iserj.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/iserj-3.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Corredor3iserj.jpg/1920px-Corredor3iserj.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "UDESC": {
+   "wikidata": "Q3551702",
+   "site": "http://www.udesc.br/",
+   "fotos": []
+  },
+  "UEAP": {
+   "wikidata": "Q10387816",
+   "site": "http://www.ueap.edu.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Saguão da Universidade do Estado do Amapá 1.jpg",
+     "titulo": "Saguão da Universidade do Estado do Amapá 1",
+     "autor": "Maksuel Martins/GEA",
+     "licenca": "CC BY 3.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/3.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Sagu%C3%A3o_da_Universidade_do_Estado_do_Amap%C3%A1_1.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Sagu%C3%A3o_da_Universidade_do_Estado_do_Amap%C3%A1_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/3/38/Sagu%C3%A3o_da_Universidade_do_Estado_do_Amap%C3%A1_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/ueap-1.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/3/38/Sagu%C3%A3o_da_Universidade_do_Estado_do_Amap%C3%A1_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+     "arquivo_commons": "File:Saguão da Universidade do Estado do Amapá.jpg",
+     "titulo": "Saguão da Universidade do Estado do Amapá",
+     "autor": "Maksuel Martins/GEA",
+     "licenca": "CC BY 3.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/3.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Sagu%C3%A3o_da_Universidade_do_Estado_do_Amap%C3%A1.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagu%C3%A3o_da_Universidade_do_Estado_do_Amap%C3%A1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagu%C3%A3o_da_Universidade_do_Estado_do_Amap%C3%A1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/ueap-2.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagu%C3%A3o_da_Universidade_do_Estado_do_Amap%C3%A1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+   ]
+  },
+  "UEFS": {
+   "wikidata": "Q156406",
+   "site": "http://www.uefs.br",
+   "fotos": []
+  },
+  "UEL": {
+   "wikidata": "Q7894364",
+   "site": "http://www.uel.br",
+   "fotos": []
+  },
+  "UEM": {
+   "wikidata": "Q7894365",
+   "site": "http://www.uem.br",
+   "fotos": []
+  },
+  "UEMG": {
+   "wikidata": "Q2495760",
+   "site": "http://www.uemg.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Campus UEMG - Carangola.JPG",
+     "titulo": "Campus UEMG - Carangola",
+     "autor": "Júnior",
+     "licenca": "Public domain",
+     "licenca_url": null,
+     "pagina": "https://commons.wikimedia.org/wiki/File:Campus_UEMG_-_Carangola.JPG",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Campus_UEMG_-_Carangola.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Campus_UEMG_-_Carangola.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/uemg-1.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Campus_UEMG_-_Carangola.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+     "arquivo_commons": "File:UEMG Frutal.jpg",
+     "titulo": "UEMG Frutal",
+     "autor": "Uemg",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:UEMG_Frutal.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/UEMG_Frutal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/3/3b/UEMG_Frutal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/uemg-2.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/3/3b/UEMG_Frutal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+   ]
+  },
+  "UEMS": {
+   "wikidata": "Q10387811",
+   "site": "http://www.uems.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:UEMS Sede Dourados.JPG",
+     "titulo": "UEMS Sede Dourados",
+     "autor": "Gustavo Fernandes",
+     "licenca": "CC BY-SA 3.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:UEMS_Sede_Dourados.JPG",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/UEMS_Sede_Dourados.JPG/1920px-UEMS_Sede_Dourados.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/UEMS_Sede_Dourados.JPG/1920px-UEMS_Sede_Dourados.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/uems-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/UEMS_Sede_Dourados.JPG/1920px-UEMS_Sede_Dourados.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+     "arquivo_commons": "File:Unidade de Paranaíba da Universidade Estadual de Mato Grosso do Sul.jpg",
+     "titulo": "Unidade de Paranaíba da Universidade Estadual de Mato Grosso do Sul",
+     "autor": "Diegodlh",
+     "licenca": "CC BY 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Unidade_de_Parana%C3%ADba_da_Universidade_Estadual_de_Mato_Grosso_do_Sul.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Unidade_de_Parana%C3%ADba_da_Universidade_Estadual_de_Mato_Grosso_do_Sul.jpg/1920px-Unidade_de_Parana%C3%ADba_da_Universidade_Estadual_de_Mato_Grosso_do_Sul.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Unidade_de_Parana%C3%ADba_da_Universidade_Estadual_de_Mato_Grosso_do_Sul.jpg/1920px-Unidade_de_Parana%C3%ADba_da_Universidade_Estadual_de_Mato_Grosso_do_Sul.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/uems-2.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Unidade_de_Parana%C3%ADba_da_Universidade_Estadual_de_Mato_Grosso_do_Sul.jpg/1920px-Unidade_de_Parana%C3%ADba_da_Universidade_Estadual_de_Mato_Grosso_do_Sul.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "UENF": {
+   "wikidata": "Q7603631",
+   "site": "http://www.uenf.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Uenf entrada.jpg",
+     "titulo": "Uenf entrada",
+     "autor": "Marcelo Horn / Subsecretaria de Comunicação Social - Governo do Estado do Rio de",
+     "licenca": "CC BY 2.0 br",
+     "licenca_url": "https://creativecommons.org/licenses/by/2.0/br/deed.en",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Uenf_entrada.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Uenf_entrada.jpg/1920px-Uenf_entrada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Uenf_entrada.jpg/1920px-Uenf_entrada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/uenf-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Uenf_entrada.jpg/1920px-Uenf_entrada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "UENP": {
+   "wikidata": "Q10387818",
+   "site": "http://www.uenp.edu.br",
+   "fotos": []
+  },
+  "UEPB": {
+   "wikidata": "Q4984567",
+   "site": "http://www.uepb.edu.br",
+   "fotos": []
+  },
+  "UERGS": {
+   "wikidata": "Q10387820",
+   "site": "http://www.uergs.edu.br",
+   "fotos": []
+  },
+  "UERJ": {
+   "wikidata": "Q2840233",
+   "site": "http://www.uerj.br",
+   "fotos": []
+  },
+  "UERN": {
+   "wikidata": "Q10387913",
+   "site": "http://www.uern.br",
+   "fotos": []
+  },
+  "UESB": {
+   "wikidata": "Q7603636",
+   "site": "http://www.uesb.br",
+   "fotos": []
+  },
+  "UESC": {
+   "wikidata": "Q10387814",
+   "site": "http://www.uesc.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Pavilhão Professor Max de Menezes (cortada).jpg",
+     "titulo": "Pavilhão Professor Max de Menezes (cortada)",
+     "autor": "Fotos GOVBA c/o: Mateus Pereira",
+     "licenca": "CC BY 2.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/2.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Pavilh%C3%A3o_Professor_Max_de_Menezes_(cortada).jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Pavilh%C3%A3o_Professor_Max_de_Menezes_%28cortada%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Pavilh%C3%A3o_Professor_Max_de_Menezes_%28cortada%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/uesc-1.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Pavilh%C3%A3o_Professor_Max_de_Menezes_%28cortada%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+   ]
+  },
+  "UESPI": {
+   "wikidata": "Q10387821",
+   "site": "http://www.uespi.br",
+   "fotos": []
+  },
+  "UFABC": {
+   "wikidata": "Q3551407",
+   "site": "http://www.ufabc.edu.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:02.06.2023 - Visita às instalações do Bloco Zeta da Universidade Federal do ABC (UFABC) (52945792716).jpg",
+     "titulo": "02.06.2023 - Visita às instalações do Bloco Zeta da Universidade Federal do ABC",
+     "autor": "Palácio do Planalto from Brasilia, Brasil",
+     "licenca": "CC BY 2.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/2.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:02.06.2023_-_Visita_%C3%A0s_instala%C3%A7%C3%B5es_do_Bloco_Zeta_da_Universidade_Federal_do_ABC_(UFABC)_(52945792716).jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/02.06.2023_-_Visita_%C3%A0s_instala%C3%A7%C3%B5es_do_Bloco_Zeta_da_Universidade_Federal_do_ABC_%28UFABC%29_%2852945792716%29.jpg/1920px-02.06.2023_-_Visita_%C3%A0s_instala%C3%A7%C3%B5es_do_Bloco_Zeta_da_Universidade_Federal_do_ABC_%28UFABC%29_%2852945792716%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/02.06.2023_-_Visita_%C3%A0s_instala%C3%A7%C3%B5es_do_Bloco_Zeta_da_Universidade_Federal_do_ABC_%28UFABC%29_%2852945792716%29.jpg/1920px-02.06.2023_-_Visita_%C3%A0s_instala%C3%A7%C3%B5es_do_Bloco_Zeta_da_Universidade_Federal_do_ABC_%28UFABC%29_%2852945792716%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufabc-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/02.06.2023_-_Visita_%C3%A0s_instala%C3%A7%C3%B5es_do_Bloco_Zeta_da_Universidade_Federal_do_ABC_%28UFABC%29_%2852945792716%29.jpg/1920px-02.06.2023_-_Visita_%C3%A0s_instala%C3%A7%C3%B5es_do_Bloco_Zeta_da_Universidade_Federal_do_ABC_%28UFABC%29_%2852945792716%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+     "arquivo_commons": "File:UFABC SA.jpg",
+     "titulo": "UFABC SA",
+     "autor": "Lucas Landin",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:UFABC_SA.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/UFABC_SA.jpg/1920px-UFABC_SA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/UFABC_SA.jpg/1920px-UFABC_SA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufabc-2.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/UFABC_SA.jpg/1920px-UFABC_SA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "UFAC": {
+   "wikidata": "Q10387829",
+   "site": "http://www.ufac.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:RioBranco UFAC.JPG",
+     "titulo": "RioBranco UFAC",
+     "autor": "Filipe Mesquita de Oliveira --Filipux",
+     "licenca": "CC BY 2.5",
+     "licenca_url": "https://creativecommons.org/licenses/by/2.5",
+     "pagina": "https://commons.wikimedia.org/wiki/File:RioBranco_UFAC.JPG",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/RioBranco_UFAC.JPG/1920px-RioBranco_UFAC.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/RioBranco_UFAC.JPG/1920px-RioBranco_UFAC.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufac-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/RioBranco_UFAC.JPG/1920px-RioBranco_UFAC.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "UFAL": {
+   "wikidata": "Q5440475",
+   "site": "http://www.ufal.edu.br",
+   "fotos": []
+  },
+  "UFAM": {
+   "wikidata": "Q5440476",
+   "site": "http://www.ufam.edu.br",
+   "fotos": []
+  },
+  "UFAPE": {
+   "wikidata": "Q51882893",
+   "site": "https://ufape.edu.br/",
+   "fotos": []
+  },
+  "UFBA": {
+   "wikidata": "Q159102",
+   "site": "http://www.ufba.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Casarão do Alto de São Lázaro 2018-1157.jpg",
+     "titulo": "Casarão do Alto de São Lázaro 2018-1157",
+     "autor": "Paul R. Burley",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Casar%C3%A3o_do_Alto_de_S%C3%A3o_L%C3%A1zaro_2018-1157.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Casar%C3%A3o_do_Alto_de_S%C3%A3o_L%C3%A1zaro_2018-1157.jpg/1920px-Casar%C3%A3o_do_Alto_de_S%C3%A3o_L%C3%A1zaro_2018-1157.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Casar%C3%A3o_do_Alto_de_S%C3%A3o_L%C3%A1zaro_2018-1157.jpg/1920px-Casar%C3%A3o_do_Alto_de_S%C3%A3o_L%C3%A1zaro_2018-1157.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufba-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Casar%C3%A3o_do_Alto_de_S%C3%A3o_L%C3%A1zaro_2018-1157.jpg/1920px-Casar%C3%A3o_do_Alto_de_S%C3%A3o_L%C3%A1zaro_2018-1157.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "UFC": {
+   "wikidata": "Q2749558",
+   "site": "https://www.ufc.br/",
+   "fotos": []
+  },
+  "UFCA": {
+   "wikidata": "Q10387824",
+   "site": "http://www.ufca.edu.br/",
+   "fotos": []
+  },
+  "UFCAT": {
+   "wikidata": "Q51882866",
+   "site": "https://ufcat.edu.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Bloco Didático I, UFCAT, agosto de 2018 (1).jpg",
+     "titulo": "Bloco Didático I, UFCAT, agosto de 2018 (1)",
+     "autor": "Fronteira",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Bloco_Did%C3%A1tico_I,_UFCAT,_agosto_de_2018_(1).jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Bloco_Did%C3%A1tico_I%2C_UFCAT%2C_agosto_de_2018_%281%29.jpg/1920px-Bloco_Did%C3%A1tico_I%2C_UFCAT%2C_agosto_de_2018_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Bloco_Did%C3%A1tico_I%2C_UFCAT%2C_agosto_de_2018_%281%29.jpg/1920px-Bloco_Did%C3%A1tico_I%2C_UFCAT%2C_agosto_de_2018_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufcat-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Bloco_Did%C3%A1tico_I%2C_UFCAT%2C_agosto_de_2018_%281%29.jpg/1920px-Bloco_Did%C3%A1tico_I%2C_UFCAT%2C_agosto_de_2018_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "UFCG": {
+   "wikidata": "Q3848464",
+   "site": "http://www.ufcg.edu.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Bloco AB da UFCG.jpg",
+     "titulo": "Bloco AB da UFCG",
+     "autor": "Bruno Coutinho Araújo",
+     "licenca": "CC BY-SA 3.0",
+     "licenca_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Bloco_AB_da_UFCG.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Bloco_AB_da_UFCG.jpg/1920px-Bloco_AB_da_UFCG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Bloco_AB_da_UFCG.jpg/1920px-Bloco_AB_da_UFCG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufcg-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Bloco_AB_da_UFCG.jpg/1920px-Bloco_AB_da_UFCG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+     "arquivo_commons": "File:Reitoria UFCG.jpg",
+     "titulo": "Reitoria UFCG",
+     "autor": "Bruno Coutinho Araújo",
+     "licenca": "CC BY-SA 3.0",
+     "licenca_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Reitoria_UFCG.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Reitoria_UFCG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/0/01/Reitoria_UFCG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/ufcg-2.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/0/01/Reitoria_UFCG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+   ]
+  },
+  "UFCSPA": {
+   "wikidata": "Q2036836",
+   "site": "https://www.ufcspa.edu.br/",
+   "fotos": []
+  },
+  "UFDPAR": {
+   "wikidata": "Q51882897",
+   "site": "https://ufdpar.edu.br/",
+   "fotos": []
+  },
+  "UFERSA": {
+   "wikidata": "Q7894369",
+   "site": "https://ufersa.edu.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:UFERSA Câmpus Pau dos Ferros (RN).jpg",
+     "titulo": "UFERSA Câmpus Pau dos Ferros (RN)",
+     "autor": "Marcos Elias de Oliveira Júnior",
+     "licenca": "CC0",
+     "licenca_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "pagina": "https://commons.wikimedia.org/wiki/File:UFERSA_C%C3%A2mpus_Pau_dos_Ferros_(RN).jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/UFERSA_C%C3%A2mpus_Pau_dos_Ferros_%28RN%29.jpg/1920px-UFERSA_C%C3%A2mpus_Pau_dos_Ferros_%28RN%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/UFERSA_C%C3%A2mpus_Pau_dos_Ferros_%28RN%29.jpg/1920px-UFERSA_C%C3%A2mpus_Pau_dos_Ferros_%28RN%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufersa-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/UFERSA_C%C3%A2mpus_Pau_dos_Ferros_%28RN%29.jpg/1920px-UFERSA_C%C3%A2mpus_Pau_dos_Ferros_%28RN%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+     "arquivo_commons": "File:Visita à UFERSA em Mossoró (50682504513).jpg",
+     "titulo": "Visita à UFERSA em Mossoró",
+     "autor": "Ministério da Ciência, Tecnologia e Inovações from Brasília - DF, Brasil",
+     "licenca": "CC BY 2.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/2.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Visita_%C3%A0_UFERSA_em_Mossor%C3%B3_(50682504513).jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Visita_%C3%A0_UFERSA_em_Mossor%C3%B3_%2850682504513%29.jpg/1920px-Visita_%C3%A0_UFERSA_em_Mossor%C3%B3_%2850682504513%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Visita_%C3%A0_UFERSA_em_Mossor%C3%B3_%2850682504513%29.jpg/1920px-Visita_%C3%A0_UFERSA_em_Mossor%C3%B3_%2850682504513%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufersa-2.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Visita_%C3%A0_UFERSA_em_Mossor%C3%B3_%2850682504513%29.jpg/1920px-Visita_%C3%A0_UFERSA_em_Mossor%C3%B3_%2850682504513%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "UFES": {
+   "wikidata": "Q10387830",
+   "site": "http://www.ufes.br",
+   "fotos": []
+  },
+  "UFF": {
+   "wikidata": "Q280247",
+   "site": "https://www.uff.br/",
+   "fotos": []
+  },
+  "UFFS": {
+   "wikidata": "Q7894370",
+   "site": "http://www.uffs.edu.br/",
+   "fotos": []
+  },
+  "UFG": {
+   "wikidata": "Q7894375",
+   "site": "https://www.ufg.br/",
+   "fotos": []
+  },
+  "UFGD": {
+   "wikidata": "Q7894371",
+   "site": "http://www.ufgd.edu.br",
+   "fotos": []
+  },
+  "UFJ": {
+   "wikidata": "Q51882865",
+   "site": "http://portalufj.jatai.ufg.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Entrada da UFJ.jpg",
+     "titulo": "Entrada da UFJ",
+     "autor": "Onewalter",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Entrada_da_UFJ.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Entrada_da_UFJ.jpg/1920px-Entrada_da_UFJ.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Entrada_da_UFJ.jpg/1920px-Entrada_da_UFJ.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufj-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Entrada_da_UFJ.jpg/1920px-Entrada_da_UFJ.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+     "arquivo_commons": "File:Fmufj.jpeg",
+     "titulo": "Fmufj",
+     "autor": "Leal Editor",
+     "licenca": "Public domain",
+     "licenca_url": null,
+     "pagina": "https://commons.wikimedia.org/wiki/File:Fmufj.jpeg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Fmufj.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/4/40/Fmufj.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/ufj-2.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/4/40/Fmufj.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+   ]
+  },
+  "UFJF": {
+   "wikidata": "Q7894373",
+   "site": "https://www2.ufjf.br/ufjf/",
+   "fotos": []
+  },
+  "UFLA": {
+   "wikidata": "Q10387826",
+   "site": "https://ufla.br/",
+   "fotos": []
+  },
+  "UFMA": {
+   "wikidata": "Q5440477",
+   "site": "http://www.ufma.br",
+   "fotos": []
+  },
+  "UFMG": {
+   "wikidata": "Q132140",
+   "site": "https://ufmg.br",
+   "fotos": []
+  },
+  "UFMS": {
+   "wikidata": "Q5440478",
+   "site": "http://www.ufms.br",
+   "fotos": []
+  },
+  "UFMT": {
+   "wikidata": "Q7894374",
+   "site": "https://www.ufmt.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Reitoria da UFMT.jpg",
+     "titulo": "Reitoria da UFMT",
+     "autor": "Mateus Hidalgo",
+     "licenca": "CC BY-SA 2.5 br",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/2.5/br/deed.en",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Reitoria_da_UFMT.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Reitoria_da_UFMT.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/3/32/Reitoria_da_UFMT.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/ufmt-1.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/3/32/Reitoria_da_UFMT.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+   ]
+  },
+  "UFNT": {
+   "wikidata": "Q106548222",
+   "site": "https://www.ufnt.edu.br",
+   "fotos": []
+  },
+  "UFOB": {
+   "wikidata": "Q10387831",
+   "site": "https://www.ufob.edu.br",
+   "fotos": []
+  },
+  "UFOP": {
+   "wikidata": "Q6741204",
+   "site": "http://www.ufop.br",
+   "fotos": []
+  },
+  "UFPB": {
+   "wikidata": "Q5440479",
+   "site": "http://www.ufpb.br",
+   "fotos": []
+  },
+  "UFPE": {
+   "wikidata": "Q2322256",
+   "site": "https://www.ufpe.br/",
+   "fotos": []
+  },
+  "UFPEL": {
+   "wikidata": "Q7894376",
+   "site": "https://portal.ufpel.edu.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Direito UFPEL.JPG",
+     "titulo": "Direito UFPEL",
+     "autor": "Eugenio Hansen, OFS",
+     "licenca": "CC BY-SA 3.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Direito_UFPEL.JPG",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Direito_UFPEL.JPG/1920px-Direito_UFPEL.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Direito_UFPEL.JPG/1920px-Direito_UFPEL.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufpel-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Direito_UFPEL.JPG/1920px-Direito_UFPEL.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "UFPI": {
+   "wikidata": "Q945699",
+   "site": "http://www.ufpi.br/",
+   "fotos": []
+  },
+  "UFPR": {
+   "wikidata": "Q1232831",
+   "site": "https://www.ufpr.br/",
+   "fotos": []
+  },
+  "UFR": {
+   "wikidata": "Q28679490",
+   "site": null,
+   "fotos": []
+  },
+  "UFRA": {
+   "wikidata": "Q20061641",
+   "site": "http://portal.ufra.edu.br/",
+   "fotos": []
+  },
+  "UFRB": {
+   "wikidata": "Q6614109",
+   "site": "http://www.ufrb.edu.br",
+   "fotos": []
+  },
+  "UFRGS": {
+   "wikidata": "Q766447",
+   "site": "http://www.ufrgs.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Centenario UFRGS.jpg",
+     "titulo": "Centenario UFRGS",
+     "autor": "GuilhermeFavaretto123",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Centenario_UFRGS.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Centenario_UFRGS.jpg/1920px-Centenario_UFRGS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Centenario_UFRGS.jpg/1920px-Centenario_UFRGS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufrgs-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Centenario_UFRGS.jpg/1920px-Centenario_UFRGS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "UFRJ": {
+   "wikidata": "Q586904",
+   "site": "https://ufrj.br/",
+   "fotos": [
+    {
+     "arquivo_commons": "File:UFRJ-Praia Vermelha.jpg",
+     "titulo": "UFRJ-Praia Vermelha",
+     "autor": "Fulviusbsas",
+     "licenca": "Public domain",
+     "licenca_url": null,
+     "pagina": "https://commons.wikimedia.org/wiki/File:UFRJ-Praia_Vermelha.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/UFRJ-Praia_Vermelha.jpg/1920px-UFRJ-Praia_Vermelha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/UFRJ-Praia_Vermelha.jpg/1920px-UFRJ-Praia_Vermelha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/ufrj-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/UFRJ-Praia_Vermelha.jpg/1920px-UFRJ-Praia_Vermelha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+     "arquivo_commons": "File:Cid Uni da UFRJ vista da Baía de Guanabara.jpg",
+     "titulo": "Cid Uni da UFRJ vista da Baía de Guanabara",
+     "autor": "anna carol",
+     "licenca": "CC BY 2.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/2.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Cid_Uni_da_UFRJ_vista_da_Ba%C3%ADa_de_Guanabara.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Cid_Uni_da_UFRJ_vista_da_Ba%C3%ADa_de_Guanabara.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/4/41/Cid_Uni_da_UFRJ_vista_da_Ba%C3%ADa_de_Guanabara.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/ufrj-2.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/4/41/Cid_Uni_da_UFRJ_vista_da_Ba%C3%ADa_de_Guanabara.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+   ]
+  },
+  "UFRN": {
+   "wikidata": "Q3847505",
+   "site": "https://ufrn.br/",
+   "fotos": []
+  },
+  "UFRPE": {
+   "wikidata": "Q7894368",
+   "site": "http://www.ufrpe.br",
+   "fotos": []
+  },
+  "UFRR": {
+   "wikidata": "Q7894378",
+   "site": "http://www.ufrr.br",
+   "fotos": []
+  },
+  "UFRRJ": {
+   "wikidata": "Q7834196",
+   "site": "http://www.ufrrj.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Arquitetura UFRRJ.jpg",
+     "titulo": "Arquitetura UFRRJ",
+     "autor": "Rcandre",
+     "licenca": "CC BY-SA 3.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Arquitetura_UFRRJ.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Arquitetura_UFRRJ.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Arquitetura_UFRRJ.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/ufrrj-1.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Arquitetura_UFRRJ.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+   ]
+  },
+  "UFS": {
+   "wikidata": "Q7894380",
+   "site": "https://www.ufs.br/",
+   "fotos": []
+  },
+  "UFSB": {
+   "wikidata": "Q10387834",
+   "site": "https://www.ufsb.edu.br/",
+   "fotos": []
+  },
+  "UFSC": {
+   "wikidata": "Q1851075",
+   "site": "https://ufsc.br/",
+   "fotos": []
+  },
+  "UFSCAR": {
+   "wikidata": "Q5440482",
+   "site": "http://www.ufscar.br",
+   "fotos": []
+  },
+  "UFSJ": {
+   "wikidata": "Q593710",
+   "site": "http://www.ufsj.edu.br",
+   "fotos": []
+  },
+  "UFSM": {
+   "wikidata": "Q3790133",
+   "site": "https://www.ufsm.br/",
+   "fotos": []
+  },
+  "UFT": {
+   "wikidata": "Q4481798",
+   "site": "http://www.uft.edu.br",
+   "fotos": []
+  },
+  "UFTM": {
+   "wikidata": "Q10387837",
+   "site": "http://www.uftm.edu.br",
+   "fotos": []
+  },
+  "UFU": {
+   "wikidata": "Q5440489",
+   "site": "http://www.ufu.br",
+   "fotos": []
+  },
+  "UFV": {
+   "wikidata": "Q5814528",
+   "site": "http://www.ufv.br",
+   "fotos": []
+  },
+  "UFVJM": {
+   "wikidata": "Q10387836",
+   "site": "http://www.ufvjm.edu.br",
+   "fotos": []
+  },
+  "UNB": {
+   "wikidata": "Q1330634",
+   "site": "https://unb.br/",
+   "fotos": []
+  },
+  "UNCISAL": {
+   "wikidata": "Q10387809",
+   "site": "http://www.uncisal.edu.br",
+   "fotos": []
+  },
+  "UNEAL": {
+   "wikidata": "Q10387808",
+   "site": "http://www.uneal.edu.br",
+   "fotos": []
+  },
+  "UNEB": {
+   "wikidata": "Q10387910",
+   "site": "http://www.uneb.br",
+   "fotos": []
+  },
+  "UNEMAT": {
+   "wikidata": "Q141771537",
+   "site": "https://novaxavantina.unemat.br/",
+   "fotos": []
+  },
+  "UNESPAR": {
+   "wikidata": "Q7894367",
+   "site": "http://www.unespar.edu.br/",
+   "fotos": []
+  },
+  "UNICENTRO": {
+   "wikidata": "Q126415696",
+   "site": "http://www.unicentro.br",
+   "fotos": []
+  },
+  "UNIFAL-MG": {
+   "wikidata": "Q10387825",
+   "site": "http://www.unifal-mg.edu.br",
+   "fotos": []
+  },
+  "UNIFEI": {
+   "wikidata": "Q7894372",
+   "site": "http://www.unifei.edu.br",
+   "fotos": []
+  },
+  "UNIFESP": {
+   "wikidata": "Q4384447",
+   "site": "http://www.unifesp.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Campus São José dos Campus (ICT-Unifesp).jpg",
+     "titulo": "Campus São José dos Campus (ICT-Unifesp)",
+     "autor": "Paulagarcia14",
+     "licenca": "CC BY-SA 4.0",
+     "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Campus_S%C3%A3o_Jos%C3%A9_dos_Campus_(ICT-Unifesp).jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Campus_S%C3%A3o_Jos%C3%A9_dos_Campus_%28ICT-Unifesp%29.jpg/1920px-Campus_S%C3%A3o_Jos%C3%A9_dos_Campus_%28ICT-Unifesp%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Campus_S%C3%A3o_Jos%C3%A9_dos_Campus_%28ICT-Unifesp%29.jpg/1920px-Campus_S%C3%A3o_Jos%C3%A9_dos_Campus_%28ICT-Unifesp%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/unifesp-1.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Campus_S%C3%A3o_Jos%C3%A9_dos_Campus_%28ICT-Unifesp%29.jpg/1920px-Campus_S%C3%A3o_Jos%C3%A9_dos_Campus_%28ICT-Unifesp%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+     "arquivo_commons": "File:Campus Osasco (Quitaúna).jpg",
+     "titulo": "Campus Osasco (Quitaúna)",
+     "autor": "Unifesp",
+     "licenca": "CC BY 2.0",
+     "licenca_url": "https://creativecommons.org/licenses/by/2.0",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Campus_Osasco_(Quita%C3%BAna).jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Campus_Osasco_%28Quita%C3%BAna%29.jpg/1920px-Campus_Osasco_%28Quita%C3%BAna%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "miniatura": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Campus_Osasco_%28Quita%C3%BAna%29.jpg/1920px-Campus_Osasco_%28Quita%C3%BAna%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "arquivo": "fotos/unifesp-2.webp",
+     "origem": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Campus_Osasco_%28Quita%C3%BAna%29.jpg/1920px-Campus_Osasco_%28Quita%C3%BAna%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+   ]
+  },
+  "UNIFESSPA": {
+   "wikidata": "Q10387835",
+   "site": "http://unifesspa.edu.br/",
+   "fotos": []
+  },
+  "UNILA": {
+   "wikidata": "Q5574032",
+   "site": "https://portal.unila.edu.br/",
+   "fotos": []
+  },
+  "UNILAB": {
+   "wikidata": "Q10387886",
+   "site": "http://www.unilab.edu.br",
+   "fotos": []
+  },
+  "UNIMONTES": {
+   "wikidata": "Q10387812",
+   "site": "http://unimontes.br",
+   "fotos": []
+  },
+  "UNIOESTE": {
+   "wikidata": "Q7603637",
+   "site": "http://www.unioeste.br",
+   "fotos": []
+  },
+  "UNIPAMPA": {
+   "wikidata": "Q7894382",
+   "site": "https://unipampa.edu.br/",
+   "fotos": []
+  },
+  "UNIRIO": {
+   "wikidata": "Q3011938",
+   "site": "http://www.unirio.br/",
+   "fotos": []
+  },
+  "UNIVASF": {
+   "wikidata": "Q7894383",
+   "site": "https://portais.univasf.edu.br/",
+   "fotos": []
+  },
+  "UPE": {
+   "wikidata": "Q7894399",
+   "site": "http://www.upe.br",
+   "fotos": [
+    {
+     "arquivo_commons": "File:Reitoriaupe.png",
+     "titulo": "Reitoriaupe",
+     "autor": "Pernambuco State Government, Brazil",
+     "licenca": "CC0",
+     "licenca_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "pagina": "https://commons.wikimedia.org/wiki/File:Reitoriaupe.png",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Reitoriaupe.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "miniatura": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Reitoriaupe.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "arquivo": "fotos/upe-1.webp",
+     "origem": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Reitoriaupe.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+   ]
+  },
+  "UTFPR": {
+   "wikidata": "Q1131055",
+   "site": "http://www.utfpr.edu.br/",
+   "fotos": []
+  },
+  "UnDF": {
+   "wikidata": "Q138081572",
+   "site": "https://universidade.df.gov.br/",
+   "fotos": []
+  }
+ }
+}
