@@ -5,7 +5,7 @@ import type { DadosCalc } from "@/lib/calc";
 import { lerNota, nota as fmt, diferenca, ROTULO, nomeModalidade, contagemVazia, type Status } from "@/lib/formato";
 import { salvarNotasAreas, salvarMod, useAreas, useMod, type Areas } from "@/lib/nota";
 
-import { statusPara, suaMedia } from "@/lib/minhas";
+import { compararOpcoes, statusPara, suaMedia } from "@/lib/minhas";
 import { CoberturaComparacao } from "@/components/ResumoComparacao";
 
 // Ordem dos campos como no Figma; a ordem dos pesos no /calc.json é red, lin, mat, ch, cn.
@@ -17,7 +17,6 @@ const CAMPOS: { k: keyof Areas; rotulo: string; i: number; ph: string }[] = [
   { k: "lin", rotulo: "Linguagens", i: 1, ph: "655,0" },
 ];
 
-const ORDEM: Record<Status, number> = { supera: 0, igual: 1, pouco: 2, abaixo: 3, minimo: 4 };
 const POR_PAGINA = 20;
 
 type Resultado = { rota: string; curso: string; slug: string; ies: string; cidade: string; uf: string; media: number; corte: number; dif: number; s: Status; minimo: string | null };
@@ -65,8 +64,7 @@ export function Calculadora({ ano }: { ano: number }) {
       const dif = media - corte;
       out.push({ rota, curso: c.curso, slug: c.slug, ies, cidade, uf: u, media, corte, dif, s: statusPara(minha, peso, corte), minimo });
     }
-    // Primeiro onde passaria (da menor folga para a maior: as mais disputadas que você alcança), depois por pouco e abaixo.
-    return out.sort((a, b) => ordem === "folga" ? (a.minimo ? 1 : 0) - (b.minimo ? 1 : 0) || b.dif - a.dif : ordem === "corte" ? a.corte - b.corte : ORDEM[a.s] - ORDEM[b.s] || (a.s === "supera" ? a.dif - b.dif : b.dif - a.dif));
+    return out.sort((a, b) => compararOpcoes(a, b, ordem));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dados, completo, grupo, uf, modAtual.cod, ordem, ...n]);
 

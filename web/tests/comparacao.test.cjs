@@ -1,7 +1,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { statusNota, lerNota, diferenca, contagemVazia } = require('../.test-build/formato.js');
-const { suaMedia, statusPara, pesosCompactos } = require('../.test-build/minhas.js');
+const { compararOpcoes, suaMedia, statusPara, pesosCompactos } = require('../.test-build/minhas.js');
 
 test('empate, faixas e precisão não confundem classificação', () => {
   assert.equal(statusNota(800, 800), 'igual');
@@ -39,4 +39,16 @@ test('pesos compactos preservam mínimos de 1 e soma das situações', () => {
   const conta = contagemVazia();
   for (const n of [801, 800, 795, 700]) conta[statusNota(800, n)]++;
   assert.equal(Object.values(conta).reduce((a,b) => a+b, 0), 4);
+});
+
+test('proximidade coloca empate primeiro, considera ambos os lados e respeita os mínimos', () => {
+  const itens = [
+    { dif: 10, corte: 790, minimo: null },
+    { dif: -0.1, corte: 800.1, minimo: null },
+    { dif: 0, corte: 800, minimo: null },
+    { dif: 0.01, corte: 799.99, minimo: 'Redação' },
+  ];
+  assert.deepEqual([...itens].sort((a,b) => compararOpcoes(a,b,'proximas')).map(i => i.dif), [0, -0.1, 10, 0.01]);
+  assert.equal([...itens].sort((a,b) => compararOpcoes(a,b,'folga'))[0].dif, 10);
+  assert.equal([...itens].sort((a,b) => compararOpcoes(a,b,'corte'))[0].corte, 790);
 });

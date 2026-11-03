@@ -40,3 +40,13 @@ export function statusPara(m: Minhas, o: Pesos | undefined, corte: number): Stat
   const r = suaMedia(m, o);
   return r.minimo ? "minimo" : statusNota(corte, r.v);
 }
+
+type OpcaoOrdenavel = { dif: number; corte: number; minimo: string | null };
+/** Mínimos não atendidos ficam no fim; proximidade inclui os dois lados do corte. */
+export function compararOpcoes(a: OpcaoOrdenavel, b: OpcaoOrdenavel, ordem: string) {
+  const minimos = Number(a.minimo != null) - Number(b.minimo != null);
+  if (minimos) return minimos;
+  if (ordem === "folga") return b.dif - a.dif;
+  if (ordem === "corte") return a.corte - b.corte;
+  return Math.abs(a.dif) - Math.abs(b.dif) || b.dif - a.dif;
+}
