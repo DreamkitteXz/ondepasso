@@ -91,16 +91,17 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
             </select>
           )}
           <select value={ordem} onChange={(e) => setOrdem(e.target.value as "menor" | "maior")} aria-label="Ordenar">
-            <option value="menor">Menor corte primeiro</option>
-            <option value="maior">Maior corte primeiro</option>
+            <option value="menor">Corte mais baixo primeiro</option>
+            <option value="maior">Corte mais alto primeiro</option>
           </select>
           <span className="miudo so-desktop">{plural(vis.length, "opção", "opções")}</span>
         </div>
+        <p className="miudo lc-legenda so-mobile">▲ o corte subiu desde {ano - 1} · ▼ caiu</p>
         <div className="cartao lista tabela-curso">
           <div className="lc-cabeca">
             <span className="lc-uni">Universidade<span className="so-mobile"> · cidade</span></span>
             <span className="lc-cidade so-desktop">Cidade</span>
-            <span className="lc-corte">Corte {ano}{modAtual.cod !== "AC" ? "*" : ""}</span>
+            <span className="lc-corte">Corte {ano}{modAtual.cod !== "AC" ? "*" : " (ampla)"}</span>
             <span className="lc-delta so-desktop">vs. {ano - 1}</span>
             <span className="lc-status so-desktop">Sua nota</span>
           </div>
@@ -115,14 +116,14 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
                 <span className="lc-cidade so-desktop">{i.c}/{i.u}</span>
                 <span className="lc-corte">
                   <strong>{fmt(c)}</strong>
-                  <span className="so-mobile detalhe">{s ? <span className={`t-${s}`}>{ROTULO[s]}</span> : <Delta d={modAtual.cod === "AC" ? i.delta : null} sem={c == null} />}</span>
+                  <span className="so-mobile detalhe">{s ? <span className={`t-${s}`}>{ROTULO[s]}</span> : <Delta d={modAtual.cod === "AC" ? i.delta : null} sem={c == null} ano={ano} />}</span>
                 </span>
                 <span className="lc-delta so-desktop"><Delta d={modAtual.cod === "AC" ? i.delta : null} sem={c == null} /></span>
                 <span className="lc-status so-desktop">{s ? <span className={`selo-status ${s}`}>{ROTULO[s]}</span> : <span className="miudo">—</span>}</span>
               </a>
             );
           })}
-          {vis.length > limite && <button className="ver-mais" onClick={() => setLimite((n) => n + 40)}>Mostrar mais {Math.min(40, vis.length - limite)} de {vis.length - limite}</button>}
+          {vis.length > limite && <button className="ver-mais" onClick={() => setLimite((n) => n + 40)}>Ver mais {Math.min(40, vis.length - limite)} (faltam {vis.length - limite})</button>}
         </div>
         {modAtual.cod !== "AC" && <p className="miudo">* Corte da modalidade “{modAtual.nome}”. A variação contra {ano - 1} aparece só na ampla.</p>}
         <a className="botao botao-contorno so-mobile" href={`/?curso=${slug}`}><IconeMapa /> Ver no mapa</a>
@@ -134,11 +135,11 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
   );
 }
 
-function Delta({ d, sem }: { d: number | null; sem: boolean }) {
+function Delta({ d, sem, ano }: { d: number | null; sem: boolean; ano?: number }) {
   if (sem) return <span className="miudo">sem corte</span>;
   if (d == null) return <span className="miudo">—</span>;
   if (d === 0) return <span className="miudo">estável</span>;
-  return <span className={d > 0 ? "sobe" : "desce"}>{d > 0 ? "▲" : "▼"} {fmt(Math.abs(d))}</span>;
+  return <span className={d > 0 ? "sobe" : "desce"}>{d > 0 ? "▲" : "▼"} {fmt(Math.abs(d))}{ano ? ` vs. ${ano - 1}` : ""}</span>;
 }
 
 export function IconeMapa() {

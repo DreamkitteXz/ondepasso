@@ -50,7 +50,10 @@ export function PaginaUniversidade({ u, ano, mods, contorno }: {
       <div className="uni-id">
         <h1>{u.sigla}</h1>
         <p className="sub">{descricao}</p>
-        {u.site && <a className="uni-site" href={u.site} target="_blank" rel="noopener noreferrer">Site oficial ↗</a>}
+        <div className="uni-acoes">
+          {u.site && <a className="uni-site" href={u.site} target="_blank" rel="noopener noreferrer">Site oficial ↗</a>}
+          <Compartilhar titulo={`Notas de corte da ${u.sigla} no Sisu ${ano}`} />
+        </div>
         {u.fotos.length > 0 && <Creditos u={u} className="so-desktop" />}
       </div>
     </section>
@@ -65,7 +68,7 @@ export function PaginaUniversidade({ u, ano, mods, contorno }: {
         <>
           <div className="mapa-linha"><PilulaNota minha={minha} editar={() => setEditando(true)} /></div>
           <div className={`resumo${revelacao ? " revela" : ""}`} key={`r${revelacao}`}>
-            <h2 className="manchete-curso">Você supera o corte em {conta.supera} de {comCorte.length}</h2>
+            <h2 className="manchete-curso">{minha.n ? "Suas notas superam" : "Sua nota supera"} o corte de {ano} em {conta.supera} de {comCorte.length} cursos</h2>
             <p className="contagem"><span className="t-pouco">{conta.pouco} por pouco</span><i>·</i><span className="t-abaixo">{conta.abaixo} abaixo do corte</span></p>
           </div>
         </>
@@ -85,7 +88,7 @@ export function PaginaUniversidade({ u, ano, mods, contorno }: {
     <section className="cartao uni-numeros" aria-label="Números da universidade">
       <div><strong>{u.comCorte}</strong><span>{u.comCorte === 1 ? "opção com corte" : "opções com corte"}</span></div>
       <div><strong>{u.cidades.length}</strong><span>{u.cidades.length === 1 ? "cidade" : "cidades"}</span></div>
-      {u.min != null && <div><strong>{Math.floor(u.min)}–{Math.ceil(u.max!)}</strong><span>corte da ampla, {ano}</span></div>}
+      {u.min != null && <div><strong>{Math.floor(u.min)} a {Math.ceil(u.max!)}</strong><span>do menor ao maior corte (ampla, {ano})</span></div>}
     </section>
   );
 
@@ -105,8 +108,8 @@ export function PaginaUniversidade({ u, ano, mods, contorno }: {
         </select>
       )}
       <select className="uni-ordem" value={ordem} onChange={(e) => setOrdem(e.target.value as Ordem)} aria-label="Ordenar">
-        <option value="maior">Maior corte primeiro</option>
-        <option value="menor">Menor corte primeiro</option>
+        <option value="maior">Corte mais alto primeiro</option>
+        <option value="menor">Corte mais baixo primeiro</option>
         <option value="nome">Nome do curso</option>
       </select>
       <span className="miudo">{plural(vis.length, "opção", "opções")}</span>
@@ -133,7 +136,7 @@ export function PaginaUniversidade({ u, ano, mods, contorno }: {
           </a>
         );
       })}
-      {vis.length > limite && <button className="uni-mais" onClick={() => setLimite((n) => n + 40)}>Mostrar mais {Math.min(40, vis.length - limite)} de {vis.length - limite}</button>}
+      {vis.length > limite && <button className="uni-mais" onClick={() => setLimite((n) => n + 40)}>Ver mais {Math.min(40, vis.length - limite)} (faltam {vis.length - limite})</button>}
       {mod.cod !== "AC" && <p className="miudo">* Corte da modalidade “{mod.nome}”. A variação contra {ano - 1} aparece só na ampla.</p>}
     </div>
   );
@@ -151,7 +154,6 @@ export function PaginaUniversidade({ u, ano, mods, contorno }: {
         </div>
         <aside className="uni-lado">
           <OndeFica u={u} contorno={contorno} />
-          <Compartilhar titulo={`Notas de corte da ${u.sigla} no Sisu ${ano}`} />
           <p className="miudo">Toque num curso para abrir a opção. Dados de cursos e campi são do Sisu{u.fotos.length ? "; fotos externas, com créditos e licenças indicados acima" : ""}.</p>
         </aside>
       </div>
@@ -178,7 +180,7 @@ function Creditos({ u, className }: { u: Universidade; className: string }) {
     <p className={`uni-creditos ${className}`}>
       Fotos: {u.fotos.map((f, i) => (
         <span key={f.src}>{i > 0 ? (i === u.fotos.length - 1 ? " e " : ", ") : ""}<a href={f.pagina} target="_blank" rel="noopener noreferrer">{f.titulo}</a> ({f.autor} / {f.licencaUrl ? <a href={f.licencaUrl} target="_blank" rel="noopener noreferrer">{f.licenca}</a> : f.licenca})</span>
-      ))}. Imagens recortadas, via Wikimedia Commons.
+      ))}. Fotos do Wikimedia Commons, recortadas.
     </p>
   );
 }

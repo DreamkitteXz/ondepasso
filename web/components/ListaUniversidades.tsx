@@ -2,7 +2,6 @@
 // Índice de universidades (Figma 06a / W6a): busca, estado e tipo; mais opções no Sisu primeiro.
 import { useMemo, useState } from "react";
 import type { ResumoUni } from "@/lib/universidades";
-import { nota as fmt } from "@/lib/formato";
 
 const POR_PAGINA = 30;
 const norm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
@@ -46,14 +45,14 @@ export function ListaUniversidades({ unis, estados }: { unis: ResumoUni[]; estad
           </div>
         </div>
         <section className="cartao lista unis-lista" aria-live="polite">
-          <div className="cabeca"><h2>{nomeUf ?? "Todos os estados"}</h2><span className="miudo">{vis.length === 1 ? "1 instituição" : `${vis.length} instituições`} · mais opções no Sisu primeiro</span></div>
-          {vis.length === 0 && <p className="unis-vazio">Nenhuma instituição com esses filtros.</p>}
+          <div className="cabeca"><h2>{nomeUf ?? "Todos os estados"}</h2><span className="miudo">{vis.length === 1 ? "1 instituição" : `${vis.length} instituições`} · com mais cursos primeiro</span></div>
+          {vis.length === 0 && <p className="unis-vazio">Nenhuma instituição encontrada. Tente pela sigla, como UFMG.</p>}
           {vis.slice(0, limite).map((u) => (
             <a key={u.slug} className="unis-linha" href={`/universidades/${u.slug}/`}>
               <span className="info">
                 <strong>{u.sigla}</strong>
                 <span className="nome">{u.nome}</span>
-                <span className="meta">{u.cidades === 1 ? "1 cidade" : `${u.cidades} cidades`} · {u.ofertas === 1 ? "1 opção" : `${u.ofertas} opções`}{u.min != null ? ` · corte de ${fmt(u.min)} a ${fmt(u.max)}` : ""}</span>
+                <span className="meta">{u.cidades === 1 ? "1 cidade" : `${u.cidades} cidades`} · {u.ofertas === 1 ? "1 opção" : `${u.ofertas} opções`}{u.min != null ? ` · cortes de ${Math.floor(u.min)} a ${Math.ceil(u.max!)} (ampla)` : ""}</span>
               </span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>

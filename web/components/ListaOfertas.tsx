@@ -24,8 +24,8 @@ export function ListaOfertas({ itens, cursoSlug, ano }: { itens: LinhaOferta[]; 
           {ufs.map((u) => <option key={u} value={u}>{u}</option>)}
         </select>
         <select value={ordem} onChange={(e) => setOrdem(e.target.value as "menor" | "maior")} aria-label="Ordenar">
-          <option value="menor">Menor corte primeiro</option>
-          <option value="maior">Maior corte primeiro</option>
+          <option value="menor">Corte mais baixo primeiro</option>
+          <option value="maior">Corte mais alto primeiro</option>
         </select>
         <span className="miudo">{vis.length} {vis.length === 1 ? "opção" : "opções"}</span>
       </div>

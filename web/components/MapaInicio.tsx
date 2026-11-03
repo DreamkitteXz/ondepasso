@@ -179,8 +179,8 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
         <section className="cartao mapa-cartao" aria-label={`Mapa de ${dados.curso}`}>
           {minha == null ? (
             <div className="mapa-linha">
-              <h2 className="titulo-mapa">{dados.curso} no Sisu</h2>
-              <span className="miudo">{plural(pontos.length, "opção", "opções")} · Sisu {dados.ano}</span>
+              <h2 className="titulo-mapa">{dados.curso}: {plural(pontos.length, "opção", "opções")} no Brasil</h2>
+              <span className="miudo">cortes do Sisu {dados.ano}</span>
             </div>
           ) : (
             <>
@@ -197,7 +197,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
             aoEstado={setUf} aoPonto={(p) => { setUf(p.u); setSel(p); }} />
           <Legenda comNota={minha != null} />
           <p className="miudo">
-            <span className="so-mobile">Toque</span><span className="so-desktop">Clique</span> num estado para ver os campi
+            <span className="so-mobile">Toque</span><span className="so-desktop">Clique</span> num estado para aproximar
             {minha != null && ` · base: Sisu ${dados.ano}, chamada regular`}
             {" · "}<a className="link-lista" href={`/curso/${dados.slug}/`}>ver lista de {dados.curso} ›</a>
           </p>
@@ -508,7 +508,7 @@ export function Marca({ s, tam }: { s: Status | null; tam: number }) {
 }
 
 export function Legenda({ comNota }: { comNota: boolean }) {
-  if (!comNota) return <p className="legenda miudo">Cada ponto representa um campus</p>;
+  if (!comNota) return <p className="legenda miudo">Cada ponto é um campus. Digite sua nota para ver as cores.</p>;
   const item = (s: Status, t: string) => (
     <span><svg width="10" height="10" viewBox="-5 -5 10 10" className={`pt ${s}`} aria-hidden="true"><Marca s={s} tam={10} /></svg>{t}</span>
   );
@@ -582,7 +582,7 @@ function ListaEstado({ uf, pontos, curso, mod, corte, minha, sel, aoEscolher }: 
 function MaisDisputados({ itens, minha, ano }: { itens: Disputado[]; minha: Minhas | null; ano: number }) {
   return (
     <section className="cartao lista">
-      <div className="cabeca"><h2>Mais disputados</h2><span className="miudo">{minha == null ? `Sisu ${ano} · ampla, por inscritos` : "com a sua nota"}</span></div>
+      <div className="cabeca"><h2>Mais procurados</h2><span className="miudo">{minha == null ? `Com mais inscritos no Sisu ${ano}` : "com a sua nota"}</span></div>
       {itens.map((d) => (
         <LinhaPonto key={d.r} titulo={d.curso} meta={`${d.i} · ${d.c}`} valor={d.m.AC} s={minha == null ? null : statusPara(minha, d, d.m.AC)} href={`/curso/${d.slug}/${d.r}/`} />
       ))}

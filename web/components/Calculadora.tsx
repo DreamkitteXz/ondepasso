@@ -84,32 +84,34 @@ export function Calculadora({ ano }: { ano: number }) {
             return (
               <label key={c.k} className={`calc-nota${invalida ? " invalida" : ""}`}>
                 <span>{c.rotulo}</span>
-                <input inputMode="decimal" autoComplete="off" placeholder={c.ph} value={c.texto} aria-invalid={invalida}
+                <input inputMode="decimal" autoComplete="off" placeholder="0 a 1000" value={c.texto} aria-invalid={invalida}
                   onChange={(e) => mudar(c.k, e.target.value)} />
               </label>
             );
           })}
         </div>
         {notas.some((c) => c.texto.trim() !== "" && c.v == null) && <p className="erro">Cada nota vai de 0 a 1000, como 712,40.</p>}
-        <div className="calc-filtros" role="group" aria-label="Filtros">
+        <p className="miudo calc-ajuda">Use as notas do seu boletim do Enem (Página do Participante do Inep).</p>
+        {completo && <div className="calc-filtros" role="group" aria-label="Filtros">
           {filtro(grupo >= 0 && dados ? dados.grupos[grupo] : "Todas as áreas", String(grupo), "Área do curso",
             [["-1", "Todas as áreas"], ...(dados?.grupos.map((g, i) => [String(i), g] as [string, string]) ?? [])], (v) => setGrupo(Number(v)), grupo >= 0)}
           {filtro(uf || "Todos os estados", uf, "Estado", [["", "Todos os estados"], ...ufs.map((u) => [u, u] as [string, string])], setUf, uf !== "")}
-          {filtro(modAtual.cod === "AC" ? "Ampla" : modAtual.nome, modAtual.cod, "Modalidade",
+          {filtro(modAtual.cod === "AC" ? "Ampla concorrência" : modAtual.nome, modAtual.cod, "Modalidade",
             (dados?.mods ?? [modAtual]).map((m) => [m.cod, m.nome] as [string, string]), salvarMod, modAtual.cod !== "AC")}
-        </div>
+        </div>}
       </div>
 
       <section className="cartao calc-resultado" aria-labelledby="t-calc" aria-live="polite">
         <div className="calc-topo">
           <h2 id="t-calc">Onde você passaria</h2>
           <p className="miudo">Comparação com os cortes de {ano}; não garante aprovação.</p>
+          {completo && dados && resultados.length > 0 && <p className="miudo">Primeiro as opções em que você passa com menos folga.</p>}
           {completo && dados && resultados.length > 0 && (
             <p className="contagem"><span className="t-supera">{conta.supera} supera{conta.supera === 1 ? "" : "m"}</span><i>·</i><span className="t-pouco">{conta.pouco} por pouco</span><i>·</i><span className="t-abaixo">{conta.abaixo} abaixo</span></p>
           )}
         </div>
         {!completo ? (
-          <p className="calc-vazio">Digite as cinco notas para ver, opção por opção, a sua média com os pesos de cada curso.</p>
+          <p className="calc-vazio">Preencha as cinco notas para ver onde você passaria. Cada curso calcula a sua média com pesos diferentes.</p>
         ) : erroDados ? (
           <p className="calc-vazio">Não deu para carregar os cortes. Confira sua conexão e recarregue a página.</p>
         ) : !dados ? (
@@ -135,7 +137,7 @@ export function Calculadora({ ano }: { ano: number }) {
               </a>
             ))}
             {resultados.length > limite && (
-              <button className="ver-mais" onClick={() => setLimite((x) => x + 40)}>Mostrar mais {Math.min(40, resultados.length - limite)} de {resultados.length - limite}</button>
+              <button className="ver-mais" onClick={() => setLimite((x) => x + 40)}>Ver mais {Math.min(40, resultados.length - limite)} (faltam {resultados.length - limite})</button>
             )}
           </>
         )}

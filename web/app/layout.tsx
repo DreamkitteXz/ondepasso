@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="/" aria-label="onde passo — início"><Logo /></a>
             <NavTopo />
             <div className="acoes">
-              <span className="selo"><span className="ponto" />Sisu {Math.max(...anos) + 1} · jan</span>
+              <span className="selo"><span className="ponto" /><span><span className="so-desktop-inline">Próximo Sisu: </span><span className="so-mobile-inline">Sisu </span>jan/{Math.max(...anos) + 1}</span></span>
               <BotaoTema />
             </div>
           </div>
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="wrap">{children}</main>
         <footer>
           <div className="wrap">
-            <p>Dados públicos do MEC (Sisu {anos[0]}–{anos[anos.length - 1]}, chamada regular). O onde passo não é um site oficial: confira sempre no portal do Sisu.</p>
+            <p>Cortes do Sisu {anos[0]} a {anos[anos.length - 1]} (chamada regular), dados públicos do MEC. O onde passo não é oficial: confira sempre no portal do Sisu.</p>
             <p>Atualizado em {atualizado.split("-").reverse().join("/")}. Suas notas nunca saem do seu navegador.</p>
           </div>
         </footer>

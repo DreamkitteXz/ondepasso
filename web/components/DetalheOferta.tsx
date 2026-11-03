@@ -39,6 +39,9 @@ export function DetalheOferta(p: Props) {
   const s = minha != null && corte != null ? statusPara(minha, p.peso, corte) : null;
   const dif = sua != null && corte != null ? Math.round((sua.v - corte) * 100) / 100 : null;
 
+  // Com uma cota escolhida, o número grande é o corte dela; a ampla fica menor, logo abaixo.
+  const cota = minhaCota && minhaCota.cod !== "AC" ? minhaCota : null;
+  const destaque = cota ? cota.corte : p.atual;
   const idxMinha = p.cotas.findIndex((c) => c.cod === minhaCota?.cod);
   const cortar = !todas && p.cotas.length > MOSTRAR + 1 && idxMinha < MOSTRAR;
 
@@ -57,7 +60,7 @@ export function DetalheOferta(p: Props) {
             {sua!.minimo && <p className="miudo t-abaixo">não atinge a {sua!.minimo}</p>}
             {dif != null && !sua!.minimo && (
               <p className="miudo">
-                {dif < 0 ? `faltam ${fmt(-dif)} pontos` : dif === 0 ? "exatamente no corte" : `${fmt(dif)} pontos acima`}
+                {dif < 0 ? `faltam ${fmt(-dif)} pontos` : dif === 0 ? "exatamente no corte" : `${fmt(dif)} pontos acima do corte de ${p.ano} (não é garantia)`}
                 {minhaCota && minhaCota.cod !== "AC" ? ` · ${minhaCota.nome}` : ""}
               </p>
             )}
@@ -74,10 +77,11 @@ export function DetalheOferta(p: Props) {
       <div className="oferta-principal">
         <section className="cartao corte-oferta" aria-label="Nota de corte">
           <div className="corte-numero">
-            <p className="rotulo"><Termo id="corte">Nota de corte</Termo> · Sisu {p.ano} · ampla</p>
-            <div className="figura">{p.atual == null ? "sem corte" : fmt(p.atual)}</div>
+            <p className="rotulo">{cota ? <>Corte da sua cota · {p.ano}</> : <><Termo id="corte">Nota de corte</Termo> · Sisu {p.ano} · ampla</>}</p>
+            <div className="figura">{destaque == null ? "sem corte" : fmt(destaque)}</div>
+            {cota && <p className="corte-cota">{cota.nome} · <Termo id="modalidade">ampla</Termo>: {p.atual == null ? "sem corte" : fmt(p.atual)}</p>}
             <p className="corte-meta">
-              {p.delta != null && p.delta !== 0 && <span className={`pill ${p.delta > 0 ? "sobe" : "desce"}`}>{p.delta > 0 ? "▲" : "▼"} {fmt(Math.abs(p.delta))} vs. {p.ano - 1}</span>}
+              {!cota && p.delta != null && p.delta !== 0 && <span className={`pill ${p.delta > 0 ? "sobe" : "desce"}`}>{p.delta > 0 ? "▲" : "▼"} {fmt(Math.abs(p.delta))} vs. {p.ano - 1}</span>}
               <span className="miudo"><Termo id="chamada">chamada regular</Termo> · MEC</span>
             </p>
           </div>
@@ -103,6 +107,7 @@ export function DetalheOferta(p: Props) {
               </label>
             )}
           </div>
+          {minha == null && <p className="miudo cotas-nota">Olhe a linha da sua cota. Vagas e inscritos mostram a concorrência.</p>}
           {semAMinha && <p className="miudo cotas-nota">Sua modalidade não tem corte nesta opção em {p.ano}; a comparação usa a ampla.</p>}
           <table className="tabela-cotas">
             <thead><tr><th>Modalidade</th><th className="n">Vagas</th><th className="n">Inscritos</th><th className="n">Corte</th></tr></thead>
