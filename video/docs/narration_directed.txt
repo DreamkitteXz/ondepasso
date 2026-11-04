@@ -1,0 +1,7 @@
+# Texto exatamente como foi enviado ao ElevenLabs (modelo eleven_v4, voz "Enzo - Professional and Warm").
+# As tags entre colchetes são direção de interpretação do v4 e NÃO são faladas.
+# Direção geral: jovem-adulto, próximo, confiante sem arrogância; energia comercial moderada.
+# "720" deve soar como um número que pesa (pausa antes e depois). "Onde Passo" com um sorriso na voz.
+# Cena 6 mais baixa e lenta ([softly]): é o momento honesto do filme.
+
+[curious] Saiu a sua nota do Enem. [short pause] 720. [pause] E agora? Até onde ela te leva? [long pause] [warmly] Pra responder isso, existe o Onde Passo. [long pause] Você digita a sua nota. Ou as cinco notas por área, pra conta ficar mais precisa. [short pause] Sem cadastro, e a nota não sai do seu aparelho. [long pause] Depois, escolhe o curso. Direito, por exemplo: 120 opções pelo Brasil. [long pause] Cada ponto do mapa é uma opção. Verde: sua nota supera o corte do último Sisu. Amarelo: por pouco. Vermelho: ainda falta. [pause] Toca numa opção e vê o corte de cada cota, e como ele mudou nos últimos anos. [long pause] [softly] Não é promessa de vaga. [short pause] É clareza pra escolher o seu próximo passo. [long pause] [warmly] Onde Passo. Descubra onde a sua nota passa.

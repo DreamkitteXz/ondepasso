@@ -1,0 +1,49 @@
+{
+  "arquivo": "public/audio/narracao.mp3",
+  "duracao_s": 50.913,
+  "observacao": "Tempos em segundos dentro do arquivo de narração. No vídeo, some NARRACAO_INICIO (src/timeline.ts).",
+  "segmentos": [
+    {
+      "cena": "1-hook",
+      "inicio": 0.16,
+      "fim": 6.72,
+      "texto": "Saiu a sua nota do Enem. 720. E agora? Até onde ela te leva?"
+    },
+    {
+      "cena": "2-marca",
+      "inicio": 7.577,
+      "fim": 10.32,
+      "texto": "Pra responder isso, existe o Onde Passo."
+    },
+    {
+      "cena": "3-notas",
+      "inicio": 11.32,
+      "fim": 19.467,
+      "texto": "Você digita a sua nota. Ou as cinco notas por área, pra conta ficar mais precisa. Sem cadastro, e a nota não sai do seu aparelho."
+    },
+    {
+      "cena": "4-curso",
+      "inicio": 20.36,
+      "fim": 25.68,
+      "texto": "Depois, escolhe o curso. Direito, por exemplo: 120 opções pelo Brasil."
+    },
+    {
+      "cena": "5-resultados",
+      "inicio": 26.229,
+      "fim": 41.307,
+      "texto": "Cada ponto do mapa é uma opção. Verde: sua nota supera o corte do último Sisu. Amarelo: por pouco. Vermelho: ainda falta. Toca numa opção e vê o corte de cada cota, e como ele mudou nos últimos anos."
+    },
+    {
+      "cena": "6-clareza",
+      "inicio": 42.32,
+      "fim": 46.67,
+      "texto": "Não é promessa de vaga. É clareza pra escolher o seu próximo passo."
+    },
+    {
+      "cena": "7-encerramento",
+      "inicio": 47.507,
+      "fim": 50.96,
+      "texto": "Onde Passo. Descubra onde a sua nota passa."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "ondepasso-video",
+  "version": "1.0.0",
+  "description": "Vídeo oficial de apresentação do onde passo (Remotion)",
+  "repository": {},
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.540",
+    "@remotion/fonts": "4.0.540",
+    "@remotion/media": "4.0.540",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.540"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.540",
+    "@types/react": "19.3.0",
+    "@types/web": "0.0.166",
+    "eslint": "10.12.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "render:16x9": "remotion render OndePasso16x9 output/ondepasso-launch-16x9.mp4",
+    "render:9x16": "remotion render OndePasso9x16 output/ondepasso-launch-9x16.mp4",
+    "render:sem-narracao": "remotion render OndePasso16x9 output/ondepasso-launch-16x9-sem-narracao.mp4 --props={\\\"narracao\\\":false,\\\"trilha\\\":true}",
+    "dados": "node scripts/gerar-dados.mjs",
+    "audio": "python3 scripts/gerar_trilha.py && python3 scripts/alinhar_narracao.py",
+    "tts": "node scripts/elevenlabs-tts.mjs",
+    "lint": "tsc --noEmit",
+    "previews": "node scripts/previews.mjs ambos && python3 scripts/folha.py"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}
