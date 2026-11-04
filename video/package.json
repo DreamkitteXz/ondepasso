@@ -30,7 +30,7 @@
     "render:9x16": "remotion render OndePasso9x16 output/ondepasso-launch-9x16.mp4",
     "render:sem-narracao": "remotion render OndePasso16x9 output/ondepasso-launch-16x9-sem-narracao.mp4 --props={\\\"narracao\\\":false,\\\"trilha\\\":true}",
     "dados": "node scripts/gerar-dados.mjs",
-    "audio": "python3 scripts/gerar_trilha.py && python3 scripts/alinhar_narracao.py",
+    "audio": "python3 scripts/alinhar_narracao.py && python3 scripts/gerar_trilha.py",
     "tts": "node scripts/elevenlabs-tts.mjs",
     "lint": "tsc --noEmit",
     "previews": "node scripts/previews.mjs ambos && python3 scripts/folha.py"
