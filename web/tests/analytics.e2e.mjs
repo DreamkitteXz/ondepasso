@@ -32,7 +32,14 @@ async function novo({ mobile = false, falharMapa = false, falharCalc = false } =
 
 // dataLayer → lista legível [comando, ...args]
 const camada = (page) => page.evaluate(() => (window.dataLayer ?? []).map((a) => JSON.parse(JSON.stringify(Array.from(a)))));
-const eventos = async (page) => (await camada(page)).filter((a) => a[0] === "event");
+// Cada evento com o page_location em vigor (vem do último gtag("set", {page_location}) antes dele).
+const eventos = async (page) => {
+  let pl;
+  return (await camada(page)).flatMap((a) => {
+    if (a[0] === "set" && a[1] && typeof a[1] === "object" && a[1].page_location) pl = a[1].page_location;
+    return a[0] === "event" ? [[a[0], a[1], { ...a[2], ...(pl ? { page_location: pl } : {}) }]] : [];
+  });
+};
 const nomes = async (page) => (await eventos(page)).map((a) => a[1]);
 const conta = (lista, nome) => lista.filter((n) => n === nome).length;
 const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -41,7 +48,7 @@ const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
 console.log("\n1. Primeira visita vinda do TikTok (UTM), age antes de decidir, depois permite");
 {
   const { ctx, page, reqGoogle, erros } = await novo({ mobile: true });
-  await page.goto(`${BASE}/?utm_source=tiktok&utm_medium=social&utm_campaign=bio&utm_content=video01`, { referer: "https://www.tiktok.com/" });
+  await page.goto(`${BASE}/?utm_source=tiktok&utm_medium=social&utm_campaign=bio&utm_content=video01&ga_debug=1`, { referer: "https://www.tiktok.com/" });
   await page.waitForSelector(".aviso-cookies");
   await esperar(400);
   ok(reqGoogle.length === 0, "nenhuma requisição ao Google antes de decidir");
@@ -83,7 +90,9 @@ console.log("\n1. Primeira visita vinda do TikTok (UTM), age antes de decidir, d
   ok(res.length === 1 && res[0][2].curso === "direito" && res[0][2].origem_nota === "digitada" && res[0][2].pagina === "inicio", "en_resultados_visualizados uma vez {curso: direito, digitada, inicio}");
   const tudo = JSON.stringify(dl);
   ok(!/720/.test(tudo), "a nota (720,5) não aparece em lugar nenhum do dataLayer");
-  ok(ev.every((a) => Object.values(a[2] ?? {}).every((v) => typeof v === "string")), "todos os parâmetros são texto (nenhum número)");
+  ok(ev.every((a) => Object.entries(a[2] ?? {}).every(([k, v]) => typeof v === "string" || k === "debug_mode")), "todos os parâmetros são texto (nenhum número)");
+  ok(ev.every((a) => a[2].debug_mode === true), "?ga_debug=1: todos os eventos com debug_mode (DebugView)");
+  ok(!JSON.stringify(dl).includes("ga_debug"), "ga_debug não vai para o GA");
 
   console.log("\n2. Recarrega a página (permissão já salva)");
   await page.reload();
@@ -254,7 +263,7 @@ console.log("\n8. Chega do TikTok com UTM, navega, e só permite em outra págin
   const config = dl.find((a) => a[0] === "config")[2];
   ok(config.campaign_source === "tiktok" && config.campaign_medium === "social" && config.campaign_name === "bio", "config recebe a campanha da página de entrada (tiktok / social / bio)");
   ok(config.page_referrer === "https://www.tiktok.com/", "page_referrer = site de origem (não a página interna)");
-  const pv = dl.find((a) => a[0] === "event" && a[1] === "page_view");
+  const pv = (await eventos(page)).find((a) => a[1] === "page_view");
   ok(pv[2].page_location === `${BASE}/calcular/`, "page_location real da página atual (sem UTMs inventadas)");
   await page.goto(`${BASE}/universidades/`);
   await esperar(300);
@@ -269,7 +278,7 @@ console.log("\n8. Chega do TikTok com UTM, navega, e só permite em outra págin
   await page.goto(`${BASE}/sobre-dados/?utm_source=newsletter&utm_medium=email&email=fulano@exemplo.com&nome=Ana#topo`);
   await esperar(300);
   const dl = await camada(page);
-  const pv = dl.find((a) => a[0] === "event" && a[1] === "page_view")[2];
+  const pv = (await eventos(page)).find((a) => a[1] === "page_view")[2];
   ok(pv.page_location === `${BASE}/sobre-dados/?utm_source=newsletter&utm_medium=email`, "page_location remove parâmetros desconhecidos (e-mail, nome) e mantém as UTMs: " + pv.page_location);
   ok(!JSON.stringify(dl).includes("fulano"), "e-mail colado na URL não vai para o GA");
   await ctx.close();

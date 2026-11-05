@@ -116,6 +116,8 @@ function origemGuardada(): Record<string, string> {
 // ---------------------------------------------------------------- gtag
 
 let iniciado = false;
+/** ?ga_debug=1 (guardado na aba): marca os eventos com debug_mode para aparecerem no DebugView. */
+let depurar = false;
 let ultimaPagina = "";
 let paginaEnviada = ""; // última página com page_view já enviado
 /** Ações feitas antes de decidir sobre os cookies (em memória; somem ao sair da página). Vão ao GA se a pessoa aceitar. */
@@ -137,15 +139,16 @@ function iniciar() {
   gtag("consent", "default", { ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied", analytics_storage: "granted" });
   gtag("set", "ads_data_redaction", true);
   gtag("js", new Date());
-  let debug = false;
-  try { debug = new URLSearchParams(location.search).get("ga_debug") === "1" || sessionStorage.getItem("ondepasso.ga_debug") === "1"; if (debug) sessionStorage.setItem("ondepasso.ga_debug", "1"); } catch {}
+  try { depurar = new URLSearchParams(location.search).get("ga_debug") === "1" || sessionStorage.getItem("ondepasso.ga_debug") === "1"; if (depurar) sessionStorage.setItem("ondepasso.ga_debug", "1"); } catch {}
+  // page_location só vale como campo de config/set (no evento o gtag ignora e usa document.location).
+  gtag("set", { page_location: enderecoLimpo(), page_title: document.title });
   gtag("config", ID, {
     send_page_view: false,            // page_view é enviado por registrarPagina (uma vez por página/rota)
     allow_google_signals: false,      // sem Google Signals (dados demográficos e entre dispositivos)
     allow_ad_personalization_signals: false,
     cookie_flags: "SameSite=Lax;Secure",
     ...origemGuardada(),
-    ...(debug ? { debug_mode: true } : {}),
+    page_location: enderecoLimpo(),
   });
   // O script vem por último e sem bloquear: depois da página interativa.
   const carregar = () => {
@@ -156,7 +159,7 @@ function iniciar() {
   };
   if ("requestIdleCallback" in window) requestIdleCallback(carregar, { timeout: 3000 }); else setTimeout(carregar, 1);
   if (ultimaPagina && paginaEnviada !== ultimaPagina) enviarPagina(); // a página em que a pessoa aceitou
-  for (const [nome, p] of fila.splice(0)) gtag("event", nome, p);
+  for (const [nome, p] of fila.splice(0)) gtag("event", nome, comDebug(p));
 }
 
 function revogar() {
@@ -177,9 +180,12 @@ function apagarCookiesGa() {
   for (const n of nomes) for (const d of dominios) document.cookie = `${n}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${d}`;
 }
 
+function comDebug(p: Record<string, string>): Record<string, string | boolean> { return depurar ? { ...p, debug_mode: true } : p; }
+
 function enviarPagina() {
   paginaEnviada = location.pathname + location.search;
-  gtag("event", "page_view", { page_location: enderecoLimpo(), page_title: document.title });
+  gtag("set", { page_location: enderecoLimpo(), page_title: document.title });
+  gtag("event", "page_view", comDebug({}));
 }
 
 /** Chamado pelo componente <Analytics /> no carregamento e a cada mudança de rota. */
@@ -212,8 +218,8 @@ export function registrar(nome: NomeEvento, params: Record<string, string | unde
   registrarPagina(); // o page_view da página vem antes de qualquer evento dela (efeitos dos filhos rodam antes do <Analytics />)
   const p = limpar(params);
   const d = lerConsentimento();
-  if (d === "aceito") { iniciar(); gtag("event", nome, p); }
-  else if (d == null && fila.length < 30) fila.push([nome, { ...p, page_location: enderecoLimpo() }]);
+  if (d === "aceito") { iniciar(); gtag("event", nome, comDebug(p)); }
+  else if (d == null && fila.length < 30) fila.push([nome, p]);
 }
 
 const vistos = new Set<string>();
