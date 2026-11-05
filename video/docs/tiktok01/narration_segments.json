@@ -1,0 +1,43 @@
+{
+  "arquivo": "public/audio/tiktok01/narracao.mp3",
+  "duracao_s": 26.112,
+  "observacao": "Tempos dentro do arquivo de narração; no vídeo some NARRACAO_INICIO (src/tiktok/timeline.ts).",
+  "segmentos": [
+    {
+      "cena": "1-gancho",
+      "inicio": 0.137,
+      "fim": 3.88,
+      "texto": "Eu criei um site que mostra onde a sua nota do Enem pode te levar."
+    },
+    {
+      "cena": "2-problema",
+      "inicio": 4.64,
+      "fim": 7.32,
+      "texto": "Sabe aquela dúvida de onde você tem chance de passar?"
+    },
+    {
+      "cena": "3-revelacao",
+      "inicio": 8.067,
+      "fim": 8.907,
+      "texto": "No Onde Passo,"
+    },
+    {
+      "cena": "4-demonstracao",
+      "inicio": 8.933,
+      "fim": 13.68,
+      "texto": "você coloca a sua nota, escolhe o curso que quer... e explora as opções no mapa."
+    },
+    {
+      "cena": "5-resultados",
+      "inicio": 14.08,
+      "fim": 21.52,
+      "texto": "Verde: sua nota supera o corte do último Sisu. Amarelo: tá perto. Vermelho: ainda falta um pouco."
+    },
+    {
+      "cena": "6-cta",
+      "inicio": 21.634,
+      "fim": 26.16,
+      "texto": "Vai fazer o Enem? Salva esse vídeo pra conhecer o Onde Passo quando a sua nota sair."
+    }
+  ]
+}

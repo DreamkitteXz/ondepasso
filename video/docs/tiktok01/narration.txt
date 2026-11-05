@@ -1,0 +1,5 @@
+Eu criei um site que mostra onde a sua nota do Enem pode te levar.
+Sabe aquela dúvida de onde você tem chance de passar?
+No Onde Passo, você coloca a sua nota, escolhe o curso que quer... e explora as opções no mapa.
+Verde: sua nota supera o corte do último Sisu. Amarelo: tá perto. Vermelho: ainda falta um pouco.
+Vai fazer o Enem? Salva esse vídeo pra conhecer o Onde Passo quando a sua nota sair.

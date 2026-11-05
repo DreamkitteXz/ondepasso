@@ -1,0 +1,5 @@
+# Enviado ao ElevenLabs: modelo eleven_v4, voz "Eduardo - Streamer & Brasileiro" (R2wd0DF39XU6eENe9jkF), take A (26,1 s).
+# Direção: dev contando pra um amigo o que construiu. Conversacional, levemente animado, sem voz de locutor.
+# As tags [..] orientam a interpretação e não são faladas.
+
+[excited] Eu criei um site que mostra onde a sua nota do Enem pode te levar. [short pause] [curious] Sabe aquela dúvida de onde você tem chance de passar? [pause] [warmly] No Onde Passo, você coloca a sua nota, escolhe o curso que quer... e explora as opções no mapa. [short pause] Verde: sua nota supera o corte do último Sisu. Amarelo: tá perto. Vermelho: ainda falta um pouco. [pause] Vai fazer o Enem? Salva esse vídeo pra conhecer o Onde Passo quando a sua nota sair.

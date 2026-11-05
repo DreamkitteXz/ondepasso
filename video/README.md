@@ -10,6 +10,14 @@ Vídeo de lançamento de ~58 s feito em **Remotion + React + TypeScript**, com n
 
 `output/` não vai para o git (os MP4 são gerados).
 
+## TikToks
+
+| Composição | Formato | Arquivo | Documentação |
+|---|---|---|---|
+| `OndePassoTikTok01` | 1080 × 1920, 29 s | `output/ondepasso-tiktok-01.mp4` | `docs/tiktok01/STORYBOARD.md` |
+
+Código em `src/tiktok/` (cenas próprias, legenda animada `AnimatedCaption`, linha do tempo `src/tiktok/timeline.ts`), reaproveitando os componentes de `src/components/`. Não altera as composições institucionais.
+
 ## Estrutura
 
 ```

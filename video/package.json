@@ -33,7 +33,9 @@
     "audio": "python3 scripts/alinhar_narracao.py && python3 scripts/gerar_trilha.py",
     "tts": "node scripts/elevenlabs-tts.mjs",
     "lint": "tsc --noEmit",
-    "previews": "node scripts/previews.mjs ambos && python3 scripts/folha.py"
+    "previews": "node scripts/previews.mjs ambos && python3 scripts/folha.py",
+    "render:tiktok01": "remotion render OndePassoTikTok01 output/ondepasso-tiktok-01.mp4",
+    "audio:tiktok01": "python3 scripts/alinhar_tiktok01.py && python3 scripts/gerar_trilha_tiktok01.py"
   },
   "allowScripts": {
     "esbuild": false

@@ -35,9 +35,11 @@ type Props = {
   inclinacao?: number;
   /** Folga em volta do estado aproximado (fração do tamanho dele). */
   folga?: number;
+  /** Diâmetro do ponto na tela (px). */
+  tamPonto?: number;
 };
 
-export const MapaBrasil: React.FC<Props> = ({ largura, altura, zoom, uf, aparece, colore, escolhido, contorno = 1, inclinacao = 28, folga = 0.12 }) => {
+export const MapaBrasil: React.FC<Props> = ({ largura, altura, zoom, uf, aparece, colore, escolhido, contorno = 1, inclinacao = 28, folga = 0.12, tamPonto = 11 }) => {
   const alvo = uf ? caixaUf(uf, largura / altura, folga) : BRASIL;
   const base: Caixa = (() => {
     const razao = largura / altura; let [x, y, w, h] = BRASIL;
@@ -46,7 +48,7 @@ export const MapaBrasil: React.FC<Props> = ({ largura, altura, zoom, uf, aparece
   })();
   const vb = base.map((v, i) => v + (alvo[i] - v) * zoom) as Caixa;
   const u = vb[2] / largura; // unidades do mapa por px
-  const tam = 11 * u;
+  const tam = tamPonto * u;
   const grossura = 9 * u * zoom;
   const ufAtual = uf ? dados.geo.ufs.find((g) => g.uf === uf) : null;
   return (

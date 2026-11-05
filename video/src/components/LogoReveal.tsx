@@ -26,15 +26,19 @@ type Props = {
   largura: number; // largura final do lockup (px)
   centroY: number; // centro vertical do lockup na tela
   brilho?: number;
+  /** Duração do deslocamento do símbolo até a logo (s). */
+  movimento?: number;
+  /** Início e fim da revelação do nome, contados a partir de lockupEm (s). */
+  nomeJanela?: [number, number];
 };
 
-export const LogoReveal: React.FC<Props> = ({ t, traco, anelEm, lockupEm, largura, centroY, brilho = 0 }) => {
+export const LogoReveal: React.FC<Props> = ({ t, traco, anelEm, lockupEm, largura, centroY, brilho = 0, movimento = 0.75, nomeJanela = [0.42, 1.0] }) => {
   const { W, H, vertical } = useLayout();
   const fps = 30;
   const pt = prog(t, traco[0], traco[1], EASE.traco);
   const anel = mola(t, anelEm, fps, { damping: 11, stiffness: 170 });
-  const k = prog(t, lockupEm, lockupEm + 0.75, EASE.camera);
-  const nome = prog(t, lockupEm + 0.42, lockupEm + 1.0, EASE.entra);
+  const k = prog(t, lockupEm, lockupEm + movimento, EASE.camera);
+  const nome = prog(t, lockupEm + nomeJanela[0], lockupEm + nomeJanela[1], EASE.entra);
 
   // Palco (símbolo sozinho, grande) → posição do símbolo dentro do lockup.
   const { S, cx, cy } = palcoSimbolo(W, H, vertical);

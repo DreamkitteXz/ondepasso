@@ -20,7 +20,10 @@ NARRACAO_INICIO = 0.5  # igual a src/timeline.ts
 DURACAO = 58.0         # igual a src/timeline.ts
 rng = np.random.default_rng(7)
 
-m = {k: v + NARRACAO_INICIO for k, v in json.loads((RAIZ / "src/data/narracao.json").read_text())["marcos"].items()}
+
+def marcos():
+    """Marcos da narração do vídeo institucional (s do vídeo)."""
+    return {k: v + NARRACAO_INICIO for k, v in json.loads((RAIZ / "src/data/narracao.json").read_text())["marcos"].items()}
 
 def hz(nota):
     """'D3' -> frequência."""
@@ -113,68 +116,70 @@ def ruido_varrido(dur, f0, f1, curva=2.0):
     return out
 
 # ---------------------------------------------------------------- trilha
-BPM = 100; BEAT = 60 / BPM; COMPASSO = 4 * BEAT
-P = Pista(DURACAO)
-bus_pad = Pista(DURACAO); bus_pluck = Pista(DURACAO); bus_ritmo = Pista(DURACAO)
+def trilha():
+    m = marcos()
+    BPM = 100; BEAT = 60 / BPM; COMPASSO = 4 * BEAT
+    P = Pista(DURACAO)
+    bus_pad = Pista(DURACAO); bus_pluck = Pista(DURACAO); bus_ritmo = Pista(DURACAO)
 
-# Ato 1 — incerteza (0 → marca): acorde suspenso grave, pulso de tique e subida até a revelação.
-hook_fim = m["ondePasso"]
-bus_pad.add(0.0, pad(["B2", "F#3", "C#4", "E4"], hook_fim + 0.4, a=0.25, r=0.6, brilho=3.5), 0.9)
-t = 0.0
-while t < m["praResponder"] - 0.2:
-    bus_ritmo.add(t, hat(0.04, 0.7), 1.0, pan=0.25)
-    bus_ritmo.add(t + BEAT / 2, hat(0.03, 0.4), 1.0, pan=-0.25)
-    t += BEAT
-for i, tt in enumerate(np.arange(m["eAgora"], m["praResponder"], BEAT / 2)):
-    bus_pluck.add(tt, pluck(["B4", "F#5", "C#5", "E5"][i % 4], 0.5, 0.6), 0.18 + 0.03 * i, pan=0.3 * np.sin(i))
-sub_ = ruido_varrido(hook_fim - m["praResponder"] + 0.3, 300, 6000, 1.6) * np.linspace(0, 1, int((hook_fim - m["praResponder"] + 0.3) * SR)) ** 2
-P.add(m["praResponder"] - 0.3, sub_ * 0.22)
+    # Ato 1 — incerteza (0 → marca): acorde suspenso grave, pulso de tique e subida até a revelação.
+    hook_fim = m["ondePasso"]
+    bus_pad.add(0.0, pad(["B2", "F#3", "C#4", "E4"], hook_fim + 0.4, a=0.25, r=0.6, brilho=3.5), 0.9)
+    t = 0.0
+    while t < m["praResponder"] - 0.2:
+        bus_ritmo.add(t, hat(0.04, 0.7), 1.0, pan=0.25)
+        bus_ritmo.add(t + BEAT / 2, hat(0.03, 0.4), 1.0, pan=-0.25)
+        t += BEAT
+    for i, tt in enumerate(np.arange(m["eAgora"], m["praResponder"], BEAT / 2)):
+        bus_pluck.add(tt, pluck(["B4", "F#5", "C#5", "E5"][i % 4], 0.5, 0.6), 0.18 + 0.03 * i, pan=0.3 * np.sin(i))
+    sub_ = ruido_varrido(hook_fim - m["praResponder"] + 0.3, 300, 6000, 1.6) * np.linspace(0, 1, int((hook_fim - m["praResponder"] + 0.3) * SR)) ** 2
+    P.add(m["praResponder"] - 0.3, sub_ * 0.22)
 
-# Ato 2 — descoberta (marca → fim da explicação): progressão D – A – Bm – G com batida leve.
-grupo_ini = hook_fim
-grupo_fim = m["naoEPromessa"] - 0.25
-acordes = [("D3", ["D3", "A3", "D4", "F#4"], ["D5", "F#5", "A5", "E5"]),
-           ("A2", ["A2", "E3", "C#4", "E4"], ["C#5", "E5", "A5", "E5"]),
-           ("B2", ["B2", "F#3", "D4", "F#4"], ["D5", "F#5", "B5", "F#5"]),
-           ("G2", ["G2", "D3", "B3", "D4"], ["B4", "D5", "G5", "D5"])]
-P.add(hook_fim, kick(1.3), 0.9)
-t = grupo_ini; i = 0
-while t < grupo_fim:
-    raiz, notas, arp = acordes[i % 4]
-    d = min(COMPASSO, grupo_fim - t + 0.01)
-    bus_pad.add(t, pad(notas, d + 1.2, a=0.6 if i else 0.05, r=1.2, brilho=4.5), 0.75)
-    P.add(t, np.stack([sub(raiz, d)] * 2) * 0.55)
-    for b in range(4):
-        tb = t + b * BEAT
-        if tb >= grupo_fim: break
-        if b in (0, 2) and t > m["digita"] - 0.3: P.add(tb, kick(0.85), 0.8)
-        if t > m["escolhe"] - 0.3: bus_ritmo.add(tb + BEAT / 2, hat(0.05, 0.9), 1.0, pan=0.2)
-        for s in range(2):
-            ts = tb + s * BEAT / 2
-            if ts < grupo_fim and t > m["digita"] - 0.3:
-                bus_pluck.add(ts, pluck(arp[(b * 2 + s) % 4], 0.8), 0.20, pan=(-0.35 if s else 0.35))
-    t += COMPASSO; i += 1
+    # Ato 2 — descoberta (marca → fim da explicação): progressão D – A – Bm – G com batida leve.
+    grupo_ini = hook_fim
+    grupo_fim = m["naoEPromessa"] - 0.25
+    acordes = [("D3", ["D3", "A3", "D4", "F#4"], ["D5", "F#5", "A5", "E5"]),
+               ("A2", ["A2", "E3", "C#4", "E4"], ["C#5", "E5", "A5", "E5"]),
+               ("B2", ["B2", "F#3", "D4", "F#4"], ["D5", "F#5", "B5", "F#5"]),
+               ("G2", ["G2", "D3", "B3", "D4"], ["B4", "D5", "G5", "D5"])]
+    P.add(hook_fim, kick(1.3), 0.9)
+    t = grupo_ini; i = 0
+    while t < grupo_fim:
+        raiz, notas, arp = acordes[i % 4]
+        d = min(COMPASSO, grupo_fim - t + 0.01)
+        bus_pad.add(t, pad(notas, d + 1.2, a=0.6 if i else 0.05, r=1.2, brilho=4.5), 0.75)
+        P.add(t, np.stack([sub(raiz, d)] * 2) * 0.55)
+        for b in range(4):
+            tb = t + b * BEAT
+            if tb >= grupo_fim: break
+            if b in (0, 2) and t > m["digita"] - 0.3: P.add(tb, kick(0.85), 0.8)
+            if t > m["escolhe"] - 0.3: bus_ritmo.add(tb + BEAT / 2, hat(0.05, 0.9), 1.0, pan=0.2)
+            for s in range(2):
+                ts = tb + s * BEAT / 2
+                if ts < grupo_fim and t > m["digita"] - 0.3:
+                    bus_pluck.add(ts, pluck(arp[(b * 2 + s) % 4], 0.8), 0.20, pan=(-0.35 if s else 0.35))
+        t += COMPASSO; i += 1
 
-# Ato 3 — clareza: tira a batida, fica pad aberto + notas de sino.
-cl_ini = grupo_fim
-bus_pad.add(cl_ini, pad(["G2", "D3", "A3", "B3", "F#4"], m["ondePassoFinal"] - cl_ini + 0.6, a=0.5, r=0.9, brilho=6), 0.8)
-for k, (tt, nota) in enumerate([(m["clareza"], "A5"), (m["proximoPasso"], "F#5"), (m["proximoPasso"] + 0.45, "D6")]):
-    bus_pluck.add(tt, sino(nota, 2.5), 0.10)
+    # Ato 3 — clareza: tira a batida, fica pad aberto + notas de sino.
+    cl_ini = grupo_fim
+    bus_pad.add(cl_ini, pad(["G2", "D3", "A3", "B3", "F#4"], m["ondePassoFinal"] - cl_ini + 0.6, a=0.5, r=0.9, brilho=6), 0.8)
+    for k, (tt, nota) in enumerate([(m["clareza"], "A5"), (m["proximoPasso"], "F#5"), (m["proximoPasso"] + 0.45, "D6")]):
+        bus_pluck.add(tt, sino(nota, 2.5), 0.10)
 
-# Ato 4 — assinatura do logo + resolução em Dmaj9 até o fim.
-fim_ini = m["ondePassoFinal"]
-bus_pad.add(fim_ini, pad(["D3", "A3", "E4", "F#4", "C#5"], DURACAO - fim_ini + 0.5, a=0.08, r=4.0, brilho=6), 0.9)
-P.add(fim_ini, np.stack([sub("D2", 3.5)] * 2) * 0.7)
-P.add(fim_ini, kick(1.2), 0.8)
-for k, nota in enumerate(["D5", "F#5", "A5", "C#6"]):
-    bus_pluck.add(fim_ini + 0.09 * k, sino(nota, 3.5), 0.13)
+    # Ato 4 — assinatura do logo + resolução em Dmaj9 até o fim.
+    fim_ini = m["ondePassoFinal"]
+    bus_pad.add(fim_ini, pad(["D3", "A3", "E4", "F#4", "C#5"], DURACAO - fim_ini + 0.5, a=0.08, r=4.0, brilho=6), 0.9)
+    P.add(fim_ini, np.stack([sub("D2", 3.5)] * 2) * 0.7)
+    P.add(fim_ini, kick(1.2), 0.8)
+    for k, nota in enumerate(["D5", "F#5", "A5", "C#6"]):
+        bus_pluck.add(fim_ini + 0.09 * k, sino(nota, 3.5), 0.13)
 
-mix = reverb(bus_pad.x, 0.35) * 0.95 + reverb(bus_pluck.x, 0.3) + bus_ritmo.x * 0.6 + P.x
-mix = mix[:, : int(DURACAO * SR)]
-mix *= env(mix.shape[1], 0.02, 3.0)  # saída em fade nos 3 s finais
-mix /= np.max(np.abs(mix)) / 0.89      # pico em ≈ -1 dBFS
-(RAIZ / "public/audio/sfx").mkdir(parents=True, exist_ok=True)
-wavfile.write(RAIZ / "public/audio/trilha.wav", SR, (mix.T * 32767).astype(np.int16))
+    mix = reverb(bus_pad.x, 0.35) * 0.95 + reverb(bus_pluck.x, 0.3) + bus_ritmo.x * 0.6 + P.x
+    mix = mix[:, : int(DURACAO * SR)]
+    mix *= env(mix.shape[1], 0.02, 3.0)  # saída em fade nos 3 s finais
+    mix /= np.max(np.abs(mix)) / 0.89      # pico em ≈ -1 dBFS
+    (RAIZ / "public/audio/sfx").mkdir(parents=True, exist_ok=True)
+    wavfile.write(RAIZ / "public/audio/trilha.wav", SR, (mix.T * 32767).astype(np.int16))
 
 # ---------------------------------------------------------------- efeitos
 def salvar(nome, x, pico=0.8):
@@ -227,14 +232,21 @@ def assinatura():
         x[:, i:i + len(s)] += np.stack([s * (1 - 0.2 * k), s * (0.8 + 0.2 * k)])[:, : x.shape[1] - i]
     return reverb(x, 0.4)
 
-salvar("whoosh", whoosh())
-salvar("whoosh-curto", whoosh(0.4, 800, 7000), 0.6)
-salvar("toque", toque(), 0.7)
-salvar("tecla", tecla(), 0.5)
-salvar("pop", pop(), 0.5)
-salvar("pop-grave", pop(520), 0.5)
-salvar("contador", contador(m["n720"] + 1.0 - 0.1), 0.45)
-salvar("confirma", confirma(), 0.6)
-salvar("assinatura", assinatura(), 0.75)
-salvar("subida", ruido_varrido(1.4, 200, 8000, 2.2) * np.linspace(0, 1, int(1.4 * SR)) ** 2, 0.5)
-print("ok: trilha.wav e", len(list((RAIZ / "public/audio/sfx").glob("*.wav"))), "efeitos")
+def efeitos():
+    m = marcos()
+    salvar("whoosh", whoosh())
+    salvar("whoosh-curto", whoosh(0.4, 800, 7000), 0.6)
+    salvar("toque", toque(), 0.7)
+    salvar("tecla", tecla(), 0.5)
+    salvar("pop", pop(), 0.5)
+    salvar("pop-grave", pop(520), 0.5)
+    salvar("contador", contador(m["n720"] + 1.0 - 0.1), 0.45)
+    salvar("confirma", confirma(), 0.6)
+    salvar("assinatura", assinatura(), 0.75)
+    salvar("subida", ruido_varrido(1.4, 200, 8000, 2.2) * np.linspace(0, 1, int(1.4 * SR)) ** 2, 0.5)
+    print("ok: trilha.wav e", len(list((RAIZ / "public/audio/sfx").glob("*.wav"))), "efeitos")
+
+
+if __name__ == "__main__":
+    trilha()
+    efeitos()

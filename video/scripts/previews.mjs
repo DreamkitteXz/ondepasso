@@ -1,5 +1,5 @@
 // Gera quadros de conferência (início, meio e fim de cada cena) nos dois formatos.
-// Uso: node scripts/previews.mjs [16x9|9x16|ambos] [segundos...]
+// Uso: node scripts/previews.mjs [16x9|9x16|ambos|tiktok01] [segundos...]
 // Saída: previews/<formato>/t<seg>.jpg  (a pasta previews/ não vai para o git)
 import path from "node:path";
 import fs from "node:fs";
@@ -14,7 +14,7 @@ const browserExecutable = process.env.REMOTION_CHROME || undefined;
 
 const serveUrl = await bundle({ entryPoint: path.join(raiz, "src/index.ts") });
 for (const f of formatos) {
-  const id = f === "16x9" ? "OndePasso16x9" : "OndePasso9x16";
+  const id = { "16x9": "OndePasso16x9", "9x16": "OndePasso9x16", tiktok01: "OndePassoTikTok01" }[f];
   const composition = await selectComposition({ serveUrl, id, inputProps: {}, browserExecutable });
   const dir = path.join(raiz, "previews", f);
   fs.mkdirSync(dir, { recursive: true });
