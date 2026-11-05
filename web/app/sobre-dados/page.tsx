@@ -23,7 +23,7 @@ export default function SobreDados() {
     </section>
     <section className="cartao estado-comparacao">
       <h2>Suas notas ficam no navegador</h2>
-      <p>Os cálculos são feitos no seu aparelho. As notas que você informa ficam no armazenamento local do navegador e podem ser apagadas pela opção “apagar minhas notas”.</p>
+      <p>Os cálculos são feitos no seu aparelho. As notas que você informa ficam no armazenamento local do navegador e podem ser apagadas pela opção “apagar minhas notas”. Nenhuma nota é enviada para medição de visitas; veja a página de <a href="/privacidade/">privacidade e cookies</a>.</p>
       <a className="botao" href="/calcular/">Comparar minhas notas</a>
     </section>
   </article>;

@@ -12,6 +12,7 @@ import { PainelStory, type DadosStory } from "@/components/CardStory";
 import { SITE } from "@/lib/site";
 import { Termo } from "@/components/Termo";
 import { NoSisu } from "@/components/NoSisu";
+import { useRegistrarQuando } from "@/lib/analytics";
 
 export type LinhaCota = { cod: string; nome: string; titulo: string; vagas: number | null; inscritos: number | null; corte: number | null };
 export type Local = { d: string; box: [number, number, number, number]; x: number | null; y: number | null };
@@ -32,6 +33,7 @@ export function DetalheOferta(p: Props) {
   const [editando, setEditando] = useState(false);
   const [todas, setTodas] = useState(false);
   const [compartilhando, setCompartilhando] = useState(false);
+  const [envios, setEnvios] = useState(0); // só para o analytics: cada nota confirmada aqui conta como nova exibição
 
   // Ausência de corte nunca troca silenciosamente a modalidade do aluno.
   const minhaCota = p.cotas.find((c) => c.cod === modSalva) ?? null;
@@ -40,6 +42,9 @@ export function DetalheOferta(p: Props) {
   const sua = minha == null ? null : suaMedia(minha, p.peso);
   const s = minha != null && corte != null ? statusPara(minha, p.peso, corte) : null;
   const dif = sua != null && corte != null ? sua.v - corte : null;
+  // Resultados exibidos: a sua média comparada com o corte desta opção.
+  useRegistrarQuando(minha != null && !editando, `resultados|${p.slug}|${p.rota}|${envios}`, "en_resultados_visualizados",
+    { curso: p.slug, pagina: "opcao", tipo_nota: minha?.n ? "areas" : "media", origem_nota: envios ? "digitada" : "salva" });
 
   // Com uma cota escolhida, o número grande é o corte dela; a ampla fica menor, logo abaixo.
   const cota = minhaCota && minhaCota.cod !== "AC" ? minhaCota : null;
@@ -59,7 +64,7 @@ export function DetalheOferta(p: Props) {
       {minha == null || editando ? (
         <>
           <p className="voce-titulo">{minha == null ? "Compare com a sua nota" : "Editar sua nota"}</p>
-          <EntradaNota ano={p.ano} minha={editando ? minha : null} compacta pronto={() => setEditando(false)} />
+          <EntradaNota ano={p.ano} minha={editando ? minha : null} compacta curso={p.slug} pronto={(salvou) => { if (salvou) setEnvios((n) => n + 1); setEditando(false); }} />
         </>
       ) : (
         <>

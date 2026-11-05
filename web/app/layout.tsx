@@ -5,6 +5,7 @@ import "./globals.css";
 import { Logo } from "@/components/Logo";
 import { BotaoTema, SCRIPT_TEMA } from "@/components/Tema";
 import { NavTopo, Tabbar } from "@/components/Navegacao";
+import { Analytics, PreferenciasCookies } from "@/components/Analytics";
 import { indice } from "@/lib/dados";
 
 import { SITE } from "@/lib/site";
@@ -38,11 +39,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer>
           <div className="wrap">
             <p>Cortes do Sisu {anos[0]} a {anos[anos.length - 1]} (chamada regular), dados públicos do MEC. O onde passo não é oficial: confira sempre no <a href="https://acessounico.mec.gov.br/">portal do Sisu</a>.</p>
-            <p><a href="/sobre-dados/">Fonte e metodologia</a></p>
+            <p><a href="/sobre-dados/">Fonte e metodologia</a> · <a href="/privacidade/">Privacidade</a><PreferenciasCookies /></p>
             <p>Base atualizada em {atualizado.split("-").reverse().join("/")}. Suas notas nunca saem do seu navegador.</p>
           </div>
         </footer>
         <Tabbar />
+        <Analytics />
       </body>
     </html>
   );

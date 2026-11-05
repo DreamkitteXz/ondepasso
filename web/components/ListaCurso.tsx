@@ -9,6 +9,7 @@ import { nota as fmt, ROTULO, nomeModalidade, contagemVazia, type Status } from 
 import { statusPara, temPesos } from "@/lib/minhas";
 import { salvarMod, useMinhas, useMod } from "@/lib/nota";
 import { EntradaNota, Legenda, Mapa, PilulaNota } from "@/components/MapaInicio";
+import { useRegistrarQuando } from "@/lib/analytics";
 
 export type ItemCurso = Ponto & { campus: string; grau: string; delta: number | null; temMapa: boolean };
 type Mod = { cod: string; nome: string };
@@ -27,6 +28,9 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
   const [limite, setLimite] = useState(POR_PAGINA);
   const modAtual = mods.find((m) => m.cod === mod) ?? { cod: mod, nome: nomeModalidade(mod) };
   const corte = (p: Ponto) => p.m[modAtual.cod] as number | undefined;
+  // Resultados exibidos: o resumo "X de N opções acima do corte" com a lista colorida.
+  useRegistrarQuando(minha != null && !editando, `resultados|${slug}|${revelacao}`, "en_resultados_visualizados",
+    { curso: slug, pagina: "curso", tipo_nota: minha?.n ? "areas" : "media", origem_nota: revelacao ? "digitada" : "salva" });
 
   const ufs = useMemo(() => [...new Set(itens.map((i) => i.u))].sort(), [itens]);
   const turnos = useMemo(() => [...new Set(itens.map((i) => i.t))].sort(), [itens]);
@@ -59,7 +63,7 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
   const cartaoNota = (
     <section className="cartao nota-curso" aria-label="Sua nota neste curso">
       {minha == null || editando ? (
-        <EntradaNota ano={ano} minha={editando ? minha : null} compacta={false}
+        <EntradaNota ano={ano} minha={editando ? minha : null} compacta={false} curso={slug}
           pronto={(salvou) => { if (salvou) setRevelacao((n) => n + 1); setEditando(false); }} />
       ) : (
         <>

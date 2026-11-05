@@ -14,4 +14,6 @@ Páginas:
 - `/curso/<curso>/`: todas as universidades do curso, com filtro por estado e ordenação
 - `/curso/<curso>/<sigla>-<id>/`: corte por modalidade, histórico, pesos, mínimas e aviso de bônus regional
 
+Analytics (GA4, só com consentimento): ver `ANALYTICS.md`. Variável `NEXT_PUBLIC_GA_ID` no build.
+
 Tema escuro/claro segue o sistema (tokens iguais às variáveis do Figma em `app/globals.css`).

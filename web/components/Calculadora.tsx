@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { DadosCalc } from "@/lib/calc";
 import { lerNota, nota as fmt, diferenca, ROTULO, nomeModalidade, contagemVazia, type Status } from "@/lib/formato";
 import { salvarNotasAreas, salvarMod, useAreas, useMod, type Areas } from "@/lib/nota";
+import { registrar, registrarUmaVez, useRegistrarQuando } from "@/lib/analytics";
 
 import { compararOpcoes, statusPara, suaMedia } from "@/lib/minhas";
 import { CoberturaComparacao } from "@/components/ResumoComparacao";
@@ -31,11 +32,13 @@ export function Calculadora({ ano }: { ano: number }) {
   const [tentativa, setTentativa] = useState(0);
   const [ordem, setOrdem] = useState("proximas");
   const [limite, setLimite] = useState(POR_PAGINA);
+  const [consultas, setConsultas] = useState(0); // só para o analytics: consultas feitas nesta página
+  const [digitou, setDigitou] = useState(false); // só para o analytics: a pessoa mexeu nas notas nesta página
 
   useEffect(() => {
     const abortar = new AbortController();
     setErroDados(false);
-    fetch("/calc.json", { signal: abortar.signal }).then((r) => { if (!r.ok) throw new Error("Dados indisponíveis"); return r.json(); }).then(setDados).catch((e) => { if (e.name !== "AbortError") setErroDados(true); });
+    fetch("/calc.json", { signal: abortar.signal }).then((r) => { if (!r.ok) throw new Error("Dados indisponíveis"); return r.json(); }).then(setDados).catch((e) => { if (e.name !== "AbortError") { setErroDados(true); registrar("en_erro_consulta", { tipo_erro: "falha_carregar_calculadora", formulario: "calculadora" }); } });
     return () => abortar.abort();
   }, [tentativa]);
 
@@ -75,7 +78,26 @@ export function Calculadora({ ano }: { ano: number }) {
   const invalidas = notas.filter((c) => c.texto.trim() !== "" && c.v == null);
   const limparFiltros = () => { setGrupo(-1); setUf(""); setLimite(POR_PAGINA); };
 
-  const mudar = (k: keyof Areas, v: string) => { salvarNotasAreas({ ...areas, [k]: v }); setLimite(POR_PAGINA); };
+  const mudar = (k: keyof Areas, v: string) => {
+    const novas = { ...areas, [k]: v };
+    // Analytics (nunca a nota): começou a preencher, completou as cinco (= pediu o resultado) ou digitou algo inválido.
+    registrarUmaVez("consulta_iniciada", "en_consulta_iniciada", { formulario: "calculadora" });
+    setDigitou(true);
+    if (v.trim() !== "" && lerNota(v) == null) registrarUmaVez("erro_validacao", "en_erro_consulta", { tipo_erro: "nota_invalida", formulario: "calculadora" });
+    salvarNotasAreas(novas); setLimite(POR_PAGINA);
+  };
+  // Consulta realizada: as cinco notas válidas e paradas por 1,5 s depois de a pessoa digitar (a calculadora não tem
+  // botão; assim "1", "15", "150" de uma mesma digitação não contam como três consultas). Notas que já estavam
+  // salvas ao abrir a página não contam como consulta nova.
+  useEffect(() => {
+    if (!completo || !digitou) return;
+    const t = setTimeout(() => { registrar("en_consulta_realizada", { formulario: "calculadora" }); setConsultas((c) => c + 1); }, 1500);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [completo, digitou, ...n]);
+  // Resultados exibidos: a lista comparada com os cortes (com as cinco notas e os dados carregados).
+  useRegistrarQuando(completo && dados != null && !erroDados && (consultas > 0 || !digitou), `resultados|calculadora|${consultas}`, "en_resultados_visualizados",
+    { pagina: "calculadora", tipo_nota: "areas", origem_nota: consultas ? "digitada" : "salva", resultado: resultados.length ? "com_opcoes" : "sem_opcoes" });
   const filtro = (rotulo: string, valor: string, aria: string, opcoes: [string, string][], aoMudar: (v: string) => void, ativo: boolean) => (
     <label className={`chip chip-select${ativo ? " ativo" : ""}`}>
       {rotulo}

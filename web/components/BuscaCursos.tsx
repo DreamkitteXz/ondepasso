@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { nota } from "@/lib/formato";
+import { registrar } from "@/lib/analytics";
 
 type Item = { curso: string; slug: string; ofertas: number; ampla_min: number | null; ampla_max: number | null };
 const sem = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
@@ -32,7 +33,7 @@ export function BuscaCursos({ cursos, atalhos, ano, aoEscolher }: { cursos: Item
         </div>
       ) : atalhos.length > 0 && (
         <div className="chips">
-          {atalhos.map((c) => <a key={c.slug} className="chip" href={`/curso/${c.slug}/`}>{c.curso}</a>)}
+          {atalhos.map((c) => <a key={c.slug} className="chip" href={`/curso/${c.slug}/`} onClick={() => registrar("en_curso_selecionado", { curso: c.slug, origem: "atalho" })}>{c.curso}</a>)}
         </div>
       )}
     </>
@@ -52,7 +53,8 @@ export function LinhaCurso({ c, ano, aoEscolher }: { c: Item; ano: number; aoEsc
       </div>
     </>
   );
+  const marcar = () => registrar("en_curso_selecionado", { curso: c.slug, origem: "busca" });
   return aoEscolher
-    ? <button className="linha" onClick={aoEscolher}>{dentro}</button>
-    : <a className="linha" href={`/curso/${c.slug}/`}>{dentro}</a>;
+    ? <button className="linha" onClick={() => { marcar(); aoEscolher(); }}>{dentro}</button>
+    : <a className="linha" href={`/curso/${c.slug}/`} onClick={marcar}>{dentro}</a>;
 }

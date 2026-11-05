@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/`, lastModified, priority: 1 },
     { url: `${SITE}/calcular/`, lastModified, priority: 0.9 },
     { url: `${SITE}/sobre-dados/`, priority: 0.5 },
+    { url: `${SITE}/privacidade/`, priority: 0.3 },
     { url: `${SITE}/ao-vivo/`, priority: 0.5 },
     { url: `${SITE}/universidades/`, lastModified, priority: 0.9 },
     ...universidades().lista.map((u) => ({ url: `${SITE}/universidades/${u.slug}/`, lastModified, priority: 0.7 })),

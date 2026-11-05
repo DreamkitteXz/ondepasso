@@ -764,3 +764,18 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
   .calc-grade { grid-template-columns: 300px minmax(0, 1fr); gap: 24px; }
   .calc-cabeca.so-desktop, .calc-linha { grid-template-columns: minmax(120px, 1fr) 80px 80px 72px 110px; gap: 8px; padding-inline: 12px; }
 }
+
+/* ---------- Aviso de cookies (GA4, só com consentimento) ---------- */
+footer .link { color: inherit; font-size: inherit; text-decoration: none; }
+footer .link:hover { color: var(--fg-1); }
+.aviso-cookies { position: fixed; z-index: 20; left: 12px; right: 12px; bottom: calc(81px + env(safe-area-inset-bottom)); max-width: 440px; margin: 0 auto; padding: 16px; background: var(--panel-3); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,.35); font-size: 13px; color: var(--fg-2); }
+.aviso-cookies h2 { margin: 0 0 6px; font-size: 15px; color: var(--fg-1); }
+.aviso-cookies p { margin: 0 0 12px; line-height: 1.45; }
+.aviso-cookies a { color: var(--fg-1); text-decoration: underline; text-underline-offset: 2px; }
+.aviso-cookies-botoes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.botao-borda { background: transparent; color: var(--fg-1); border: 1px solid var(--line-2); }
+.botao-borda:hover { background: var(--panel-2); opacity: 1; }
+@media (min-width: 1024px) {
+  .aviso-cookies { left: auto; right: 24px; bottom: 24px; margin: 0; width: 400px; }
+}
+.pagina-informativa .link-sublinhado { color: var(--fg-1); text-decoration: underline; text-underline-offset: 2px; }

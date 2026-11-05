@@ -11,6 +11,7 @@ import { apagarNotas, salvarMedia, salvarMod, salvarNotasAreas, useMinhas, useMo
 import { AREAS, statusPara, suaMedia, temPesos, type Minhas, type Pesos } from "@/lib/minhas";
 import { BuscaCursos } from "@/components/BuscaCursos";
 import { Termo } from "@/components/Termo";
+import { registrar, registrarUmaVez, useRegistrarQuando } from "@/lib/analytics";
 
 type Atalho = { curso: string; slug: string; soDesktop?: boolean };
 type ItemBusca = { curso: string; slug: string; ofertas: number; ampla_min: number | null; ampla_max: number | null };
@@ -58,6 +59,10 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   const mod = useMod(); const setMod = salvarMod;
   const topoRef = useRef<HTMLDivElement>(null);
 
+  // Resultados exibidos: o mapa colorido com a nota (ao confirmar uma nota, ao abrir com nota salva ou ao trocar de curso).
+  useRegistrarQuando(minha != null, `resultados|${dados.slug}|${revelacao}`, "en_resultados_visualizados",
+    { curso: dados.slug, pagina: "inicio", tipo_nota: minha?.n ? "areas" : "media", origem_nota: revelacao ? "digitada" : "salva" });
+
   const modAtual = dados.mods.find((m) => m.cod === mod) ?? { cod: mod, nome: nomeModalidade(mod) };
   const pontos = useMemo(() => dados.pontos.filter((p) => p.m[modAtual.cod] != null), [dados, modAtual]);
   const corte = (p: Ponto) => p.m[modAtual.cod];
@@ -85,6 +90,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
       setDados(d);
       return d;
     } catch {
+      registrar("en_erro_consulta", { tipo_erro: "falha_carregar_mapa", curso: slug });
       if (pedido === pedidoMapa.current) setErroMapa(slug);
       return;
     } finally {
@@ -101,7 +107,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   const chips = (
     <div className="chips" role="group" aria-label="Curso mostrado no mapa">
       {[...atalhos, ...(extra && !atalhos.some((a) => a.slug === extra.slug) ? [extra] : [])].map((a) => (
-        <button key={a.slug} className={`chip${a.slug === dados.slug ? " ativo" : ""}${a.soDesktop ? " so-desktop" : ""}`} aria-pressed={a.slug === dados.slug} onClick={() => escolher(a.slug)}>
+        <button key={a.slug} className={`chip${a.slug === dados.slug ? " ativo" : ""}${a.soDesktop ? " so-desktop" : ""}`} aria-pressed={a.slug === dados.slug} onClick={() => { if (a.slug !== dados.slug) registrar("en_curso_selecionado", { curso: a.slug, origem: "atalho" }); escolher(a.slug); }}>
           {carregando === a.slug ? "…" : a.curso}
         </button>
       ))}
@@ -120,7 +126,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   );
   const pilula = minha != null && !editando ? <PilulaNota minha={minha} editar={() => setEditando(true)} /> : null;
   const entrada = (compacta: boolean) => (minha == null || editando) && (
-    <EntradaNota ano={dados.ano} minha={editando ? minha : null} compacta={compacta}
+    <EntradaNota ano={dados.ano} minha={editando ? minha : null} compacta={compacta} curso={dados.slug}
       pronto={(salvou) => { if (salvou) setRevelacao((n) => n + 1); setEditando(false); }} />
   );
 
@@ -288,22 +294,29 @@ export function AvisoPesos() {
  * Entrada da nota: a média única (rápida) ou as 5 notas por área (cada opção calcula a média com os próprios pesos).
  * As duas ficam salvas no navegador; a última forma digitada é a que vale.
  */
-export function EntradaNota({ ano, minha, pronto, compacta }: { ano: number; minha: Minhas | null; pronto: (salvou: boolean) => void; compacta: boolean }) {
+export function EntradaNota({ ano, minha, pronto, compacta, curso }: { ano: number; minha: Minhas | null; pronto: (salvou: boolean) => void; compacta: boolean; curso?: string }) {
   const [modo, setModo] = useState<"media" | "areas">(minha?.n ? "areas" : "media");
   const [texto, setTexto] = useState(minha && !minha.n ? fmt(minha.media) : "");
   const [areas, setAreas] = useState<Areas>(() => minha?.n ? Object.fromEntries(AREAS.map((k, i) => [k, fmt(minha.n![i])])) : {});
   const [erro, setErro] = useState(false);
   const ref = useRef<HTMLInputElement>(null);
   useEffect(() => { if (minha) ref.current?.focus(); }, [minha, modo]);
+  // Analytics: só o tipo de formulário e o curso (nunca a nota).
+  const comecou = () => registrarUmaVez("consulta_iniciada", "en_consulta_iniciada", { formulario: modo, curso });
+  const medir = (ok: boolean) => ok
+    ? registrar("en_consulta_realizada", { formulario: modo, curso })
+    : registrar("en_erro_consulta", { tipo_erro: modo === "media" ? "nota_invalida" : "notas_area_incompletas", formulario: modo, curso });
   function enviar(e: React.FormEvent) {
     e.preventDefault();
     if (modo === "media") {
       const v = lerNota(texto);
       setErro(v == null);
+      medir(v != null);
       if (v != null) { salvarMedia(v); pronto(true); }
     } else {
       const ok = CAMPOS_AREA.every((c) => lerNota(areas[c.k] ?? "") != null);
       setErro(!ok);
+      medir(ok);
       if (ok) { salvarNotasAreas(areas); pronto(true); }
     }
   }
@@ -314,7 +327,7 @@ export function EntradaNota({ ano, minha, pronto, compacta }: { ano: number; min
       {modo === "media" ? (
         <div className="entrada-linha">
           <input id="nota" ref={ref} inputMode="decimal" placeholder="Sua média do Enem" value={texto}
-            onChange={(e) => { setTexto(e.target.value); setErro(false); }} aria-invalid={erro} aria-label="Sua média do Enem" />
+            onChange={(e) => { comecou(); setTexto(e.target.value); setErro(false); }} aria-invalid={erro} aria-label="Sua média do Enem" />
           <button className="botao" type="submit">{compacta ? "Salvar" : "Comparar nota"}</button>
         </div>
       ) : (
@@ -324,7 +337,7 @@ export function EntradaNota({ ano, minha, pronto, compacta }: { ano: number; min
               <label key={c.k} className="calc-nota">
                 <span>{c.rotulo}</span>
                 <input id={i === 0 ? "nota" : undefined} ref={i === 0 ? ref : undefined} inputMode="decimal" autoComplete="off" placeholder="0,0" value={areas[c.k] ?? ""}
-                  onChange={(e) => { setAreas({ ...areas, [c.k]: e.target.value }); setErro(false); }} aria-invalid={erro && lerNota(areas[c.k] ?? "") == null} />
+                  onChange={(e) => { comecou(); setAreas({ ...areas, [c.k]: e.target.value }); setErro(false); }} aria-invalid={erro && lerNota(areas[c.k] ?? "") == null} />
               </label>
             ))}
             <button className="botao" type="submit">{compacta ? "Salvar" : "Comparar"}</button>
