@@ -7,6 +7,7 @@ import { createRequire } from "module";
 const { chromium } = createRequire(import.meta.url)("playwright");
 
 const BASE = process.env.BASE ?? "http://localhost:4321";
+const GA_ID = process.env.GA_ID ?? "G-TESTE12345"; // o mesmo NEXT_PUBLIC_GA_ID usado no build
 const SHOTS = process.argv[2] ?? "/tmp";
 let falhas = 0, total = 0;
 const ok = (cond, msg) => { total++; if (cond) console.log("  ✓ " + msg); else { falhas++; console.log("  ✗ " + msg); } };
@@ -65,7 +66,7 @@ console.log("\n1. Primeira visita vinda do TikTok (UTM), age antes de decidir, d
   const consent = dl.find((a) => a[0] === "consent");
   ok(consent && consent[1] === "default" && consent[2].ad_storage === "denied" && consent[2].ad_user_data === "denied" && consent[2].ad_personalization === "denied" && consent[2].analytics_storage === "granted", "Consent Mode: publicidade negada, medição liberada");
   const config = dl.find((a) => a[0] === "config");
-  ok(config && config[1] === "G-TESTE12345" && config[2].send_page_view === false && config[2].allow_google_signals === false && config[2].allow_ad_personalization_signals === false, "config sem Google Signals e sem personalização de anúncios");
+  ok(config && config[1] === GA_ID && config[2].send_page_view === false && config[2].allow_google_signals === false && config[2].allow_ad_personalization_signals === false, "config sem Google Signals e sem personalização de anúncios");
   ok(config && !("campaign_source" in config[2]), "UTM na própria URL: nenhuma campanha forçada no config");
   const ev = await eventos(page);
   const n = ev.map((a) => a[1]);
@@ -212,7 +213,7 @@ console.log("\n7. Recusar, apagar cookies e mudar de ideia pelo rodapé");
 {
   const { ctx, page, reqGoogle } = await novo();
   await page.goto(`${BASE}/?utm_source=instagram&utm_medium=social&utm_campaign=stories`);
-  await page.evaluate(() => { document.cookie = "_ga=GA1.1.123.456; path=/"; document.cookie = "_ga_TESTE12345=GS1.1.1; path=/"; });
+  await page.evaluate((id) => { document.cookie = "_ga=GA1.1.123.456; path=/"; document.cookie = `_ga_${id.slice(2)}=GS1.1.1; path=/`; }, GA_ID);
   await page.fill("#nota", "700");
   await page.click(".aviso-cookies button:has-text(\"Recusar\")");
   await page.click("form.entrada-nota button[type=submit]");
@@ -235,7 +236,7 @@ console.log("\n7. Recusar, apagar cookies e mudar de ideia pelo rodapé");
   await page.click(".aviso-cookies button:has-text(\"Recusar\")");
   const dl = await camada(page);
   ok(dl.some((a) => a[0] === "consent" && a[1] === "update" && a[2].analytics_storage === "denied"), "revogar: consent update analytics_storage denied");
-  ok(await page.evaluate(() => window["ga-disable-G-TESTE12345"] === true), "revogar: ga-disable ligado (o gtag.js para de enviar)");
+  ok(await page.evaluate((id) => window[`ga-disable-${id}`] === true, GA_ID), "revogar: ga-disable ligado (o gtag.js para de enviar)");
   await ctx.close();
 }
 

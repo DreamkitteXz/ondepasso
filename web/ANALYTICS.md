@@ -29,7 +29,8 @@ Regras garantidas pelo código:
 |---|---|---|
 | `NEXT_PUBLIC_GA_ID` | `G-AB12CD34EF` | No **build**. Como o site é uma exportação estática, o Next grava o valor no JavaScript durante o `npm run build`; mudar depois exige um novo build. |
 
-- **Produção (Cloudflare Workers Builds):** painel da Cloudflare → Workers & Pages → `ondepasso` → Settings → Build → **Variables and secrets** → adicionar `NEXT_PUBLIC_GA_ID`. Depois, faça um novo deploy (um push na `main` ou "Retry build").
+- **Produção:** o ID está em `web/.env.production` (`G-8ZT4155ZEW`), lido em todo `npm run build`, inclusive no build da Cloudflare. Para trocar, edite o arquivo ou defina a variável no painel (que tem prioridade):
+- **Painel (Cloudflare Workers Builds):** painel da Cloudflare → Workers & Pages → `ondepasso` → Settings → Build → **Variables and secrets** → adicionar `NEXT_PUBLIC_GA_ID`. Depois, faça um novo deploy (um push na `main` ou "Retry build").
   - O ID de medição não é segredo: ele aparece no HTML de qualquer site com GA. Por isso, como alternativa, ele também pode ir num `web/.env.production` versionado (veja `web/.env.example`).
 - **Local:** `NEXT_PUBLIC_GA_ID=G-... npm run build && npm start`, ou um `web/.env.local` (ignorado pelo git).
 
@@ -108,9 +109,9 @@ Use sempre minúsculas e os mesmos nomes. O navegador interno do TikTok e do Ins
 
 ```bash
 cd web
-NEXT_PUBLIC_GA_ID=G-TESTE12345 npm run build
+npm run build                       # usa o ID de .env.production
 (cd out && python3 -m http.server 4321) &
-node tests/analytics.e2e.mjs        # precisa do pacote playwright instalado
+GA_ID=G-8ZT4155ZEW node tests/analytics.e2e.mjs   # precisa do pacote playwright instalado
 ```
 
 O script troca o `gtag.js` por um stub e confere o `dataLayer`: nada antes do consentimento, Consent Mode, page_view único, os cinco eventos com os parâmetros certos, deduplicação, erros, UTMs (inclusive aceitando em outra página), recusa, revogação, limpeza de cookies e de parâmetros desconhecidos, e que nenhuma nota aparece.
