@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import type { Prova } from "@/lib/provas-tipos";
 import { megas } from "@/lib/provas-tipos";
 import type { ProvaLeitor } from "./leitor/ExamReader";
-import { ExamCover } from "./ExamCover";
 
 const ExamReader = dynamic(() => import("./leitor/ExamReader"), {
   ssr: false,
@@ -34,7 +33,11 @@ export function AbrirLeitor({ p, leitor }: { p: Prova; leitor: ProvaLeitor }) {
     <section id="leitor" className="leitor-ancora" aria-label="Leitor da prova">
       {aberto ? <ExamReader prova={leitor} /> : (
         <div className="leitor-convite">
-          <div className="convite-livro" aria-hidden="true"><ExamCover p={p} tamanho="grande" /><div className="convite-folhas" /></div>
+          <div className="convite-livro" aria-hidden="true" style={{ ["--cor-caderno" as string]: p.corHex }}>
+            <div className="convite-pagina esq"><i /><i /><i className="curta" /><i /><i /><i className="curta" /></div>
+            <div className="convite-pagina dir"><i /><i className="curta" /><i /><i /><i /><i className="curta" /></div>
+            <div className="convite-dobra" />
+          </div>
           <div className="convite-texto">
             <h2>Folheie a prova aqui</h2>
             <p>Vire as páginas como num caderno de verdade, ou leia rolando. Dá para dar zoom, ir direto a uma questão, marcar páginas e conferir o gabarito.</p>

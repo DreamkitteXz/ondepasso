@@ -7,9 +7,9 @@ import { megas } from "@/lib/provas-tipos";
 import { abrirPdf, lerGabarito, type Gabarito } from "@/lib/leitor/pdf";
 import { registrar } from "@/lib/analytics";
 
-type Props = { provaId: string; identificacao: string; dia: 1 | 2; gabarito: Arquivo | null; aoAbrirNoLeitor?: () => void; compacto?: boolean };
+type Props = { provaId: string; identificacao: string; dia: 1 | 2; idioma?: "ingles" | "espanhol" | null; gabarito: Arquivo | null; aoAbrirNoLeitor?: () => void; compacto?: boolean };
 
-export function AnswerKeyViewer({ provaId, identificacao, dia, gabarito, aoAbrirNoLeitor, compacto }: Props) {
+export function AnswerKeyViewer({ provaId, identificacao, dia, idioma = null, gabarito, aoAbrirNoLeitor, compacto }: Props) {
   const [estado, setEstado] = useState<"parado" | "lendo" | "ok" | "incompleto" | "erro">("parado");
   const [dados, setDados] = useState<Gabarito | null>(null);
   const [q, setQ] = useState("");
@@ -32,7 +32,7 @@ export function AnswerKeyViewer({ provaId, identificacao, dia, gabarito, aoAbrir
     try {
       const { promessa } = await abrirPdf(gabarito!.url);
       const doc = await promessa;
-      const g = await lerGabarito(doc, dia);
+      const g = await lerGabarito(doc, dia, idioma);
       void doc.loadingTask.destroy();
       setDados(g);
       setEstado(g.completo ? "ok" : "incompleto");
@@ -68,7 +68,7 @@ export function AnswerKeyViewer({ provaId, identificacao, dia, gabarito, aoAbrir
             </label>
             <p id="gab-resp" className="gabarito-resposta" aria-live="polite">
               {!q ? "Digite o número da questão." : !valido ? `Este caderno vai da questão ${de} à ${ate}.` : resp ? (
-                <>Questão {n}: {resp.respostas.map((r, i) => <span key={i} className="letra">{r.rotulo ? `${r.rotulo} ` : ""}<b>{r.valor}</b></span>)}</>
+                <>Questão {n}: {resp.respostas.map((r, i) => <span key={i} className="letra">{r.rotulo ? `${r.rotulo} ` : ""}{/^[A-E]$/.test(r.valor) ? <b>{r.valor}</b> : <em className="anulada">anulada pelo Inep</em>}</span>)}</>
               ) : "—"}
             </p>
             <p className="miudo">Lido do PDF oficial do Inep. Em caso de dúvida, vale o PDF. Acertos não viram nota: o Enem usa a TRI.</p>

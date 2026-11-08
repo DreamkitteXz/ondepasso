@@ -209,38 +209,53 @@ export type Gabarito = { respostas: Map<number, RespostaGabarito>; completo: boo
 
 /**
  * Lê a tabela do PDF de gabarito (linhas "1 D B 46 E", "6 E 51 D"…) pelas posições do texto.
+ * Conferido em 08/11/2026 com gabaritos de 2021 a 2025 (regular, reaplicação, digital, Belém, cadernos 9 e 10).
  * Só devolve `completo` quando acha todas as questões do dia, com letras A–E (ou "Anulada"); senão a consulta por
  * número não é oferecida e a pessoa abre o PDF.
  */
-export async function lerGabarito(doc: PDFDocumentProxy, dia: 1 | 2): Promise<Gabarito> {
+export async function lerGabarito(doc: PDFDocumentProxy, dia: 1 | 2, idioma: "ingles" | "espanhol" | null = null): Promise<Gabarito> {
   const [de, ate] = dia === 1 ? [1, 90] : [91, 180];
-  const linhas = new Map<number, { x: number; s: string }[]>();
+  // Junta os pedaços de texto em linhas por proximidade vertical (tolerância de 3 pt): número e letra da mesma linha
+  // às vezes têm linhas de base um pouco diferentes.
+  const pecas: { pag: number; y: number; x: number; s: string }[] = [];
   for (let n = 1; n <= doc.numPages; n++) {
     const p = await doc.getPage(n);
     const c = await p.getTextContent();
     for (const it of c.items as { str?: string; transform?: number[] }[]) {
       const s = (it.str ?? "").trim();
       if (!s || !it.transform) continue;
-      const y = Math.round(it.transform[5] / 3) + n * 10000;
-      const x = it.transform[4];
-      for (const parte of s.split(/\s+/)) {
-        const l = linhas.get(y) ?? [];
-        l.push({ x, s: parte });
-        linhas.set(y, l);
-      }
+      for (const parte of s.split(/\s+/)) pecas.push({ pag: n, y: it.transform[5], x: it.transform[4], s: parte });
     }
+  }
+  pecas.sort((a, b) => a.pag - b.pag || b.y - a.y);
+  const linhas: { pag: number; y: number; itens: { x: number; s: string }[] }[] = [];
+  for (const pc of pecas) {
+    const ult = linhas[linhas.length - 1];
+    if (ult && ult.pag === pc.pag && Math.abs(ult.y - pc.y) <= 3) ult.itens.push(pc);
+    else linhas.push({ pag: pc.pag, y: pc.y, itens: [pc] });
   }
   const respostas = new Map<number, RespostaGabarito>();
   const valido = (s: string) => /^[A-E]$/.test(s) || /^anulad[ao]$/i.test(s);
-  for (const l of linhas.values()) {
-    const toks = l.sort((a, b) => a.x - b.x).map((t) => t.s);
+  for (const l of linhas) {
+    // Alguns PDFs quebram um número em pedaços ("12" + "1" = 121): junta dígitos colados na mesma linha.
+    const toks: string[] = [];
+    let ultX = -Infinity;
+    for (const t of l.itens.sort((a, b) => a.x - b.x)) {
+      const ant = toks[toks.length - 1];
+      if (ant && /^\d+$/.test(ant) && /^\d+$/.test(t.s) && t.x - ultX < 12 && ant.length + t.s.length <= 3) toks[toks.length - 1] = ant + t.s;
+      else toks.push(t.s);
+      ultX = t.x;
+    }
     for (let i = 0; i < toks.length; i++) {
       const q = Number(toks[i]);
       if (!Number.isInteger(q) || q < de || q > ate || respostas.has(q)) continue;
       const seguintes: string[] = [];
       for (let j = i + 1; j < toks.length && valido(toks[j]); j++) seguintes.push(toks[j]);
       if (!seguintes.length) continue;
-      if (dia === 1 && q <= 5 && seguintes.length >= 2) {
+      if (dia === 1 && q <= 5 && idioma) {
+        // Cadernos da aplicação digital são de um idioma só: uma resposta, com o idioma do caderno.
+        respostas.set(q, { questao: q, respostas: [{ rotulo: idioma === "ingles" ? "Inglês" : "Espanhol", valor: seguintes[0] }] });
+      } else if (dia === 1 && q <= 5 && seguintes.length >= 2) {
         respostas.set(q, { questao: q, respostas: [{ rotulo: "Inglês", valor: seguintes[0] }, { rotulo: "Espanhol", valor: seguintes[1] }] });
       } else {
         respostas.set(q, { questao: q, respostas: [{ rotulo: null, valor: seguintes[0] }] });
@@ -249,6 +264,6 @@ export async function lerGabarito(doc: PDFDocumentProxy, dia: 1 | 2): Promise<Ga
   }
   let completo = true;
   for (let q = de; q <= ate; q++) if (!respostas.has(q)) completo = false;
-  if (dia === 1) for (let q = 1; q <= 5; q++) if ((respostas.get(q)?.respostas.length ?? 0) !== 2) completo = false;
+  if (dia === 1 && !idioma) for (let q = 1; q <= 5; q++) if ((respostas.get(q)?.respostas.length ?? 0) !== 2) completo = false;
   return { respostas, completo, esperadas: ate - de + 1 };
 }

@@ -54,7 +54,7 @@ export default async function PaginaProva({ params }: { params: Promise<{ id: st
   };
   const leitor = {
     id: p.id, titulo: `Enem ${p.ano} · ${diaRotulo(p.dia)}`, subtitulo: `Caderno ${p.caderno} ${p.corRotulo}${p.idioma ? ` · ${IDIOMA_ROTULO[p.idioma]}` : ""}${p.modalidade !== "regular" ? ` · ${p.modalidadeRotulo}` : ""}`,
-    identificacao, dia: p.dia, areas: p.areas, prova: p.prova, gabarito: p.gabarito,
+    identificacao, dia: p.dia, idioma: p.idioma, areas: p.areas, prova: p.prova, gabarito: p.gabarito,
   };
 
   return (
@@ -89,7 +89,7 @@ export default async function PaginaProva({ params }: { params: Promise<{ id: st
       <div className="prova-grade">
         <section aria-labelledby="t-gab">
           <h2 id="t-gab" className="sr-only">Gabarito</h2>
-          <AnswerKeyViewer provaId={p.id} identificacao={identificacao} dia={p.dia} gabarito={p.gabarito} />
+          <AnswerKeyViewer provaId={p.id} identificacao={identificacao} dia={p.dia} idioma={p.idioma} gabarito={p.gabarito} />
         </section>
 
         {p.versoes.length > 0 && (
@@ -111,7 +111,7 @@ export default async function PaginaProva({ params }: { params: Promise<{ id: st
               <li key={q.id}><a href={`/provas/${q.id}/`}><span className="bolinha" style={{ background: q.corHex }} aria-hidden="true" />Caderno {q.caderno} {q.corRotulo}{q.variante ? ` (${VARIANTE_ROTULO[q.variante]})` : ""}{q.idioma ? ` · ${IDIOMA_ROTULO[q.idioma]}` : ""}</a></li>
             ))}
           </ul>
-          {par && <p><a className="link-seta" href={`/provas/${par.id}/`}>{diaRotulo(par.dia)} da mesma edição: {tituloProva(par, false)} →</a></p>}
+          {par && <p><a className="link-seta" href={`/provas/${par.id}/`}>No {diaRotulo(par.dia)}: Caderno {par.caderno} {par.corRotulo} →</a></p>}
         </section>
 
         <section className="prova-origem" aria-labelledby="t-origem">

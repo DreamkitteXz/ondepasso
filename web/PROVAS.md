@@ -53,6 +53,7 @@ Não publique 2026 antes de os arquivos estarem na página oficial.
 **Índice de questões e gabarito.** São feitos no navegador, a partir do texto oficial:
 - **Índice:** procura "Questão NN" em cada página. Só aparece se encontrar a sequência inteira do caderno: 1–90 no 1º dia, 91–180 no 2º.
 - **Gabarito:** lê a tabela do PDF do gabarito pelas posições do texto. A consulta por número só aparece se todas as questões tiverem letra A–E (ou "anulada") e as questões 1–5 do 1º dia tiverem inglês e espanhol.
+- O leitor de gabarito foi conferido em 08/11/2026 contra os 143 gabaritos oficiais (2021–2025): todos lidos por inteiro. Isso inclui questões anuladas ("Anulado", "anulada") e números que o PDF quebra em pedaços ("12"+"1" em 2021–2023).
 - Sem leitura completa, fica só o PDF. Nenhuma resposta é inventada.
 - Acertos não viram nota (TRI).
 

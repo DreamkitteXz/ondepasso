@@ -16,7 +16,7 @@ import { ExamNavigation } from "./ExamNavigation";
 import { AnswerKeyViewer } from "./AnswerKeyViewer";
 
 export type ProvaLeitor = {
-  id: string; titulo: string; subtitulo: string; identificacao: string; dia: 1 | 2; areas: Area[];
+  id: string; titulo: string; subtitulo: string; identificacao: string; dia: 1 | 2; idioma: "ingles" | "espanhol" | null; areas: Area[];
   prova: Arquivo; gabarito: Arquivo | null;
 };
 
@@ -358,7 +358,7 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
                 revisar={estudo.revisar} alternarRevisar={(q) => atualizarEstudo((e) => ({ ...e, revisar: e.revisar.includes(q) ? e.revisar.filter((x) => x !== q) : [...e.revisar, q] }))} />
             )}
             {painel === "gabarito" && (
-              <AnswerKeyViewer provaId={prova.id} identificacao={prova.identificacao} dia={prova.dia} gabarito={prova.gabarito} compacto
+              <AnswerKeyViewer provaId={prova.id} identificacao={prova.identificacao} dia={prova.dia} idioma={prova.idioma} gabarito={prova.gabarito} compacto
                 aoAbrirNoLeitor={doc === "prova" && prova.gabarito ? () => { setDoc("gabarito"); setPagina(1); setPainel(null); } : undefined} />
             )}
             {painel === "ajustes" && (
