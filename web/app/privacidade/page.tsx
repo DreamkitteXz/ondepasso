@@ -18,13 +18,19 @@ export default function Privacidade() {
     <section className="cartao estado-comparacao">
       <h2>O que fica no seu navegador</h2>
       <p>As notas e a modalidade que você informa, o tema (claro ou escuro){MEDICAO ? " e a sua escolha sobre cookies" : ""} ficam no armazenamento local do navegador. Os cálculos acontecem no seu aparelho e as notas não são enviadas a nenhum servidor, nosso ou de terceiros. Você pode apagá-las pela opção “apagar minhas notas” ou limpando os dados do site no navegador.</p>
+      <p>Na biblioteca de provas, também ficam só no navegador: as provas que você salva, as páginas marcadas, as questões marcadas para revisar, a última página lida e as preferências do leitor (modo, animação e som).</p>
+    </section>
+
+    <section className="cartao estado-comparacao">
+      <h2>Provas abertas direto do Inep</h2>
+      <p>Quando você abre uma prova ou um gabarito no leitor, o PDF é baixado direto do servidor oficial do Inep (download.inep.gov.br), como aconteceria ao clicar no link do site do Inep. Por isso o Inep recebe o pedido do arquivo (com o endereço de conexão, como em qualquer site). Nada é baixado antes de você abrir o leitor.</p>
     </section>
 
     {MEDICAO ? <>
       <section className="cartao estado-comparacao">
         <h2>Medição de visitas (Google Analytics 4)</h2>
         <p>Se você clicar em “Permitir” no aviso de cookies, usamos o Google Analytics 4 para entender quantas pessoas usam o site, de onde elas chegam (por exemplo, TikTok, Instagram, Google ou um link de campanha) e quais partes ajudam mais. Antes da sua permissão, o script do Google não é carregado e nenhum cookie de medição é gravado.</p>
-        <p>Com a permissão, são enviados: as páginas visitadas, o site ou o link de campanha de origem, tipo de aparelho e navegador, região aproximada (calculada pelo Google a partir da conexão) e algumas ações no site, como começar a preencher a nota, escolher um curso (qual curso), pedir e ver a comparação e erros de carregamento ou de preenchimento.</p>
+        <p>Com a permissão, são enviados: as páginas visitadas, o site ou o link de campanha de origem, tipo de aparelho e navegador, região aproximada (calculada pelo Google a partir da conexão) e algumas ações no site, como começar a preencher a nota, escolher um curso (qual curso), pedir e ver a comparação, erros de carregamento ou de preenchimento e, na biblioteca de provas, qual prova foi aberta, filtros usados, viradas de página (primeira, metade e fim), troca de modo de leitura, abertura do gabarito e downloads.</p>
         <p><strong>Nunca são enviados:</strong> suas notas do Enem, sua média, a modalidade de cota, nome, e-mail, CPF ou qualquer texto que você digite. O Google Analytics 4 não guarda endereços IP.</p>
         <p>Não usamos recursos de publicidade: o Google Signals e a personalização de anúncios ficam desligados, e os dados não são usados para remarketing.</p>
       </section>

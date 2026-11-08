@@ -13,3 +13,4 @@ web/.next/
 web/out/
 web/next-env.d.ts
 dados/fotos-candidatas.json
+web/public/pdfjs/

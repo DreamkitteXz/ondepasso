@@ -201,9 +201,13 @@ export function registrarPagina() {
 
 // ---------------------------------------------------------------- eventos
 
-export type NomeEvento = "en_consulta_iniciada" | "en_curso_selecionado" | "en_consulta_realizada" | "en_resultados_visualizados" | "en_erro_consulta";
+export type NomeEvento = "en_consulta_iniciada" | "en_curso_selecionado" | "en_consulta_realizada" | "en_resultados_visualizados" | "en_erro_consulta"
+  // Biblioteca de provas (/provas): ver web/ANALYTICS.md.
+  | "enem_biblioteca_visualizada" | "enem_filtro_aplicado" | "enem_prova_aberta" | "enem_pagina_virada"
+  | "enem_gabarito_aberto" | "enem_pdf_baixado" | "enem_modo_leitura_alterado";
 /** Únicos parâmetros aceitos. Todos são rótulos (nunca notas, nunca texto digitado). */
-const PARAMETROS = new Set(["curso", "origem", "formulario", "pagina", "tipo_nota", "origem_nota", "resultado", "tipo_erro"]);
+const PARAMETROS = new Set(["curso", "origem", "formulario", "pagina", "tipo_nota", "origem_nota", "resultado", "tipo_erro",
+  "prova", "filtro", "valor", "modo", "marco", "arquivo"]);
 const ROTULO = /^[a-z][a-z0-9_-]{0,99}$/;
 
 function limpar(params: Record<string, string | undefined>): Record<string, string> {

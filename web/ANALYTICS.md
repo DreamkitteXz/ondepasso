@@ -45,7 +45,17 @@ Regras garantidas pelo código:
 | `en_resultados_visualizados` ★ | Depois que a comparação aparece na tela: mapa colorido (home), resumo do curso, detalhe da opção ou lista da calculadora. Uma vez por curso e por consulta; mudar filtro não conta. | `pagina` (`inicio` · `curso` · `opcao` · `calculadora`), `curso`, `tipo_nota` (`media` · `areas`), `origem_nota` (`digitada` = nesta página · `salva` = já estava salva), `resultado` (calculadora: `com_opcoes` · `sem_opcoes`) |
 | `en_erro_consulta` | Erro real: nota inválida ao enviar, notas por área incompletas, nota fora de 0–1000 na calculadora (uma vez por página) ou falha ao carregar dados. | `tipo_erro` (`nota_invalida` · `notas_area_incompletas` · `falha_carregar_mapa` · `falha_carregar_calculadora`), `formulario`, `curso` |
 
+| `enem_biblioteca_visualizada` | Biblioteca `/provas/` carregada (uma vez por página). | — |
+| `enem_filtro_aplicado` | Clique num filtro da biblioteca; a busca conta só na primeira tecla da página. | `filtro` (`ano` · `dia` · `area` · `cor` · `modalidade` · `acessivel` · `busca` · `limpar`), `valor` (ex.: `ano_2025`, `cor_azul`, `todos`) |
+| `enem_prova_aberta` | O PDF de uma prova abriu no leitor (uma vez por prova e página). | `prova` (id, ex.: `enem-2025-primeiro-dia-caderno-1-azul`), `modo` (`livro` · `leitura`) |
+| `enem_pagina_virada` | Marcos de leitura, cada um uma vez por prova: primeira virada, metade e fim. Nunca a cada página. | `prova`, `marco` (`primeira` · `metade` · `fim`) |
+| `enem_gabarito_aberto` | Gabarito aberto no leitor, como PDF ou na consulta por número. | `prova`, `modo` (`leitor` · `pdf` · `consulta`) |
+| `enem_pdf_baixado` | Clique em baixar PDF (prova ou gabarito). | `prova`, `arquivo` (`prova` · `gabarito`), `origem` (`biblioteca` · `pagina` · `leitor`) |
+| `enem_modo_leitura_alterado` | Troca entre modo livro e modo leitura. | `prova`, `modo` |
+
 ★ evento principal (conversão).
+
+Nos eventos da biblioteca não vai o texto digitado na busca nem o número de questão consultado no gabarito.
 
 A modalidade de cota **não** é enviada de propósito: ela pode revelar renda, escola ou raça/cor da pessoa.
 

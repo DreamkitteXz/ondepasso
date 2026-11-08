@@ -13,6 +13,7 @@ Páginas:
 - `/`: busca de cursos + mais procurados
 - `/curso/<curso>/`: todas as universidades do curso, com filtro por estado e ordenação
 - `/curso/<curso>/<sigla>-<id>/`: corte por modalidade, histórico, pesos, mínimas e aviso de bônus regional
+- `/provas/` e `/provas/<id>/`: biblioteca de provas anteriores do Enem com leitor (ver `PROVAS.md`)
 
 Analytics (GA4, só com consentimento): ver `ANALYTICS.md`. Variável `NEXT_PUBLIC_GA_ID` no build.
 

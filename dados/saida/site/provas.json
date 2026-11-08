@@ -1,0 +1,5312 @@
+{
+ "verificadoEm": "2026-11-08",
+ "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+ "anos": [
+  2025,
+  2024,
+  2023,
+  2022,
+  2021
+ ],
+ "provas": [
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD1.pdf",
+    "bytes": 3343529,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D1_CD1.pdf",
+    "bytes": 132331,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD2.pdf",
+    "bytes": 2819878,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D1_CD2.pdf",
+    "bytes": 133142,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD3.pdf",
+    "bytes": 2426166,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D1_CD3.pdf",
+    "bytes": 136787,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD4.pdf",
+    "bytes": 3345579,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D1_CD4.pdf",
+    "bytes": 132861,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-primeiro-dia-caderno-4-verde"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD9.pdf",
+    "bytes": 3374145,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D1_CD9.pdf",
+    "bytes": 132911,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD9_ampliada.pdf",
+     "bytes": 6122096,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD9_superampliada.pdf",
+     "bytes": 7177067,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "ledor",
+     "rotulo": "Ledor",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD9_ledor.pdf",
+     "bytes": 10185829,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA)",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_Dia_1_P1_LC_CH_Caderno_09_Laranja_NVDA.pdf",
+     "bytes": 2269933,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_Dia_1_P1_LC_CH_Caderno_09_Laranja_DOSVOX.txt",
+     "bytes": 109327,
+     "formato": "txt"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-primeiro-dia-caderno-9-laranja-braile-ledor"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 10,
+   "cor": "roxo",
+   "corRotulo": "Roxo",
+   "corHex": "#8A5CC7",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD10.pdf",
+    "bytes": 2883647,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D1_CD10.pdf",
+    "bytes": 132562,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD10_ampliada.pdf",
+     "bytes": 5268063,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD10_superampliada.pdf",
+     "bytes": 6363317,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-primeiro-dia-caderno-10-roxo-libras"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD5.pdf",
+    "bytes": 3157985,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD5.pdf",
+    "bytes": 294764,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD6.pdf",
+    "bytes": 2734643,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD6.pdf",
+    "bytes": 303341,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD7.pdf",
+    "bytes": 3685677,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD7.pdf",
+    "bytes": 293450,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD8.pdf",
+    "bytes": 3681312,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD8.pdf",
+    "bytes": 301582,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-segundo-dia-caderno-8-verde"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD11.pdf",
+    "bytes": 3534447,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD11.pdf",
+    "bytes": 302825,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD11_ampliada.pdf",
+     "bytes": 6603043,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD11_superampliada.pdf",
+     "bytes": 7178216,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "ledor",
+     "rotulo": "Ledor",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD11_ledor.pdf",
+     "bytes": 3087053,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA)",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_Dia_2_P1_CN_MT_Caderno_11_Laranja_NVDA.pdf",
+     "bytes": 4228828,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_Dia_2_P1_CN_MT_Caderno_11_Laranja_DOSVOX.txt",
+     "bytes": 101602,
+     "formato": "txt"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-segundo-dia-caderno-11-laranja-braile-ledor"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 12,
+   "cor": "roxo",
+   "corRotulo": "Roxo",
+   "corHex": "#8A5CC7",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD12.pdf",
+    "bytes": 3201071,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD12.pdf",
+    "bytes": 301580,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD12_ampliada.pdf",
+     "bytes": 6997993,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD12_superampliada.pdf",
+     "bytes": 7550979,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-segundo-dia-caderno-12-roxo-libras"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "belem",
+   "modalidadeRotulo": "Aplicação em Belém, Ananindeua e Marituba",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D3_CD1.pdf",
+    "bytes": 2994617,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D3_CD1.pdf",
+    "bytes": 134702,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-belem-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "belem",
+   "modalidadeRotulo": "Aplicação em Belém, Ananindeua e Marituba",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D3_CD2.pdf",
+    "bytes": 2957387,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D3_CD2.pdf",
+    "bytes": 135476,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-belem-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "belem",
+   "modalidadeRotulo": "Aplicação em Belém, Ananindeua e Marituba",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D3_CD3.pdf",
+    "bytes": 2888922,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D3_CD3.pdf",
+    "bytes": 139173,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-belem-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "belem",
+   "modalidadeRotulo": "Aplicação em Belém, Ananindeua e Marituba",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D3_CD4.pdf",
+    "bytes": 2996181,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D3_CD4.pdf",
+    "bytes": 135247,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-belem-primeiro-dia-caderno-4-verde"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "belem",
+   "modalidadeRotulo": "Aplicação em Belém, Ananindeua e Marituba",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D3_CD9.pdf",
+    "bytes": 3008804,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D3_CD9.pdf",
+    "bytes": 135318,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D3_CD9_ampliada.pdf",
+     "bytes": 4749394,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D3_CD9_superampliada.pdf",
+     "bytes": 5828182,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "ledor",
+     "rotulo": "Ledor",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D3_CD9_ledor.pdf",
+     "bytes": 2473135,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA)",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_Dia_1_P2_LC_CH_Caderno_09_Laranja_NVDA.pdf",
+     "bytes": 7690390,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_Dia_1_P2_LC_CH_Caderno_09_Laranja_DOSVOX.txt",
+     "bytes": 114769,
+     "formato": "txt"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-belem-primeiro-dia-caderno-9-laranja-braile-ledor"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "belem",
+   "modalidadeRotulo": "Aplicação em Belém, Ananindeua e Marituba",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD5.pdf",
+    "bytes": 2425917,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD5.pdf",
+    "bytes": 138189,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-belem-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "belem",
+   "modalidadeRotulo": "Aplicação em Belém, Ananindeua e Marituba",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD6.pdf",
+    "bytes": 2368544,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD6.pdf",
+    "bytes": 138360,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-belem-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "belem",
+   "modalidadeRotulo": "Aplicação em Belém, Ananindeua e Marituba",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD7.pdf",
+    "bytes": 2400594,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD7.pdf",
+    "bytes": 137801,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-belem-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "belem",
+   "modalidadeRotulo": "Aplicação em Belém, Ananindeua e Marituba",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD8.pdf",
+    "bytes": 2407750,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD8.pdf",
+    "bytes": 138409,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-belem-segundo-dia-caderno-8-verde"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "belem",
+   "modalidadeRotulo": "Aplicação em Belém, Ananindeua e Marituba",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD11.pdf",
+    "bytes": 2411537,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD11.pdf",
+    "bytes": 138193,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD11_ampliada.pdf",
+     "bytes": 3401183,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD11_superampliada.pdf",
+     "bytes": 3750010,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "ledor",
+     "rotulo": "Ledor",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD11_ledor.pdf",
+     "bytes": 2130570,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA)",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_Dia_2_P2_CN_MT_Caderno_11_Laranja_NVDA.pdf",
+     "bytes": 2835935,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_Dia_2_P2_CN_MT_Caderno_11_Laranja_DOSVOX.txt",
+     "bytes": 87462,
+     "formato": "txt"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-belem-segundo-dia-caderno-11-laranja-braile-ledor"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D5_CD1.pdf",
+    "bytes": 3228420,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D5_CD1.pdf",
+    "bytes": 134056,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-reaplicacao-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D5_CD2.pdf",
+    "bytes": 3213997,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D5_CD2.pdf",
+    "bytes": 134896,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-reaplicacao-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D5_CD3.pdf",
+    "bytes": 3161061,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D5_CD3.pdf",
+    "bytes": 134739,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-reaplicacao-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D5_CD4.pdf",
+    "bytes": 3239591,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D5_CD4.pdf",
+    "bytes": 134613,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-reaplicacao-primeiro-dia-caderno-4-verde"
+  },
+  {
+   "ano": 2025,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D5_CD9.pdf",
+    "bytes": 3255109,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D5_CD9.pdf",
+    "bytes": 134633,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D5_CD9_ampliada.pdf",
+     "bytes": 5062157,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D5_CD9_superampliada.pdf",
+     "bytes": 5715125,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "ledor",
+     "rotulo": "Ledor",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D5_CD9_ledor.pdf",
+     "bytes": 2877729,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-reaplicacao-primeiro-dia-caderno-9-laranja-braile-ledor"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D6_CD5.pdf",
+    "bytes": 3073053,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D6_CD5.pdf",
+    "bytes": 138213,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-reaplicacao-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D6_CD6.pdf",
+    "bytes": 3013949,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D6_CD6.pdf",
+    "bytes": 137883,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-reaplicacao-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D6_CD7.pdf",
+    "bytes": 3050161,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D6_CD7.pdf",
+    "bytes": 137258,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-reaplicacao-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D6_CD8.pdf",
+    "bytes": 3071439,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D6_CD8.pdf",
+    "bytes": 137937,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-reaplicacao-segundo-dia-caderno-8-verde"
+  },
+  {
+   "ano": 2025,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D6_CD11.pdf",
+    "bytes": 2983402,
+    "formato": "pdf"
+   },
+   "gabarito": null,
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D6_CD11_ampliada.pdf",
+     "bytes": 4438180,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D6_CD11_superampliada.pdf",
+     "bytes": 5083665,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "ledor",
+     "rotulo": "Ledor",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D6_CD11_ledor.pdf",
+     "bytes": 2773258,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [
+    {
+     "tipo": "gabarito",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D6_CD11.pdf"
+    }
+   ],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2025-reaplicacao-segundo-dia-caderno-11-laranja-braile-ledor"
+  },
+  {
+   "ano": 2024,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D1_CD1.pdf",
+    "bytes": 4808950,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D1_CD1.pdf",
+    "bytes": 118234,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2024,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D1_CD2.pdf",
+    "bytes": 4843654,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D1_CD2.pdf",
+    "bytes": 118605,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2024,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D1_CD3.pdf",
+    "bytes": 4812755,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D1_CD3.pdf",
+    "bytes": 119094,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2024,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D1_CD4.pdf",
+    "bytes": 4832252,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D1_CD4.pdf",
+    "bytes": 118771,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D1_CD4_ampliada.pdf",
+     "bytes": 10114549,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D1_CD4_superampliada.pdf",
+     "bytes": 11373509,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-primeiro-dia-caderno-4-verde"
+  },
+  {
+   "ano": 2024,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D1_CD9.pdf",
+    "bytes": 4607379,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D1_CD9.pdf",
+    "bytes": 118856,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA)",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_Dia_1_P1_LC_CH_Caderno_09_Laranja_NVDA.pdf",
+     "bytes": 1616750,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_Dia_1_P1_LC_CH_Caderno_09_Laranja_DOSVOX.txt",
+     "bytes": 117893,
+     "formato": "txt"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-primeiro-dia-caderno-9-laranja-braile-ledor"
+  },
+  {
+   "ano": 2024,
+   "dia": 1,
+   "caderno": 10,
+   "cor": "roxo",
+   "corRotulo": "Roxo",
+   "corHex": "#8A5CC7",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D1_CD10.pdf",
+    "bytes": 4937011,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D1_CD10.pdf",
+    "bytes": 118594,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D1_CD10_ampliada.pdf",
+     "bytes": 10333033,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D1_CD10_superampliada.pdf",
+     "bytes": 11643383,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-primeiro-dia-caderno-10-roxo-libras"
+  },
+  {
+   "ano": 2024,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D2_CD5.pdf",
+    "bytes": 5003533,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D2_CD5.pdf",
+    "bytes": 121742,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2024,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D2_CD6.pdf",
+    "bytes": 5253777,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D2_CD6.pdf",
+    "bytes": 121447,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2024,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D2_CD7.pdf",
+    "bytes": 5456870,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D2_CD7.pdf",
+    "bytes": 120684,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2024,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D2_CD8.pdf",
+    "bytes": 5441559,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D2_CD8.pdf",
+    "bytes": 121438,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D2_CD8_ampliada.pdf",
+     "bytes": 9752471,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D2_CD8_superampliada.pdf",
+     "bytes": 11649945,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-segundo-dia-caderno-8-verde"
+  },
+  {
+   "ano": 2024,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D2_CD11.pdf",
+    "bytes": 4796774,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D2_CD11.pdf",
+    "bytes": 121257,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA)",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_Dia_2_P1_CN_MT_Caderno_11_Laranja_NVDA.pdf",
+     "bytes": 3040425,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_Dia_2_P1_CN_MT_Caderno_11_Laranja_DOSVOX.txt",
+     "bytes": 100912,
+     "formato": "txt"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-segundo-dia-caderno-11-laranja-braile-ledor"
+  },
+  {
+   "ano": 2024,
+   "dia": 2,
+   "caderno": 12,
+   "cor": "roxo",
+   "corRotulo": "Roxo",
+   "corHex": "#8A5CC7",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D2_CD12.pdf",
+    "bytes": 5438265,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_impresso_D2_CD12.pdf",
+    "bytes": 120923,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D2_CD12_ampliada.pdf",
+     "bytes": 10033750,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [
+    {
+     "tipo": "superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D2_CD12_Superampliada.pdf"
+    }
+   ],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-segundo-dia-caderno-12-roxo-libras"
+  },
+  {
+   "ano": 2024,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D1_CD1.pdf",
+    "bytes": 5905326,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D1_CD1.pdf",
+    "bytes": 120386,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-reaplicacao-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2024,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D1_CD2.pdf",
+    "bytes": 5911213,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D1_CD2.pdf",
+    "bytes": 120720,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-reaplicacao-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2024,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D1_CD3.pdf",
+    "bytes": 5887450,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D1_CD3.pdf",
+    "bytes": 121259,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-reaplicacao-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2024,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D1_CD4.pdf",
+    "bytes": 5903858,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D1_CD4.pdf",
+    "bytes": 120907,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D1_CD4_ampliada.pdf",
+     "bytes": 10930558,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D1_CD4_superampliada.pdf",
+     "bytes": 14038687,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-reaplicacao-primeiro-dia-caderno-4-verde"
+  },
+  {
+   "ano": 2024,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D1_CD9_braile_e_ledor.pdf",
+    "bytes": 5088341,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D1_CD9_braile_e_ledor.pdf",
+    "bytes": 120988,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-reaplicacao-primeiro-dia-caderno-9-laranja-braile-ledor"
+  },
+  {
+   "ano": 2024,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD5.pdf",
+    "bytes": 4905004,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD5.pdf",
+    "bytes": 123313,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-reaplicacao-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2024,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD6.pdf",
+    "bytes": 4706110,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD6.pdf",
+    "bytes": 123132,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-reaplicacao-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2024,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD7.pdf",
+    "bytes": 4908497,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD7.pdf",
+    "bytes": 122398,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-reaplicacao-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2024,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD8.pdf",
+    "bytes": 4909219,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD8.pdf",
+    "bytes": 123081,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD8_ampliada.pdf",
+     "bytes": 8744798,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD8_superampliada.pdf",
+     "bytes": 9889723,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-reaplicacao-segundo-dia-caderno-8-verde"
+  },
+  {
+   "ano": 2024,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD11_braile_e_ledor.pdf",
+    "bytes": 4184706,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD11_braile_e_ledor.pdf",
+    "bytes": 122914,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2024-reaplicacao-segundo-dia-caderno-11-laranja-braile-ledor"
+  },
+  {
+   "ano": 2023,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D1_CD1.pdf",
+    "bytes": 6977304,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D1_CD1.pdf",
+    "bytes": 592479,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2023,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D1_CD2.pdf",
+    "bytes": 7059343,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D1_CD2.pdf",
+    "bytes": 593395,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2023,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D1_CD3.pdf",
+    "bytes": 6912608,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D1_CD3.pdf",
+    "bytes": 593231,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2023,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D1_CD4.pdf",
+    "bytes": 4829227,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D1_CD4.pdf",
+    "bytes": 594382,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D1_CD4_ampliada.pdf",
+     "bytes": 4480596,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D1_CD4_superampliada.pdf",
+     "bytes": 5051591,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-primeiro-dia-caderno-4-rosa"
+  },
+  {
+   "ano": 2023,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D1_CD9.pdf",
+    "bytes": 3248819,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D1_CD9.pdf",
+    "bytes": 594192,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA) · Humanas",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_Dia_1_P1_CH_Caderno_09_Laranja_NVDA.pdf",
+     "bytes": 1045078,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA) · Linguagens",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_Dia_1_P1_LC_Caderno_09_Laranja_NVDA.pdf",
+     "bytes": 1761280,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX · Humanas",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_Dia_1_P1_CH_Caderno_09_Laranja_DOSVOX.txt",
+     "bytes": 46942,
+     "formato": "txt"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX · Linguagens",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_Dia_1_P1_LC_Caderno_09_Laranja_DOSVOX.txt",
+     "bytes": 70562,
+     "formato": "txt"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-primeiro-dia-caderno-9-laranja-braile-ledor"
+  },
+  {
+   "ano": 2023,
+   "dia": 1,
+   "caderno": 10,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D1_CD10.pdf",
+    "bytes": 4816091,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D1_CD10.pdf",
+    "bytes": 593270,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D1_CD10_ampliada.pdf",
+     "bytes": 4541655,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D1_CD10_superampliada.pdf",
+     "bytes": 5120783,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-primeiro-dia-caderno-10-verde-libras"
+  },
+  {
+   "ano": 2023,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD5.pdf",
+    "bytes": 3847280,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD5.pdf",
+    "bytes": 593520,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2023,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD6.pdf",
+    "bytes": 3715513,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD6.pdf",
+    "bytes": 593141,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2023,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD7.pdf",
+    "bytes": 3753721,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD7.pdf",
+    "bytes": 592375,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2023,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD8.pdf",
+    "bytes": 3744945,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD8.pdf",
+    "bytes": 594274,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD8_ampliada.pdf",
+     "bytes": 3840489,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD8_superampliada.pdf",
+     "bytes": 3920380,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-segundo-dia-caderno-8-rosa"
+  },
+  {
+   "ano": 2023,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD11.pdf",
+    "bytes": 3111518,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD11.pdf",
+    "bytes": 593972,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA) · Matemática",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_Dia_2_P1_MT_Caderno_11_Laranja_NVDA.pdf",
+     "bytes": 1086283,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA) · Natureza",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_Dia_2_P1_CN_Caderno_11_Laranja_NVDA.pdf",
+     "bytes": 713274,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX · Matemática",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_Dia_2_P1_MT_Caderno_11_Laranja_DOSVOX.txt",
+     "bytes": 50049,
+     "formato": "txt"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX · Natureza",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_Dia_2_P1_CN_Caderno_11_Laranja_DOSVOX.txt",
+     "bytes": 45131,
+     "formato": "txt"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-segundo-dia-caderno-11-laranja-braile-ledor"
+  },
+  {
+   "ano": 2023,
+   "dia": 2,
+   "caderno": 12,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD12.pdf",
+    "bytes": 3626446,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD12.pdf",
+    "bytes": 593078,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD12_ampliada.pdf",
+     "bytes": 3845524,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD12_Superampliada.pdf",
+     "bytes": 3896803,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-segundo-dia-caderno-12-verde-libras"
+  },
+  {
+   "ano": 2023,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D1_CD1.pdf",
+    "bytes": 2811189,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D1_CD1.pdf",
+    "bytes": 594234,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-reaplicacao-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2023,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D1_CD2.pdf",
+    "bytes": 2817115,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D1_CD2.pdf",
+    "bytes": 2089808,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-reaplicacao-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2023,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D1_CD3.pdf",
+    "bytes": 2833581,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D1_CD3.pdf",
+    "bytes": 594937,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-reaplicacao-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2023,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D1_CD4.pdf",
+    "bytes": 2805032,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D1_CD4.pdf",
+    "bytes": 596008,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D1_CD4_ampliada.pdf",
+     "bytes": 3086104,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D1_CD4_superampliada.pdf",
+     "bytes": 3556648,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-reaplicacao-primeiro-dia-caderno-4-rosa"
+  },
+  {
+   "ano": 2023,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D1_CD9_braile_e_ledor.pdf",
+    "bytes": 2667865,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D1_CD9_braile_e_ledor.pdf",
+    "bytes": 595811,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-reaplicacao-primeiro-dia-caderno-9-laranja-braile-ledor"
+  },
+  {
+   "ano": 2023,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD5.pdf",
+    "bytes": 2972774,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD5.pdf",
+    "bytes": 594431,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-reaplicacao-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2023,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD6.pdf",
+    "bytes": 2978034,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD6.pdf",
+    "bytes": 594064,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-reaplicacao-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2023,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD7.pdf",
+    "bytes": 2972459,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD7.pdf",
+    "bytes": 593312,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-reaplicacao-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2023,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD8.pdf",
+    "bytes": 2978694,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD8.pdf",
+    "bytes": 595204,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD8_ampliada.pdf",
+     "bytes": 3059585,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD8_superampliada.pdf",
+     "bytes": 3190688,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-reaplicacao-segundo-dia-caderno-8-rosa"
+  },
+  {
+   "ano": 2023,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD11_braile_e_ledor.pdf",
+    "bytes": 2805552,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD11_braile_e_ledor.pdf",
+    "bytes": 594903,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2023-reaplicacao-segundo-dia-caderno-11-laranja-braile-ledor"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D1_CD1.pdf",
+    "bytes": 7714964,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D1_CD1.pdf",
+    "bytes": 211180,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D1_CD2.pdf",
+    "bytes": 7947478,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D1_CD2.pdf",
+    "bytes": 212241,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D1_CD3.pdf",
+    "bytes": 7348957,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D1_CD3.pdf",
+    "bytes": 212622,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D1_CD3_ampliada.pdf",
+     "bytes": 10604461,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D1_CD3_superampliada.pdf",
+     "bytes": 11655288,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D1_CD4.pdf",
+    "bytes": 7961603,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D1_CD4.pdf",
+    "bytes": 212809,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-primeiro-dia-caderno-4-rosa"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D1_CD9.pdf",
+    "bytes": 6023561,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D1_CD9.pdf",
+    "bytes": 211483,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-primeiro-dia-caderno-9-laranja-braile-ledor"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 10,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D1_CD10.pdf",
+    "bytes": 6539551,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D1_CD10.pdf",
+    "bytes": 210841,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D1_CD10_ampliada.pdf",
+     "bytes": 8082125,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D1_CD10_superampliada.pdf",
+     "bytes": 9130866,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-primeiro-dia-caderno-10-verde-libras"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD5.pdf",
+    "bytes": 7058477,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD5.pdf",
+    "bytes": 211394,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD6.pdf",
+    "bytes": 7005914,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD6.pdf",
+    "bytes": 211133,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD6_ampliada.pdf",
+     "bytes": 6284614,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD6_superampliada.pdf",
+     "bytes": 6345718,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD7.pdf",
+    "bytes": 6854310,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD7.pdf",
+    "bytes": 210705,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD8.pdf",
+    "bytes": 6831291,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD8.pdf",
+    "bytes": 212399,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-segundo-dia-caderno-8-rosa"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD11.pdf",
+    "bytes": 4121624,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD11.pdf",
+    "bytes": 210883,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-segundo-dia-caderno-11-laranja-braile-ledor"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 12,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD12.pdf",
+    "bytes": 5397741,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD12.pdf",
+    "bytes": 210177,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD12_ampliada.pdf",
+     "bytes": 5411594,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD12_superampliada.pdf",
+     "bytes": 5471560,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-segundo-dia-caderno-12-verde-libras"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "espanhol",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D1_CD1_espanhol.pdf",
+    "bytes": 4264341,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D1_CD1_espanhol.pdf",
+    "bytes": 165753,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-primeiro-dia-caderno-1-azul-espanhol"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "ingles",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D1_CD1_ingles.pdf",
+    "bytes": 4294655,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D1_CD1_ingles.pdf",
+    "bytes": 166224,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-primeiro-dia-caderno-1-azul-ingles"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "espanhol",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D1_CD2_espanhol.pdf",
+    "bytes": 4249160,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D1_CD2_espanhol.pdf",
+    "bytes": 166452,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-primeiro-dia-caderno-2-amarelo-espanhol"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "ingles",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D1_CD2_ingles.pdf",
+    "bytes": 4294858,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D1_CD2_ingles.pdf",
+    "bytes": 166643,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-primeiro-dia-caderno-2-amarelo-ingles"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "espanhol",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D1_CD3_espanhol.pdf",
+    "bytes": 4248624,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D1_CD3_espanhol.pdf",
+    "bytes": 166202,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-primeiro-dia-caderno-3-branco-espanhol"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "ingles",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D1_CD3_ingles.pdf",
+    "bytes": 4286036,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D1_CD3_ingles.pdf",
+    "bytes": 166035,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-primeiro-dia-caderno-3-branco-ingles"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "espanhol",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D1_CD4_espanhol.pdf",
+    "bytes": 4250687,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D1_CD4_espanhol.pdf",
+    "bytes": 167069,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-primeiro-dia-caderno-4-rosa-espanhol"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "ingles",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D1_CD4_ingles.pdf",
+    "bytes": 4285999,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D1_CD4_ingles.pdf",
+    "bytes": 166974,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-primeiro-dia-caderno-4-rosa-ingles"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D2_CD5.pdf",
+    "bytes": 2455792,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D2_CD5.pdf",
+    "bytes": 166542,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D2_CD6.pdf",
+    "bytes": 2456787,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D2_CD6.pdf",
+    "bytes": 167285,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D2_CD7.pdf",
+    "bytes": 2455261,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D2_CD7.pdf",
+    "bytes": 166105,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_digital_D2_CD8.pdf",
+    "bytes": 2450041,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_digital_D2_CD8.pdf",
+    "bytes": 167402,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-digital-segundo-dia-caderno-8-rosa"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D1_CD1.pdf",
+    "bytes": 4876019,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D1_CD1.pdf",
+    "bytes": 212661,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-reaplicacao-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D1_CD2.pdf",
+    "bytes": 5108010,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D1_CD2.pdf",
+    "bytes": 213779,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-reaplicacao-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D1_CD3.pdf",
+    "bytes": 4510713,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D1_CD3.pdf",
+    "bytes": 214130,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D1_CD3_ampliada.pdf",
+     "bytes": 9787454,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D1_CD3_superampliada.pdf",
+     "bytes": 9833988,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-reaplicacao-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D1_CD4.pdf",
+    "bytes": 5128475,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D1_CD4.pdf",
+    "bytes": 214261,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-reaplicacao-primeiro-dia-caderno-4-rosa"
+  },
+  {
+   "ano": 2022,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D1_CD9_braile_e_ledor.pdf",
+    "bytes": 3490729,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D1_CD9_braile_e_ledor.pdf",
+    "bytes": 214312,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-reaplicacao-primeiro-dia-caderno-9-laranja-braile-ledor"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D2_CD5.pdf",
+    "bytes": 4537053,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D2_CD5.pdf",
+    "bytes": 210586,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-reaplicacao-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D2_CD6.pdf",
+    "bytes": 4490792,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D2_CD6.pdf",
+    "bytes": 210304,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D2_CD6_ampliada.pdf",
+     "bytes": 3817570,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D2_CD6_superampliada.pdf",
+     "bytes": 3866922,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-reaplicacao-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D2_CD7.pdf",
+    "bytes": 4345866,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D2_CD7.pdf",
+    "bytes": 209646,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-reaplicacao-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D2_CD8.pdf",
+    "bytes": 4352886,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D2_CD8.pdf",
+    "bytes": 210339,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-reaplicacao-segundo-dia-caderno-8-rosa"
+  },
+  {
+   "ano": 2022,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação e PPL",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D2_CD11_braile_e_ledor.pdf",
+    "bytes": 2872663,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D2_CD11_braile_e_ledor.pdf",
+    "bytes": 210193,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2022-reaplicacao-segundo-dia-caderno-11-laranja-braile-ledor"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD1.pdf",
+    "bytes": 2254970,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D1_CD1.pdf",
+    "bytes": 224151,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD2.pdf",
+    "bytes": 1446995,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D1_CD2.pdf",
+    "bytes": 224945,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD2_ampliada.pdf",
+     "bytes": 3501083,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD2_superampliada.pdf",
+     "bytes": 3499630,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD3.pdf",
+    "bytes": 1550518,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D1_CD3.pdf",
+    "bytes": 225126,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD4.pdf",
+    "bytes": 1474308,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D1_CD4.pdf",
+    "bytes": 225040,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-primeiro-dia-caderno-4-rosa"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD9.pdf",
+    "bytes": 1702547,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D1_CD9.pdf",
+    "bytes": 224966,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-primeiro-dia-caderno-9-laranja-braile-ledor"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 10,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD10.pdf",
+    "bytes": 1668039,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D1_CD10.pdf",
+    "bytes": 224635,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD10_ampliada.pdf",
+     "bytes": 4027461,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD10_superampliada.pdf",
+     "bytes": 3490886,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-primeiro-dia-caderno-10-verde-libras"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D2_CD5.pdf",
+    "bytes": 1320710,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D2_CD5.pdf",
+    "bytes": 225008,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D2_CD5_ampliada.pdf",
+     "bytes": 2463071,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D2_CD5_superampliada.pdf",
+     "bytes": 2688344,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D2_CD6.pdf",
+    "bytes": 1304398,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D2_CD6.pdf",
+    "bytes": 224908,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D2_CD7.pdf",
+    "bytes": 1354632,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D2_CD7.pdf",
+    "bytes": 224392,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D2_CD8.pdf",
+    "bytes": 1319681,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D2_CD8.pdf",
+    "bytes": 224957,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-segundo-dia-caderno-8-rosa"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D2_CD11.pdf",
+    "bytes": 1372385,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D2_CD11.pdf",
+    "bytes": 224595,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-segundo-dia-caderno-11-laranja-braile-ledor"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 12,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D2_CD12.pdf",
+    "bytes": 1481381,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_impresso_D2_CD12.pdf",
+    "bytes": 224524,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D2_CD12_ampliada.pdf",
+     "bytes": 3131222,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D2_CD12_superampliada.pdf",
+     "bytes": 3367331,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-segundo-dia-caderno-12-verde-libras"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "espanhol",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D1_CD1_espanhol.pdf",
+    "bytes": 4187630,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D1_CD1_espanhol.pdf",
+    "bytes": 703734,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-primeiro-dia-caderno-1-azul-espanhol"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "ingles",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D1_CD1_ingles.pdf",
+    "bytes": 4225644,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D1_CD1_ingles.pdf",
+    "bytes": 703859,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-primeiro-dia-caderno-1-azul-ingles"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "espanhol",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D1_CD2_espanhol.pdf",
+    "bytes": 4186904,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D1_CD2_espanhol.pdf",
+    "bytes": 704741,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-primeiro-dia-caderno-2-amarelo-espanhol"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "ingles",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D1_CD2_ingles.pdf",
+    "bytes": 4225085,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D1_CD2_ingles.pdf",
+    "bytes": 704754,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-primeiro-dia-caderno-2-amarelo-ingles"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "espanhol",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D1_CD3_espanhol.pdf",
+    "bytes": 4187507,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D1_CD3_espanhol.pdf",
+    "bytes": 704624,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-primeiro-dia-caderno-3-branco-espanhol"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "ingles",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D1_CD3_ingles.pdf",
+    "bytes": 4225433,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D1_CD3_ingles.pdf",
+    "bytes": 704632,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-primeiro-dia-caderno-3-branco-ingles"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "espanhol",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D1_CD4_espanhol.pdf",
+    "bytes": 4187048,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D1_CD4_espanhol.pdf",
+    "bytes": 704344,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-primeiro-dia-caderno-4-rosa-espanhol"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": "ingles",
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D1_CD4_ingles.pdf",
+    "bytes": 4225008,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D1_CD4_ingles.pdf",
+    "bytes": 704436,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-primeiro-dia-caderno-4-rosa-ingles"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D2_CD5.pdf",
+    "bytes": 7471378,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D2_CD5.pdf",
+    "bytes": 704800,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D2_CD6.pdf",
+    "bytes": 7470844,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D2_CD6.pdf",
+    "bytes": 704862,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D2_CD7.pdf",
+    "bytes": 7471470,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D2_CD7.pdf",
+    "bytes": 704139,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "digital",
+   "modalidadeRotulo": "Aplicação digital",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_digital_D2_CD8.pdf",
+    "bytes": 7530115,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_digital_D2_CD8.pdf",
+    "bytes": 704757,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-digital-segundo-dia-caderno-8-rosa"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação, PPL e Segunda Oportunidade",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D1_CD1.pdf",
+    "bytes": 1031255,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_reaplicacao_PPL_D1_CD1.pdf",
+    "bytes": 209087,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-reaplicacao-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação, PPL e Segunda Oportunidade",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D1_CD2.pdf",
+    "bytes": 1003550,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_reaplicacao_PPL_D1_CD2.pdf",
+    "bytes": 209609,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D1_CD2_ampliada.pdf",
+     "bytes": 5910376,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D1_CD2_superampliada.pdf",
+     "bytes": 5520719,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-reaplicacao-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação, PPL e Segunda Oportunidade",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D1_CD3.pdf",
+    "bytes": 1108279,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_reaplicacao_PPL_D1_CD3.pdf",
+    "bytes": 209927,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-reaplicacao-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação, PPL e Segunda Oportunidade",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D1_CD4.pdf",
+    "bytes": 1036308,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_reaplicacao_PPL_D1_CD4.pdf",
+    "bytes": 209738,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-reaplicacao-primeiro-dia-caderno-4-rosa"
+  },
+  {
+   "ano": 2021,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação, PPL e Segunda Oportunidade",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D1_CD9_braile_e_ledor.pdf",
+    "bytes": 1131433,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_reaplicacao_PPL_D1_CD9_braile_e_ledor.pdf",
+    "bytes": 209744,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-reaplicacao-primeiro-dia-caderno-9-laranja-braile-ledor"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação, PPL e Segunda Oportunidade",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D2_CD5.pdf",
+    "bytes": 926138,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_reaplicacao_PPL_D2_CD5.pdf",
+    "bytes": 208544,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D2_CD5_ampliada.pdf",
+     "bytes": 1497668,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D2_CD5_superampliada.pdf",
+     "bytes": 1707201,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-reaplicacao-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação, PPL e Segunda Oportunidade",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D2_CD6.pdf",
+    "bytes": 919486,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_reaplicacao_PPL_D2_CD6.pdf",
+    "bytes": 208398,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-reaplicacao-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação, PPL e Segunda Oportunidade",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D2_CD7.pdf",
+    "bytes": 897753,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_reaplicacao_PPL_D2_CD7.pdf",
+    "bytes": 207850,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-reaplicacao-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "rosa",
+   "corRotulo": "Rosa",
+   "corHex": "#E07AA8",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação, PPL e Segunda Oportunidade",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D2_CD8.pdf",
+    "bytes": 935667,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_reaplicacao_PPL_D2_CD8.pdf",
+    "bytes": 208423,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-reaplicacao-segundo-dia-caderno-8-rosa"
+  },
+  {
+   "ano": 2021,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "laranja",
+   "corRotulo": "Laranja",
+   "corHex": "#E8833A",
+   "modalidade": "reaplicacao",
+   "modalidadeRotulo": "Reaplicação, PPL e Segunda Oportunidade",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_reaplicacao_PPL_D2_CD11_braile_e_ledor.pdf",
+    "bytes": 1069038,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2021_GB_reaplicacao_PPL_D2_CD11_braile_e_ledor.pdf",
+    "bytes": 208142,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2021-reaplicacao-segundo-dia-caderno-11-laranja-braile-ledor"
+  }
+ ],
+ "extras": [
+  {
+   "ano": 2024,
+   "tipo": "tema-redacao",
+   "rotulo": "Tema da redação (2ª aplicação)",
+   "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/tema_redacao_2_aplicacao_2024.pdf",
+   "bytes": 1010493,
+   "formato": "pdf"
+  },
+  {
+   "ano": 2023,
+   "tipo": "tema-redacao",
+   "rotulo": "Tema da redação",
+   "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/tema_redacao_2023.pdf",
+   "bytes": 2634652,
+   "formato": "pdf"
+  },
+  {
+   "ano": 2023,
+   "tipo": "tema-redacao",
+   "rotulo": "Tema da redação (2ª aplicação)",
+   "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/tema_redacao_2_aplicacao_2023.pdf",
+   "bytes": 4378444,
+   "formato": "pdf"
+  }
+ ]
+}
