@@ -18,6 +18,8 @@ type Props = {
   pagina: number;
   aoMudar: (pagina: number) => void;
   som: boolean;
+  /** Arrastar a folha para virar. Desligado no zoom: aí arrastar move a página ampliada. */
+  arrastar: boolean;
 };
 
 /** Páginas visíveis no índice do page-flip (0-based) para a orientação atual. */
@@ -27,7 +29,7 @@ function visiveis(i: number, total: number, retrato: boolean): number[] {
   return [esq, esq + 1].filter((x) => x >= 0 && x < total);
 }
 
-export const FlipBookViewer = forwardRef<ApiLivro, Props>(function FlipBookViewer({ r, larguraPagina, alturaPagina, retrato, pagina, aoMudar, som }, ref) {
+export const FlipBookViewer = forwardRef<ApiLivro, Props>(function FlipBookViewer({ r, larguraPagina, alturaPagina, retrato, pagina, aoMudar, som, arrastar }, ref) {
   const host = useRef<HTMLDivElement>(null);
   const pf = useRef<PageFlip | null>(null);
   const folhas = useRef<HTMLElement[]>([]);
@@ -64,7 +66,7 @@ export const FlipBookViewer = forwardRef<ApiLivro, Props>(function FlipBookViewe
     const inst = new PageFlip(livro, {
       width: larguraPagina, height: alturaPagina, size: "fixed", autoSize: true,
       showCover: true, usePortrait: true, drawShadow: true, maxShadowOpacity: 0.5, flippingTime: 750,
-      mobileScrollSupport: false, swipeDistance: 24, showPageCorners: true, useMouseEvents: true,
+      mobileScrollSupport: false, swipeDistance: 24, showPageCorners: arrastar, useMouseEvents: arrastar,
       startPage: Math.max(0, Math.min(total - 1, paginaRef.current - 1)),
     });
     inst.loadFromHTML(folhas.current);
@@ -110,7 +112,7 @@ export const FlipBookViewer = forwardRef<ApiLivro, Props>(function FlipBookViewe
       folhas.current = [];
       el.replaceChildren();
     };
-  }, [r, larguraPagina, alturaPagina, retrato]);
+  }, [r, larguraPagina, alturaPagina, retrato, arrastar]);
 
   // Página mudou por fora (índice, "ir para", modo leitura → livro): vira sem animação.
   useEffect(() => {

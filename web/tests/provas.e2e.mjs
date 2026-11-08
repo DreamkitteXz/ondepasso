@@ -124,8 +124,11 @@ const ID = "enem-2025-primeiro-dia-caderno-1-azul";
   ok(/de 32/.test(await indic()), `indicador de páginas: ${await indic()}`);
   await page.keyboard.press("ArrowRight");
   await page.waitForTimeout(1100);
-  ok(/–3/.test(await indic()) && (await page.locator(".leitor-pagina input").inputValue()) === "2", `seta → abre a dupla 2–3 (${await page.locator(".leitor-pagina input").inputValue()} ${await indic()})`);
+  ok(/e 3 de 32/.test(await indic()) && (await page.locator(".leitor-pagina input").inputValue()) === "2", `seta → abre a dupla 2–3 (${await page.locator(".leitor-pagina input").inputValue()} ${await indic()})`);
   await page.screenshot({ path: `${SAIDA}/11-leitor-dupla.png` });
+  // Nitidez: o canvas tem exatamente o tamanho da página na tela × densidade de pixels (sem reamostragem)
+  const nitidez = await page.evaluate(() => [...document.querySelectorAll(".folha-papel canvas")].filter((c) => c.getBoundingClientRect().width > 50).map((c) => Math.abs(c.width - c.getBoundingClientRect().width * devicePixelRatio)));
+  ok(nitidez.length >= 2 && nitidez.every((d) => d <= 1), `páginas desenhadas na resolução exata da tela (diferença ${nitidez.join(", ")}px)`);
   // Arrastar a ponta da folha (virada com o mouse), capturando o meio do movimento
   const caixa = await page.locator(".livro").boundingBox();
   await page.mouse.move(caixa.x + caixa.width - 6, caixa.y + 20);
@@ -136,6 +139,21 @@ const ID = "enem-2025-primeiro-dia-caderno-1-azul";
   await page.mouse.up();
   await page.waitForTimeout(1200);
   ok((await page.locator(".leitor-pagina input").inputValue()) === "4", `arrastar a folha vira para 4–5 (${await page.locator(".leitor-pagina input").inputValue()})`);
+  // Zoom no modo livro: continua sendo o livro (dupla), maior e rolável; setas seguem virando a dupla
+  const largVisivel = () => page.evaluate(() => Math.max(0, ...[...document.querySelectorAll(".folha-papel canvas")].map((c) => c.getBoundingClientRect()).filter((r) => r.width > 50 && r.right > 0 && r.left < innerWidth).map((r) => r.width)));
+  const larg1 = await largVisivel();
+  await page.getByRole("button", { name: "Aumentar zoom" }).click();
+  await page.waitForSelector(".palco-livro.ampliado", { timeout: 20000 });
+  await page.waitForTimeout(1500);
+  const larg2 = await largVisivel();
+  ok(larg2 > larg1 * 1.2 && await page.locator(".livro").count() === 1, `zoom amplia o próprio livro (${Math.round(larg1)} → ${Math.round(larg2)}px)`);
+  ok(await page.locator(".palco-livro").evaluate((el) => el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight), "livro ampliado pode ser rolado");
+  await page.keyboard.press("ArrowRight"); await page.waitForTimeout(1200);
+  ok((await page.locator(".leitor-pagina input").inputValue()) === "6" && /e 7/.test(await indic()), `com zoom, → vira para a dupla 6–7 (${await page.locator(".leitor-pagina input").inputValue()})`);
+  await page.screenshot({ path: `${SAIDA}/12b-leitor-zoom.png` });
+  await page.keyboard.press("0"); await page.waitForTimeout(800);
+  ok(await page.locator(".palco-livro.ampliado").count() === 0, "tecla 0 volta ao livro inteiro");
+  await page.keyboard.press("ArrowLeft"); await page.waitForTimeout(1100);
   // Digitar no campo não vira página
   const campo = page.locator(".leitor-pagina input");
   await campo.click(); await campo.fill("2"); await page.keyboard.press("ArrowRight");

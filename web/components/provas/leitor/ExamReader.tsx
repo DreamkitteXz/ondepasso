@@ -2,14 +2,14 @@
 // Leitor premium de provas do Enem: modo livro (virada de página realista) e modo leitura (rolagem), zoom (botões e
 // gesto de pinça), tela cheia, índice de páginas e questões, marcadores, gabarito, download e atalhos de teclado.
 // O PDF vem direto do servidor oficial do Inep; as páginas são desenhadas sob demanda e liberadas ao sair de vista.
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Area, Arquivo } from "@/lib/provas-tipos";
 import { megas } from "@/lib/provas-tipos";
 import { RenderizadorPdf, abrirPdf, classificarErro, indexarQuestoes, type ErroLeitor, type IndiceQuestoes, type Progresso } from "@/lib/leitor/pdf";
 import { lerEstudo, lerPreferencias, prefereMenosMovimento, salvarEstudo, salvarPreferencias, type Estudo, type ModoLeitor } from "@/lib/leitor/preferencias";
 import { registrar, registrarUmaVez } from "@/lib/analytics";
 import { FlipBookViewer, type ApiLivro } from "./FlipBookViewer";
-import { EspelhoEstatico, LeituraContinua, PdfPageRenderer } from "./PdfPageRenderer";
+import { EspelhoEstatico, LeituraContinua } from "./PdfPageRenderer";
 import { ReaderToolbar } from "./ReaderToolbar";
 import { ReaderSettings } from "./ReaderSettings";
 import { ExamNavigation } from "./ExamNavigation";
@@ -36,6 +36,7 @@ const digitando = (el: EventTarget | null, tecla: string) => {
 export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
   const raiz = useRef<HTMLDivElement>(null);
   const palco = useRef<HTMLDivElement>(null);
+  const mesa = useRef<HTMLDivElement>(null); // área rolável do livro (quando ampliado)
   const livro = useRef<ApiLivro>(null);
   const irParaLeitura = useRef<((n: number) => void) | null>(null);
 
@@ -75,6 +76,8 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
     if (e.ultimaPagina && e.ultimaPagina > 1) { setPagina(e.ultimaPagina); setAviso(`Você parou na página ${e.ultimaPagina}.`); }
   }, [prova.id]);
   useEffect(() => { salvarPreferencias({ modo, animacoes, som }); }, [modo, animacoes, som]);
+  // O aviso "você parou na página" some sozinho depois de um tempo.
+  useEffect(() => { if (!aviso) return; const t = setTimeout(() => setAviso(null), 12000); return () => clearTimeout(t); }, [aviso]);
   const atualizarEstudo = useCallback((f: (e: Estudo) => Estudo) => setEstudo((e) => { const n = f(e); salvarEstudo(prova.id, n); return n; }), [prova.id]);
 
   // Abre o documento atual (prova ou gabarito) e libera tudo ao trocar/sair.
@@ -128,22 +131,27 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
   const total = r?.total ?? 0;
   const prop = r?.proporcao ?? 1.375;
   const retrato = medidas.w < 760;
-  const layout = useMemo(() => {
-    const W = Math.max(280, medidas.w - 32);
-    const H = Math.max(360, medidas.h - 40);
-    const pw = retrato ? Math.floor(Math.min(W, H / prop)) : Math.floor(Math.min(W / 2, H / prop));
-    return { larguraPagina: Math.max(200, pw), alturaPagina: Math.round(Math.max(200, pw) * prop), larguraLeitura: Math.floor(Math.min(W, 880) * zoom) };
-  }, [medidas, prop, retrato, zoom]);
-
   const docAtual = doc === "gabarito" ? "leitura" : modo;
-  const lupa = docAtual === "livro" && zoom > 1;
+  // 100% = a dupla inteira cabe no palco. O zoom amplia o próprio livro (continua sendo o livro, com rolagem).
+  const layout = useMemo(() => {
+    const W = Math.max(280, medidas.w - 24);
+    const H = Math.max(360, medidas.h - 24);
+    const base = Math.max(200, Math.floor(retrato ? Math.min(W, H / prop) : Math.min(W / 2, H / prop)));
+    const pw = Math.floor(base * zoom);
+    const leituraBase = Math.min(W, 920);
+    // "Ajustar à largura": a dupla (ou a página, no modo leitura) ocupa toda a largura do palco.
+    const largura = docAtual === "leitura" ? W / leituraBase : W / (base * (retrato ? 1 : 2));
+    return { larguraPagina: pw, alturaPagina: Math.round(pw * prop), larguraLeitura: Math.floor(leituraBase * zoom), zoomLargura: Math.min(3, Math.floor(largura * 100) / 100) };
+  }, [medidas, prop, retrato, zoom, docAtual]);
+  const ampliado = docAtual === "livro" && zoom > 1;
+  const mudarZoom = useCallback((z: number) => setZoom(Math.max(1, Math.min(3, Math.round(z * 100) / 100))), []);
 
   // Dupla visível no modo livro (para o rótulo "4–5 de 32" e para o passo de navegação).
   const dupla = useMemo(() => {
-    if (docAtual !== "livro" || lupa || retrato || pagina === 1) return [pagina, pagina];
+    if (docAtual !== "livro" || retrato || pagina === 1) return [pagina, pagina];
     const esq = pagina % 2 === 0 ? pagina : pagina - 1;
     return [esq, Math.min(total, esq + 1)];
-  }, [docAtual, lupa, retrato, pagina, total]);
+  }, [docAtual, retrato, pagina, total]);
 
   const mudarPagina = useCallback((n: number) => {
     setPagina(n);
@@ -158,16 +166,18 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
   const irPara = useCallback((n: number) => {
     if (!total) return;
     const alvo = Math.max(1, Math.min(total, n));
+    setAviso(null);
     if (docAtual === "leitura") irParaLeitura.current?.(alvo);
-    else if (animacoes && !lupa) livro.current?.irPara(alvo);
+    else if (animacoes) livro.current?.irPara(alvo);
     mudarPagina(alvo);
     if (painel === "indice" && medidas.w < 760) setPainel(null);
-  }, [total, docAtual, animacoes, lupa, mudarPagina, painel, medidas.w]);
+  }, [total, docAtual, animacoes, mudarPagina, painel, medidas.w]);
 
   const passo = (dir: 1 | -1) => {
     if (!total) return;
-    if (docAtual === "livro" && animacoes && !lupa) { if (dir > 0) livro.current?.proxima(); else livro.current?.anterior(); return; }
-    if (docAtual === "livro" && !retrato && !lupa) {
+    setAviso(null);
+    if (docAtual === "livro" && animacoes) { if (dir > 0) livro.current?.proxima(); else livro.current?.anterior(); return; }
+    if (docAtual === "livro" && !retrato) {
       const alvo = dir > 0 ? (pagina === 1 ? 2 : dupla[0] + 2) : (dupla[0] <= 2 ? 1 : dupla[0] - 2);
       irPara(alvo);
       return;
@@ -182,6 +192,9 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
       if (!visivel && !telaCheia && !pseudoCheia) return;
       if (e.key === "ArrowRight") { e.preventDefault(); passo(1); }
       else if (e.key === "ArrowLeft") { e.preventDefault(); passo(-1); }
+      else if (e.key === "+" || e.key === "=") { e.preventDefault(); zoomar(zoom + 0.25); }
+      else if (e.key === "-") { e.preventDefault(); zoomar(zoom - 0.25); }
+      else if (e.key === "0") { e.preventDefault(); zoomar(1); }
       else if (e.key === "Escape") {
         if (painel) setPainel(null);
         else if (pseudoCheia) setPseudoCheia(false);
@@ -241,6 +254,7 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
       el.style.removeProperty("--pinca");
       const z = Math.round(Math.max(1, Math.min(3, zoomRef.current * escala)) * 4) / 4;
       ini = null;
+      lembrarCentro();
       setZoom(z);
     };
     el.addEventListener("touchstart", comeca, { capture: true, passive: true });
@@ -254,6 +268,44 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
       el.removeEventListener("touchcancel", fim, { capture: true });
     };
   }, []);
+  // Zoom no livro: mantém no centro o mesmo ponto da página que estava no centro antes.
+  const centro = useRef({ x: 0.5, y: 0 });
+  const zoomAnterior = useRef(zoom);
+  useLayoutEffect(() => {
+    const el = mesa.current;
+    if (!el || zoomAnterior.current === zoom) return;
+    zoomAnterior.current = zoom;
+    el.scrollLeft = centro.current.x * el.scrollWidth - el.clientWidth / 2;
+    el.scrollTop = centro.current.y * el.scrollHeight - (centro.current.y > 0 ? el.clientHeight / 2 : 0);
+  }, [zoom, layout.larguraPagina]);
+  const lembrarCentro = () => {
+    const el = mesa.current;
+    if (!el || el.scrollHeight <= el.clientHeight) { centro.current = { x: 0.5, y: 0 }; return; }
+    centro.current = { x: (el.scrollLeft + el.clientWidth / 2) / el.scrollWidth, y: el.scrollTop <= 0 ? 0 : (el.scrollTop + el.clientHeight / 2) / el.scrollHeight };
+  };
+  // Virou a página ampliada: a nova dupla começa do alto.
+  useEffect(() => { if (mesa.current && ampliado) mesa.current.scrollTop = 0; }, [dupla[0]]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Ampliado, arrastar com o mouse move a página (no toque, a rolagem nativa já faz isso).
+  useEffect(() => {
+    const el = mesa.current;
+    if (!el || !ampliado) return;
+    let ini: { x: number; y: number; l: number; t: number } | null = null;
+    const desce = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      ini = { x: e.clientX, y: e.clientY, l: el.scrollLeft, t: el.scrollTop };
+      el.setPointerCapture(e.pointerId);
+      el.classList.add("arrastando");
+    };
+    const move = (e: PointerEvent) => { if (ini) { el.scrollLeft = ini.l - (e.clientX - ini.x); el.scrollTop = ini.t - (e.clientY - ini.y); } };
+    const sobe = (e: PointerEvent) => { if (ini) { ini = null; el.releasePointerCapture(e.pointerId); el.classList.remove("arrastando"); } };
+    el.addEventListener("pointerdown", desce);
+    el.addEventListener("pointermove", move);
+    el.addEventListener("pointerup", sobe);
+    el.addEventListener("pointercancel", sobe);
+    return () => { el.removeEventListener("pointerdown", desce); el.removeEventListener("pointermove", move); el.removeEventListener("pointerup", sobe); el.removeEventListener("pointercancel", sobe); };
+  }, [ampliado, r]);
+  const zoomar = (z: number) => { lembrarCentro(); mudarZoom(z); };
+
   const mudarModo = (m: ModoLeitor) => {
     if (m === modo) return;
     setModo(m);
@@ -279,7 +331,7 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
         titulo={doc === "prova" ? prova.titulo : `Gabarito · ${prova.titulo}`} subtitulo={prova.subtitulo}
         pagina={dupla[0]} paginaFim={dupla[1]} total={total || 1}
         irPara={irPara} anterior={() => passo(-1)} proxima={() => passo(1)}
-        zoom={zoom} mudarZoom={(z) => setZoom(Math.max(1, Math.min(3, Math.round(z * 4) / 4)))}
+        zoom={zoom} mudarZoom={zoomar} zoomLargura={layout.zoomLargura > 1.04 ? layout.zoomLargura : null}
         modo={docAtual} mudarModo={mudarModo} painel={painel} alternarPainel={alternarPainel}
         urlPdf={arquivo.url} aoBaixar={() => registrar("enem_pdf_baixado", { prova: prova.id, arquivo: doc, origem: "leitor" })}
         telaCheia={telaCheia || pseudoCheia} alternarTelaCheia={alternarTelaCheia} temGabarito={!!prova.gabarito}
@@ -300,7 +352,7 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
       )}
 
       <div className="leitor-corpo">
-        <div ref={palco} className={`leitor-palco${lupa ? " com-lupa" : ""}`} tabIndex={-1}>
+        <div ref={palco} className="leitor-palco" tabIndex={-1}>
           {erro ? (
             <div className="leitor-erro" role="alert">
               <h3>Não foi possível abrir {doc === "prova" ? "a prova" : "o gabarito"} aqui</h3>
@@ -324,24 +376,17 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
             <div className="leitura-rolagem">
               <LeituraContinua r={r} largura={layout.larguraLeitura} pagina={pagina} aoMudar={mudarPagina} irParaRef={irParaLeitura} />
             </div>
-          ) : lupa ? (
-            <div className="lupa">
-              <div className="lupa-faixa"><span>Zoom {Math.round(zoom * 100)}% · role para ver a página inteira</span><button type="button" className="botao botao-pequeno" onClick={() => setZoom(1)}>Voltar ao livro</button></div>
-              <div className="lupa-paginas">
-                {[...new Set(dupla)].map((n) => <PdfPageRenderer key={n} r={r} n={n} largura={Math.round(layout.larguraPagina * zoom)} prioridade={10} comTexto />)}
-              </div>
-            </div>
-          ) : animacoes ? (
-            <div className="palco-livro">
-              <FlipBookViewer ref={livro} r={r} larguraPagina={layout.larguraPagina} alturaPagina={layout.alturaPagina} retrato={retrato} pagina={pagina} aoMudar={mudarPagina} som={som} />
-              <section className="sr-only" aria-live="off" aria-label="Texto das páginas abertas">{textoVisivel}</section>
-            </div>
           ) : (
-            <div className="palco-livro">
-              <EspelhoEstatico r={r} larguraPagina={layout.larguraPagina} retrato={retrato} pagina={pagina} />
+            <div ref={mesa} className={`palco-livro${ampliado ? " ampliado" : ""}`}>
+              {animacoes ? (
+                <FlipBookViewer ref={livro} r={r} larguraPagina={layout.larguraPagina} alturaPagina={layout.alturaPagina} retrato={retrato} pagina={pagina} aoMudar={mudarPagina} som={som} arrastar={!ampliado} />
+              ) : (
+                <EspelhoEstatico r={r} larguraPagina={layout.larguraPagina} retrato={retrato} pagina={pagina} />
+              )}
+              {animacoes && <section className="sr-only" aria-live="off" aria-label="Texto das páginas abertas">{textoVisivel}</section>}
             </div>
           )}
-          {r && docAtual === "livro" && !lupa && (
+          {r && docAtual === "livro" && !ampliado && (
             <>
               <button type="button" className="seta-lateral esq" onClick={() => passo(-1)} disabled={dupla[0] <= 1} aria-label="Página anterior">‹</button>
               <button type="button" className="seta-lateral dir" onClick={() => passo(1)} disabled={dupla[1] >= total} aria-label="Próxima página">›</button>
@@ -362,7 +407,7 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
                 aoAbrirNoLeitor={doc === "prova" && prova.gabarito ? () => { setDoc("gabarito"); setPagina(1); setPainel(null); } : undefined} />
             )}
             {painel === "ajustes" && (
-              <ReaderSettings animacoes={animacoes} som={som} modo={modo} zoom={zoom} mudarZoom={(z) => setZoom(Math.max(1, Math.min(3, Math.round(z * 4) / 4)))} mudar={(p) => {
+              <ReaderSettings animacoes={animacoes} som={som} modo={modo} zoom={zoom} mudarZoom={zoomar} mudar={(p) => {
                 if (p.animacoes !== undefined) setAnimacoes(p.animacoes);
                 if (p.som !== undefined) setSom(p.som);
                 if (p.modo) mudarModo(p.modo);

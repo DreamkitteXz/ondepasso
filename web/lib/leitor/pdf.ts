@@ -34,7 +34,9 @@ export async function abrirPdf(url: string, aoProgredir?: (p: Progresso) => void
     // Sem pré-busca agressiva: o PDF.js pede só o necessário quando o servidor aceita intervalos.
     disableAutoFetch: true,
     rangeChunkSize: 256 * 1024,
-    useSystemFonts: true,
+    // Fontes não embutidas no PDF (Arial do Inep, por exemplo) vêm dos dados do próprio PDF.js, não do sistema:
+    // as fontes do Windows trocavam a largura das letras ("QUEST ÃO").
+    useSystemFonts: false,
     standardFontDataUrl: "/pdfjs/standard_fonts/",
     wasmUrl: "/pdfjs/wasm/",
   });
@@ -48,7 +50,7 @@ type Pedido = { pagina: number; largura: number; prioridade: number; resolver: (
  * Renderiza páginas em canvas.
  * - No máximo `paralelo` renderizações ao mesmo tempo; a fila é reordenada pela prioridade (página atual primeiro).
  * - Cache LRU de `limite` canvases (os demais são zerados para devolver a memória da GPU).
- * - Resolução = largura em CSS × devicePixelRatio (limitado a 2,5×), para ficar nítido em telas de alta densidade.
+ * - Resolução = largura em CSS × devicePixelRatio, exata (sem reamostragem), para o texto ficar nítido.
  */
 export class RenderizadorPdf {
   readonly doc: PDFDocumentProxy;
@@ -83,8 +85,11 @@ export class RenderizadorPdf {
   /** Canvas da página `n` com `largura` px CSS. Reaproveita o cache se já houver um igual. */
   renderizar(n: number, largura: number, prioridade = 0): Promise<HTMLCanvasElement> {
     if (this.destruido) return Promise.reject(new Error("destruido"));
-    const dpr = Math.min(2.5, typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1);
-    const lpx = Math.round(Math.max(120, largura) * dpr / 16) * 16; // arredonda para reaproveitar o cache em redimensionamentos pequenos
+    const dpr = Math.min(3, typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1);
+    // Exatamente a largura na tela × densidade de pixels: se o canvas for maior ou menor que a área, o navegador
+    // reamostra e as letras pequenas borram. Teto de ~12 megapixels por página para não estourar a memória no zoom.
+    const teto = Math.floor(Math.sqrt(12e6 / this.proporcao));
+    const lpx = Math.min(teto, Math.round(Math.max(120, largura) * dpr));
     const chave = `${n}@${lpx}`;
     const pronto = this.cache.get(chave);
     if (pronto) { this.cache.delete(chave); this.cache.set(chave, pronto); return Promise.resolve(pronto); }
@@ -121,8 +126,8 @@ export class RenderizadorPdf {
       const base = pagina.getViewport({ scale: 1 });
       const viewport = pagina.getViewport({ scale: ped.largura / base.width });
       const canvas = document.createElement("canvas");
-      canvas.width = Math.floor(viewport.width);
-      canvas.height = Math.floor(viewport.height);
+      canvas.width = Math.round(viewport.width);
+      canvas.height = Math.round(viewport.height);
       canvas.className = "pdf-canvas";
       const tarefa = pagina.render({ canvas, viewport, background: "#ffffff" });
       this.emAndamento.set(chave, tarefa);

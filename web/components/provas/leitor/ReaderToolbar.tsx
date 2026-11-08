@@ -23,7 +23,7 @@ function Icone({ d }: { d: React.ReactNode }) {
 type Props = {
   titulo: string; subtitulo: string; pagina: number; paginaFim: number; total: number;
   irPara: (n: number) => void; anterior: () => void; proxima: () => void;
-  zoom: number; mudarZoom: (z: number) => void;
+  zoom: number; mudarZoom: (z: number) => void; /** Zoom em que a dupla ocupa toda a largura (null se já ocupa). */ zoomLargura: number | null;
   modo: ModoLeitor; mudarModo: (m: ModoLeitor) => void;
   painel: string | null; alternarPainel: (p: "indice" | "gabarito" | "ajustes") => void;
   urlPdf: string; aoBaixar: () => void; telaCheia: boolean; alternarTelaCheia: () => void; temGabarito: boolean;
@@ -48,14 +48,18 @@ export function ReaderToolbar(p: Props) {
           <span className="sr-only">Ir para a página</span>
           <input inputMode="numeric" value={campo} onChange={(e) => setCampo(e.target.value.replace(/\D/g, "").slice(0, 3))}
             onKeyDown={(e) => { if (e.key === "Enter") enviar(); }} onBlur={enviar} aria-describedby="leitor-total" />
-          <span id="leitor-total" aria-hidden="true">{p.paginaFim > p.pagina ? `–${p.paginaFim}` : ""} de {p.total}</span>
+          <span id="leitor-total" aria-hidden="true">{p.paginaFim > p.pagina ? `e ${p.paginaFim} ` : ""}de {p.total}</span>
         </label>
         <button type="button" className="botao-icone" onClick={p.proxima} disabled={p.paginaFim >= p.total} aria-label="Próxima página" title="Próxima página (→)"><Icone d={I.prox} /></button>
       </div>
       <div className="leitor-barra-acoes">
         <div className="leitor-zoom" role="group" aria-label="Zoom">
           <button type="button" className="botao-icone" onClick={() => p.mudarZoom(p.zoom - 0.25)} disabled={p.zoom <= 1} aria-label="Diminuir zoom"><Icone d={I.menos} /></button>
-          <span aria-live="polite">{Math.round(p.zoom * 100)}%</span>
+          {p.zoomLargura ? (
+            <button type="button" className="leitor-zoom-valor" onClick={() => p.mudarZoom(Math.abs(p.zoom - p.zoomLargura!) < 0.02 ? 1 : p.zoomLargura!)}
+              title={Math.abs(p.zoom - p.zoomLargura) < 0.02 ? "Ver a página inteira" : "Ajustar à largura"}
+              aria-label={`Zoom ${Math.round(p.zoom * 100)}%. ${Math.abs(p.zoom - p.zoomLargura) < 0.02 ? "Ver a página inteira" : "Ajustar à largura"}`}>{Math.round(p.zoom * 100)}%</button>
+          ) : <span>{Math.round(p.zoom * 100)}%</span>}
           <button type="button" className="botao-icone" onClick={() => p.mudarZoom(p.zoom + 0.25)} disabled={p.zoom >= 3} aria-label="Aumentar zoom"><Icone d={I.mais} /></button>
         </div>
         <div className="leitor-modo" role="radiogroup" aria-label="Modo de leitura">
