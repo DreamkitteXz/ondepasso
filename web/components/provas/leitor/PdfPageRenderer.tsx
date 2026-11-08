@@ -3,11 +3,14 @@
 // da página para leitores de tela (o canvas sozinho não é acessível).
 import { useEffect, useRef, useState } from "react";
 import type { RenderizadorPdf } from "@/lib/leitor/pdf";
+import { medidaNitida, useAlinharAoPixel } from "@/lib/leitor/pixel";
 
 type Props = { r: RenderizadorPdf; n: number; largura: number; ativa?: boolean; prioridade?: number; comTexto?: boolean; rotulo?: string };
 
 export function PdfPageRenderer({ r, n, largura, ativa = true, prioridade = 1, comTexto = false, rotulo }: Props) {
   const caixa = useRef<HTMLDivElement>(null);
+  const figura = useRef<HTMLElement>(null);
+  useAlinharAoPixel(figura, [largura]);
   const [estado, setEstado] = useState<"espera" | "pronta" | "erro">("espera");
   const [texto, setTexto] = useState<string | null>(null);
 
@@ -32,7 +35,7 @@ export function PdfPageRenderer({ r, n, largura, ativa = true, prioridade = 1, c
   }, [r, n, comTexto, ativa]);
 
   return (
-    <figure className={`pagina-pdf estado-${estado}`} style={{ width: largura, aspectRatio: `1 / ${r.proporcao}` }} aria-label={rotulo ?? `Página ${n} de ${r.total}`}>
+    <figure ref={figura} className={`pagina-pdf estado-${estado}`} style={{ width: largura, height: medidaNitida(largura, r.proporcao).altura }} aria-label={rotulo ?? `Página ${n} de ${r.total}`}>
       <div ref={caixa} className="pagina-pdf-canvas" aria-hidden="true" />
       {estado !== "pronta" && (
         <div className="pagina-pdf-espera" aria-hidden="true">

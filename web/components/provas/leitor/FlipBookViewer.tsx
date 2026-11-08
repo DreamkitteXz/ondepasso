@@ -6,6 +6,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { PageFlip } from "page-flip/dist/js/page-flip.module.js";
 import type { RenderizadorPdf } from "@/lib/leitor/pdf";
 import { somDePapel } from "@/lib/leitor/preferencias";
+import { useAlinharAoPixel } from "@/lib/leitor/pixel";
 
 export type ApiLivro = { proxima: () => void; anterior: () => void; irPara: (pagina: number) => void };
 
@@ -113,6 +114,10 @@ export const FlipBookViewer = forwardRef<ApiLivro, Props>(function FlipBookViewe
       el.replaceChildren();
     };
   }, [r, larguraPagina, alturaPagina, retrato, arrastar]);
+
+  // Mede uma folha parada (não a caixa do livro): o page-flip centraliza as folhas com frações de px próprias.
+  useAlinharAoPixel(host, [larguraPagina, alturaPagina, retrato, arrastar], (el) =>
+    [...el.querySelectorAll<HTMLElement>(".stf__item")].find((f) => f.style.display === "block" && f.classList.contains("--simple")) ?? null);
 
   // Página mudou por fora (índice, "ir para", modo leitura → livro): vira sem animação.
   useEffect(() => {

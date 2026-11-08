@@ -289,6 +289,21 @@ const ID = "enem-2025-primeiro-dia-caderno-1-azul";
   await ctx.close();
 }
 
+// ------------------------------------------------------------ zoom do navegador (densidade fracionária)
+for (const dpr of [1.1, 1.25]) {
+  const ctx = await browser.newContext({ viewport: { width: Math.round(1280 / dpr), height: Math.round(835 / dpr) }, deviceScaleFactor: dpr });
+  await servirPdfs(ctx);
+  const page = await ctx.newPage();
+  page.on("pageerror", (e) => erros.push(`zoom ${dpr}: ${e.message}`));
+  await page.goto(`${BASE}/provas/${ID}/#ler`);
+  await page.waitForSelector(".folha-papel.pronta canvas", { state: "attached", timeout: 30000 });
+  await page.keyboard.press("ArrowRight"); await page.waitForTimeout(1500);
+  const pgs = await page.evaluate(() => [...document.querySelectorAll(".folha-papel canvas")].map((c) => ({ c, r: c.getBoundingClientRect() })).filter((x) => x.r.width > 50 && x.r.right > 0 && x.r.left < innerWidth)
+    .map(({ c, r }) => ({ tam: Math.abs(c.width - r.width * devicePixelRatio), x: Math.abs(r.left * devicePixelRatio - Math.round(r.left * devicePixelRatio)), y: Math.abs(r.top * devicePixelRatio - Math.round(r.top * devicePixelRatio)) })));
+  ok(pgs.length > 0 && pgs.every((q) => q.tam < 0.05 && q.x < 0.05 && q.y < 0.05), `zoom do navegador ${Math.round(dpr * 100)}%: página no tamanho e na posição exatos dos pixels da tela (${JSON.stringify(pgs.map((q) => [q.tam, q.x, q.y].map((v) => +v.toFixed(3))))})`);
+  await ctx.close();
+}
+
 await browser.close();
 const relevantes = erros.filter((e) => !/Warning|favicon|standardFont|TT: |fetchStandardFontData/i.test(e));
 ok(relevantes.length === 0, `sem erros de JavaScript${relevantes.length ? ": " + relevantes.slice(0, 5).join(" | ") : ""}`);

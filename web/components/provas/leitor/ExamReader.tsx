@@ -6,6 +6,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import type { Area, Arquivo } from "@/lib/provas-tipos";
 import { megas } from "@/lib/provas-tipos";
 import { RenderizadorPdf, abrirPdf, classificarErro, indexarQuestoes, type ErroLeitor, type IndiceQuestoes, type Progresso } from "@/lib/leitor/pdf";
+import { medidaNitida, useDensidade } from "@/lib/leitor/pixel";
 import { lerEstudo, lerPreferencias, prefereMenosMovimento, salvarEstudo, salvarPreferencias, type Estudo, type ModoLeitor } from "@/lib/leitor/preferencias";
 import { registrar, registrarUmaVez } from "@/lib/analytics";
 import { FlipBookViewer, type ApiLivro } from "./FlipBookViewer";
@@ -132,17 +133,19 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
   const prop = r?.proporcao ?? 1.375;
   const retrato = medidas.w < 760;
   const docAtual = doc === "gabarito" ? "leitura" : modo;
+  const densidade = useDensidade();
   // 100% = a dupla inteira cabe no palco. O zoom amplia o próprio livro (continua sendo o livro, com rolagem).
   const layout = useMemo(() => {
     const W = Math.max(280, medidas.w - 24);
     const H = Math.max(360, medidas.h - 24);
     const base = Math.max(200, Math.floor(retrato ? Math.min(W, H / prop) : Math.min(W / 2, H / prop)));
-    const pw = Math.floor(base * zoom);
+    // Tamanhos em pixels inteiros da tela (zoom do navegador incluso), para o canvas não ser reamostrado.
+    const pagina = medidaNitida(base * zoom, prop);
     const leituraBase = Math.min(W, 920);
     // "Ajustar à largura": a dupla (ou a página, no modo leitura) ocupa toda a largura do palco.
     const largura = docAtual === "leitura" ? W / leituraBase : W / (base * (retrato ? 1 : 2));
-    return { larguraPagina: pw, alturaPagina: Math.round(pw * prop), larguraLeitura: Math.floor(leituraBase * zoom), zoomLargura: Math.min(3, Math.floor(largura * 100) / 100) };
-  }, [medidas, prop, retrato, zoom, docAtual]);
+    return { larguraPagina: pagina.largura, alturaPagina: pagina.altura, larguraLeitura: medidaNitida(leituraBase * zoom, prop).largura, zoomLargura: Math.min(3, Math.floor(largura * 100) / 100) };
+  }, [medidas, prop, retrato, zoom, docAtual, densidade]); // eslint-disable-line react-hooks/exhaustive-deps
   const ampliado = docAtual === "livro" && zoom > 1;
   const mudarZoom = useCallback((z: number) => setZoom(Math.max(1, Math.min(3, Math.round(z * 100) / 100))), []);
 

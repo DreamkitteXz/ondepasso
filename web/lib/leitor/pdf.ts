@@ -85,7 +85,7 @@ export class RenderizadorPdf {
   /** Canvas da página `n` com `largura` px CSS. Reaproveita o cache se já houver um igual. */
   renderizar(n: number, largura: number, prioridade = 0): Promise<HTMLCanvasElement> {
     if (this.destruido) return Promise.reject(new Error("destruido"));
-    const dpr = Math.min(3, typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1);
+    const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
     // Exatamente a largura na tela × densidade de pixels: se o canvas for maior ou menor que a área, o navegador
     // reamostra e as letras pequenas borram. Teto de ~12 megapixels por página para não estourar a memória no zoom.
     const teto = Math.floor(Math.sqrt(12e6 / this.proporcao));
