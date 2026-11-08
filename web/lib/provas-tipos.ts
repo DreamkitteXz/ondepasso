@@ -147,3 +147,64 @@ export function areaDaQuestao(n: number): Area | null {
   for (const [a, [de, ate]] of Object.entries(AREA_QUESTOES) as [Area, [number, number]][]) if (n >= de && n <= ate) return a;
   return null;
 }
+
+// ---------------------------------------------------------------- biblioteca: uma prova por dia, cores dentro
+
+/**
+ * As cores de um mesmo dia trazem as mesmas questões em outra ordem. Na biblioteca, cada dia de cada aplicação é uma
+ * "prova", e a pessoa escolhe a cor do caderno dentro dela (o gabarito é o da cor escolhida).
+ */
+export type Grupo = {
+  chave: string;
+  ano: number;
+  modalidade: Modalidade;
+  modalidadeRotulo: string;
+  dia: 1 | 2;
+  areas: Area[];
+  questoes: number;
+  redacao: boolean;
+  /** Cadernos comuns (cores), em ordem de número. */
+  cores: Prova[];
+  /** Cadernos de atendimento especializado (Libras, braile e ledor). */
+  especiais: Prova[];
+  idiomas: ("ingles" | "espanhol")[];
+};
+
+export function agrupar(lista: Prova[]): Grupo[] {
+  const g = new Map<string, Grupo>();
+  for (const p of lista) {
+    const chave = `${p.ano}-${p.modalidade}-${p.dia}`;
+    let x = g.get(chave);
+    if (!x) {
+      x = { chave, ano: p.ano, modalidade: p.modalidade, modalidadeRotulo: p.modalidadeRotulo, dia: p.dia, areas: p.areas, questoes: p.questoes, redacao: p.redacao, cores: [], especiais: [], idiomas: [] };
+      g.set(chave, x);
+    }
+    (p.variante ? x.especiais : x.cores).push(p);
+    if (p.idioma && !x.idiomas.includes(p.idioma)) x.idiomas.push(p.idioma);
+  }
+  for (const x of g.values()) { x.cores.sort((a, b) => a.caderno - b.caderno); x.especiais.sort((a, b) => a.caderno - b.caderno); }
+  return [...g.values()];
+}
+
+/** Filtros da biblioteca aplicados às provas (grupos). Busca e cor valem se algum caderno do grupo combina. */
+export function filtrarGrupos(grupos: Grupo[], f: Filtros): Grupo[] {
+  return grupos.filter((g) => {
+    if (f.ano != null && g.ano !== f.ano) return false;
+    const dia = f.dia ?? (f.area ? (AREA_QUESTOES[f.area][0] <= 90 ? 1 : 2) : null);
+    if (dia != null && g.dia !== dia) return false;
+    if (f.modalidade != null && g.modalidade !== f.modalidade) return false;
+    const todos = [...g.cores, ...g.especiais];
+    if (f.acessivel && !todos.some((p) => p.versoes.length > 0 || p.variante)) return false;
+    if (f.cor && !todos.some((p) => p.cor === f.cor)) return false;
+    if (f.busca.trim()) return filtrar(todos, { ...FILTROS_VAZIOS, busca: f.busca }).length > 0;
+    return true;
+  });
+}
+
+/** Caderno sugerido ao abrir a prova: o que bate com a busca/cor; senão, o primeiro (menor número). */
+export function cadernoInicial(g: Grupo, f: Filtros): Prova {
+  const todos = [...g.cores, ...g.especiais];
+  if (f.cor) { const c = todos.find((p) => p.cor === f.cor); if (c) return c; }
+  if (f.busca.trim()) { const c = filtrar(todos, { ...FILTROS_VAZIOS, busca: f.busca }); if (c.length && c.length < todos.length) return c[0]; }
+  return g.cores[0] ?? todos[0];
+}

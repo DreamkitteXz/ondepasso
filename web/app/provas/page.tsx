@@ -30,15 +30,9 @@ export default function PaginaProvas() {
   return (
     <div className="pagina-provas">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <header className="provas-cabecalho">
-        <p className="rotulo">Provas anteriores</p>
-        <h1>Provas do Enem para ler e estudar</h1>
-        <p className="sub">Todas as provas oficiais de {anos[anos.length - 1]} a {anos[0]}, direto do Inep, num leitor que folheia como um caderno de verdade. Com gabarito oficial, sem cadastro.</p>
-        <ul className="provas-numeros" aria-label="O que tem na biblioteca">
-          <li><strong>{provas.length}</strong> cadernos</li>
-          <li><strong>{anos.length}</strong> edições</li>
-          <li><strong>{provas.filter((p) => p.gabarito).length}</strong> com gabarito</li>
-        </ul>
+      <header className="provas-topo">
+        <h1>Provas do Enem</h1>
+        <p>As provas oficiais de {anos[anos.length - 1]} a {anos[0]}, direto do Inep. Leia aqui, folheando como um caderno, ou baixe o PDF. O gabarito acompanha a cor do caderno que você escolher.</p>
       </header>
 
       <ExamLibrary provas={provas} />

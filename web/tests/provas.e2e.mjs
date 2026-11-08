@@ -36,53 +36,70 @@ const erros = [];
   page.on("pageerror", (e) => erros.push(`biblioteca: ${e.message}`));
   await page.goto(`${BASE}/provas/`);
   await page.waitForSelector(".biblioteca[data-pronto]");
-  const total = await page.locator(".prova-card").count();
-  ok(total === 144, `biblioteca lista ${total} cadernos (esperado 144)`);
+  const conta = () => page.locator(".biblioteca .prova").count();
+  const total = await conta();
+  ok(total === 26, `biblioteca lista ${total} provas (esperado 26: um cartão por dia de cada aplicação)`);
+  const radios = await page.locator(".prova .amostra input[type=radio]").count();
+  ok(radios >= 26 * 4, `as cores de caderno ficam dentro dos cartões (${radios} opções; no digital o idioma é escolhido à parte)`);
   await page.screenshot({ path: `${SAIDA}/01-biblioteca.png` });
-  const conta = () => page.locator(".prova-card").count();
   await page.getByRole("group", { name: "Ano" }).getByRole("button", { name: "2025" }).click();
-  ok(await conta() === 32, `filtro 2025: ${await conta()} (esperado 32)`);
+  ok(await conta() === 6, `filtro 2025: ${await conta()} (esperado 6)`);
   await page.getByRole("group", { name: "Dia" }).getByRole("button", { name: "2º dia" }).click();
-  const d2 = await conta();
-  ok(d2 === 16, `2025 + 2º dia: ${d2} (esperado 16)`);
-  await page.getByRole("group", { name: "Aplicação" }).getByRole("button", { name: "Reaplicação / PPL" }).click();
-  ok(await conta() === 5, `2025 + 2º dia + reaplicação: ${await conta()} (esperado 5)`);
+  ok(await conta() === 3, `2025 + 2º dia: ${await conta()} (esperado 3)`);
+  await page.getByRole("combobox", { name: "Aplicação" }).selectOption("reaplicacao");
+  ok(await conta() === 1, `2025 + 2º dia + reaplicação: ${await conta()} (esperado 1)`);
+  ok(await page.locator("details.outras[open]").count() === 1, "filtrar por outra aplicação já abre a seção dela");
   await page.waitForTimeout(400);
   ok(/ano=2025/.test(page.url()) && /dia=2/.test(page.url()) && /modalidade=reaplicacao/.test(page.url()), `URL acompanha os filtros (${page.url().split("?")[1]})`);
   await page.getByRole("button", { name: "Limpar filtros" }).first().click();
-  ok(await conta() === 144, "limpar filtros volta a 144");
-  // Área usa o dia: Matemática = 2º dia
-  await page.getByRole("group", { name: "Área" }).getByRole("button", { name: "Matemática" }).click();
-  const mat = await conta();
-  ok(mat > 0 && (await page.locator(".prova-card-meta", { hasText: "1º dia" }).count()) === 0, `área Matemática só traz 2º dia (${mat})`);
-  // Vazio: branco não existe no 2º dia
-  await page.getByRole("group", { name: "Cor do caderno" }).getByRole("button", { name: /Branco/ }).click({ force: true }).catch(() => {});
-  const brancoDesativado = await page.getByRole("group", { name: "Cor do caderno" }).getByRole("button", { name: /Branco/ }).isDisabled();
-  ok(brancoDesativado, "cor Branco fica desativada quando não existe no recorte");
-  await page.getByRole("button", { name: "Limpar filtros" }).first().click();
-  await page.getByRole("searchbox", { name: "Buscar provas" }).fill("zzz inexistente");
+  ok(await conta() === 26, "limpar filtros volta a 26");
+  // Links antigos com ?area= continuam valendo: Matemática = 2º dia
+  await page.goto(`${BASE}/provas/?area=matematica`);
+  await page.waitForSelector(".biblioteca[data-pronto]");
+  await page.waitForTimeout(200);
+  const dias = await page.locator(".biblioteca .prova h3").allTextContents();
+  ok(dias.length > 0 && dias.every((t) => !t.includes("1º dia")), `?area=matematica só traz 2º dia (${dias.length})`);
+  await page.goto(`${BASE}/provas/`);
+  await page.waitForSelector(".biblioteca[data-pronto]");
+  // Escolher a cor troca o caderno que abre e o gabarito
+  const cartao = page.locator(".principais .prova").first();
+  const lerAntes = await cartao.getByRole("link", { name: /^Ler o caderno/ }).getAttribute("href");
+  await cartao.locator("label.amostra", { hasText: "Verde" }).click();
+  ok(await cartao.getByRole("radio", { name: "Verde" }).isChecked(), "a cor escolhida fica marcada como opção de rádio");
+  const ler = cartao.getByRole("link", { name: /^Ler o caderno/ });
+  ok((await ler.textContent()).includes("verde") && (await ler.getAttribute("href")) !== lerAntes, `cor Verde muda o caderno aberto (${await ler.getAttribute("href")})`);
+  const gab = await cartao.getByRole("link", { name: "Gabarito" }).getAttribute("href");
+  ok(/download\.inep\.gov\.br/.test(gab ?? ""), "gabarito do cartão é o link oficial do Inep");
+  // Vazio
+  await page.getByRole("searchbox").fill("zzz inexistente");
   await page.waitForTimeout(200);
   ok(await page.locator(".biblioteca-vazia").isVisible(), "busca sem resultado mostra estado vazio");
   await page.screenshot({ path: `${SAIDA}/02-vazio.png` });
-  await page.getByRole("searchbox", { name: "Buscar provas" }).fill("libras 2023");
+  await page.getByRole("searchbox").fill("libras 2023");
   await page.waitForTimeout(200);
-  ok(await conta() === 2, `busca "libras 2023": ${await conta()} (esperado 2)`);
+  const anosBusca = await page.locator(".biblioteca .ano-numero").allTextContents();
+  ok(await conta() > 0 && anosBusca.every((t) => t.includes("2023")), `busca "libras 2023": ${await conta()} provas, só de 2023`);
+  ok(await page.locator(".prova .amostra.marcada", { hasText: "Libras" }).count() === await conta(), "a busca já deixa marcado o caderno em Libras");
   // Disciplina não é anunciada como disponível
-  ok(await page.locator(".filtro-futuro").count() === 1, "filtro de disciplina aparece só como 'em preparação'");
+  ok(await page.locator(".controles", { hasText: /disciplina/i }).count() === 0, "nenhum filtro de disciplina anunciado antes de existir");
   // Salvar
-  await page.getByRole("searchbox", { name: "Buscar provas" }).fill("");
-  await page.locator(".prova-card").first().getByRole("button", { name: "Salvar para depois" }).click();
-  ok(await page.locator(".provas-salvas li").count() === 1, "salvar prova aparece em 'Salvas para estudar'");
+  await page.getByRole("searchbox").fill("");
+  await page.waitForTimeout(200);
+  await page.locator(".principais .prova").first().getByRole("button", { name: /^Salvar o caderno/ }).click();
+  ok(await page.locator(".suas-provas .salvas li").count() === 1, "salvar o caderno aparece em 'Salvas'");
+  await page.locator(".suas-provas .salvas li button").first().click();
+  ok(await page.locator(".suas-provas").count() === 0, "tirar das salvas some com a faixa");
   // Botões sem nome acessível
   const semNome = await page.evaluate(() => [...document.querySelectorAll("button, a[href]")].filter((b) => !(b.getAttribute("aria-label") || b.textContent.trim() || b.getAttribute("title")) && b.offsetParent).length);
   ok(semNome === 0, `todos os botões e links visíveis têm nome (${semNome} sem nome)`);
   // Celular
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${BASE}/provas/`);
-  await page.waitForSelector(".prova-card");
+  await page.waitForSelector(".biblioteca[data-pronto]");
   const largura = await page.evaluate(() => document.documentElement.scrollWidth);
   ok(largura <= 390, `sem rolagem horizontal no celular (${largura}px)`);
-  await page.getByRole("button", { name: /^Filtros/ }).click();
+  const altura = await page.evaluate(() => document.documentElement.scrollHeight);
+  ok(altura < 9000, `página no celular com ${altura}px de altura (antes ~34 mil)`);
   await page.screenshot({ path: `${SAIDA}/03-biblioteca-celular.png` });
   await ctx.close();
 }

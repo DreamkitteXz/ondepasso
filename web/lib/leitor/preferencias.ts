@@ -24,18 +24,32 @@ export const prefereMenosMovimento = () => typeof window !== "undefined" && wind
 
 // ---------------------------------------------------------------- estudo (por prova)
 
-export type Estudo = { marcadores: number[]; revisar: number[]; ultimaPagina: number | null };
+export type Estudo = { marcadores: number[]; revisar: number[]; ultimaPagina: number | null; em?: number };
 const chaveEstudo = (id: string) => `ondepasso.estudo.${id}`;
 
 export function lerEstudo(id: string): Estudo {
   try {
     const v = JSON.parse(localStorage.getItem(chaveEstudo(id)) ?? "{}") as Partial<Estudo>;
     const nums = (a: unknown) => (Array.isArray(a) ? a.filter((n) => Number.isInteger(n) && n > 0 && n < 1000) : []) as number[];
-    return { marcadores: nums(v.marcadores), revisar: nums(v.revisar), ultimaPagina: Number.isInteger(v.ultimaPagina) ? (v.ultimaPagina as number) : null };
+    return { marcadores: nums(v.marcadores), revisar: nums(v.revisar), ultimaPagina: Number.isInteger(v.ultimaPagina) ? (v.ultimaPagina as number) : null, em: typeof v.em === "number" ? v.em : undefined };
   } catch { return { marcadores: [], revisar: [], ultimaPagina: null }; }
 }
 export function salvarEstudo(id: string, e: Estudo) {
-  try { localStorage.setItem(chaveEstudo(id), JSON.stringify(e)); } catch {}
+  try { localStorage.setItem(chaveEstudo(id), JSON.stringify({ ...e, em: Date.now() })); } catch {}
+}
+
+/** Provas que a pessoa começou a ler neste aparelho, da mais recente para a mais antiga. */
+export function leiturasRecentes(): { id: string; pagina: number; em: number }[] {
+  const out: { id: string; pagina: number; em: number }[] = [];
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k?.startsWith("ondepasso.estudo.")) continue;
+      const e = lerEstudo(k.slice("ondepasso.estudo.".length));
+      if (e.ultimaPagina && e.ultimaPagina > 1) out.push({ id: k.slice("ondepasso.estudo.".length), pagina: e.ultimaPagina, em: e.em ?? 0 });
+    }
+  } catch {}
+  return out.sort((a, b) => b.em - a.em);
 }
 
 // ---------------------------------------------------------------- provas salvas (favoritas)
