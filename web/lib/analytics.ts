@@ -9,6 +9,7 @@
 // - Eventos são disparados em handlers ou efeitos (nunca no render) e os "uma vez por página" são deduplicados aqui,
 //   o que também neutraliza o efeito duplo do React Strict Mode em desenvolvimento.
 import { useEffect } from "react";
+import { ANUNCIOS_ATIVO, apagarCookiesAnuncios } from "./anuncios";
 
 declare global {
   interface Window { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; [k: `ga-disable-${string}`]: boolean | undefined }
@@ -20,33 +21,58 @@ export const ANALYTICS_ATIVO = /^G-[A-Z0-9]{4,20}$/.test(ID);
 
 // ---------------------------------------------------------------- consentimento
 
-export type Decisao = "aceito" | "recusado";
+/** Cada finalidade tem a sua resposta. `publicidade` só é perguntada quando os anúncios estão ligados. */
+export type Consentimento = { medicao: boolean; publicidade: boolean };
+/** Há algo a perguntar (medição e/ou anúncios). Sem isso, o aviso de cookies nem existe. */
+export const PEDE_CONSENTIMENTO = ANALYTICS_ATIVO || ANUNCIOS_ATIVO;
 const CHAVE_CONSENTIMENTO = "ondepasso.consentimento";
-/** Suba esta versão se a finalidade mudar (ex.: um novo serviço de medição): todos são perguntados de novo. */
-const VERSAO_CONSENTIMENTO = 1;
+/**
+ * Suba esta versão se a finalidade mudar: todos são perguntados de novo. A 2 acrescenta publicidade; enquanto os
+ * anúncios estão desligados continua valendo a 1, e quem já respondeu não vê o aviso outra vez.
+ */
+const VERSAO_CONSENTIMENTO = ANUNCIOS_ATIVO ? 2 : 1;
 /** A escolha vale por 12 meses; depois o aviso aparece de novo. */
 const VALIDADE_MS = 365 * 24 * 3600 * 1000;
 const EVENTO_CONSENTIMENTO = "ondepasso:consentimento";
 export const EVENTO_ABRIR_PREFERENCIAS = "ondepasso:preferencias-cookies";
 
-export function lerConsentimento(): Decisao | null {
-  if (!ANALYTICS_ATIVO) return null;
+let cacheTexto: string | null = null;
+let cacheValor: Consentimento | null = null;
+/** Resposta guardada (mesmo objeto enquanto não muda, para o useSyncExternalStore). null = ainda não respondeu. */
+export function lerConsentimento(): Consentimento | null {
+  if (!PEDE_CONSENTIMENTO) return null;
+  let s: string | null = null;
+  try { s = localStorage.getItem(CHAVE_CONSENTIMENTO); } catch {}
+  if (s === cacheTexto) return cacheValor;
+  cacheTexto = s;
+  cacheValor = null;
   try {
-    const s = localStorage.getItem(CHAVE_CONSENTIMENTO);
     if (!s) return null;
-    const v = JSON.parse(s) as { d?: string; v?: number; em?: number };
+    const v = JSON.parse(s) as { d?: string; p?: string; v?: number; em?: number };
     if (v.v !== VERSAO_CONSENTIMENTO || typeof v.em !== "number" || Date.now() - v.em > VALIDADE_MS) return null;
-    return v.d === "aceito" || v.d === "recusado" ? v.d : null;
-  } catch { return null; }
+    if (v.d !== "aceito" && v.d !== "recusado") return null;
+    if (ANUNCIOS_ATIVO && v.p !== "aceito" && v.p !== "recusado") return null;
+    cacheValor = { medicao: ANALYTICS_ATIVO && v.d === "aceito", publicidade: ANUNCIOS_ATIVO && v.p === "aceito" };
+  } catch {}
+  return cacheValor;
 }
 
-export function definirConsentimento(d: Decisao) {
-  if (!ANALYTICS_ATIVO) return;
-  try { localStorage.setItem(CHAVE_CONSENTIMENTO, JSON.stringify({ d, v: VERSAO_CONSENTIMENTO, em: Date.now() })); } catch {}
-  if (d === "aceito") iniciar();
+export function definirConsentimento(c: Consentimento) {
+  if (!PEDE_CONSENTIMENTO) return;
+  const antes = lerConsentimento();
+  try { localStorage.setItem(CHAVE_CONSENTIMENTO, JSON.stringify({ d: c.medicao ? "aceito" : "recusado", ...(ANUNCIOS_ATIVO ? { p: c.publicidade ? "aceito" : "recusado" } : {}), v: VERSAO_CONSENTIMENTO, em: Date.now() })); } catch {}
+  if (c.medicao) iniciar();
   else revogar();
+  if (iniciado) gtag("consent", "update", consentimentoAnuncios(c.publicidade));
+  if (antes?.publicidade && !c.publicidade) apagarCookiesAnuncios();
   window.dispatchEvent(new Event(EVENTO_CONSENTIMENTO));
 }
+
+/** Sinais do Consent Mode para publicidade (o AdSense os respeita quando o gtag está na página). */
+const consentimentoAnuncios = (sim: boolean) => {
+  const v = ANUNCIOS_ATIVO && sim ? "granted" : "denied";
+  return { ad_storage: v, ad_user_data: v, ad_personalization: v };
+};
 
 export function assinarConsentimento(cb: () => void) {
   window.addEventListener(EVENTO_CONSENTIMENTO, cb);
@@ -135,8 +161,9 @@ function iniciar() {
   iniciado = true;
   window[`ga-disable-${ID}`] = false;
   window.gtag = gtag;
-  // Consent Mode v2: tudo de publicidade negado; só a medição (analytics_storage) liberada, porque a pessoa aceitou.
-  gtag("consent", "default", { ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied", analytics_storage: "granted" });
+  // Consent Mode v2: medição liberada (a pessoa aceitou); publicidade só se ela também permitiu anúncios.
+  // O GA continua sem uso para publicidade (sem Google Signals nem sinais de personalização, abaixo).
+  gtag("consent", "default", { ...consentimentoAnuncios(lerConsentimento()?.publicidade ?? false), analytics_storage: "granted" });
   gtag("set", "ads_data_redaction", true);
   gtag("js", new Date());
   try { depurar = new URLSearchParams(location.search).get("ga_debug") === "1" || sessionStorage.getItem("ondepasso.ga_debug") === "1"; if (depurar) sessionStorage.setItem("ondepasso.ga_debug", "1"); } catch {}
@@ -195,8 +222,8 @@ export function registrarPagina() {
   if (chave === ultimaPagina) return; // re-render, Strict Mode ou a mesma URL de novo
   ultimaPagina = chave;
   const d = lerConsentimento();
-  if (d === "aceito") { iniciar(); if (paginaEnviada !== chave) enviarPagina(); }
-  else if (d == null) lembrarOrigem();
+  if (d?.medicao) { iniciar(); if (paginaEnviada !== chave) enviarPagina(); }
+  else if (d == null && ANALYTICS_ATIVO) lembrarOrigem();
 }
 
 // ---------------------------------------------------------------- eventos
@@ -222,7 +249,7 @@ export function registrar(nome: NomeEvento, params: Record<string, string | unde
   registrarPagina(); // o page_view da página vem antes de qualquer evento dela (efeitos dos filhos rodam antes do <Analytics />)
   const p = limpar(params);
   const d = lerConsentimento();
-  if (d === "aceito") { iniciar(); gtag("event", nome, comDebug(p)); }
+  if (d?.medicao) { iniciar(); gtag("event", nome, comDebug(p)); }
   else if (d == null && fila.length < 30) fila.push([nome, p]);
 }
 

@@ -735,6 +735,17 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
 .apoio p { margin: 0; font-size: 13px; line-height: 1.45; color: var(--fg-3); }
 .apoio .botao { justify-self: start; margin-top: 4px; }
 .apoio-rotulo { font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-4); }
+/* Com anúncios ligados, o bloco reserva a altura do anúncio desde o HTML estático (sem empurrar a página depois). */
+.apoio.com-anuncio, .apoio.anuncio { min-height: 290px; }
+.apoio.com-anuncio { align-content: center; }
+.apoio.anuncio { gap: 6px; }
+.apoio.anuncio .adsbygoogle { min-height: 250px; width: 100%; }
+.aviso-cookies-opcoes { display: grid; gap: 8px; margin: 0 0 12px; padding: 0; border: 0; }
+.aviso-cookies-opcoes label { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 1px solid var(--line-2); border-radius: 10px; cursor: pointer; }
+.aviso-cookies-opcoes input { margin-top: 2px; accent-color: var(--fg-1); }
+.aviso-cookies-opcoes span { display: grid; gap: 1px; }
+.aviso-cookies-opcoes strong { color: var(--fg-1); font-weight: 600; }
+.aviso-cookies-escolher { display: block; margin: 10px auto 0; font-size: 12px; }
 
 /* Revisão do Figma: leitura, empate e estados sem dados. */
 .miudo, .mapa-cartao > .miudo, .mapa-linha .miudo, .calc-topo .miudo, .calc-ajuda { font-size: 13px; line-height: 1.45; color: var(--fg-3); }

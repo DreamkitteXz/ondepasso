@@ -6,6 +6,7 @@ import { Logo } from "@/components/Logo";
 import { BotaoTema, SCRIPT_TEMA } from "@/components/Tema";
 import { NavTopo, Tabbar } from "@/components/Navegacao";
 import { Analytics, PreferenciasCookies } from "@/components/Analytics";
+import { CLIENTE_ADSENSE, VERIFICACAO_ADSENSE } from "@/lib/anuncios";
 import { indice } from "@/lib/dados";
 
 import { SITE } from "@/lib/site";
@@ -17,6 +18,8 @@ export const metadata: Metadata = {
   title: { default: "onde passo · notas de corte do Sisu", template: "%s · onde passo" },
   description: "Notas de corte do Sisu por curso, universidade, cota e ano. Grátis e sem cadastro.",
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/favicon.ico" }], apple: "/apple-touch-icon.png" },
+  // Verificação do site no AdSense (só uma meta tag: não carrega nada do Google). Ver ANUNCIOS.md.
+  ...(VERIFICACAO_ADSENSE ? { other: { "google-adsense-account": CLIENTE_ADSENSE } } : {}),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

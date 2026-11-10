@@ -6,3 +6,5 @@ next-env.d.ts
 
 .test-build/
 .env*.local
+# gerado no build a partir de NEXT_PUBLIC_ADSENSE_CLIENT (scripts/gerar-ads-txt.mjs)
+/public/ads.txt
