@@ -1,6 +1,7 @@
 "use client";
 // Detalhe de uma opção (Figma 03/03b e W3/W3b). A parte da média e da modalidade vem do navegador;
 // todo o resto já sai pronto no HTML estático.
+import { Variacao } from "@/components/Variacao";
 import { Apoio } from "@/components/Apoio";
 import { useState } from "react";
 import { nota as fmt, diferenca, ROTULO, nomeModalidade, type Status } from "@/lib/formato";
@@ -52,6 +53,9 @@ export function DetalheOferta(p: Props) {
   const idxMinha = p.cotas.findIndex((c) => c.cod === minhaCota?.cod);
   const cortar = !todas && p.cotas.length > MOSTRAR + 1 && idxMinha < MOSTRAR;
 
+  const cortesCotas = p.cotas.map((c) => c.corte).filter((v): v is number => v != null);
+  const faixaCotas = cortesCotas.length > 1 ? [Math.min(...cortesCotas) - 20, Math.max(...cortesCotas)] as const : null;
+
   const dadosStory = (comNota: boolean): DadosStory => ({
     curso: p.curso, ies: p.ies, cidade: p.cidade, turno: p.turno, grau: p.grau, ano: p.ano,
     rotulo: modSalva !== "AC" ? `Corte · ${minhaCota?.nome ?? nomeModalidade(modSalva)} · ${p.ano}` : `Nota de corte · Sisu ${p.ano} · ampla`,
@@ -95,11 +99,44 @@ export function DetalheOferta(p: Props) {
             <div className="figura">{destaque == null ? "sem corte" : fmt(destaque)}</div>
             {cota && <p className="corte-cota">{cota.nome} · <Termo id="modalidade">ampla</Termo>: {p.atual == null ? "sem corte" : fmt(p.atual)}</p>}
             <p className="corte-meta">
-              {!cota && p.delta != null && p.delta !== 0 && <span className={`pill ${p.delta > 0 ? "sobe" : "desce"}`}>{p.delta > 0 ? "▲" : "▼"} {fmt(Math.abs(p.delta))} vs. {p.ano - 1}</span>}
+              {!cota && p.delta != null && p.delta !== 0 && <Variacao d={p.delta} ano={p.ano} className="pill" />}
               <span className="miudo"><Termo id="chamada">chamada regular</Termo> · MEC</span>
             </p>
           </div>
           {voce}
+          {sua && corte != null && !editando && (() => {
+            const folga = Math.max(30, Math.abs(sua.v - corte) * 0.6);
+            const lo = Math.min(sua.v, corte) - folga, hi = Math.max(sua.v, corte) + folga;
+            const pc = ((corte - lo) / (hi - lo)) * 100, pv = ((sua.v - lo) / (hi - lo)) * 100;
+            return (
+              <div className={`comparador ${s ?? ""}`} aria-hidden="true">
+                <div className="cmp-trilho">
+                  <i className="cmp-faixa" style={{ left: `${Math.min(pc, pv)}%`, width: `${Math.abs(pc - pv)}%` }} />
+                  <b className="cmp-corte" style={{ left: `${pc}%` }}><span>corte {fmt(corte)}</span></b>
+                  <b className="cmp-voce" style={{ left: `${pv}%` }}><span>você {fmt(sua.v)}</span></b>
+                </div>
+              </div>
+            );
+          })()}
+        </section>
+
+        <section className="cartao historico" aria-labelledby="t-hist">
+          <div className="hist-topo">
+            <h2 id="t-hist">Corte da ampla em cada edição</h2>
+            {(() => { const v = p.hist.filter((h) => h.v != null); if (v.length < 2) return null; const d = v[v.length - 1].v! - v[0].v!;
+              return d === 0 ? null : <span className="miudo">de {v[0].ano} a {v[v.length - 1].ano}: <b className={d > 0 ? "sobe" : "desce"}>{d > 0 ? "subiu" : "caiu"} {fmt(Math.abs(d))}</b></span>; })()}
+          </div>
+          <div className="hist-colunas">
+            {(() => { const vs = p.hist.map((h) => h.v).filter((v): v is number => v != null); const mx = Math.max(...vs, 1), mn = Math.min(...vs, mx); const base = mn - Math.max(mx - mn, 4) * 1.2;
+              return p.hist.map((h) => (
+              <div key={h.ano} className={`hc${h.ano === p.ano ? " atual" : ""}${h.v == null ? " vazio" : ""}`}>
+                <span className="hc-v">{h.v == null ? "—" : fmt(h.v)}</span>
+                <span className="hc-barra"><i style={{ height: h.v == null ? "0%" : `${Math.max(6, ((h.v - base) / (mx - base)) * 100)}%` }} /></span>
+                <span className="hc-ano">{h.ano}</span>
+              </div>
+            )); })()}
+          </div>
+          <p className="miudo hist-nota">As barras ampliam a diferença entre os anos para ela aparecer; o valor exato está em cima de cada uma.</p>
         </section>
 
         {p.bonus > 0 && (
@@ -136,7 +173,7 @@ export function DetalheOferta(p: Props) {
                     <td title={c.titulo || undefined}><span className="cota-nome">{c.nome}</span>{sua && <span className="cota-sua">sua modalidade</span>}</td>
                     <td className="n">{inteiro(c.vagas)}</td>
                     <td className="n">{inteiro(c.inscritos)}</td>
-                    <td className="n corte">{c.corte == null ? <span className="miudo">sem corte</span> : fmt(c.corte)}</td>
+                    <td className="n corte">{c.corte == null ? <span className="miudo">sem corte</span> : <>{fmt(c.corte)}<span className="cota-barra" aria-hidden="true" style={{ ["--p" as string]: faixaCotas ? ((c.corte - faixaCotas[0]) / Math.max(faixaCotas[1] - faixaCotas[0], 1)).toFixed(3) : "1" }} /></>}</td>
                   </tr>
                 );
               })}
@@ -148,17 +185,6 @@ export function DetalheOferta(p: Props) {
       </div>
 
       <aside className="oferta-lado">
-        <section className="cartao" aria-labelledby="t-hist">
-          <h2 id="t-hist">Últimas edições · ampla</h2>
-          {p.hist.map((h) => (
-            <div key={h.ano} className={`barra${h.ano === p.ano ? " atual" : ""}`}>
-              <span>{h.ano}</span>
-              <div className="trilho"><span style={{ width: h.v == null ? 0 : `${Math.max(4, ((h.v - p.piso) / (p.teto - p.piso)) * 100)}%` }} /></div>
-              <span className="n">{h.v == null ? "—" : fmt(h.v)}</span>
-            </div>
-          ))}
-        </section>
-
         <section className="cartao pesos" aria-labelledby="t-pesos">
           <h2 id="t-pesos"><Termo id="pesos">Pesos</Termo> e notas mínimas</h2>
           {p.iguais ? (
@@ -166,9 +192,12 @@ export function DetalheOferta(p: Props) {
               <p className="pesos-texto">Todas as áreas valem o mesmo: sua média aqui é a média simples.{p.minimas.length === 0 && " Sem nota mínima por área."}</p>
               {p.minimas.map((m) => <div key={m.area} className="peso"><span>{m.area}</span><span>mínimo {fmt(m.v)}</span></div>)}
             </>
-          ) : p.pesos.map((x) => (
-            <div key={x.area} className="peso"><span>{x.area}</span><span>peso {x.peso ?? "—"}{x.minima != null ? ` · mínimo ${fmt(x.minima)}` : ""}</span></div>
-          ))}
+          ) : (() => { const maior = Math.max(...p.pesos.map((x) => x.peso ?? 0), 1); return p.pesos.map((x) => (
+            <div key={x.area} className={`peso peso-barra${x.peso === maior ? " maior" : ""}`}>
+              <span className="pb-topo"><span>{x.area}</span><span><b>peso {x.peso ?? "—"}</b>{x.minima != null ? ` · mínimo ${fmt(x.minima)}` : ""}</span></span>
+              <span className="pb-trilho" aria-hidden="true"><i style={{ width: `${((x.peso ?? 0) / maior) * 100}%` }} /></span>
+            </div>
+          )); })()}
           {p.mediaMinima != null && <div className="peso"><span>Média mínima</span><span>{fmt(p.mediaMinima)}</span></div>}
         </section>
 

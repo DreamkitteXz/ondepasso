@@ -2,6 +2,7 @@ import { ComoFunciona } from "@/components/ComoFunciona";
 import { indice } from "@/lib/dados";
 import { GEO, dadosMapa, maisDisputados } from "@/lib/mapa";
 import { MapaInicio } from "@/components/MapaInicio";
+import { Manchete } from "@/components/Manchete";
 
 // Chips do mapa (Figma 01a: Medicina, Direito, Psicologia; no desktop W1 entram mais dois).
 const ATALHOS = [
@@ -23,12 +24,12 @@ export default function Inicio() {
       disputados={disputados}
       cursos={slim}
       anoBusca={ano}
+      passos={<ComoFunciona key="passos" />}
       topo={
         <>
-          <p className="rotulo">Para o Sisu {ano + 1} · cortes de {ano}</p>
-          <h1>Quanto você precisa tirar, e onde?</h1>
+          <p className="rotulo etiqueta"><span className="ponto" />Para o Sisu {ano + 1} · cortes de {ano}</p>
+          <Manchete texto="Quanto você precisa tirar, e onde?" destaque={2} />
           <p className="sub so-desktop">Notas de corte de {cursos.length} cursos em todas as universidades do Sisu, por cota e por ano. Sem cadastro.</p>
-          <ComoFunciona />
         </>
       }
     />

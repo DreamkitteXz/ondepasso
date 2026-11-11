@@ -17,10 +17,10 @@ function useAtual() {
 
 const ITENS: { chave: keyof typeof ICONES; rotulo: string; href?: string }[] = [
   { chave: "buscar", rotulo: "Buscar", href: "/" },
-  { chave: "aovivo", rotulo: "Ao vivo", href: "/ao-vivo/" },
   { chave: "calcular", rotulo: "Calcular", href: "/calcular/" },
   { chave: "universidades", rotulo: "Universidades", href: "/universidades/" },
   { chave: "provas", rotulo: "Provas", href: "/provas/" },
+  { chave: "aovivo", rotulo: "Ao vivo", href: "/ao-vivo/" },
 ];
 
 export function NavTopo() {

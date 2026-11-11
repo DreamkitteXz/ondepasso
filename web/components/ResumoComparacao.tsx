@@ -5,8 +5,7 @@ export function ContagemComparacao({ conta }: { conta: Record<Status, number> })
   return <p className="contagem">
     {conta.igual > 0 && <><span className="t-igual">{conta.igual} no mesmo corte</span><i>·</i></>}
     <span className="t-pouco">{conta.pouco} por pouco</span><i>·</i>
-    <span className="t-abaixo">{conta.abaixo} abaixo do corte</span>
-    {conta.minimo > 0 && <><i>·</i><span className="t-minimo">{conta.minimo} sem atingir mínimo</span></>}
+    <span className="t-abaixo">{conta.abaixo + conta.minimo} abaixo do corte</span>
   </p>;
 }
 

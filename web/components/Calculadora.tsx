@@ -141,7 +141,7 @@ export function Calculadora({ ano }: { ano: number }) {
           <p className="miudo">Comparação com os cortes de {ano}; não garante aprovação.</p>
           {completo && dados && resultados.length > 0 && <p className="miudo">Até 10 pontos abaixo é uma faixa de diferença, não uma previsão de aprovação.</p>}
           {completo && dados && resultados.length > 0 && (
-            <p className="contagem"><span className="t-supera">{conta.supera} acima</span>{conta.igual > 0 && <><i>·</i><span className="t-igual">{conta.igual} no mesmo corte</span></>}<i>·</i><span className="t-pouco">{conta.pouco} por pouco</span><i>·</i><span className="t-abaixo">{conta.abaixo} abaixo</span>{conta.minimo > 0 && <><i>·</i><span className="t-minimo">{conta.minimo} sem atingir mínimo</span></>}</p>
+            <p className="contagem"><span className="t-supera">{conta.supera} acima</span>{conta.igual > 0 && <><i>·</i><span className="t-igual">{conta.igual} no mesmo corte</span></>}<i>·</i><span className="t-pouco">{conta.pouco} por pouco</span><i>·</i><span className="t-abaixo">{conta.abaixo + conta.minimo} abaixo</span></p>
           )}
           {completo && dados && <CoberturaComparacao total={totalFiltrado} comparaveis={resultados.length} />}
           {completo && dados && resultados.length > 0 && conta.supera === 0 && <p className="orientacao-comparacao"><strong>Nenhuma opção acima do corte nesta busca.</strong> Confira os pesos e explore outros cursos, estados ou turnos.</p>}

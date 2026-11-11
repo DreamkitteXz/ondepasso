@@ -1,4 +1,5 @@
 "use client";
+import { Variacao } from "@/components/Variacao";
 import { useMemo, useState } from "react";
 import { nota } from "@/lib/formato";
 
@@ -40,7 +41,7 @@ export function ListaOfertas({ itens, cursoSlug, ano }: { itens: LinhaOferta[]; 
             <div className="valor">
               <strong>{nota(i.corte)}</strong>
               {i.delta != null && i.delta !== 0
-                ? <span className={`miudo ${i.delta > 0 ? "sobe" : "desce"}`}>{i.delta > 0 ? "▲" : "▼"} {nota(Math.abs(i.delta))}</span>
+                ? <Variacao d={i.delta} className="miudo" />
                 : <span className="miudo">{i.corte == null ? "sem corte" : "estável"}</span>}
             </div>
           </a>

@@ -10,6 +10,7 @@ import { lerNota, nota as fmt, diferenca, ROTULO, nomeModalidade, contagemVazia,
 import { apagarNotas, salvarMedia, salvarMod, salvarNotasAreas, useMinhas, useMod, type Areas } from "@/lib/nota";
 import { AREAS, statusPara, suaMedia, temPesos, type Minhas, type Pesos } from "@/lib/minhas";
 import { BuscaCursos } from "@/components/BuscaCursos";
+import { SetaBotao } from "@/components/Manchete";
 import { Termo } from "@/components/Termo";
 import { registrar, registrarUmaVez, useRegistrarQuando } from "@/lib/analytics";
 
@@ -21,8 +22,8 @@ type Caixa = [number, number, number, number];
 const plural = (n: number, um: string, varios: string) => `${n} ${n === 1 ? um : varios}`;
 const curtaMod = (cod: string, nome: string) => (cod === "AC" ? "ampla" : nome.replace(/^Escola pública/, "Esc. pública"));
 
-export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, anoBusca }: {
-  geo: Geo; inicial: DadosMapa; atalhos: Atalho[]; topo: ReactNode; disputados: Disputado[]; cursos: ItemBusca[]; anoBusca: number;
+export function MapaInicio({ geo, inicial, atalhos, topo, passos, disputados, cursos, anoBusca }: {
+  geo: Geo; inicial: DadosMapa; atalhos: Atalho[]; topo: ReactNode; passos?: ReactNode; disputados: Disputado[]; cursos: ItemBusca[]; anoBusca: number;
 }) {
   // Curso escolhido pela busca que não está nos chips: ganha um chip próprio e vai para o mapa como os outros.
   const [extra, setExtra] = useState<Atalho | null>(null);
@@ -152,9 +153,8 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
               <p className={`contagem${revelacao ? " revela" : ""}`} key={`r${revelacao}`}>
                 <span className="t-supera">{plural(conta.supera, "supera", "superam")} o corte</span><i>·</i>
                 {conta.igual > 0 && <><span className="t-igual">{conta.igual} no mesmo corte</span><i>·</i></>}
-                {conta.minimo > 0 && <><span className="t-minimo">{conta.minimo} sem atingir mínimo</span><i>·</i></>}
                 <span className="t-pouco">{conta.pouco} por pouco</span><i>·</i>
-                <span className="t-abaixo">{conta.abaixo} abaixo do corte</span>
+                <span className="t-abaixo">{conta.abaixo + conta.minimo} abaixo do corte</span>
               </p>
             ) : (
               <p className="miudo">{plural(doEstado.length, "opção", "opções")} de {dados.curso} · Sisu {dados.ano}</p>
@@ -179,7 +179,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   const conta = contar(pontos, minha, corte);
   return (
     <div className="inicio" ref={topoRef}>
-      <div className="inicio-topo">
+      <div className="inicio-topo mov-topo">
         {topo}
         <BuscaCursos cursos={cursos} atalhos={[]} ano={anoBusca} aoEscolher={(c) => {
           setExtra({ curso: c.curso, slug: c.slug });
@@ -228,6 +228,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
         </section>
       </div>
       <div className="inicio-lista">
+        {passos && <section className="passos" aria-label="Como funciona"><h2 className="rotulo">Como funciona</h2>{passos}</section>}
         <MaisDisputados itens={disputados} minha={minha} ano={dados.ano} />
         <Apoio />
       </div>
@@ -328,7 +329,7 @@ export function EntradaNota({ ano, minha, pronto, compacta, curso }: { ano: numb
         <div className="entrada-linha">
           <input id="nota" ref={ref} inputMode="decimal" placeholder="Sua média do Enem" value={texto}
             onChange={(e) => { comecou(); setTexto(e.target.value); setErro(false); }} aria-invalid={erro} aria-label="Sua média do Enem" />
-          <button className="botao" type="submit">{compacta ? "Salvar" : "Comparar nota"}</button>
+          <button className={`botao${compacta ? "" : " botao-pilula botao-ima"}`} type="submit">{compacta ? "Salvar" : <>Comparar nota<SetaBotao /></>}</button>
         </div>
       ) : (
         <>
@@ -351,7 +352,11 @@ export function EntradaNota({ ano, minha, pronto, compacta, curso }: { ano: numb
       {modo === "media" && <p className="orientacao-comparacao">A média simples é uma estimativa. Os pesos podem mudar o resultado.</p>}
       <div className="entrada-opcoes">
         {modo === "media"
-          ? <button type="button" className="link-mudo" onClick={() => trocar("areas")}>Usar as cinco notas do Enem</button>
+          ? <button type="button" className="botao-areas" onClick={() => trocar("areas")}>
+              <span className="ba-ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M3 14V9M6 14V5M9 14V7.5M12 14V4M15 14v-4" /></svg></span>
+              <span className="ba-txt"><strong>Usar as cinco notas do Enem</strong><small>Mais preciso: cada curso dá um peso a cada área</small></span>
+              <svg className="ba-seta" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </button>
           : <button type="button" className="link-mudo" onClick={() => trocar("media")}>usar só a média</button>}
         {minha && <button type="button" className="link-mudo" onClick={() => { apagarNotas(); pronto(false); }}>apagar minhas notas</button>}
       </div>
@@ -431,6 +436,8 @@ export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto
   const pr = (p: { x: number; y: number }) => proj(p.x, p.y);
 
   const [foco, setFoco] = useState<Ponto | null>(null);
+  const [sobreUf, setSobreUf] = useState<string | null>(null);
+  const porUf = useMemo(() => { const c: Record<string, number> = {}; for (const p of pontos) c[p.u] = (c[p.u] ?? 0) + 1; return c; }, [pontos]);
   const pos = (p: Ponto) => { const [x, y] = pr(p); return { left: `${((x - vb[0]) / vb[2]) * 100}%`, top: `${((y - vb[1]) / vb[3]) * 100}%` }; };
   const visiveis = uf ? pontos.filter((p) => p.u === uf) : pontos;
 
@@ -475,7 +482,7 @@ export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto
   const ufPlaca = ultimo.current?.uf;
 
   return (
-    <div className="mapa" onMouseLeave={() => setFoco(null)}>
+    <div className="mapa" onMouseLeave={() => { setFoco(null); setSobreUf(null); }}>
       <svg ref={svgRef} viewBox={vb.join(" ")} role="img" aria-label={uf ? `Mapa do estado ${uf}` : "Mapa do Brasil"} style={{ aspectRatio: `${vb[2]} / ${vb[3]}` }}>
         {comPlaca && (
           <defs><filter id="sombra-placa" x="-20%" y="-20%" width="140%" height="160%"><feGaussianBlur stdDeviation={6 * u} /></filter></defs>
@@ -491,7 +498,7 @@ export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto
               </g>
             );
             return (
-              <path key={g.uf} d={g.d} className={cls} strokeWidth={(uf ? 1.2 : 0.8) * u} onClick={() => aoEstado(g.uf)}>
+              <path key={g.uf} d={g.d} className={`${cls}${!uf && porUf[g.uf] ? " com-pontos" : ""}`} strokeWidth={(uf ? 1.2 : 0.8) * u} onClick={() => aoEstado(g.uf)} onMouseEnter={() => setSobreUf(g.uf)}>
                 <title>{g.nome}</title>
               </path>
             );
@@ -519,6 +526,12 @@ export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto
         {placa && sel && pino(sel, false)}
         {sel && uf && !placa && <circle className="selecionado" cx={sel.x} cy={sel.y} r={13 * u} strokeWidth={1.5 * u} />}
       </svg>
+      {!uf && sobreUf && !foco && (() => { const g = geo.ufs.find((x) => x.uf === sobreUf); const n = porUf[sobreUf] ?? 0; return g ? (
+        <div className="dica-uf" aria-hidden="true">
+          <strong>{g.nome}</strong>
+          <span>{n === 0 ? "sem opções neste curso" : `${n} ${n === 1 ? "opção" : "opções"} · clique para aproximar`}</span>
+        </div>
+      ) : null; })()}
       {foco && !sel && (
         <div className="dica-ponto" style={pos(foco)} role="tooltip">
           <strong>{foco.i}</strong> · {foco.c}/{foco.u}
@@ -546,7 +559,7 @@ export function Legenda({ comNota }: { comNota: boolean }) {
   const item = (s: Status, t: string) => (
     <span><svg width="10" height="10" viewBox="-5 -5 10 10" className={`pt ${s}`} aria-hidden="true"><Marca s={s} tam={10} /></svg>{t}</span>
   );
-  return <div className="legenda">{item("supera", "Supera o corte")}{item("igual", "Iguala o corte")}<span><svg width="10" height="10" viewBox="-5 -5 10 10" className="pt pouco" aria-hidden="true"><Marca s="pouco" tam={10} /></svg><Termo id="pouco">Por pouco (até 10 pts)</Termo></span>{item("abaixo", "Abaixo do corte")}{item("minimo", "Não atinge mínimo")}</div>;
+  return <div className="legenda">{item("supera", "Supera o corte")}{item("igual", "Iguala o corte")}<span><svg width="10" height="10" viewBox="-5 -5 10 10" className="pt pouco" aria-hidden="true"><Marca s="pouco" tam={10} /></svg><Termo id="pouco">Por pouco (até 10 pts)</Termo></span>{item("abaixo", "Abaixo do corte")}</div>;
 }
 
 function CartaoPonto({ p, curso, corte, minha }: { p: Ponto; curso: DadosMapa; corte: number; minha: Minhas | null }) {

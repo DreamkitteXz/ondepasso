@@ -26,12 +26,13 @@ export function AbrirLeitor({ p, leitor }: { p: Prova; leitor: ProvaLeitor }) {
   }, []);
   useEffect(() => {
     if (!aberto) return;
-    document.getElementById("leitor")?.scrollIntoView({ block: "start", behavior: "auto" });
+    // O leitor cobre a janela inteira; nada para rolar.
   }, [aberto]);
 
   return (
     <section id="leitor" className="leitor-ancora" aria-label="Leitor da prova">
-      {aberto ? <ExamReader prova={leitor} /> : (
+      {aberto && <ExamReader prova={leitor} aoFechar={() => { setAberto(false); history.replaceState(null, "", location.pathname + location.search); }} />}
+      {(
         <div className="leitor-convite">
           <div className="convite-livro" aria-hidden="true" style={{ ["--cor-caderno" as string]: p.corHex }}>
             <div className="convite-pagina esq"><i /><i /><i className="curta" /><i /><i /><i className="curta" /></div>
@@ -40,8 +41,8 @@ export function AbrirLeitor({ p, leitor }: { p: Prova; leitor: ProvaLeitor }) {
           </div>
           <div className="convite-texto">
             <h2>Folheie a prova aqui</h2>
-            <p>Vire as páginas como num caderno de verdade, ou leia rolando. Dá para dar zoom, ir direto a uma questão, marcar páginas e conferir o gabarito.</p>
-            <button type="button" className="botao" onClick={() => { setAberto(true); history.replaceState(null, "", "#ler"); }}>Abrir no leitor</button>
+            <p>O leitor abre em tela inteira. Vire as páginas como num caderno ou leia rolando, dê zoom, vá direto a uma questão e confira o gabarito.</p>
+            <button type="button" className="botao botao-pilula botao-ima" onClick={() => { setAberto(true); history.replaceState(null, "", "#ler"); }}>Abrir a prova<span className="botao-ic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10 10 4M5 4h5v5" /></svg></span></button>
             <p className="miudo">PDF oficial do Inep · {megas(p.prova.bytes)}. Nada é baixado antes de você abrir.</p>
           </div>
         </div>

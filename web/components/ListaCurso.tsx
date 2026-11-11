@@ -1,6 +1,7 @@
 "use client";
 // Página do curso com a nota do aluno — Figma 02 (mobile) e W2 (desktop).
 // A média vem do mesmo localStorage da home; cada linha ganha o status e o topo resume "supera em X de N".
+import { Variacao } from "@/components/Variacao";
 import { AvisoComparacao, CoberturaComparacao, ContagemComparacao } from "@/components/ResumoComparacao";
 import { Apoio } from "@/components/Apoio";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -33,6 +34,11 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
     { curso: slug, pagina: "curso", tipo_nota: minha?.n ? "areas" : "media", origem_nota: revelacao ? "digitada" : "salva" });
 
   const ufs = useMemo(() => [...new Set(itens.map((i) => i.u))].sort(), [itens]);
+  // Faixa dos cortes do curso nesta modalidade: o medidor de cada linha mostra onde o corte cai entre o menor e o maior.
+  const faixa = useMemo(() => {
+    const v = itens.map((i) => i.m[modAtual.cod] as number | undefined).filter((x): x is number => x != null);
+    return v.length ? [Math.min(...v), Math.max(...v)] as const : null;
+  }, [itens, modAtual.cod]);
   const turnos = useMemo(() => [...new Set(itens.map((i) => i.t))].sort(), [itens]);
   const vis = useMemo(() => {
     const f = itens.filter((i) => (!uf || i.u === uf) && (!turno || i.t === turno));
@@ -105,17 +111,17 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
           </select>
           <span className="miudo so-desktop">{plural(vis.length, "opção", "opções")}</span>
         </div>
-        <p className="miudo lc-legenda so-mobile">▲ o corte subiu desde {ano - 1} · ▼ caiu</p>
         <div className="cartao lista tabela-curso">
           <div className="lc-cabeca">
             <span className="lc-uni">Universidade<span className="so-mobile"> · cidade</span></span>
             <span className="lc-cidade so-desktop">Cidade</span>
             <span className="lc-corte">Corte {ano}{modAtual.cod !== "AC" ? "*" : " (ampla)"}</span>
-            <span className="lc-delta so-desktop">vs. {ano - 1}</span>
+            <span className="lc-delta so-desktop">Desde {ano - 1}</span>
             <span className="lc-status so-desktop">Sua nota</span>
           </div>
           {vis.slice(0, limite).map((i) => {
             const c = corte(i); const s = st(i);
+            const p = c == null || faixa == null ? null : faixa[1] === faixa[0] ? 0.5 : (c - faixa[0]) / (faixa[1] - faixa[0]);
             return (
               <a key={i.r} className="lc-linha" href={`/curso/${slug}/${i.r}/`}>
                 <span className="lc-uni">
@@ -124,7 +130,8 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
                 </span>
                 <span className="lc-cidade so-desktop">{i.c}/{i.u}</span>
                 <span className="lc-corte">
-                  <strong>{c == null ? "sem corte" : fmt(c)}</strong>
+                  <strong className={s ? `t-${s}` : undefined}>{c == null ? "sem corte" : fmt(c)}</strong>
+                  {p != null && <span className="lc-medidor" aria-hidden="true" style={{ ["--p" as string]: p.toFixed(3) }} />}
                   <span className="so-mobile detalhe">{s ? <span className={`t-${s}`}>{ROTULO[s]}</span> : <Delta d={modAtual.cod === "AC" ? i.delta : null} sem={c == null} ano={ano} />}</span>
                 </span>
                 <span className="lc-delta so-desktop"><Delta d={modAtual.cod === "AC" ? i.delta : null} sem={c == null} /></span>
@@ -149,7 +156,7 @@ function Delta({ d, sem, ano }: { d: number | null; sem: boolean; ano?: number }
   if (sem) return <span className="miudo">sem corte</span>;
   if (d == null) return <span className="miudo">—</span>;
   if (d === 0) return <span className="miudo">estável</span>;
-  return <span className={d > 0 ? "sobe" : "desce"}>{d > 0 ? "▲" : "▼"} {fmt(Math.abs(d))}{ano ? ` vs. ${ano - 1}` : ""}</span>;
+  return <Variacao d={d} ano={ano} />;
 }
 
 export function IconeMapa() {
