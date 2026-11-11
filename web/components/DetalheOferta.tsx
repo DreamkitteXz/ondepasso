@@ -1,6 +1,7 @@
 "use client";
 // Detalhe de uma opção (Figma 03/03b e W3/W3b). A parte da média e da modalidade vem do navegador;
 // todo o resto já sai pronto no HTML estático.
+import { Variacao } from "@/components/Variacao";
 import { Apoio } from "@/components/Apoio";
 import { useState } from "react";
 import { nota as fmt, diferenca, ROTULO, nomeModalidade, type Status } from "@/lib/formato";
@@ -95,7 +96,7 @@ export function DetalheOferta(p: Props) {
             <div className="figura">{destaque == null ? "sem corte" : fmt(destaque)}</div>
             {cota && <p className="corte-cota">{cota.nome} · <Termo id="modalidade">ampla</Termo>: {p.atual == null ? "sem corte" : fmt(p.atual)}</p>}
             <p className="corte-meta">
-              {!cota && p.delta != null && p.delta !== 0 && <span className={`pill ${p.delta > 0 ? "sobe" : "desce"}`}>{p.delta > 0 ? "▲" : "▼"} {fmt(Math.abs(p.delta))} vs. {p.ano - 1}</span>}
+              {!cota && p.delta != null && p.delta !== 0 && <Variacao d={p.delta} ano={p.ano} className="pill" />}
               <span className="miudo"><Termo id="chamada">chamada regular</Termo> · MEC</span>
             </p>
           </div>

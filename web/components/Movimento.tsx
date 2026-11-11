@@ -6,7 +6,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const REVELAR = ".inicio-lista > *, .lc-linha, .curso-lado > *, footer .wrap, .estado-lado > *, .uni-c";
+const REVELAR = ".inicio-lista > *, .lc-linha, .curso-lado > *, footer .wrap, .estado-lado > *, .uni-c, .ano, .provas-sobre-grade > div, .provas-fonte";
 const fmt = (v: number) => v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 export function Movimento() {
@@ -88,6 +88,11 @@ export function Movimento() {
             .from(".curso-fatos > *", { y: 22, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.5)
             .from(".curso-acoes > *", { y: 14, opacity: 0, stagger: 0.06, clearProps: "all" }, 0.7)
             .from(".curso-nota, .curso-principal > .filtros, .tabela-curso", { y: 28, opacity: 0, stagger: 0.1, clearProps: "all" }, 0.75);
+        }
+        if (tem(".pagina-provas")) {
+          tl.from(".provas-topo > p:not(.rotulo)", { y: 18, opacity: 0, clearProps: "all" }, 0.5)
+            .from(".curso-fatos > *", { y: 22, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.55)
+            .from(".suas-provas, .controles, .biblioteca-contagem", { y: 24, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.8);
         }
         if (tem(".pagina-unis")) {
           tl.from(".unis-cabecalho .sub", { y: 18, opacity: 0, clearProps: "all" }, 0.5)

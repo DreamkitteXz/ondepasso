@@ -437,6 +437,8 @@ export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto
   const pr = (p: { x: number; y: number }) => proj(p.x, p.y);
 
   const [foco, setFoco] = useState<Ponto | null>(null);
+  const [sobreUf, setSobreUf] = useState<string | null>(null);
+  const porUf = useMemo(() => { const c: Record<string, number> = {}; for (const p of pontos) c[p.u] = (c[p.u] ?? 0) + 1; return c; }, [pontos]);
   const pos = (p: Ponto) => { const [x, y] = pr(p); return { left: `${((x - vb[0]) / vb[2]) * 100}%`, top: `${((y - vb[1]) / vb[3]) * 100}%` }; };
   const visiveis = uf ? pontos.filter((p) => p.u === uf) : pontos;
 
@@ -481,7 +483,7 @@ export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto
   const ufPlaca = ultimo.current?.uf;
 
   return (
-    <div className="mapa" onMouseLeave={() => setFoco(null)}>
+    <div className="mapa" onMouseLeave={() => { setFoco(null); setSobreUf(null); }}>
       <svg ref={svgRef} viewBox={vb.join(" ")} role="img" aria-label={uf ? `Mapa do estado ${uf}` : "Mapa do Brasil"} style={{ aspectRatio: `${vb[2]} / ${vb[3]}` }}>
         {comPlaca && (
           <defs><filter id="sombra-placa" x="-20%" y="-20%" width="140%" height="160%"><feGaussianBlur stdDeviation={6 * u} /></filter></defs>
@@ -497,7 +499,7 @@ export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto
               </g>
             );
             return (
-              <path key={g.uf} d={g.d} className={cls} strokeWidth={(uf ? 1.2 : 0.8) * u} onClick={() => aoEstado(g.uf)}>
+              <path key={g.uf} d={g.d} className={`${cls}${!uf && porUf[g.uf] ? " com-pontos" : ""}`} strokeWidth={(uf ? 1.2 : 0.8) * u} onClick={() => aoEstado(g.uf)} onMouseEnter={() => setSobreUf(g.uf)}>
                 <title>{g.nome}</title>
               </path>
             );
@@ -525,6 +527,12 @@ export function Mapa({ geo, pontos, corte, st, uf, caixa, sel, aoEstado, aoPonto
         {placa && sel && pino(sel, false)}
         {sel && uf && !placa && <circle className="selecionado" cx={sel.x} cy={sel.y} r={13 * u} strokeWidth={1.5 * u} />}
       </svg>
+      {!uf && sobreUf && !foco && (() => { const g = geo.ufs.find((x) => x.uf === sobreUf); const n = porUf[sobreUf] ?? 0; return g ? (
+        <div className="dica-uf" aria-hidden="true">
+          <strong>{g.nome}</strong>
+          <span>{n === 0 ? "sem opções neste curso" : `${n} ${n === 1 ? "opção" : "opções"} · clique para aproximar`}</span>
+        </div>
+      ) : null; })()}
       {foco && !sel && (
         <div className="dica-ponto" style={pos(foco)} role="tooltip">
           <strong>{foco.i}</strong> · {foco.c}/{foco.u}

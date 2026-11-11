@@ -1,5 +1,6 @@
 "use client";
 // Página da universidade (Figma "UFMG · Universidade · Mobile" e W6b). Tudo vem do Sisu, menos fotos e site oficial.
+import { Variacao } from "@/components/Variacao";
 import { AvisoComparacao, CoberturaComparacao, ContagemComparacao } from "@/components/ResumoComparacao";
 import { Apoio } from "@/components/Apoio";
 import { useMemo, useState } from "react";
@@ -177,7 +178,7 @@ const grauCurto = (g: string) => (/Área Básica/.test(g) ? "Área Básica de In
 function Delta({ d, sem }: { d: number | null; sem: boolean }) {
   if (sem || d == null) return <span className="miudo">—</span>;
   if (d === 0) return <span className="miudo">estável</span>;
-  return <span className={d > 0 ? "sobe" : "desce"}>{d > 0 ? "▲" : "▼"} {fmt(Math.abs(d))}</span>;
+  return <Variacao d={d} />;
 }
 
 function Creditos({ u, className }: { u: Universidade; className: string }) {

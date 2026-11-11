@@ -4,6 +4,8 @@ import { acervo } from "@/lib/provas";
 import { SITE } from "@/lib/site";
 import { tituloProva } from "@/lib/provas-tipos";
 import { ExamLibrary } from "@/components/provas/ExamLibrary";
+import { Manchete } from "@/components/Manchete";
+import { agrupar } from "@/lib/provas-tipos";
 
 export const metadata: Metadata = {
   title: "Provas anteriores do Enem (2021 a 2025) com gabarito",
@@ -30,10 +32,17 @@ export default function PaginaProvas() {
   return (
     <div className="pagina-provas">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <header className="provas-topo">
-        <h1>Provas do Enem</h1>
+      <header className="provas-topo mov-topo">
+        <p className="rotulo etiqueta"><span className="ponto" />Provas oficiais · {anos[anos.length - 1]} a {anos[0]}</p>
+        <Manchete texto="Provas do Enem" destaque={1} />
         <p>As provas oficiais de {anos[anos.length - 1]} a {anos[0]}, direto do Inep. Leia aqui, folheando como um caderno, ou baixe o PDF. O gabarito acompanha a cor do caderno que você escolher.</p>
       </header>
+      <div className="curso-fatos" aria-hidden="true">
+        <div className="fato"><strong data-conta={agrupar(provas).length}>{agrupar(provas).length}</strong><span>provas, uma por dia de aplicação</span></div>
+        <div className="fato"><strong data-conta={provas.length}>{provas.length}</strong><span>cadernos, de todas as cores</span></div>
+        <div className="fato"><strong data-conta={anos.length}>{anos.length}</strong><span>edições, de {anos[anos.length - 1]} a {anos[0]}</span></div>
+        <div className="fato fato-verde"><strong data-conta={provas.filter((p) => p.gabarito).length}>{provas.filter((p) => p.gabarito).length}</strong><span>com gabarito oficial do Inep</span></div>
+      </div>
 
       <ExamLibrary provas={provas} />
 

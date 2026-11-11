@@ -74,7 +74,7 @@ export async function desenharStory(d: DadosStory): Promise<Blob> {
   y += 40;
   let x = X;
   if (d.delta != null && d.delta !== 0) {
-    const txt = `${d.delta > 0 ? "▲" : "▼"} ${fmt(Math.abs(d.delta))} vs. ${d.ano - 1}`;
+    const txt = `${d.delta > 0 ? "subiu" : "caiu"} ${fmt(Math.abs(d.delta))} desde ${d.ano - 1}`;
     ctx.font = f(500, 34); const w = ctx.measureText(txt).width + 40;
     const cor = d.delta > 0 ? COR.verm : COR.verde;
     caixa(ctx, x, y, w, 58, 14, d.delta > 0 ? "rgba(241,66,66,.14)" : "rgba(61,214,140,.14)");
