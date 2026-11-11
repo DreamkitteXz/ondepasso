@@ -153,9 +153,8 @@ export function MapaInicio({ geo, inicial, atalhos, topo, passos, disputados, cu
               <p className={`contagem${revelacao ? " revela" : ""}`} key={`r${revelacao}`}>
                 <span className="t-supera">{plural(conta.supera, "supera", "superam")} o corte</span><i>·</i>
                 {conta.igual > 0 && <><span className="t-igual">{conta.igual} no mesmo corte</span><i>·</i></>}
-                {conta.minimo > 0 && <><span className="t-minimo">{conta.minimo} sem atingir mínimo</span><i>·</i></>}
                 <span className="t-pouco">{conta.pouco} por pouco</span><i>·</i>
-                <span className="t-abaixo">{conta.abaixo} abaixo do corte</span>
+                <span className="t-abaixo">{conta.abaixo + conta.minimo} abaixo do corte</span>
               </p>
             ) : (
               <p className="miudo">{plural(doEstado.length, "opção", "opções")} de {dados.curso} · Sisu {dados.ano}</p>
@@ -560,7 +559,7 @@ export function Legenda({ comNota }: { comNota: boolean }) {
   const item = (s: Status, t: string) => (
     <span><svg width="10" height="10" viewBox="-5 -5 10 10" className={`pt ${s}`} aria-hidden="true"><Marca s={s} tam={10} /></svg>{t}</span>
   );
-  return <div className="legenda">{item("supera", "Supera o corte")}{item("igual", "Iguala o corte")}<span><svg width="10" height="10" viewBox="-5 -5 10 10" className="pt pouco" aria-hidden="true"><Marca s="pouco" tam={10} /></svg><Termo id="pouco">Por pouco (até 10 pts)</Termo></span>{item("abaixo", "Abaixo do corte")}{item("minimo", "Não atinge mínimo")}</div>;
+  return <div className="legenda">{item("supera", "Supera o corte")}{item("igual", "Iguala o corte")}<span><svg width="10" height="10" viewBox="-5 -5 10 10" className="pt pouco" aria-hidden="true"><Marca s="pouco" tam={10} /></svg><Termo id="pouco">Por pouco (até 10 pts)</Termo></span>{item("abaixo", "Abaixo do corte")}</div>;
 }
 
 function CartaoPonto({ p, curso, corte, minha }: { p: Ponto; curso: DadosMapa; corte: number; minha: Minhas | null }) {

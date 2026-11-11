@@ -34,7 +34,7 @@ const digitando = (el: EventTarget | null, tecla: string) => {
   return true;
 };
 
-export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
+export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; aoFechar?: () => void }) {
   const raiz = useRef<HTMLDivElement>(null);
   const palco = useRef<HTMLDivElement>(null);
   const mesa = useRef<HTMLDivElement>(null); // área rolável do livro (quando ampliado)
@@ -55,7 +55,7 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
   const [pagina, setPagina] = useState(1);
   const [painel, setPainel] = useState<"indice" | "gabarito" | "ajustes" | null>(null);
   const [telaCheia, setTelaCheia] = useState(false);
-  const [pseudoCheia, setPseudoCheia] = useState(false);
+  const [pseudoCheia] = useState(true); // o leitor sempre ocupa a janela inteira; "Fechar" volta para a página da prova
   const [medidas, setMedidas] = useState({ w: 900, h: 700 });
   const [estudo, setEstudo] = useState<Estudo>({ marcadores: [], revisar: [], ultimaPagina: null });
   const [indice, setIndice] = useState<IndiceQuestoes | null>(null);
@@ -120,6 +120,7 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
     return () => { vivo = false; if ("cancelIdleCallback" in window) cancelIdleCallback(id); else clearTimeout(id); };
   }, [r, doc, prova.dia]);
 
+  useEffect(() => { palco.current?.focus({ preventScroll: true }); }, []);
   // Tamanho do palco → tamanho das páginas.
   useEffect(() => {
     const el = palco.current;
@@ -137,7 +138,7 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
   // 100% = a dupla inteira cabe no palco. O zoom amplia o próprio livro (continua sendo o livro, com rolagem).
   const layout = useMemo(() => {
     const W = Math.max(280, medidas.w - 24);
-    const H = Math.max(360, medidas.h - 24);
+    const H = Math.max(360, medidas.h - 96);
     const base = Math.max(200, Math.floor(retrato ? Math.min(W, H / prop) : Math.min(W / 2, H / prop)));
     // Tamanhos em pixels inteiros da tela (zoom do navegador incluso), para o canvas não ser reamostrado.
     const pagina = medidaNitida(base * zoom, prop);
@@ -200,8 +201,8 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
       else if (e.key === "0") { e.preventDefault(); zoomar(1); }
       else if (e.key === "Escape") {
         if (painel) setPainel(null);
-        else if (pseudoCheia) setPseudoCheia(false);
         else if (document.fullscreenElement) void document.exitFullscreen().catch(() => {}); // o navegador costuma tratar o Esc antes; isto é a garantia
+        else aoFechar?.();
       }
     };
     document.addEventListener("keydown", f);
@@ -227,9 +228,7 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
     const el = raiz.current;
     if (!el) return;
     if (document.fullscreenElement) { void document.exitFullscreen(); return; }
-    if (pseudoCheia) { setPseudoCheia(false); return; }
-    if (el.requestFullscreen) el.requestFullscreen().catch(() => setPseudoCheia(true));
-    else setPseudoCheia(true);
+    if (el.requestFullscreen) el.requestFullscreen().catch(() => {});
   };
   useEffect(() => {
     if (!pseudoCheia) return;
@@ -329,7 +328,7 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
   const arquivo = doc === "prova" ? prova.prova : prova.gabarito!;
 
   return (
-    <div ref={raiz} className={`leitor${telaCheia || pseudoCheia ? " tela-cheia" : ""}${pseudoCheia ? " imersivo" : ""}`} data-modo={docAtual} aria-label={`Leitor: ${prova.titulo}`} role="region">
+    <div ref={raiz} className="leitor tela-cheia imersivo" data-lenis-prevent data-rolagem-propria data-modo={docAtual} aria-label={`Leitor: ${prova.titulo}`} role="region">
       <ReaderToolbar
         titulo={doc === "prova" ? prova.titulo : `Gabarito · ${prova.titulo}`} subtitulo={prova.subtitulo}
         pagina={dupla[0]} paginaFim={dupla[1]} total={total || 1}
@@ -337,7 +336,7 @@ export default function ExamReader({ prova }: { prova: ProvaLeitor }) {
         zoom={zoom} mudarZoom={zoomar} zoomLargura={layout.zoomLargura > 1.04 ? layout.zoomLargura : null}
         modo={docAtual} mudarModo={mudarModo} painel={painel} alternarPainel={alternarPainel}
         urlPdf={arquivo.url} aoBaixar={() => registrar("enem_pdf_baixado", { prova: prova.id, arquivo: doc, origem: "leitor" })}
-        telaCheia={telaCheia || pseudoCheia} alternarTelaCheia={alternarTelaCheia} temGabarito={!!prova.gabarito}
+        telaCheia={telaCheia} alternarTelaCheia={alternarTelaCheia} temGabarito={!!prova.gabarito} aoFechar={aoFechar}
       />
 
       {doc === "gabarito" && (

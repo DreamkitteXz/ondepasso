@@ -1,3 +1,4 @@
+import { Manchete, SetaBotao } from "@/components/Manchete";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "../../provas.css";
@@ -64,11 +65,11 @@ export default async function PaginaProva({ params }: { params: Promise<{ id: st
         <a href="/provas/">Provas anteriores</a> <span aria-hidden="true">›</span> <a href={`/provas/?ano=${p.ano}`}>Enem {p.ano}</a>
       </nav>
 
-      <header className="prova-cabecalho" style={{ ["--cor-caderno" as string]: p.corHex }}>
+      <header className="prova-cabecalho mov-topo" style={{ ["--cor-caderno" as string]: p.corHex }}>
         <ExamCover p={p} tamanho="grande" />
         <div>
-          <p className="rotulo">{p.modalidadeRotulo}</p>
-          <h1>Prova do Enem {p.ano} · {diaRotulo(p.dia)}</h1>
+          <p className="rotulo etiqueta"><span className="ponto" style={{ background: p.corHex }} />{p.modalidadeRotulo} · Caderno {p.corRotulo}</p>
+          <Manchete texto={`Prova do Enem ${p.ano} · ${diaRotulo(p.dia)}`} destaque={2} />
           <p className="sub">Caderno {p.caderno} {p.corRotulo}{p.variante ? ` (${VARIANTE_ROTULO[p.variante]})` : ""}{p.idioma ? ` · ${IDIOMA_ROTULO[p.idioma]}` : ""}. {areas.join(" e ")}{p.redacao ? " + Redação" : ""}.</p>
           <ul className="prova-fatos">
             <li><span>Questões</span><strong>{p.questoes}{p.redacao ? " + redação" : ""}</strong></li>
@@ -77,7 +78,7 @@ export default async function PaginaProva({ params }: { params: Promise<{ id: st
             <li><span>Arquivo</span><strong>PDF · {megas(p.prova.bytes)}</strong></li>
           </ul>
           <div className="prova-acoes">
-            <a className="botao" href="#ler">Ler no leitor</a>
+            <a className="botao botao-pilula botao-ima" href="#ler">Abrir a prova<SetaBotao /></a>
             <LinkBaixar provaId={p.id} url={p.prova.url} rotulo={`Baixar PDF (${megas(p.prova.bytes)})`} />
             <BotaoSalvar id={p.id} />
           </div>

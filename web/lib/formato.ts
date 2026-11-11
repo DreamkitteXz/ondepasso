@@ -50,7 +50,7 @@ export function statusNota(corte: number, minha: number): Status {
   if (Math.abs(minha - corte) < 1e-9) return "igual";
   return minha > corte ? "supera" : corte - minha <= POR_POUCO ? "pouco" : "abaixo";
 }
-export const ROTULO: Record<Status, string> = { supera: "Supera o corte", igual: "Iguala o corte", pouco: "Por pouco", abaixo: "Abaixo do corte", minimo: "Não atinge mínimo" };
+export const ROTULO: Record<Status, string> = { supera: "Supera o corte", igual: "Iguala o corte", pouco: "Por pouco", abaixo: "Abaixo do corte", minimo: "Abaixo do corte" };
 export const contagemVazia = (): Record<Status, number> => ({ supera: 0, igual: 0, pouco: 0, abaixo: 0, minimo: 0 });
 
 /** "765,4" ou "765.40" → 765.4; null se não for uma média válida do Enem. */

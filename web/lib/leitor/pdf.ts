@@ -89,7 +89,10 @@ export class RenderizadorPdf {
     // Exatamente a largura na tela × densidade de pixels: se o canvas for maior ou menor que a área, o navegador
     // reamostra e as letras pequenas borram. Teto de ~12 megapixels por página para não estourar a memória no zoom.
     const teto = Math.floor(Math.sqrt(12e6 / this.proporcao));
-    const lpx = Math.min(teto, Math.round(Math.max(120, largura) * dpr));
+    // Em telas de densidade baixa (dpr < 2) qualquer desencontro de fração de pixel entre o canvas e a área vira
+    // borrão visível. Ali a página é desenhada com o dobro de pixels: o navegador só reduz (2:1), nunca amplia.
+    const fator = dpr < 2 ? 2 : 1;
+    const lpx = Math.min(teto, Math.round(Math.max(120, largura) * dpr) * fator);
     const chave = `${n}@${lpx}`;
     const pronto = this.cache.get(chave);
     if (pronto) { this.cache.delete(chave); this.cache.set(chave, pronto); return Promise.resolve(pronto); }

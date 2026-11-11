@@ -1,3 +1,4 @@
+import { Manchete } from "@/components/Manchete";
 import type { Metadata } from "next";
 import { indice, curso, modalidades } from "@/lib/dados";
 import { corteAmpla, variacao, nota, nomeModalidade, PESOS } from "@/lib/formato";
@@ -55,10 +56,23 @@ export default async function PaginaOferta({ params }: P) {
   return (
     <div className="pagina-oferta">
       <a className="voltar" href={`/curso/${c.slug}/`}>‹ {c.curso}</a>
-      <header className="oferta-cabecalho">
-        <h1>{c.curso}<span className="so-desktop"> · {o.ies}</span></h1>
+      <header className="oferta-cabecalho mov-topo">
+        <p className="rotulo etiqueta"><span className="ponto" />Sisu {ano} · {o.ies} · {o.municipio}/{o.uf}</p>
+        <Manchete texto={c.curso} estilo={{ ["--letras" as string]: Math.max(...c.curso.split(" ").map((x) => x.length), 7) }} />
         <p className="sub"><a className="link-uni" href={`/universidades/${slugIes(o.ies)}/`}>{o.ies_nome}</a>{" · " + [o.campus, `${o.municipio}/${o.uf}`, o.turno, o.grau].filter(Boolean).join(" · ")}</p>
       </header>
+      {(() => {
+        const ac = cotas.find((x) => x.cod === "AC");
+        const porVaga = ac?.vagas && ac.inscritos ? ac.inscritos / ac.vagas : null;
+        return (
+          <div className="curso-fatos" aria-hidden="true">
+            <div className="fato"><strong>{ac?.vagas != null ? ac.vagas.toLocaleString("pt-BR") : "—"}</strong><span>vagas na ampla em {ano}</span></div>
+            <div className="fato"><strong>{ac?.inscritos != null ? ac.inscritos.toLocaleString("pt-BR") : "—"}</strong><span>inscritos na ampla</span></div>
+            <div className="fato fato-ambar"><strong>{porVaga != null ? porVaga.toLocaleString("pt-BR", { maximumFractionDigits: 1 }) : "—"}</strong><span>inscritos por vaga na ampla</span></div>
+            <div className="fato"><strong>{cotas.length}</strong><span>{cotas.length === 1 ? "modalidade com vagas" : "modalidades com vagas"}</span></div>
+          </div>
+        );
+      })()}
       <DetalheOferta
         slug={c.slug} rota={slugOferta(o)} curso={c.curso} ies={o.ies} cidade={`${o.municipio}/${o.uf}`} ano={ano} turno={o.turno} grau={o.grau}
         atual={corteAmpla(o, ano)} delta={variacao(o, ano)} bonus={o.bonus_regional_pct ?? 0}

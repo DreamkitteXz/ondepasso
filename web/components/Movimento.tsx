@@ -6,7 +6,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const REVELAR = ".inicio-lista > *, .lc-linha, .curso-lado > *, footer .wrap, .estado-lado > *, .uni-c, .ano, .provas-sobre-grade > div, .provas-fonte";
+const REVELAR = ".inicio-lista > *, .lc-linha, .curso-lado > *, footer .wrap, .estado-lado > *, .uni-c, .ano, .provas-sobre-grade > div, .provas-fonte, .av-grade > div, .av-linha li, .prova-grade > *";
 const fmt = (v: number) => v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 export function Movimento() {
@@ -88,6 +88,19 @@ export function Movimento() {
             .from(".curso-fatos > *", { y: 22, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.5)
             .from(".curso-acoes > *", { y: 14, opacity: 0, stagger: 0.06, clearProps: "all" }, 0.7)
             .from(".curso-nota, .curso-principal > .filtros, .tabela-curso", { y: 28, opacity: 0, stagger: 0.1, clearProps: "all" }, 0.75);
+        }
+        if (tem(".pagina-aovivo")) tl.from(".av-cabecalho .sub, .av-acoes > *", { y: 20, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.7);
+        if (tem(".pagina-prova")) {
+          tl.from(".prova-cabecalho .capa-caderno", { y: 30, opacity: 0, rotate: -6, duration: 1.1, clearProps: "all" }, 0.3)
+            .from(".prova-cabecalho .sub, .prova-fatos > li, .prova-cabecalho .prova-acoes > *", { y: 18, opacity: 0, stagger: 0.06, clearProps: "all" }, 0.55)
+            .from(".leitor-convite", { y: 30, opacity: 0, clearProps: "all" }, 0.9);
+        }
+        if (tem(".pagina-oferta")) {
+          tl.from(".oferta-cabecalho .sub, .pagina-oferta .voltar", { y: 14, opacity: 0, clearProps: "all" }, 0.45)
+            .from(".curso-fatos > *", { y: 22, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.55)
+            .from(".oferta-principal > *, .oferta-lado > *", { y: 28, opacity: 0, stagger: 0.07, clearProps: "all" }, 0.75)
+            .from(".hc-barra i", { scaleY: 0, transformOrigin: "50% 100%", stagger: 0.06, duration: 1, clearProps: "transform" }, 1.0)
+            .from(".figura", { yPercent: 30, opacity: 0, duration: 1, clearProps: "all" }, 0.8);
         }
         if (tem(".pagina-provas")) {
           tl.from(".provas-topo > p:not(.rotulo)", { y: 18, opacity: 0, clearProps: "all" }, 0.5)
