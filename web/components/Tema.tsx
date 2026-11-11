@@ -17,6 +17,3 @@ export function BotaoTema() {
     </button>
   );
 }
-
-/** Roda antes da pintura, para não piscar o tema errado. */
-export const SCRIPT_TEMA = `try{var t=localStorage.getItem("ondepasso.tema");if(t)document.documentElement.dataset.tema=t}catch(e){}`;

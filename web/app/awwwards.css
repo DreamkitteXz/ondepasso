@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Camada de acabamento e movimento (skills: build-awwwards-quality-sites,
+   high-end-visual-design, awwwards-animations). Vem depois do globals.css e só
+   refina: mesmas cores, fontes e textos. Para desligar tudo, tire o import
+   deste arquivo e o <Movimento /> do layout.
+   ========================================================================== */
+:root {
+  --mola: cubic-bezier(.32, .72, 0, 1);
+  --casca: rgba(250, 250, 249, .035);
+  --fio-luz: rgba(255, 255, 255, .07);
+  --vidro: rgba(21, 20, 18, .72);
+  --brilho-a: rgba(61, 214, 140, .13);
+  --brilho-b: rgba(61, 214, 140, .05);
+  --sombra-suave: 0 30px 80px -40px rgba(0, 0, 0, .7);
+  --raio-g: 28px;
+  --bisel: 6px;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-tema="escuro"]) { --casca: rgba(17, 16, 16, .035); --fio-luz: rgba(255, 255, 255, .9); --vidro: rgba(248, 246, 245, .78); --brilho-a: rgba(12, 138, 76, .10); --brilho-b: rgba(12, 138, 76, .04); --sombra-suave: 0 30px 80px -48px rgba(17, 16, 16, .28); }
+}
+:root[data-tema="claro"] { --casca: rgba(17, 16, 16, .035); --fio-luz: rgba(255, 255, 255, .9); --vidro: rgba(248, 246, 245, .78); --brilho-a: rgba(12, 138, 76, .10); --brilho-b: rgba(12, 138, 76, .04); --sombra-suave: 0 30px 80px -48px rgba(17, 16, 16, .28); }
+
+/* ---------- Fundo: brilho verde parado (desce devagar na rolagem) e grão fixo ---------- */
+.fundo { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.fundo-brilho { position: absolute; inset: -20% -10% -10%; background:
+  radial-gradient(52rem 38rem at 82% 8%, var(--brilho-a), transparent 62%),
+  radial-gradient(40rem 30rem at 4% 62%, var(--brilho-b), transparent 60%); }
+.fundo::after { content: ""; position: absolute; inset: 0; opacity: .05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); }
+html { background: var(--bg); }
+body { background: transparent; position: relative; z-index: 0; }
+
+/* ---------- Navegação: ilha de vidro solta do topo ---------- */
+.topbar { top: 12px; margin-top: 12px; padding: 0 12px; background: none; backdrop-filter: none; border: 0; }
+.topbar .wrap { height: 54px; padding: 0 8px 0 18px; border-radius: 999px; background: var(--vidro); -webkit-backdrop-filter: blur(20px) saturate(1.3); backdrop-filter: blur(20px) saturate(1.3);
+  border: 1px solid var(--line-1); box-shadow: inset 0 1px 0 var(--fio-luz), var(--sombra-suave); }
+.selo { border-color: var(--line-1); background: var(--casca); }
+.tema { border-color: var(--line-1); transition: transform .5s var(--mola), background-color .3s var(--mola); }
+.tema:hover { transform: rotate(40deg); }
+.tema:active { transform: rotate(40deg) scale(.94); }
+.nav-topo { gap: 4px; }
+.nav-topo a, .nav-topo span { padding: 8px 14px; border-radius: 999px; transition: color .3s var(--mola), background-color .3s var(--mola); }
+.nav-topo a:hover { color: var(--fg-1); background: var(--casca); }
+.nav-topo .ativo { background: var(--line-1); }
+.tabbar { left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); padding: 10px 18px; border-radius: 26px; border: 1px solid var(--line-1);
+  background: var(--vidro); -webkit-backdrop-filter: blur(20px) saturate(1.3); backdrop-filter: blur(20px) saturate(1.3); box-shadow: inset 0 1px 0 var(--fio-luz), var(--sombra-suave); }
+.tabbar > * { transition: color .3s var(--mola), transform .3s var(--mola); }
+.tabbar > a:active { transform: scale(.94); }
+body { padding-bottom: calc(92px + env(safe-area-inset-bottom)); }
+@media (min-width: 1024px) {
+  .topbar { top: 16px; margin-top: 16px; }
+  .topbar .wrap { height: 60px; max-width: 1040px; padding: 0 10px 0 22px; }
+  body { padding-bottom: 0; }
+  .wrap { max-width: 1320px; padding: 0 32px; }
+}
+main.wrap { padding-top: 28px; padding-bottom: 56px; }
+.inicio-mapa, .estado-vista, .inicio { scroll-margin-top: 92px; }
+@media (min-width: 1024px) { main.wrap { padding-top: 40px; padding-bottom: 120px; } .inicio-mapa, .estado-vista, .inicio { scroll-margin-top: 104px; } }
+
+/* ---------- Etiqueta (eyebrow) em pílula ---------- */
+.etiqueta { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 10px; border-radius: 999px; border: 1px solid var(--line-1); background: var(--casca);
+  font-size: 10.5px; letter-spacing: .16em; color: var(--fg-2); }
+.etiqueta .ponto { width: 6px; height: 6px; box-shadow: 0 0 0 4px var(--verde-tint); }
+
+/* ---------- Manchete palavra por palavra ---------- */
+.manchete-mov { letter-spacing: -.022em; text-wrap: balance; }
+.mp { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .14em; margin-bottom: -.14em; }
+.mp-i { display: inline-block; will-change: auto; }
+.mp-destaque { color: var(--verde); }
+
+/* ---------- Botões: pílula, botão dentro do botão, toque físico ---------- */
+.botao { border-radius: 999px; transition: transform .45s var(--mola), background-color .3s var(--mola), opacity .3s var(--mola); }
+.botao:active { transform: scale(.97); }
+.botao:focus-visible, .chip:focus-visible, .nav-topo a:focus-visible, .tema:focus-visible, .lc-linha:focus-visible, .linha:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.botao-pilula { height: 48px; padding: 0 6px 0 20px; gap: 12px; }
+.botao-ic { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: color-mix(in srgb, var(--bg) 10%, transparent); transition: transform .5s var(--mola), background-color .3s var(--mola); }
+.botao-pilula:hover { opacity: 1; }
+.botao-pilula:hover .botao-ic { transform: translate(2px, -1px) scale(1.06); background: color-mix(in srgb, var(--bg) 16%, transparent); }
+.chip { transition: color .3s var(--mola), background-color .3s var(--mola), border-color .3s var(--mola), transform .3s var(--mola); border-color: var(--line-1); background: var(--casca); }
+.chip:hover { border-color: var(--line-2); transform: translateY(-1px); }
+.chip:active { transform: scale(.96); }
+.busca { height: 56px; border-radius: 18px; border-color: var(--line-1); background: var(--casca); box-shadow: inset 0 1px 0 var(--fio-luz); transition: border-color .3s var(--mola), background-color .3s var(--mola); }
+.busca:focus-within { border-color: var(--verde); background: var(--panel); }
+.entrada-linha input { height: 48px; border-radius: 999px; padding: 0 18px; border-color: var(--line-1); transition: border-color .3s var(--mola); }
+.entrada-linha input:focus { border-color: var(--verde); }
+select { transition: border-color .3s var(--mola); }
+.entrada-linha { flex-wrap: wrap; } .entrada-linha input { flex: 1 1 170px; width: auto; } .entrada-linha .botao-pilula { flex: 1 0 auto; justify-content: space-between; }
+.filtros select { border-radius: 999px; padding: 0 14px; border-color: var(--line-1); background-color: var(--casca); }
+
+/* ---------- Cartões em bisel duplo: casca por fora, núcleo por dentro (sem mudar o HTML) ---------- */
+.mapa-cartao, .inicio-controles > .entrada-nota.cartao, .nota-curso, .cartao.lista, .cartao.apoio, .cartao-ponto {
+  position: relative; isolation: isolate; border-radius: var(--raio-g); background: var(--casca); border: 1px solid var(--line-1); box-shadow: var(--sombra-suave); }
+.mapa-cartao::before, .inicio-controles > .entrada-nota.cartao::before, .nota-curso::before, .cartao.lista::before, .cartao.apoio::before, .cartao-ponto::before {
+  content: ""; position: absolute; inset: var(--bisel); z-index: -1; border-radius: calc(var(--raio-g) - var(--bisel)); background: var(--panel);
+  box-shadow: inset 0 1px 0 var(--fio-luz), 0 0 0 1px var(--line-1); pointer-events: none; }
+.mapa-cartao { padding: 22px; }
+.inicio-controles > .entrada-nota.cartao, .nota-curso { padding: 22px; border-radius: var(--raio-g); }
+.cartao.apoio, .cartao-ponto { padding: 24px; }
+.cartao.lista { padding: 12px 10px; }
+.cartao.lista .cabeca { padding: 14px 16px 10px; }
+.linha, .lc-linha, .ver-mais { border-top: 0; border-radius: 14px; background-image: linear-gradient(var(--line-1), var(--line-1)); background-size: calc(100% - 32px) 1px; background-position: 50% 0; background-repeat: no-repeat;
+  transition: background-color .3s var(--mola), transform .5s var(--mola), opacity .6s var(--mola); }
+a.linha:hover, button.linha:hover, .lc-linha:hover { background-color: var(--panel-2); }
+.lc-linha .nome, .linha .nome { transition: transform .45s var(--mola); }
+.lc-linha:hover .nome, a.linha:hover .nome { transform: translateX(4px); }
+.selo-status { border-radius: 999px; padding: 4px 10px; }
+@media (min-width: 1024px) {
+  .mapa-cartao { padding: 34px; gap: 16px; }
+  .inicio-controles > .entrada-nota.cartao, .nota-curso { padding: 26px; }
+}
+
+/* ---------- Home: divisão editorial ---------- */
+.inicio-topo .rotulo { margin-bottom: 20px; }
+.inicio-topo .manchete-mov { font-size: clamp(38px, 10.5vw, 46px); line-height: 1.04; margin-bottom: 18px; }
+.inicio-topo .sub { font-size: 16px; line-height: 1.55; }
+.passos { margin-bottom: 28px; } .passos .rotulo { margin: 0 0 12px; font-size: 11px; font-weight: 500; }
+.como-funciona { gap: 0; margin: 0; border-top: 1px solid var(--line-1); }
+.como-funciona-curto { margin: 0; }
+.como-funciona li { padding: 14px 0; border-bottom: 1px solid var(--line-1); gap: 16px; align-items: baseline; }
+.como-funciona b { display: inline; white-space: nowrap; width: auto; height: auto; border: 0; border-radius: 0; font: 600 14px/1.4 var(--serif); color: var(--verde); }
+.como-funciona b::before { content: "0"; }
+.como-funciona span { gap: 2px; font-size: 13.5px; }
+.titulo-mapa { letter-spacing: -.01em; }
+.manchete-mapa { letter-spacing: -.015em; }
+@media (min-width: 1024px) {
+  .inicio { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px 64px; padding-top: 24px; }
+  .inicio-topo .manchete-mov { font-size: clamp(54px, 5.3vw, 78px); line-height: .98; margin-bottom: 26px; }
+  .inicio-topo .sub { font-size: 17px; max-width: 44ch; }
+  .titulo-mapa { font-size: 22px; }
+  .manchete-mapa { font-size: 34px; }
+}
+
+/* ---------- Página do curso ---------- */
+.pagina-curso { gap: 22px; }
+.pagina-curso .rotulo { margin-bottom: 18px; }
+.pagina-curso .manchete-mov { font-size: clamp(38px, min(17vw, calc(165vw / var(--letras, 8))), 76px); line-height: 1; margin: 0; overflow-wrap: anywhere; }
+.sub-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.curso-fatos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line-1); }
+.fato { display: grid; gap: 6px; padding: 16px 0; border-bottom: 1px solid var(--line-1); }
+.fato:nth-child(odd) { padding-right: 16px; } .fato:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line-1); }
+.fato strong { font: 600 clamp(28px, 8vw, 36px)/1 var(--serif); letter-spacing: -.01em; font-variant-numeric: lining-nums; }
+.fato span { font-size: 12px; color: var(--fg-3); }
+.manchete-curso { letter-spacing: -.015em; }
+@media (min-width: 1024px) {
+  .pagina-curso { gap: 40px; padding-top: 16px; }
+  .curso-cabecalho { align-items: flex-end; }
+  .pagina-curso .manchete-mov { font-size: clamp(64px, min(11vw, calc(118vw / var(--letras, 8))), 168px); line-height: .92; letter-spacing: -.035em; }
+  .curso-acoes { align-items: center; padding-bottom: 14px; }
+  .curso-fatos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .fato { padding: 22px 24px 22px 0; border-left: 0 !important; }
+  .fato + .fato { padding-left: 24px; border-left: 1px solid var(--line-1) !important; }
+  .fato strong { font-size: clamp(36px, 3.6vw, 52px); }
+  .fato span { font-size: 13px; }
+  .curso-grade { gap: 20px 40px; grid-template-columns: minmax(0, 1fr) 380px; }
+  .curso-nota, .curso-lado { position: relative; }
+  .lc-linha { padding-top: 18px; padding-bottom: 18px; }
+  .lc-corte strong { font-size: 18px; }
+}
+
+/* ---------- Rodapé com respiro ---------- */
+footer { border-top-color: var(--line-1); padding: 40px 0 56px; }
+
+/* ---------- Movimento (só com .mov no <html>: JS ligado e sem "reduzir movimento") ---------- */
+/* Antes de o JS assumir, a página espera invisível por no máximo 3 s (ver SCRIPT_MOV). */
+.mov:not(.mov-pronto) .topbar .wrap, .mov:not(.mov-pronto) main { opacity: 0; }
+/* Revelação ao rolar: sobe e aparece quando entra na tela. */
+.mov :is(.inicio-lista > *, .lc-linha, .curso-lado > *, .estado-lado > *, footer .wrap):not(.visto) { opacity: 0; transform: translateY(26px); }
+.mov :is(.inicio-lista > *, .lc-linha, .curso-lado > *, .estado-lado > *, footer .wrap).visto { transition: opacity .8s var(--mola), transform .9s var(--mola), background-color .3s var(--mola); transition-delay: calc(var(--ordem, 0) * 45ms), calc(var(--ordem, 0) * 45ms), 0s; }
+/* Pontos do mapa nascem em onda. */
+@keyframes ponto-nasce { from { opacity: 0; transform: scale(0); } 60% { opacity: 1; transform: scale(1.5); } to { opacity: 1; transform: scale(1); } }
+.mov .mapa .pt > g > * { transform-box: fill-box; transform-origin: center; animation: ponto-nasce .7s var(--mola) both; animation-delay: calc(var(--d, 0ms) + 500ms); }
+.mov.mov-fim .mapa .pt > g > * { animation-delay: calc(var(--d, 0ms) * .35); }
+.mov .mapa .pt > g { transition: transform .4s var(--mola); }
+@media (hover: hover) { .mov .mapa .pt:hover > g > * { transform: scale(1.6); transition: transform .35s var(--mola); animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .botao, .chip, .tema, .linha, .lc-linha, .botao-ic, .lc-linha .nome, .linha .nome, .nav-topo a, .busca { transition: none; }
+  .tema:hover { transform: none; } .chip:hover { transform: none; } .lc-linha:hover .nome, a.linha:hover .nome { transform: none; }
+}
+@media (min-width: 1024px) and (min-height: 1000px) { .inicio-mapa { position: sticky; top: 104px; } }
+.inicio-lista > .cartao, .curso-lado > .cartao { margin-bottom: 0; } .inicio-lista { display: grid; gap: 20px; align-content: start; } .inicio-lista > .passos { margin-bottom: 8px; }

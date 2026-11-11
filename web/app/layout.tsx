@@ -2,14 +2,17 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "@fontsource/faustina/600.css";
 import "./globals.css";
+import "./awwwards.css";
 import { Logo } from "@/components/Logo";
-import { BotaoTema, SCRIPT_TEMA } from "@/components/Tema";
+import { BotaoTema } from "@/components/Tema";
+import { SCRIPT_MOV, SCRIPT_TEMA } from "@/lib/scripts";
 import { NavTopo, Tabbar } from "@/components/Navegacao";
 import { Analytics, PreferenciasCookies } from "@/components/Analytics";
 import { CLIENTE_ADSENSE, VERIFICACAO_ADSENSE } from "@/lib/anuncios";
 import { indice } from "@/lib/dados";
 
 import { SITE } from "@/lib/site";
+import { Movimento } from "@/components/Movimento";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -26,8 +29,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const { anos, atualizado } = indice();
   return (
     <html lang="pt-BR" className={GeistSans.variable} style={{ ["--font-faustina" as string]: "Faustina" }} suppressHydrationWarning>
-      <head><script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} /></head>
+      <head><script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA + ";" + SCRIPT_MOV }} /></head>
       <body>
+        <div className="fundo" aria-hidden="true"><div className="fundo-brilho" /></div>
         <header className="topbar">
           <div className="wrap">
             <a href="/" aria-label="onde passo — início"><Logo /></a>
@@ -48,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </footer>
         <Tabbar />
         <Analytics />
+        <Movimento />
       </body>
     </html>
   );

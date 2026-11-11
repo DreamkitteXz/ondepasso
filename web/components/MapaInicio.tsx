@@ -10,6 +10,7 @@ import { lerNota, nota as fmt, diferenca, ROTULO, nomeModalidade, contagemVazia,
 import { apagarNotas, salvarMedia, salvarMod, salvarNotasAreas, useMinhas, useMod, type Areas } from "@/lib/nota";
 import { AREAS, statusPara, suaMedia, temPesos, type Minhas, type Pesos } from "@/lib/minhas";
 import { BuscaCursos } from "@/components/BuscaCursos";
+import { SetaBotao } from "@/components/Manchete";
 import { Termo } from "@/components/Termo";
 import { registrar, registrarUmaVez, useRegistrarQuando } from "@/lib/analytics";
 
@@ -21,8 +22,8 @@ type Caixa = [number, number, number, number];
 const plural = (n: number, um: string, varios: string) => `${n} ${n === 1 ? um : varios}`;
 const curtaMod = (cod: string, nome: string) => (cod === "AC" ? "ampla" : nome.replace(/^Escola pública/, "Esc. pública"));
 
-export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, anoBusca }: {
-  geo: Geo; inicial: DadosMapa; atalhos: Atalho[]; topo: ReactNode; disputados: Disputado[]; cursos: ItemBusca[]; anoBusca: number;
+export function MapaInicio({ geo, inicial, atalhos, topo, passos, disputados, cursos, anoBusca }: {
+  geo: Geo; inicial: DadosMapa; atalhos: Atalho[]; topo: ReactNode; passos?: ReactNode; disputados: Disputado[]; cursos: ItemBusca[]; anoBusca: number;
 }) {
   // Curso escolhido pela busca que não está nos chips: ganha um chip próprio e vai para o mapa como os outros.
   const [extra, setExtra] = useState<Atalho | null>(null);
@@ -179,7 +180,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
   const conta = contar(pontos, minha, corte);
   return (
     <div className="inicio" ref={topoRef}>
-      <div className="inicio-topo">
+      <div className="inicio-topo mov-topo">
         {topo}
         <BuscaCursos cursos={cursos} atalhos={[]} ano={anoBusca} aoEscolher={(c) => {
           setExtra({ curso: c.curso, slug: c.slug });
@@ -228,6 +229,7 @@ export function MapaInicio({ geo, inicial, atalhos, topo, disputados, cursos, an
         </section>
       </div>
       <div className="inicio-lista">
+        {passos && <section className="passos" aria-label="Como funciona"><h2 className="rotulo">Como funciona</h2>{passos}</section>}
         <MaisDisputados itens={disputados} minha={minha} ano={dados.ano} />
         <Apoio />
       </div>
@@ -328,7 +330,7 @@ export function EntradaNota({ ano, minha, pronto, compacta, curso }: { ano: numb
         <div className="entrada-linha">
           <input id="nota" ref={ref} inputMode="decimal" placeholder="Sua média do Enem" value={texto}
             onChange={(e) => { comecou(); setTexto(e.target.value); setErro(false); }} aria-invalid={erro} aria-label="Sua média do Enem" />
-          <button className="botao" type="submit">{compacta ? "Salvar" : "Comparar nota"}</button>
+          <button className={`botao${compacta ? "" : " botao-pilula botao-ima"}`} type="submit">{compacta ? "Salvar" : <>Comparar nota<SetaBotao /></>}</button>
         </div>
       ) : (
         <>
