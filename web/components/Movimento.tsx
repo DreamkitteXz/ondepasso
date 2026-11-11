@@ -6,7 +6,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const REVELAR = ".inicio-lista > *, .lc-linha, .curso-lado > *, footer .wrap, .estado-lado > *";
+const REVELAR = ".inicio-lista > *, .lc-linha, .curso-lado > *, footer .wrap, .estado-lado > *, .uni-c";
 const fmt = (v: number) => v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 export function Movimento() {
@@ -88,14 +88,20 @@ export function Movimento() {
             .from(".curso-fatos > *", { y: 22, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.5)
             .from(".curso-acoes > *", { y: 14, opacity: 0, stagger: 0.06, clearProps: "all" }, 0.7)
             .from(".curso-nota, .curso-principal > .filtros, .tabela-curso", { y: 28, opacity: 0, stagger: 0.1, clearProps: "all" }, 0.75);
-          // Números do cabeçalho contam até o valor final (que já está no HTML).
-          document.querySelectorAll<HTMLElement>("[data-conta]").forEach((el) => {
-            const fim = Number(el.dataset.conta); if (!Number.isFinite(fim)) return;
-            const dec = el.dataset.dec === "2"; const o = { v: fim * (dec ? 0.93 : 0) };
-            const texto = el.textContent;
-            tl.to(o, { v: fim, duration: 1.4, ease: "power3.out", onUpdate: () => { el.textContent = dec ? fmt(o.v) : String(Math.round(o.v)); }, onComplete: () => { el.textContent = texto; } }, 0.55);
-          });
         }
+        if (tem(".pagina-unis")) {
+          tl.from(".unis-cabecalho .sub", { y: 18, opacity: 0, clearProps: "all" }, 0.5)
+            .from(".curso-fatos > *", { y: 22, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.55)
+            .from(".unis2-lado, .unis-controles, .unis2-cabeca", { y: 28, opacity: 0, stagger: 0.1, clearProps: "all" }, 0.75)
+            .from(".um-mapa .uf-c", { opacity: 0, scale: 0.9, transformOrigin: "50% 50%", stagger: { each: 0.02, from: "random" }, duration: 0.7, clearProps: "opacity,transform,scale" }, 0.9);
+        }
+        // Números do cabeçalho contam até o valor final (que já está no HTML).
+        document.querySelectorAll<HTMLElement>("[data-conta]").forEach((el) => {
+          const fim = Number(el.dataset.conta); if (!Number.isFinite(fim)) return;
+          const dec = el.dataset.dec === "2"; const o = { v: fim * (dec ? 0.93 : 0) };
+          const texto = el.textContent;
+          tl.to(o, { v: fim, duration: 1.4, ease: "power3.out", onUpdate: () => { el.textContent = dec ? fmt(o.v) : Math.round(o.v).toLocaleString("pt-BR"); }, onComplete: () => { el.textContent = texto; } }, 0.55);
+        });
       });
       limpar.push(() => ctx.revert());
 

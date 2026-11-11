@@ -55,8 +55,8 @@ export default async function PaginaCurso({ params }: P) {
         <div className="fato"><strong data-conta={c.ofertas.length}>{c.ofertas.length}</strong><span>{c.ofertas.length === 1 ? "opção no Sisu" : "opções no Sisu"} {ano}</span></div>
         <div className="fato"><strong data-conta={ufs}>{ufs}</strong><span>{ufs === 1 ? "estado" : "estados"}</span></div>
         {cortes.length > 0 && <>
-          <div className="fato"><strong data-conta={Math.min(...cortes)} data-dec="2">{nota(Math.min(...cortes))}</strong><span>menor corte da ampla</span></div>
-          <div className="fato"><strong data-conta={Math.max(...cortes)} data-dec="2">{nota(Math.max(...cortes))}</strong><span>maior corte da ampla</span></div>
+          <div className="fato fato-min"><strong data-conta={Math.min(...cortes)} data-dec="2">{nota(Math.min(...cortes))}</strong><span>menor corte da ampla</span></div>
+          <div className="fato fato-max"><strong data-conta={Math.max(...cortes)} data-dec="2">{nota(Math.max(...cortes))}</strong><span>maior corte da ampla</span></div>
         </>}
       </div>
       <ListaCurso slug={c.slug} curso={c.curso} ano={ano} itens={itens} mods={nomesMods(usadas)} />

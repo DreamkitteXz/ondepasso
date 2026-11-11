@@ -33,6 +33,11 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
     { curso: slug, pagina: "curso", tipo_nota: minha?.n ? "areas" : "media", origem_nota: revelacao ? "digitada" : "salva" });
 
   const ufs = useMemo(() => [...new Set(itens.map((i) => i.u))].sort(), [itens]);
+  // Faixa dos cortes do curso nesta modalidade: o medidor de cada linha mostra onde o corte cai entre o menor e o maior.
+  const faixa = useMemo(() => {
+    const v = itens.map((i) => i.m[modAtual.cod] as number | undefined).filter((x): x is number => x != null);
+    return v.length ? [Math.min(...v), Math.max(...v)] as const : null;
+  }, [itens, modAtual.cod]);
   const turnos = useMemo(() => [...new Set(itens.map((i) => i.t))].sort(), [itens]);
   const vis = useMemo(() => {
     const f = itens.filter((i) => (!uf || i.u === uf) && (!turno || i.t === turno));
@@ -116,6 +121,7 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
           </div>
           {vis.slice(0, limite).map((i) => {
             const c = corte(i); const s = st(i);
+            const p = c == null || faixa == null ? null : faixa[1] === faixa[0] ? 0.5 : (c - faixa[0]) / (faixa[1] - faixa[0]);
             return (
               <a key={i.r} className="lc-linha" href={`/curso/${slug}/${i.r}/`}>
                 <span className="lc-uni">
@@ -124,7 +130,8 @@ export function ListaCurso({ slug, curso, ano, itens, mods }: { slug: string; cu
                 </span>
                 <span className="lc-cidade so-desktop">{i.c}/{i.u}</span>
                 <span className="lc-corte">
-                  <strong>{c == null ? "sem corte" : fmt(c)}</strong>
+                  <strong className={s ? `t-${s}` : undefined}>{c == null ? "sem corte" : fmt(c)}</strong>
+                  {p != null && <span className="lc-medidor" aria-hidden="true" style={{ ["--p" as string]: p.toFixed(3) }} />}
                   <span className="so-mobile detalhe">{s ? <span className={`t-${s}`}>{ROTULO[s]}</span> : <Delta d={modAtual.cod === "AC" ? i.delta : null} sem={c == null} ano={ano} />}</span>
                 </span>
                 <span className="lc-delta so-desktop"><Delta d={modAtual.cod === "AC" ? i.delta : null} sem={c == null} /></span>

@@ -353,7 +353,11 @@ export function EntradaNota({ ano, minha, pronto, compacta, curso }: { ano: numb
       {modo === "media" && <p className="orientacao-comparacao">A média simples é uma estimativa. Os pesos podem mudar o resultado.</p>}
       <div className="entrada-opcoes">
         {modo === "media"
-          ? <button type="button" className="link-mudo" onClick={() => trocar("areas")}>Usar as cinco notas do Enem</button>
+          ? <button type="button" className="botao-areas" onClick={() => trocar("areas")}>
+              <span className="ba-ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M3 14V9M6 14V5M9 14V7.5M12 14V4M15 14v-4" /></svg></span>
+              <span className="ba-txt"><strong>Usar as cinco notas do Enem</strong><small>Mais preciso: cada curso dá um peso a cada área</small></span>
+              <svg className="ba-seta" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </button>
           : <button type="button" className="link-mudo" onClick={() => trocar("media")}>usar só a média</button>}
         {minha && <button type="button" className="link-mudo" onClick={() => { apagarNotas(); pronto(false); }}>apagar minhas notas</button>}
       </div>
