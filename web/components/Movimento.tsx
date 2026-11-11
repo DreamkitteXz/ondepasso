@@ -22,7 +22,7 @@ export function Movimento() {
       const [{ gsap }, { ScrollTrigger }, { default: Lenis }] = await Promise.all([import("gsap"), import("gsap/ScrollTrigger"), import("lenis")]);
       if (!vivo) return;
       gsap.registerPlugin(ScrollTrigger);
-      const lenis = new Lenis({ lerp: 0.12, smoothWheel: true, prevent: (el) => !!el.closest("select, dialog, [data-rolagem-propria]") });
+      const lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true, syncTouch: false, prevent: (el) => !!el.closest("select, dialog, [data-rolagem-propria]") });
       lenis.on("scroll", ScrollTrigger.update);
       const tique = (t: number) => lenis.raf(t * 1000);
       gsap.ticker.add(tique);
