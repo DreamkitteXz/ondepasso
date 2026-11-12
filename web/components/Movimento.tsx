@@ -6,7 +6,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const REVELAR = ".inicio-lista > *, .lc-linha, .curso-lado > *, footer .wrap, .estado-lado > *, .uni-c, .ano, .provas-sobre-grade > div, .provas-fonte, .av-grade > div, .av-linha li, .prova-grade > *";
+const REVELAR = ".inicio-lista > *, .lc-linha, .curso-lado > *, footer .wrap, .estado-lado > *, .uni-c, .ano, .provas-sobre-grade > div, .provas-fonte, .av-grade > div, .av-linha li, .prova-grade > *, .calc-linha";
 const fmt = (v: number) => v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 export function Movimento() {
@@ -22,7 +22,7 @@ export function Movimento() {
       const [{ gsap }, { ScrollTrigger }, { default: Lenis }] = await Promise.all([import("gsap"), import("gsap/ScrollTrigger"), import("lenis")]);
       if (!vivo) return;
       gsap.registerPlugin(ScrollTrigger);
-      const lenis = new Lenis({ lerp: 0.12, smoothWheel: true, prevent: (el) => !!el.closest("select, dialog, [data-rolagem-propria]") });
+      const lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true, syncTouch: false, prevent: (el) => !!el.closest("select, dialog, [data-rolagem-propria]") });
       lenis.on("scroll", ScrollTrigger.update);
       const tique = (t: number) => lenis.raf(t * 1000);
       gsap.ticker.add(tique);
@@ -88,6 +88,12 @@ export function Movimento() {
             .from(".curso-fatos > *", { y: 22, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.5)
             .from(".curso-acoes > *", { y: 14, opacity: 0, stagger: 0.06, clearProps: "all" }, 0.7)
             .from(".curso-nota, .curso-principal > .filtros, .tabela-curso", { y: 28, opacity: 0, stagger: 0.1, clearProps: "all" }, 0.75);
+        }
+        if (tem(".pagina-calc")) {
+          tl.from(".calc-sub > *", { y: 18, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.5)
+            .from(".calc-painel, .calc-filtros-bloco", { y: 30, opacity: 0, stagger: 0.1, clearProps: "all" }, 0.65)
+            .from(".calc-resultado", { y: 36, opacity: 0, duration: 1.1, clearProps: "all" }, 0.75)
+            .from(".calc-nota", { y: 14, opacity: 0, stagger: 0.05, duration: 0.7, clearProps: "all" }, 0.85);
         }
         if (tem(".pagina-aovivo")) tl.from(".av-cabecalho .sub, .av-acoes > *", { y: 20, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.7);
         if (tem(".pagina-prova")) {
