@@ -6,7 +6,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const REVELAR = ".inicio-lista > *, .lc-linha, .curso-lado > *, footer .wrap, .estado-lado > *, .uni-c, .ano, .provas-sobre-grade > div, .provas-fonte, .av-grade > div, .av-linha li, .prova-grade > *, .calc-linha";
+const REVELAR = ".inicio-lista > *, .lc-linha, .curso-lado > *, footer .wrap, .estado-lado > *, .uni-c, .ano, .provas-sobre-grade > div, .provas-fonte, .av-grade > div, .av-linha li, .prova-grade > *, .calc-linha, .rl-bloco";
 const fmt = (v: number) => v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 export function Movimento() {
@@ -94,6 +94,10 @@ export function Movimento() {
             .from(".calc-painel, .calc-filtros-bloco", { y: 30, opacity: 0, stagger: 0.1, clearProps: "all" }, 0.65)
             .from(".calc-resultado", { y: 36, opacity: 0, duration: 1.1, clearProps: "all" }, 0.75)
             .from(".calc-nota", { y: 14, opacity: 0, stagger: 0.05, duration: 0.7, clearProps: "all" }, 0.85);
+        }
+        if (tem(".pagina-relatorio")) {
+          tl.from(".rl-cabecalho .calc-sub > *", { y: 18, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.5)
+            .from(".rl-notas", { y: 30, opacity: 0, clearProps: "all" }, 0.65);
         }
         if (tem(".pagina-aovivo")) tl.from(".av-cabecalho .sub, .av-acoes > *", { y: 20, opacity: 0, stagger: 0.08, clearProps: "all" }, 0.7);
         if (tem(".pagina-prova")) {

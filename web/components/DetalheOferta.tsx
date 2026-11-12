@@ -3,6 +3,7 @@
 // todo o resto já sai pronto no HTML estático.
 import { Variacao } from "@/components/Variacao";
 import { Apoio } from "@/components/Apoio";
+import { CartaoRelatorio } from "@/components/CartaoRelatorio";
 import { useState } from "react";
 import { nota as fmt, diferenca, ROTULO, nomeModalidade, type Status } from "@/lib/formato";
 import { statusPara, suaMedia, temPesos, type Pesos } from "@/lib/minhas";
@@ -215,6 +216,7 @@ export function DetalheOferta(p: Props) {
         {compartilhando && <PainelStory dados={dadosStory} nomeArquivo={`ondepasso-${p.slug}-${p.rota}.png`} temNota={minha != null && s != null} onFechar={() => setCompartilhando(false)} />}
 
         <p className="orientacao-comparacao">Comparação histórica · não garante aprovação. <a href="/sobre-dados/">Fonte e metodologia</a> · <a href="https://acessounico.mec.gov.br/" target="_blank" rel="noopener noreferrer">Consultar portal oficial</a>.</p>
+        {minha?.n && <CartaoRelatorio origem="oferta" />}
         <Apoio />
       </aside>
     </div>

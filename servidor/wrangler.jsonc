@@ -1,0 +1,16 @@
+// Servidor do relatório pago (Pix + códigos). É um Worker SEPARADO do site: o site continua estático.
+// Publicar: ver servidor/README.md. Os segredos (MP_TOKEN, MP_SEGREDO_WEBHOOK) NÃO ficam neste arquivo.
+{
+  "name": "ondepasso-relatorio",
+  "main": "worker.ts",
+  "compatibility_date": "2026-10-30",
+  "routes": [{ "pattern": "ondepasso.com.br/api/relatorio/*", "zone_name": "ondepasso.com.br" }],
+  // Troque pelo id criado com: npx wrangler kv namespace create RELATORIO
+  "kv_namespaces": [{ "binding": "KV", "id": "TROQUE_PELO_ID_DO_KV" }],
+  "vars": {
+    "PRECO": "15.90",
+    "VALIDADE": "2027-02-28",
+    "URL_WEBHOOK": "https://ondepasso.com.br/api/relatorio/webhook",
+    "MAX_APARELHOS": "3"
+  }
+}

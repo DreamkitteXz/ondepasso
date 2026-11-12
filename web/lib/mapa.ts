@@ -9,7 +9,7 @@ export type Geo = typeof geo;
 export const GEO: Geo = geo;
 
 /** Modalidades que dá para trocar no mapa (as da Lei de Cotas, com nome curto). */
-const MODS = ["AC", "LI_EP", "LB_EP", "LI_PPI", "LB_PPI", "LI_PP", "LB_PP", "LI_I", "LB_I", "LI_Q", "LB_Q", "LI_PCD", "LB_PCD"];
+export const MODS = ["AC", "LI_EP", "LB_EP", "LI_PPI", "LB_PPI", "LI_PP", "LB_PP", "LI_I", "LB_I", "LI_Q", "LB_Q", "LI_PCD", "LB_PCD"];
 
 /**
  * Um campus no mapa. r = rota da oferta, x/y já projetados, t = turno, n = inscritos na ampla,

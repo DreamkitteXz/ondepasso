@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/sobre-dados/`, priority: 0.5 },
     { url: `${SITE}/privacidade/`, priority: 0.3 },
     { url: `${SITE}/ao-vivo/`, priority: 0.5 },
+    ...((process.env.NEXT_PUBLIC_RELATORIO_API ?? "").trim() && (process.env.NEXT_PUBLIC_RELATORIO_CONTATO ?? "").trim() ? [{ url: `${SITE}/relatorio/`, lastModified, priority: 0.8 }, { url: `${SITE}/relatorio/termos/`, priority: 0.3 }] : []),
     { url: `${SITE}/universidades/`, lastModified, priority: 0.9 },
     { url: `${SITE}/provas/`, lastModified: new Date(acervo().verificadoEm), priority: 0.9 },
     ...acervo().provas.map((p) => ({ url: `${SITE}/provas/${p.id}/`, lastModified: new Date(acervo().verificadoEm), priority: p.modalidade === "regular" ? 0.7 : 0.5 })),

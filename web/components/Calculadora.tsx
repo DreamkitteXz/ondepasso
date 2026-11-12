@@ -8,6 +8,7 @@ import { registrar, registrarUmaVez, useRegistrarQuando } from "@/lib/analytics"
 
 import { compararOpcoes, statusPara, suaMedia } from "@/lib/minhas";
 import { CoberturaComparacao } from "@/components/ResumoComparacao";
+import { CartaoRelatorio } from "@/components/CartaoRelatorio";
 
 // Ordem dos campos como no Figma; a ordem dos pesos no /calc.json é red, lin, mat, ch, cn.
 const CAMPOS: { k: keyof Areas; rotulo: string; i: number; ph: string }[] = [
@@ -204,6 +205,7 @@ export function Calculadora({ ano }: { ano: number }) {
             {resultados.length > limite && (
               <button className="ver-mais" onClick={() => setLimite((x) => x + 40)}>Ver mais {Math.min(40, resultados.length - limite)} (faltam {resultados.length - limite})</button>
             )}
+            <CartaoRelatorio origem="calculadora" />
           </>
         )}
       </section>

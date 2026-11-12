@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import "@fontsource/faustina/600.css";
 import "./globals.css";
 import "./awwwards.css";
+import "./relatorio.css";
 import { Logo } from "@/components/Logo";
 import { BotaoTema } from "@/components/Tema";
 import { SCRIPT_MOV, SCRIPT_TEMA } from "@/lib/scripts";

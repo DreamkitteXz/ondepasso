@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 // configurado (ver web/ANUNCIOS.md). O texto acompanha o que está ligado.
 const MEDICAO = /^G-[A-Z0-9]{4,20}$/.test((process.env.NEXT_PUBLIC_GA_ID ?? "").trim());
 const ANUNCIOS = ANUNCIOS_ATIVO;
+const RELATORIO = !!(process.env.NEXT_PUBLIC_RELATORIO_API ?? "").trim() && !!(process.env.NEXT_PUBLIC_RELATORIO_CONTATO ?? "").trim();
 
 export default function Privacidade() {
   return <article className="pagina-informativa">
@@ -28,6 +29,14 @@ export default function Privacidade() {
       <h2>Provas abertas direto do Inep</h2>
       <p>Quando você abre uma prova ou um gabarito no leitor, o PDF é baixado direto do servidor oficial do Inep (download.inep.gov.br), como aconteceria ao clicar no link do site do Inep. Por isso o Inep recebe o pedido do arquivo (com o endereço de conexão, como em qualquer site). Nada é baixado antes de você abrir o leitor.</p>
     </section>
+
+    {RELATORIO && (
+      <section className="cartao estado-comparacao">
+        <h2>Relatório pago</h2>
+        <p>O relatório é calculado no seu navegador: <strong>suas notas não são enviadas</strong>, nem na prévia nem depois da compra.</p>
+        <p>Na compra, o e-mail que você informa é repassado ao Mercado Pago, que processa o Pix e envia o recibo; o onde passo não guarda o seu e-mail. Guardamos o número do pagamento, o código de acesso e um identificador aleatório de cada aparelho em que o código foi usado (para o limite de 3 aparelhos), apagados 60 dias depois da validade. No seu navegador ficam o código, esse identificador e os filtros do relatório. Mais em <a className="link-sublinhado" href="/relatorio/termos/">Termos do relatório</a>.</p>
+      </section>
+    )}
 
     {MEDICAO ? <>
       <section className="cartao estado-comparacao">
