@@ -1,6 +1,7 @@
 // PDF.js no navegador: abre o documento direto do servidor oficial (download.inep.gov.br libera CORS) e renderiza
 // páginas sob demanda, com fila de prioridade, cache limitado e limpeza ao trocar de documento.
 import type { PDFDocumentProxy, PDFPageProxy, RenderTask } from "pdfjs-dist/legacy/build/pdf.mjs";
+import { mapearQuestoes, segmentar, type IdiomaQuestao, type MapaQuestoes, type PaginaTexto, type Regiao } from "./questoes";
 
 type Pdfjs = typeof import("pdfjs-dist/legacy/build/pdf.mjs");
 let pdfjsP: Promise<Pdfjs> | null = null;
@@ -61,6 +62,7 @@ export class RenderizadorPdf {
   private emAndamento = new Map<string, RenderTask>();
   private aguardando = new Map<string, Promise<HTMLCanvasElement>>();
   private textos = new Map<number, Promise<string>>();
+  private posTextos = new Map<number, Promise<PaginaTexto>>();
   private destruido = false;
   proporcao = 1.414; // altura / largura da 1ª página (atualizado em iniciar)
 
@@ -171,6 +173,27 @@ export class RenderizadorPdf {
     return t;
   }
 
+  /** Linhas de texto com posição (pontos do PDF, origem no alto à esquerda), para o mapa por questão. */
+  posicoes(n: number): Promise<PaginaTexto> {
+    let t = this.posTextos.get(n);
+    if (!t) {
+      t = this.pagina(n).then(async (p) => {
+        const v = p.getViewport({ scale: 1 });
+        const c = await p.getTextContent();
+        const itens: { s: string; x: number; y: number; w: number; h: number }[] = [];
+        for (const it of c.items as { str?: string; transform?: number[]; width?: number; height?: number }[]) {
+          if (!it.str?.trim() || !it.transform) continue;
+          const [x, y] = v.convertToViewportPoint(it.transform[4], it.transform[5]);
+          const h = it.height || Math.abs(it.transform[3]);
+          itens.push({ s: it.str, x, y: y - h, w: it.width ?? 0, h });
+        }
+        return { n, largura: v.width, altura: v.height, segs: segmentar(itens) };
+      });
+      this.posTextos.set(n, t);
+    }
+    return t;
+  }
+
   destruir() {
     if (this.destruido) return;
     this.destruido = true;
@@ -182,6 +205,7 @@ export class RenderizadorPdf {
     this.cache.clear();
     this.paginas.clear();
     this.textos.clear();
+    this.posTextos.clear();
     void this.doc.loadingTask.destroy();
   }
 }
@@ -274,4 +298,49 @@ export async function lerGabarito(doc: PDFDocumentProxy, dia: 1 | 2, idioma: "in
   for (let q = de; q <= ate; q++) if (!respostas.has(q)) completo = false;
   if (dia === 1 && !idioma) for (let q = 1; q <= 5; q++) if ((respostas.get(q)?.respostas.length ?? 0) !== 2) completo = false;
   return { respostas, completo, esperadas: ate - de + 1 };
+}
+
+// ---------------------------------------------------------------- modo por questão
+
+/** Lê a posição do texto de todas as páginas e monta o mapa por questão (ver lib/leitor/questoes.ts). */
+export async function mapearPorQuestao(r: RenderizadorPdf, dia: 1 | 2, idioma: IdiomaQuestao, aoAvancar?: (feitas: number) => void): Promise<MapaQuestoes & { paginas: Record<number, { largura: number; altura: number }> }> {
+  const paginas: PaginaTexto[] = [];
+  for (let n = 1; n <= r.total; n++) {
+    paginas.push(await r.posicoes(n));
+    aoAvancar?.(n);
+    if (n % 4 === 0) await new Promise((ok) => setTimeout(ok, 0));
+  }
+  const mapa = mapearQuestoes(paginas, dia, idioma);
+  return { ...mapa, paginas: Object.fromEntries(paginas.map((p) => [p.n, { largura: p.largura, altura: p.altura }])) };
+}
+
+/**
+ * Recorta uma região de uma página já desenhada: copia o trecho do canvas da página para um canvas novo e tira as
+ * faixas brancas de cima e de baixo (a região vai até o fim da coluna; a questão em si pode acabar antes).
+ */
+export function recortarRegiao(pagina: HTMLCanvasElement, larguraPaginaPt: number, reg: Regiao): HTMLCanvasElement {
+  const k = pagina.width / larguraPaginaPt;
+  const sx = Math.max(0, Math.floor(reg.x * k)), sy = Math.max(0, Math.floor(reg.y * k));
+  const sw = Math.min(pagina.width - sx, Math.ceil(reg.w * k)), sh = Math.min(pagina.height - sy, Math.ceil(reg.h * k));
+  const c = document.createElement("canvas");
+  c.width = Math.max(1, sw); c.height = Math.max(1, sh);
+  const ctx = c.getContext("2d", { willReadFrequently: true });
+  if (!ctx) return c;
+  ctx.drawImage(pagina, sx, sy, sw, sh, 0, 0, sw, sh);
+  const dados = ctx.getImageData(0, 0, c.width, c.height).data;
+  const linhaTemTinta = (y: number) => {
+    for (let x = 0; x < c.width; x += 3) { const i = (y * c.width + x) * 4; if (dados[i] < 230 || dados[i + 1] < 230 || dados[i + 2] < 230) return true; }
+    return false;
+  };
+  let ini = 0, fim = c.height - 1;
+  while (ini < fim && !linhaTemTinta(ini)) ini++;
+  while (fim > ini && !linhaTemTinta(fim)) fim--;
+  const folga = Math.round(6 * k);
+  ini = Math.max(0, ini - folga); fim = Math.min(c.height - 1, fim + folga);
+  if (ini === 0 && fim === c.height - 1) return c;
+  const out = document.createElement("canvas");
+  out.width = c.width; out.height = Math.max(1, fim - ini + 1);
+  out.getContext("2d")?.drawImage(c, 0, ini, c.width, out.height, 0, 0, c.width, out.height);
+  c.width = 0; c.height = 0;
+  return out;
 }

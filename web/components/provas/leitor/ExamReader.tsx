@@ -15,6 +15,7 @@ import { ReaderToolbar } from "./ReaderToolbar";
 import { ReaderSettings } from "./ReaderSettings";
 import { ExamNavigation } from "./ExamNavigation";
 import { AnswerKeyViewer } from "./AnswerKeyViewer";
+import { QuestionViewer, type ApiQuestoes } from "./QuestionViewer";
 
 export type ProvaLeitor = {
   id: string; titulo: string; subtitulo: string; identificacao: string; dia: 1 | 2; idioma: "ingles" | "espanhol" | null; areas: Area[];
@@ -40,6 +41,7 @@ export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; ao
   const mesa = useRef<HTMLDivElement>(null); // área rolável do livro (quando ampliado)
   const livro = useRef<ApiLivro>(null);
   const irParaLeitura = useRef<((n: number) => void) | null>(null);
+  const questoes = useRef<ApiQuestoes>(null);
 
   const [doc, setDoc] = useState<Doc>("prova");
   const [r, setR] = useState<RenderizadorPdf | null>(null);
@@ -144,7 +146,7 @@ export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; ao
     const pagina = medidaNitida(base * zoom, prop);
     const leituraBase = Math.min(W, 920);
     // "Ajustar à largura": a dupla (ou a página, no modo leitura) ocupa toda a largura do palco.
-    const largura = docAtual === "leitura" ? W / leituraBase : W / (base * (retrato ? 1 : 2));
+    const largura = docAtual !== "livro" ? W / leituraBase : W / (base * (retrato ? 1 : 2));
     return { larguraPagina: pagina.largura, alturaPagina: pagina.altura, larguraLeitura: medidaNitida(leituraBase * zoom, prop).largura, zoomLargura: Math.min(3, Math.floor(largura * 100) / 100) };
   }, [medidas, prop, retrato, zoom, docAtual, densidade]); // eslint-disable-line react-hooks/exhaustive-deps
   const ampliado = docAtual === "livro" && zoom > 1;
@@ -171,7 +173,8 @@ export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; ao
     if (!total) return;
     const alvo = Math.max(1, Math.min(total, n));
     setAviso(null);
-    if (docAtual === "leitura") irParaLeitura.current?.(alvo);
+    if (docAtual === "questao") setModo("livro");
+    else if (docAtual === "leitura") irParaLeitura.current?.(alvo);
     else if (animacoes) livro.current?.irPara(alvo);
     mudarPagina(alvo);
     if (painel === "indice" && medidas.w < 760) setPainel(null);
@@ -180,6 +183,7 @@ export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; ao
   const passo = (dir: 1 | -1) => {
     if (!total) return;
     setAviso(null);
+    if (docAtual === "questao") { if (dir > 0) questoes.current?.proxima(); else questoes.current?.anterior(); return; }
     if (docAtual === "livro" && animacoes) { if (dir > 0) livro.current?.proxima(); else livro.current?.anterior(); return; }
     if (docAtual === "livro" && !retrato) {
       const alvo = dir > 0 ? (pagina === 1 ? 2 : dupla[0] + 2) : (dupla[0] <= 2 ? 1 : dupla[0] - 2);
@@ -345,7 +349,7 @@ export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; ao
           <button type="button" className="botao botao-pequeno" onClick={() => { setDoc("prova"); setPagina(estudo.ultimaPagina ?? 1); }}>Voltar à prova</button>
         </div>
       )}
-      {aviso && doc === "prova" && r && (
+      {aviso && doc === "prova" && r && docAtual !== "questao" && (
         <div className="leitor-faixa leve" role="status">
           <span>{aviso}</span>
           <button type="button" className="link-botao" onClick={() => { setAviso(null); irPara(1); }}>Começar do início</button>
@@ -373,6 +377,13 @@ export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; ao
               <div className="barra-progresso" aria-hidden="true"><span style={{ width: `${carregandoPct ?? 8}%` }} className={carregandoPct == null ? "indeterminada" : ""} /></div>
               <p>Baixando {doc === "prova" ? "a prova" : "o gabarito"} do site do Inep{progresso?.total ? ` · ${megas(progresso.carregado)} de ${megas(progresso.total)}` : ` · ${megas(arquivo.bytes)}`}</p>
               {lento && <p className="miudo">A conexão está lenta. Se preferir, <a href={arquivo.url} target="_blank" rel="noopener">abra o PDF oficial</a> direto.</p>}
+            </div>
+          ) : docAtual === "questao" ? (
+            <div className="leitura-rolagem">
+              <QuestionViewer ref={questoes} r={r} provaId={prova.id} dia={prova.dia} idiomaCaderno={prova.idioma} gabarito={prova.gabarito} fonte={prova.titulo}
+                largura={layout.larguraLeitura} inicial={estudo.ultimaQuestao} aoMudar={(k) => atualizarEstudo((e) => ({ ...e, ultimaQuestao: k }))}
+                aoVerNoCaderno={(n) => { setModo("livro"); mudarPagina(n); registrar("enem_modo_leitura_alterado", { prova: prova.id, modo: "livro" }); }}
+                revisar={estudo.revisar} alternarRevisar={(q) => atualizarEstudo((e) => ({ ...e, revisar: e.revisar.includes(q) ? e.revisar.filter((x) => x !== q) : [...e.revisar, q] }))} />
             </div>
           ) : docAtual === "leitura" ? (
             <div className="leitura-rolagem">

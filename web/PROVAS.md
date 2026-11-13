@@ -63,6 +63,20 @@ Não publique 2026 antes de os arquivos estarem na página oficial.
 
 O tipo `QuestaoIndexada` em `lib/provas-tipos.ts` já descreve o formato. O filtro "Disciplina" aparece como "em preparação".
 
+**Modo "Por questão" (Enem, Etapa 2):**
+- Terceiro modo do leitor, ao lado de Caderno e Rolagem. Mostra uma questão por vez, desenhada a partir do PDF oficial do Inep: o leitor desenha a página no navegador e mostra só o retângulo da questão (`recortarRegiao` em `lib/leitor/pdf.ts`). Nada é copiado, hospedado ou reescrito, e a resposta fica escondida até "Ver resposta". Sem cronômetro, pontuação nem correção. Licença: o conteúdo do Inep é CC BY-ND, e a decisão de exibir recortes por questão foi do Kayque (13/11/2026). A fonte aparece sob cada questão.
+- O mapa de onde está cada questão é calculado no navegador, a partir da posição do texto no PDF (`lib/leitor/questoes.ts`, função pura). Regras: cabeçalho "QUESTÃO NN" (mesmo quebrado em pedaços); página de uma ou duas colunas deduzida do texto; ordem de leitura esquerda→direita, página a página; a questão vai até o próximo cabeçalho ou marcador e continua no topo da coluna seguinte se for preciso. Os marcadores são título de área, "Questões de 46 a 90", "PROPOSTA DE REDAÇÃO" e "INSTRUÇÕES PARA A REDAÇÃO". "Texto para as questões 06 a 10" vira texto de apoio, mostrado antes de cada questão da faixa. Faixas de cabeçalho/rodapé ficam de fora: marca d'água "ENEM2025…", código de barras, número de página ou linha que se repete na borda. Depois da última página com questão vem a contracapa, que fica de fora.
+- Questões 01 a 05 do 1º dia: uma por idioma, com seletor Inglês/Espanhol (ou só a do idioma, nos cadernos digitais). A resposta vem do gabarito oficial já lido pelo leitor (`lerGabarito`); anulada aparece como anulada.
+- **Só é oferecido quando o mapa fecha**: exatamente as 90 questões do caderno (95 no 1º dia impresso, por causa dos dois idiomas), cada uma com recorte. Se não fecha, aparece um aviso e nenhum recorte, para não mostrar questão cortada ou misturada.
+- Guarda no navegador onde a pessoa parou (`Estudo.ultimaQuestao`) e usa as mesmas marcações "revisar" do índice. "Ver no caderno" volta ao modo Caderno na página da questão.
+- **Conferência nos PDFs reais (13/11/2026)**, no navegador do Kayque, com o PDF.js da mesma versão do site:
+  - **Amostra:** 60 cadernos de 2021 a 2025, um por ano × aplicação (regular, reaplicação, Belém, digital) × dia × variante (cor, braile/ledor, libras, idioma digital).
+  - **Contagem:** 59 fecham.
+  - **Falha:** só o 2023 reaplicação, 2º dia, caderno 5. A questão 146 não tem o cabeçalho na camada de texto do PDF, então o modo fica indisponível nesse caderno, como deve.
+  - **Visual:** 12 questões conferidas a olho. Incluem coluna dupla, largura total, questão partida entre colunas, texto de apoio (06–10 de 2025), espanhol, a 45 antes da redação, a última do caderno (2021 e 2022 reaplicação) e uma digital.
+  - **Defeito conhecido:** em 2021–2022, um recorte que começa no topo da coluna direita pode trazer, no canto, um pedaço do texto vertical decorativo da página ("…do Ensino Médio").
+  - **Escopo da amostra:** as demais cores de cada aplicação têm a mesma diagramação, mas não foram abertas uma a uma.
+
 **Acessibilidade:**
 - Tudo funciona por teclado: ← e →, e Esc fecha o painel ou sai da tela cheia. As teclas não são capturadas em campos de texto.
 - Todos os botões têm nome acessível.
@@ -88,6 +102,10 @@ O teste cobre:
 - índice de questões, marcados e gabarito (q3, q46, q90);
 - modo leitura, zoom, livro sem animação e tela cheia/Esc;
 - download oficial, rede lenta e erro.
+
+Modo por questão:
+- `npm test` roda `tests/questoes.test.cjs`, com regras do mapa em páginas sintéticas: colunas, continuação, apoio, seções, idiomas, faixas sem marca d'água, cadernos digitais, contracapa e questão faltando.
+- `tests/questoes.e2e.mjs` é o teste de ponta a ponta. Usa cadernos e gabaritos **sintéticos** com a diagramação do Enem, servidos no lugar dos do Inep. Cobre separação, recorte, "Ver resposta", anulada, idioma, texto de apoio, revisar, retomar onde parou, "Ver no caderno", celular e o aviso quando o mapa não fecha. Os PDFs sintéticos não são versionados; o gerador é `tests/fixtures/gerar_cadernos_sinteticos.py`.
 
 ## Outros vestibulares (Fuvest, Unicamp)
 

@@ -1,7 +1,7 @@
 // Preferências do leitor e marcações de estudo. Tudo fica só neste navegador (localStorage); nada vai para servidor.
 // Leitura e escrita sempre em try/catch: em aba anônima ou com armazenamento bloqueado, o leitor funciona igual, só não lembra.
 
-export type ModoLeitor = "livro" | "leitura";
+export type ModoLeitor = "livro" | "leitura" | "questao";
 export type Preferencias = { modo: ModoLeitor | null; animacoes: boolean | null; som: boolean };
 const CHAVE_PREF = "ondepasso.leitor";
 
@@ -9,7 +9,7 @@ export function lerPreferencias(): Preferencias {
   try {
     const v = JSON.parse(localStorage.getItem(CHAVE_PREF) ?? "{}") as Partial<Preferencias>;
     return {
-      modo: v.modo === "livro" || v.modo === "leitura" ? v.modo : null,
+      modo: v.modo === "livro" || v.modo === "leitura" || v.modo === "questao" ? v.modo : null,
       animacoes: typeof v.animacoes === "boolean" ? v.animacoes : null,
       som: v.som === true, // som de papel: desligado por padrão
     };
@@ -24,14 +24,16 @@ export const prefereMenosMovimento = () => typeof window !== "undefined" && wind
 
 // ---------------------------------------------------------------- estudo (por prova)
 
-export type Estudo = { marcadores: number[]; revisar: number[]; ultimaPagina: number | null; em?: number };
+/** `ultimaQuestao`: onde a pessoa parou no modo por questão ("12" ou "3-espanhol"). */
+export type Estudo = { marcadores: number[]; revisar: number[]; ultimaPagina: number | null; ultimaQuestao?: string; em?: number };
 const chaveEstudo = (id: string) => `ondepasso.estudo.${id}`;
 
 export function lerEstudo(id: string): Estudo {
   try {
     const v = JSON.parse(localStorage.getItem(chaveEstudo(id)) ?? "{}") as Partial<Estudo>;
     const nums = (a: unknown) => (Array.isArray(a) ? a.filter((n) => Number.isInteger(n) && n > 0 && n < 1000) : []) as number[];
-    return { marcadores: nums(v.marcadores), revisar: nums(v.revisar), ultimaPagina: Number.isInteger(v.ultimaPagina) ? (v.ultimaPagina as number) : null, em: typeof v.em === "number" ? v.em : undefined };
+    return { marcadores: nums(v.marcadores), revisar: nums(v.revisar), ultimaPagina: Number.isInteger(v.ultimaPagina) ? (v.ultimaPagina as number) : null,
+      ultimaQuestao: typeof v.ultimaQuestao === "string" && /^\d{1,3}(-(ingles|espanhol))?$/.test(v.ultimaQuestao) ? v.ultimaQuestao : undefined, em: typeof v.em === "number" ? v.em : undefined };
   } catch { return { marcadores: [], revisar: [], ultimaPagina: null }; }
 }
 export function salvarEstudo(id: string, e: Estudo) {

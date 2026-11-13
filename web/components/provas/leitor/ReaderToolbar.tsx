@@ -16,6 +16,7 @@ const I = {
   sair: <path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" />,
   livro: <><path d="M12 6C10.5 4.8 8 4.4 4 4.4v14c4 0 6.5.4 8 1.6 1.5-1.2 4-1.6 8-1.6v-14c-4 0-6.5.4-8 1.6Z" /><path d="M12 6v14" /></>,
   rolagem: <><rect x="6" y="3" width="12" height="8" rx="1" /><rect x="6" y="13" width="12" height="8" rx="1" /></>,
+  questao: <><rect x="4" y="4" width="16" height="16" rx="2" /><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14M12 17h.01" /></>,
 };
 function Icone({ d }: { d: React.ReactNode }) {
   return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{d}</svg>;
@@ -77,8 +78,9 @@ export function ReaderToolbar(p: Props) {
         </div>
         <i className="li-div leitor-zoom" aria-hidden="true" />
         <div className="leitor-modo" role="radiogroup" aria-label="Modo de leitura">
-          <button type="button" role="radio" aria-checked={p.modo === "livro"} className={p.modo === "livro" ? "ativo" : ""} onClick={() => p.mudarModo("livro")} title="Folhear como um caderno"><Icone d={I.livro} /><span>Caderno</span></button>
-          <button type="button" role="radio" aria-checked={p.modo === "leitura"} className={p.modo === "leitura" ? "ativo" : ""} onClick={() => p.mudarModo("leitura")} title="Ler rolando a página"><Icone d={I.rolagem} /><span>Rolagem</span></button>
+          <button type="button" role="radio" aria-checked={p.modo === "livro"} className={p.modo === "livro" ? "ativo" : ""} onClick={() => p.mudarModo("livro")} aria-label="Caderno" title="Folhear como um caderno"><Icone d={I.livro} /><span>Caderno</span></button>
+          <button type="button" role="radio" aria-checked={p.modo === "leitura"} className={p.modo === "leitura" ? "ativo" : ""} onClick={() => p.mudarModo("leitura")} aria-label="Rolagem" title="Ler rolando a página"><Icone d={I.rolagem} /><span>Rolagem</span></button>
+          <button type="button" role="radio" aria-checked={p.modo === "questao"} className={p.modo === "questao" ? "ativo" : ""} onClick={() => p.mudarModo("questao")} aria-label="Por questão" title="Uma questão por vez, com a resposta escondida"><Icone d={I.questao} /><span>Por questão</span></button>
         </div>
       </div>
     </>
