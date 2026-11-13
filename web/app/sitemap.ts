@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/universidades/`, lastModified, priority: 0.9 },
     { url: `${SITE}/provas/`, lastModified: new Date(acervo().verificadoEm), priority: 0.9 },
     ...acervo().provas.map((p) => ({ url: `${SITE}/provas/${p.id}/`, lastModified: new Date(acervo().verificadoEm), priority: p.modalidade === "regular" ? 0.7 : 0.5 })),
+    ...acervo().exames.map((e) => ({ url: `${SITE}/provas/${e.id}/`, priority: 0.6 })),
     ...universidades().lista.map((u) => ({ url: `${SITE}/universidades/${u.slug}/`, lastModified, priority: 0.7 })),
     ...cursos.flatMap((c) => [
       { url: `${SITE}/curso/${c.slug}/`, lastModified, priority: 0.8 },

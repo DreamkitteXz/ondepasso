@@ -1,0 +1,7 @@
+{
+ "motivo": "O catálogo da Unicamp ainda não foi importado: as páginas do acervo da Comvest não puderam ser lidas na coleta de 13/11/2026.",
+ "registradoEm": "2026-11-13",
+ "detalhe": "As páginas https://www.comvest.unicamp.br/vestibulares-anteriores/ e https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/ recusam a ferramenta de leitura usada na coleta (robots.txt), e o ambiente não alcança o site por outro caminho. Nenhum link foi transcrito, para não registrar documento não confirmado.",
+ "comoResolver": "Abrir as páginas do acervo num navegador comum, salvar os links das provas de ingresso 2022 a 2026 (1ª e 2ª fases, todas as versões, gabaritos, expectativas de resposta e redação) em dados/vestibulares/unicamp-links-<data>.json, no mesmo formato do arquivo da Fuvest, e escrever as regras de importação em pipeline/provas_vestibulares.py.",
+ "condicoesDeUso": "A Comvest publica condições de reprodução parcial das provas. Antes de qualquer leitura integrada, conferir essas condições; até lá, o acesso é só pelo link oficial."
+}

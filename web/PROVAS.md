@@ -1,6 +1,6 @@
-# Biblioteca de provas do Enem (`/provas`)
+# Biblioteca de provas (`/provas`)
 
-Biblioteca das provas oficiais do Enem (2021 a 2025) com um leitor que folheia como um caderno.
+Biblioteca das provas oficiais do Enem (2021 a 2025), com um leitor que folheia como um caderno, e catálogo das provas de outros vestibulares (hoje: Fuvest, ingresso 2022 a 2026), com link para o site oficial. A parte de outros vestibulares está na seção [Outros vestibulares](#outros-vestibulares-fuvest-unicamp), no fim.
 
 ## Rotas
 
@@ -88,3 +88,20 @@ O teste cobre:
 - índice de questões, marcados e gabarito (q3, q46, q90);
 - modo leitura, zoom, livro sem animação e tela cheia/Esc;
 - download oficial, rede lenta e erro.
+
+## Outros vestibulares (Fuvest, Unicamp)
+
+Plano, andamento e pendências: documento `claude/provas-vestibulares.md` do projeto.
+
+**Modelo.** O Enem continua no tipo `Prova` (um item por caderno), sem mudança de ids, URLs, favoritos ou progresso. Os outros vestibulares usam o tipo `Exame` (`lib/provas-tipos.ts`): vestibular + edição (ano de ingresso) + fase + dia, com as versões do caderno dentro (`versoes`), os documentos complementares (`complementares`: gabarito, respostas esperadas, abordagem da redação) e as lacunas (`lacunas`, com um de quatro estados: não publicado, não encontrado, fora do ar, não se aplica). Cada documento traz `acesso` (`leitor` ou `oficial`) e `procedencia` (página, seção, texto do link, data da coleta e tipo de conferência).
+
+**Dados.**
+1. Os links das páginas oficiais do acervo ficam em `dados/vestibulares/<vestibular>-links-<data>.json`, com a seção e o texto de cada link, o método e os limites da coleta.
+2. `python3 pipeline/provas_vestibulares.py` gera `dados/saida/site/vestibulares.json` e a auditoria `dados/vestibulares/cobertura.json` (o que entrou, o que ficou de fora e por quê, lacunas). Um link de prova que nenhuma regra reconhece para o script.
+3. Sem arquivo de links, o vestibular aparece como "em preparação", com o motivo em `dados/vestibulares/<vestibular>-pendencia.json`.
+
+**Acesso.** Os PDFs da Fuvest e da Comvest não respondem com `Access-Control-Allow-Origin`, então o leitor do site não pode abri-los. Todo documento desses vestibulares é `acesso: "oficial"`: o site só leva ao arquivo no servidor oficial, em outra aba. Não há proxy, cópia nem recorte dos arquivos.
+
+**Interface.** `ExamFilters` ganhou vestibular e fase; `ExamLibrary` lista primeiro o Enem (como antes) e depois uma seção por vestibular e edição; `ExameCard` é o cartão com o seletor de versão (o gabarito mostrado é sempre o da versão escolhida, `gabaritoDaVersao`); `PaginaExame` é a página `/provas/<id>/` de um exame. Filtros que só existem no Enem (cor, área, aplicação, acessíveis) tiram os exames da lista, e a fase tira o Enem.
+
+**Testes.** `npm test` inclui `tests/provas.test.cjs`: ids e agrupamento do Enem, catálogo por edição, vínculo versão × gabarito, discursivas, redação, lacunas, filtros e URL.

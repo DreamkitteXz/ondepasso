@@ -1,0 +1,196 @@
+{
+ "vestibulares": {
+  "fuvest": {
+   "estado": "catalogado",
+   "arquivo": "fuvest-links-2026-11-13.json",
+   "coletadoEm": "2026-11-13",
+   "metodo": "Páginas oficiais do acervo (uma por edição) lidas em 13/11/2026 por ferramenta de leitura de páginas, que devolve os links de cada seção. As seções 'Provas e Gabaritos', 'Simulado' e 'Competências Específicas' foram transcritas por inteiro; Documentos, Listas e Estatísticas ficaram de fora.",
+   "limites": [
+    "Os arquivos NÃO foram conferidos um a um (HEAD/tamanho): o ambiente de coleta não alcança fuvest.br diretamente. Cada item vale como 'listado na página oficial'.",
+    "A leitura passa por um modelo que transcreve os links; um erro de transcrição é possível e deve ser pego na conferência manual dos links."
+   ],
+   "linksColetados": 64,
+   "linksUsados": 49,
+   "linksFora": 15,
+   "exames": 15,
+   "cadernos": 33,
+   "porEdicao": {
+    "2026": {
+     "exames": [
+      "fuvest-2026-1a-fase",
+      "fuvest-2026-2a-fase-1o-dia",
+      "fuvest-2026-2a-fase-2o-dia"
+     ],
+     "cadernos": 6,
+     "complementares": 9
+    },
+    "2025": {
+     "exames": [
+      "fuvest-2025-1a-fase",
+      "fuvest-2025-2a-fase-1o-dia",
+      "fuvest-2025-2a-fase-2o-dia"
+     ],
+     "cadernos": 6,
+     "complementares": 2
+    },
+    "2024": {
+     "exames": [
+      "fuvest-2024-1a-fase",
+      "fuvest-2024-2a-fase-1o-dia",
+      "fuvest-2024-2a-fase-2o-dia"
+     ],
+     "cadernos": 7,
+     "complementares": 2
+    },
+    "2023": {
+     "exames": [
+      "fuvest-2023-1a-fase",
+      "fuvest-2023-2a-fase-1o-dia",
+      "fuvest-2023-2a-fase-2o-dia"
+     ],
+     "cadernos": 7,
+     "complementares": 2
+    },
+    "2022": {
+     "exames": [
+      "fuvest-2022-1a-fase",
+      "fuvest-2022-2a-fase-1o-dia",
+      "fuvest-2022-2a-fase-2o-dia"
+     ],
+     "cadernos": 7,
+     "complementares": 1
+    }
+   },
+   "lacunas": [
+    {
+     "exame": "fuvest-2022-2a-fase-1o-dia",
+     "tipo": "respostas-esperadas",
+     "estado": "nao-encontrado",
+     "nota": "A página do acervo desta edição não lista respostas ou abordagens esperadas da 2ª fase."
+    },
+    {
+     "exame": "fuvest-2022-2a-fase-2o-dia",
+     "tipo": "respostas-esperadas",
+     "estado": "nao-encontrado",
+     "nota": "A página do acervo desta edição não lista respostas ou abordagens esperadas da 2ª fase."
+    }
+   ],
+   "fora": [
+    {
+     "edicao": 2026,
+     "texto": "Notas de Corte",
+     "secao": "Provas e Gabaritos › Primeira Fase",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026_notas_de_corte.pdf",
+     "motivo": "não é prova nem gabarito"
+    },
+    {
+     "edicao": 2026,
+     "texto": "Prova S1",
+     "secao": "Simulado da 1ª fase",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-simulado-fase1-prova-S1.pdf",
+     "motivo": "simulado (não é prova do vestibular)"
+    },
+    {
+     "edicao": 2026,
+     "texto": "Prova S2",
+     "secao": "Simulado da 1ª fase",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-simulado-fase1-prova-S2.pdf",
+     "motivo": "simulado (não é prova do vestibular)"
+    },
+    {
+     "edicao": 2026,
+     "texto": "Prova S3",
+     "secao": "Simulado da 1ª fase",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-simulado-fase1-prova-S3.pdf",
+     "motivo": "simulado (não é prova do vestibular)"
+    },
+    {
+     "edicao": 2026,
+     "texto": "Prova S4",
+     "secao": "Simulado da 1ª fase",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-simulado-fase1-prova-S4.pdf",
+     "motivo": "simulado (não é prova do vestibular)"
+    },
+    {
+     "edicao": 2026,
+     "texto": "Gabarito",
+     "secao": "Simulado da 1ª fase",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-simulado-fase1-gabarito.pdf",
+     "motivo": "simulado (não é prova do vestibular)"
+    },
+    {
+     "edicao": 2026,
+     "texto": "Propostas de Redação e Abordagens Esperadas",
+     "secao": "Simulado de Redação",
+     "url": "https://www.fuvest.br/wp-content/uploads/simulado_de_redacao_2025.pdf",
+     "motivo": "simulado (não é prova do vestibular)"
+    },
+    {
+     "edicao": 2025,
+     "texto": "Notas de Corte",
+     "secao": "Provas e Gabaritos › Primeira Fase",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2025_notas_de_corte.pdf",
+     "motivo": "não é prova nem gabarito"
+    },
+    {
+     "edicao": 2025,
+     "texto": "Prova – Artes Visuais",
+     "secao": "Provas e Gabaritos › Competências Específicas",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova_artes-visuais.pdf",
+     "motivo": "prova de competências/habilidades específicas (fora desta entrega)"
+    },
+    {
+     "edicao": 2025,
+     "texto": "Prova – Música – São Paulo",
+     "secao": "Provas e Gabaritos › Competências Específicas",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova-musica-sp.pdf",
+     "motivo": "prova de competências/habilidades específicas (fora desta entrega)"
+    },
+    {
+     "edicao": 2025,
+     "texto": "Prova escrita – Arte Cênicas",
+     "secao": "Provas e Gabaritos › Competências Específicas",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova-escrita_artes-cenicas.pdf",
+     "motivo": "prova de competências/habilidades específicas (fora desta entrega)"
+    },
+    {
+     "edicao": 2025,
+     "texto": "Prova prática – Arte Cênicas",
+     "secao": "Provas e Gabaritos › Competências Específicas",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova-pratica-artes-cenicas.pdf",
+     "motivo": "prova de competências/habilidades específicas (fora desta entrega)"
+    },
+    {
+     "edicao": 2024,
+     "texto": "Notas de Corte",
+     "secao": "Provas e Gabaritos › Primeira Fase",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2024_notas_de_corte.pdf",
+     "motivo": "não é prova nem gabarito"
+    },
+    {
+     "edicao": 2023,
+     "texto": "Notas de Corte",
+     "secao": "Provas e Gabaritos › Primeira Fase",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_notas_de_corte.pdf",
+     "motivo": "não é prova nem gabarito"
+    },
+    {
+     "edicao": 2022,
+     "texto": "Notas de Corte",
+     "secao": "Provas e Gabaritos › Primeira Fase",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_notas_de_corte.pdf",
+     "motivo": "não é prova nem gabarito"
+    }
+   ],
+   "conferenciaPendente": "Conferir cada link (HEAD) e abrir os PDFs para confirmar data de aplicação, número de questões e retificações."
+  },
+  "unicamp": {
+   "estado": "pendente",
+   "motivo": "O catálogo da Unicamp ainda não foi importado: as páginas do acervo da Comvest não puderam ser lidas na coleta de 13/11/2026.",
+   "registradoEm": "2026-11-13",
+   "detalhe": "As páginas https://www.comvest.unicamp.br/vestibulares-anteriores/ e https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/ recusam a ferramenta de leitura usada na coleta (robots.txt), e o ambiente não alcança o site por outro caminho. Nenhum link foi transcrito, para não registrar documento não confirmado.",
+   "comoResolver": "Abrir as páginas do acervo num navegador comum, salvar os links das provas de ingresso 2022 a 2026 (1ª e 2ª fases, todas as versões, gabaritos, expectativas de resposta e redação) em dados/vestibulares/unicamp-links-<data>.json, no mesmo formato do arquivo da Fuvest, e escrever as regras de importação em pipeline/provas_vestibulares.py.",
+   "condicoesDeUso": "A Comvest publica condições de reprodução parcial das provas. Antes de qualquer leitura integrada, conferir essas condições; até lá, o acesso é só pelo link oficial."
+  }
+ }
+}

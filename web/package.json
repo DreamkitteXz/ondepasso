@@ -8,7 +8,7 @@
     "prebuild": "node scripts/copiar-pdfjs.mjs && node scripts/gerar-ads-txt.mjs",
     "build": "next build",
     "start": "npx serve out",
-    "test": "tsc lib/formato.ts lib/minhas.ts --outDir .test-build --module commonjs --target ES2020 --esModuleInterop --skipLibCheck && node --test tests/*.test.cjs"
+    "test": "tsc lib/formato.ts lib/minhas.ts lib/provas-tipos.ts --outDir .test-build --module commonjs --target ES2020 --esModuleInterop --skipLibCheck && node --test tests/*.test.cjs"
   },
   "dependencies": {
     "@fontsource/faustina": "5.3.0",

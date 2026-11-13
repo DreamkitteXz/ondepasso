@@ -1,0 +1,1258 @@
+{
+ "geradoDe": {
+  "fuvest": "fuvest-links-2026-11-13.json"
+ },
+ "vestibulares": [
+  {
+   "id": "fuvest",
+   "nome": "Fuvest",
+   "instituicao": "USP",
+   "acervo": "https://www.fuvest.br/acervo-vestibular/",
+   "estado": "catalogado",
+   "coletadoEm": "2026-11-13",
+   "acesso": "oficial",
+   "motivoAcesso": "O servidor oficial não libera a leitura dos PDFs dentro de outros sites.",
+   "edicoes": [
+    2026,
+    2025,
+    2024,
+    2023,
+    2022
+   ],
+   "exames": 15
+  },
+  {
+   "id": "unicamp",
+   "nome": "Unicamp",
+   "instituicao": "Unicamp (Comvest)",
+   "acervo": "https://www.comvest.unicamp.br/vestibulares-anteriores/",
+   "estado": "pendente",
+   "pendencia": "O catálogo da Unicamp ainda não foi importado: as páginas do acervo da Comvest não puderam ser lidas na coleta de 13/11/2026.",
+   "exames": 0
+  }
+ ],
+ "exames": [
+  {
+   "id": "fuvest-2026-1a-fase",
+   "vestibular": "fuvest",
+   "edicao": 2026,
+   "fase": 1,
+   "dia": null,
+   "dataAplicacao": "2025-11-23",
+   "nomeProva": "Prova de Conhecimentos Gerais",
+   "tipoQuestoes": "objetiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "V1",
+     "rotulo": "Prova V1",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova V1",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V1.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova 2026 V1",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "V2",
+     "rotulo": "Prova V2",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova V2",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V2.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova 2026 V2",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "V3",
+     "rotulo": "Prova V3",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova V3",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V3.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova 2026 V3",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "V4",
+     "rotulo": "Prova V4",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova V4",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V4.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova 2026 V4",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito oficial (retificado)",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-gabarito.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+      "secao": "Provas e Gabaritos › Primeira Fase",
+      "texto": "Gabaritos de Provas da 1ª fase",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "versoes": "todas",
+     "retificado": true,
+     "retificadoEm": "2025-11-25"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "dataAplicacaoFonte": "Título do PDF oficial: 'Prova de Conhecimentos Gerais FUVEST 2026 23/11/2025 Retificado em 25/11/2025'"
+  },
+  {
+   "id": "fuvest-2026-2a-fase-1o-dia",
+   "vestibular": "fuvest",
+   "edicao": 2026,
+   "fase": 2,
+   "dia": 1,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": true,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia1-prova.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+       "secao": "Provas e Gabaritos › Segunda Fase",
+       "texto": "Prova da 2ª fase – 1º dia",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia1-respostas-esperadas.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Prova da 2ª fase – 1º dia – Respostas Esperadas",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     }
+    },
+    {
+     "tipo": "redacao-abordagem",
+     "rotulo": "Redação: abordagem esperada",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia1-abordagem-esperada-redacao.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Prova da 2ª fase – 1º dia – Redação: Abordagem esperada",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     }
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2026/"
+  },
+  {
+   "id": "fuvest-2026-2a-fase-2o-dia",
+   "vestibular": "fuvest",
+   "edicao": 2026,
+   "fase": 2,
+   "dia": 2,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [
+    "matematica",
+    "fisica",
+    "quimica",
+    "biologia",
+    "historia",
+    "geografia"
+   ],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-prova.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+       "secao": "Provas e Gabaritos › Segunda Fase",
+       "texto": "Prova da 2ª fase – 2º dia",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Matemática",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-matematica.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Respostas esperadas – Matemática",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "disciplina": "matematica"
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Física",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-fisica.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Respostas esperadas – Física",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "disciplina": "fisica"
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Química",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-quimica.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Respostas esperadas – Química",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "disciplina": "quimica"
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Biologia",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-biologia.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Respostas esperadas – Biologia",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "disciplina": "biologia"
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: História",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-historia.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Respostas esperadas – História",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "disciplina": "historia"
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Geografia",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-geografia.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Respostas esperadas – Geografia",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "disciplina": "geografia"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2026/"
+  },
+  {
+   "id": "fuvest-2025-1a-fase",
+   "vestibular": "fuvest",
+   "edicao": 2025,
+   "fase": 1,
+   "dia": null,
+   "dataAplicacao": null,
+   "nomeProva": "Prova de Conhecimentos Gerais",
+   "tipoQuestoes": "objetiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "V1",
+     "rotulo": "Prova V1",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova V1",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V1.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova V1",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "V2",
+     "rotulo": "Prova V2",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova V2",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V2.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova V2",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "V3",
+     "rotulo": "Prova V3",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova V3",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V3.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova V3",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "V4",
+     "rotulo": "Prova V4",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova V4",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V4.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova V4",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito oficial",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_gabarito_primeira_fase.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+      "secao": "Provas e Gabaritos › Primeira Fase",
+      "texto": "Gabarito",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "versoes": "todas"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2025/"
+  },
+  {
+   "id": "fuvest-2025-2a-fase-1o-dia",
+   "vestibular": "fuvest",
+   "edicao": 2025,
+   "fase": 2,
+   "dia": 1,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova_2fase_dia1.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+       "secao": "Provas e Gabaritos › Segunda Fase",
+       "texto": "1º dia",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Guia de Respostas esperadas (2ª fase inteira)",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2025_guia_respostas.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Guia de Respostas esperadas",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "escopo": "fase"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2025/"
+  },
+  {
+   "id": "fuvest-2025-2a-fase-2o-dia",
+   "vestibular": "fuvest",
+   "edicao": 2025,
+   "fase": 2,
+   "dia": 2,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova_2fase_dia2.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+       "secao": "Provas e Gabaritos › Segunda Fase",
+       "texto": "2º dia",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Guia de Respostas esperadas (2ª fase inteira)",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2025_guia_respostas.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Guia de Respostas esperadas",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "escopo": "fase"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2025/"
+  },
+  {
+   "id": "fuvest-2024-1a-fase",
+   "vestibular": "fuvest",
+   "edicao": 2024,
+   "fase": 1,
+   "dia": null,
+   "dataAplicacao": null,
+   "nomeProva": "Prova de Conhecimentos Gerais",
+   "tipoQuestoes": "objetiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "V",
+     "rotulo": "Prova V",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova V",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_V.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova V",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "K",
+     "rotulo": "Prova K",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova K",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_K.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova K",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "Q",
+     "rotulo": "Prova Q",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova Q",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_Q.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova Q",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "X",
+     "rotulo": "Prova X",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova X",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_X.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova X",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "Z",
+     "rotulo": "Prova Z",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova Z",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_Z.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova Z",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito oficial (retificado)",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_gabarito_primeira_fase_retificado_2023-11-24.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+      "secao": "Provas e Gabaritos › Primeira Fase",
+      "texto": "Gabarito",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "versoes": "todas",
+     "retificado": true,
+     "retificadoEm": "2023-11-24"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2024/"
+  },
+  {
+   "id": "fuvest-2024-2a-fase-1o-dia",
+   "vestibular": "fuvest",
+   "edicao": 2024,
+   "fase": 2,
+   "dia": 1,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_segunda_fase_prova_1dia.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+       "secao": "Provas e Gabaritos › Segunda Fase",
+       "texto": "1º Dia",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Abordagens Esperadas (2ª fase inteira)",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2024_2024.01.22_RESPOSTAS_USP_Guia.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Abordagens Esperadas",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "escopo": "fase"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2024/"
+  },
+  {
+   "id": "fuvest-2024-2a-fase-2o-dia",
+   "vestibular": "fuvest",
+   "edicao": 2024,
+   "fase": 2,
+   "dia": 2,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_segunda_fase_prova_2dia.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+       "secao": "Provas e Gabaritos › Segunda Fase",
+       "texto": "2º Dia",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Abordagens Esperadas (2ª fase inteira)",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2024_2024.01.22_RESPOSTAS_USP_Guia.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Abordagens Esperadas",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "escopo": "fase"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2024/"
+  },
+  {
+   "id": "fuvest-2023-1a-fase",
+   "vestibular": "fuvest",
+   "edicao": 2023,
+   "fase": 1,
+   "dia": null,
+   "dataAplicacao": null,
+   "nomeProva": "Prova de Conhecimentos Gerais",
+   "tipoQuestoes": "objetiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "V",
+     "rotulo": "Prova V",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova V",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_V.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova V",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "K",
+     "rotulo": "Prova K",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova K",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_K.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova K",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "Q",
+     "rotulo": "Prova Q",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova Q",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_Q.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova Q",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "X",
+     "rotulo": "Prova X",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova X",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_X.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova X",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "Z",
+     "rotulo": "Prova Z",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova Z",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_Z.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova Z",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito oficial",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_gabarito_primeira_fase.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+      "secao": "Provas e Gabaritos › Primeira Fase",
+      "texto": "Gabarito",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "versoes": "todas"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2023/"
+  },
+  {
+   "id": "fuvest-2023-2a-fase-1o-dia",
+   "vestibular": "fuvest",
+   "edicao": 2023,
+   "fase": 2,
+   "dia": 1,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2023_segunda_fase_dia_1.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+       "secao": "Provas e Gabaritos › Segunda Fase",
+       "texto": "1º Dia",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Abordagens Esperadas (2ª fase inteira)",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_abordagens_esperadas_2fase.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Abordagens Esperadas",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "escopo": "fase"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2023/"
+  },
+  {
+   "id": "fuvest-2023-2a-fase-2o-dia",
+   "vestibular": "fuvest",
+   "edicao": 2023,
+   "fase": 2,
+   "dia": 2,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2023_segunda_fase_dia_2.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+       "secao": "Provas e Gabaritos › Segunda Fase",
+       "texto": "2º Dia",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Abordagens Esperadas (2ª fase inteira)",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_abordagens_esperadas_2fase.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+      "secao": "Provas e Gabaritos › Segunda Fase",
+      "texto": "Abordagens Esperadas",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "escopo": "fase"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2023/"
+  },
+  {
+   "id": "fuvest-2022-1a-fase",
+   "vestibular": "fuvest",
+   "edicao": 2022,
+   "fase": 1,
+   "dia": null,
+   "dataAplicacao": null,
+   "nomeProva": "Prova de Conhecimentos Gerais",
+   "tipoQuestoes": "objetiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "V",
+     "rotulo": "Prova V",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova V",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_V.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova V",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "K",
+     "rotulo": "Prova K",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova K",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_K.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova K",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "Q",
+     "rotulo": "Prova Q",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova Q",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_Q.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova Q",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "X",
+     "rotulo": "Prova X",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova X",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_X.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova X",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    },
+    {
+     "codigo": "Z",
+     "rotulo": "Prova Z",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova Z",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_Z.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+       "secao": "Provas e Gabaritos › Primeira Fase",
+       "texto": "Prova Z",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito oficial (retificado)",
+     "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_gabarito_retificado.pdf",
+     "formato": "pdf",
+     "bytes": null,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+      "secao": "Provas e Gabaritos › Primeira Fase",
+      "texto": "Gabarito",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "listado"
+     },
+     "versoes": "todas",
+     "retificado": true
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2022/"
+  },
+  {
+   "id": "fuvest-2022-2a-fase-1o-dia",
+   "vestibular": "fuvest",
+   "edicao": 2022,
+   "fase": 2,
+   "dia": 1,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_segunda_fase_dia_1.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+       "secao": "Provas e Gabaritos › Segunda Fase",
+       "texto": "1º Dia",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [],
+   "lacunas": [
+    {
+     "tipo": "respostas-esperadas",
+     "estado": "nao-encontrado",
+     "nota": "A página do acervo desta edição não lista respostas ou abordagens esperadas da 2ª fase."
+    }
+   ],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2022/"
+  },
+  {
+   "id": "fuvest-2022-2a-fase-2o-dia",
+   "vestibular": "fuvest",
+   "edicao": 2022,
+   "fase": 2,
+   "dia": 2,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_segunda_fase_dia_2.pdf",
+      "formato": "pdf",
+      "bytes": null,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+       "secao": "Provas e Gabaritos › Segunda Fase",
+       "texto": "2º Dia",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "listado"
+      }
+     }
+    }
+   ],
+   "complementares": [],
+   "lacunas": [
+    {
+     "tipo": "respostas-esperadas",
+     "estado": "nao-encontrado",
+     "nota": "A página do acervo desta edição não lista respostas ou abordagens esperadas da 2ª fase."
+    }
+   ],
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2022/"
+  }
+ ]
+}

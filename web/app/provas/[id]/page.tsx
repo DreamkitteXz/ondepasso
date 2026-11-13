@@ -2,7 +2,9 @@ import { Manchete, SetaBotao } from "@/components/Manchete";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "../../provas.css";
-import { acervo, irmas, outroDia, provaPorId } from "@/lib/provas";
+import { acervo, examePorId, examesDaEdicao, irmas, outroDia, provaPorId } from "@/lib/provas";
+import { descricaoExame, tituloExame } from "@/lib/provas-tipos";
+import { PaginaExame } from "@/components/provas/PaginaExame";
 import { SITE } from "@/lib/site";
 import { AREA_QUESTOES, AREA_ROTULO, IDIOMA_ROTULO, VARIANTE_ROTULO, descricaoProva, diaRotulo, megas, tituloProva } from "@/lib/provas-tipos";
 import { ExamCover } from "@/components/provas/ExamCover";
@@ -12,11 +14,17 @@ import { BotaoSalvar, LinkBaixar } from "@/components/provas/AcoesProva";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return acervo().provas.map((p) => ({ id: p.id }));
+  return [...acervo().provas.map((p) => ({ id: p.id })), ...acervo().exames.map((e) => ({ id: e.id }))];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const p = provaPorId((await params).id);
+  const id = (await params).id;
+  const e = examePorId(id);
+  if (e) {
+    const t = `Prova ${tituloExame(e)}: caderno${e.versoes.length > 1 ? "s" : ""} e ${e.tipoQuestoes === "discursiva" ? "respostas esperadas" : "gabarito"} oficiais`;
+    return { title: t, description: descricaoExame(e), alternates: { canonical: `/provas/${e.id}/` }, openGraph: { title: t, description: descricaoExame(e), url: `${SITE}/provas/${e.id}/`, type: "article" } };
+  }
+  const p = provaPorId(id);
   if (!p) return {};
   const titulo = `Prova ${tituloProva(p)}${p.modalidade !== "regular" ? ` (${p.modalidadeRotulo})` : ""}: PDF e gabarito`;
   return {
@@ -28,7 +36,10 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 }
 
 export default async function PaginaProva({ params }: { params: Promise<{ id: string }> }) {
-  const p = provaPorId((await params).id);
+  const id = (await params).id;
+  const e = examePorId(id);
+  if (e) return <PaginaExame e={e} info={acervo().vestibulares.find((v) => v.id === e.vestibular)} outras={examesDaEdicao(e)} />;
+  const p = provaPorId(id);
   if (!p) notFound();
   const titulo = tituloProva(p);
   const identificacao = `Enem ${p.ano} · ${diaRotulo(p.dia)} · Caderno ${p.caderno} ${p.corRotulo}${p.variante ? ` (${VARIANTE_ROTULO[p.variante]})` : ""}${p.idioma ? ` · ${IDIOMA_ROTULO[p.idioma]}` : ""} · ${p.modalidadeRotulo}`;

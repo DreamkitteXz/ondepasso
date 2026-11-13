@@ -510,3 +510,31 @@ fieldset.seletor-cor, fieldset.seletor-idioma { border: 0; margin: 0; padding: 0
 .mov .prova-grade > *.visto { transition: opacity .8s cubic-bezier(.32,.72,0,1), transform .9s cubic-bezier(.32,.72,0,1); transition-delay: calc(var(--ordem, 0) * 60ms); }
 .leitor-ilha .leitor-pagina { white-space: nowrap; }
 @media (max-width: 759px) { .lt-acoes .so-desktop { display: none; } }
+
+/* ---------- Outros vestibulares (Fuvest, Unicamp): catálogo com link para o site oficial ---------- */
+.controle-vest { grid-area: vest; display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; min-width: 0; }
+.controle-vest .controle-dias { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.controle-dias button[disabled] { color: var(--fg-4); cursor: not-allowed; }
+.controle-dias button small { font-size: 11px; font-weight: 400; margin-left: 2px; }
+.controles.com-vestibular { grid-template-areas: "vest" "anos" "dias" "busca" "extra"; }
+@media (min-width: 640px) { .controles.com-vestibular { grid-template-areas: "vest vest" "anos anos" "dias busca" "extra extra"; } }
+@media (min-width: 1024px) { .controles.com-vestibular { grid-template-areas: "vest vest vest" "anos anos anos" "dias extra busca"; } }
+.prova.exame { grid-template-columns: minmax(0, 1fr); }
+.amostra.versao { padding: 0 14px; min-width: 44px; justify-content: center; font-variant-numeric: lining-nums; }
+.prova-acoes .botao svg, .exame-docs a svg, .exame-lista a svg { flex: none; margin-left: 6px; opacity: .75; }
+.prova-acoes .botao, .exame-lista .botao { display: inline-flex; align-items: center; }
+.exame-docs { list-style: none; margin: 0; padding: 12px 0 0; border-top: 1px solid var(--line-1); display: grid; gap: 8px; font-size: 13.5px; }
+.exame-docs a { display: inline-flex; align-items: center; color: var(--fg-2); text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+.exame-docs a:hover { color: var(--fg-1); text-decoration-color: var(--verde); }
+.exame-falta { color: var(--ambar); font-size: 13.5px; }
+.exame-falta .miudo { color: var(--fg-3); }
+.exame-nota { margin: 0; }
+.exame-cabecalho { grid-template-columns: minmax(0, 1fr); }
+.exame-aviso { margin: 0; padding: 16px 18px; border: 1px solid var(--line-1); border-left: 3px solid var(--ambar); border-radius: 14px; background: var(--panel); font-size: 14px; line-height: 1.55; color: var(--fg-2); max-width: 80ch; }
+.exame-aviso strong { color: var(--fg-1); }
+.exame-bloco { display: grid; gap: 12px; align-content: start; }
+.exame-bloco h2 { margin: 0; }
+.exame-bloco > .miudo { margin: 0; max-width: 62ch; }
+.exame-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.exame-lista li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
+.exame-lista .botao { height: 42px; padding: 0 18px; border-radius: 999px; font-size: 14px; }

@@ -1,5 +1,6 @@
-// Biblioteca de provas do Enem: tipos e funções puras (podem ir para o navegador).
-// Os dados vêm de pipeline/provas_inep.py → dados/saida/site/provas.json (só links oficiais conferidos).
+// Biblioteca de provas: tipos e funções puras (podem ir para o navegador).
+// Enem: pipeline/provas_inep.py → dados/saida/site/provas.json (um item por caderno; tipo Prova).
+// Outros vestibulares: pipeline/provas_vestibulares.py → dados/saida/site/vestibulares.json (tipo Exame, mais abaixo).
 
 export type Arquivo = { url: string; bytes: number; formato: "pdf" | "txt" };
 export type Versao = Arquivo & { tipo: "ampliada" | "superampliada" | "ledor" | "atendimento" | "nvda" | "dosvox" | "outra"; rotulo: string };
@@ -29,7 +30,7 @@ export type Prova = {
 };
 
 export type Extra = Arquivo & { ano: number; tipo: "tema-redacao"; rotulo: string };
-export type Acervo = { verificadoEm: string; fonte: string; anos: number[]; provas: Prova[]; extras: Extra[] };
+export type Acervo = { verificadoEm: string; fonte: string; anos: number[]; provas: Prova[]; extras: Extra[]; exames: Exame[]; vestibulares: InfoVestibular[] };
 
 export const AREA_ROTULO: Record<Area, string> = {
   linguagens: "Linguagens", humanas: "Ciências Humanas", natureza: "Ciências da Natureza", matematica: "Matemática",
@@ -75,7 +76,12 @@ export const semAcento = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "
 // ---------------------------------------------------------------- filtros
 
 export type Filtros = {
+  /** null = todos os vestibulares. */
+  vestibular: Vestibular | null;
+  /** Edição (no Enem, o ano da prova; na Fuvest e na Unicamp, o ano de ingresso). */
   ano: number | null;
+  /** Fase, para os vestibulares que têm fases. O Enem não tem: com fase escolhida, ele sai da lista. */
+  fase: 1 | 2 | null;
   dia: 1 | 2 | null;
   area: Area | null;
   cor: string | null;
@@ -83,7 +89,7 @@ export type Filtros = {
   acessivel: boolean;
   busca: string;
 };
-export const FILTROS_VAZIOS: Filtros = { ano: null, dia: null, area: null, cor: null, modalidade: null, acessivel: false, busca: "" };
+export const FILTROS_VAZIOS: Filtros = { vestibular: null, fase: null, ano: null, dia: null, area: null, cor: null, modalidade: null, acessivel: false, busca: "" };
 
 export function filtrar(lista: Prova[], f: Filtros): Prova[] {
   const termos = semAcento(f.busca).split(/\s+/).filter(Boolean);
@@ -103,7 +109,11 @@ export function filtrosDaUrl(q: URLSearchParams): Filtros {
   const dia = n("dia");
   const area = q.get("area");
   const mod = q.get("modalidade");
+  const vest = q.get("vestibular");
+  const fase = n("fase");
   return {
+    vestibular: vest && vest in VESTIBULAR_ROTULO ? (vest as Vestibular) : null,
+    fase: fase === 1 || fase === 2 ? fase : null,
     ano: n("ano"),
     dia: dia === 1 || dia === 2 ? dia : null,
     area: area && area in AREA_ROTULO ? (area as Area) : null,
@@ -115,7 +125,9 @@ export function filtrosDaUrl(q: URLSearchParams): Filtros {
 }
 export function filtrosParaUrl(f: Filtros): string {
   const q = new URLSearchParams();
+  if (f.vestibular) q.set("vestibular", f.vestibular);
   if (f.ano) q.set("ano", String(f.ano));
+  if (f.fase) q.set("fase", String(f.fase));
   if (f.dia) q.set("dia", String(f.dia));
   if (f.area) q.set("area", f.area);
   if (f.cor) q.set("cor", f.cor);
@@ -188,6 +200,7 @@ export function agrupar(lista: Prova[]): Grupo[] {
 
 /** Filtros da biblioteca aplicados às provas (grupos). Busca e cor valem se algum caderno do grupo combina. */
 export function filtrarGrupos(grupos: Grupo[], f: Filtros): Grupo[] {
+  if ((f.vestibular != null && f.vestibular !== "enem") || f.fase != null) return [];
   return grupos.filter((g) => {
     if (f.ano != null && g.ano !== f.ano) return false;
     const dia = f.dia ?? (f.area ? (AREA_QUESTOES[f.area][0] <= 90 ? 1 : 2) : null);
@@ -207,4 +220,125 @@ export function cadernoInicial(g: Grupo, f: Filtros): Prova {
   if (f.cor) { const c = todos.find((p) => p.cor === f.cor); if (c) return c; }
   if (f.busca.trim()) { const c = filtrar(todos, { ...FILTROS_VAZIOS, busca: f.busca }); if (c.length && c.length < todos.length) return c[0]; }
   return g.cores[0] ?? todos[0];
+}
+
+// ---------------------------------------------------------------- outros vestibulares (Fuvest, Unicamp)
+
+export type Vestibular = "enem" | "fuvest" | "unicamp";
+export const VESTIBULAR_ROTULO: Record<Vestibular, string> = { enem: "Enem", fuvest: "Fuvest", unicamp: "Unicamp" };
+
+/**
+ * Como o site pode oferecer um documento. "leitor": abre no leitor do site (o servidor oficial libera a leitura por
+ * outros sites e a licença permite; hoje, só o Inep). "oficial": o site só leva ao arquivo no servidor oficial.
+ */
+export type Acesso = "leitor" | "oficial";
+/** Por que um material não está aqui. Cada estado tem um texto próprio; nunca são misturados. */
+export type Disponibilidade = "nao-publicado" | "nao-encontrado" | "indisponivel" | "nao-aplicavel";
+export const DISPONIBILIDADE_ROTULO: Record<Disponibilidade, string> = {
+  "nao-publicado": "não publicado pela banca",
+  "nao-encontrado": "não encontrado no acervo oficial",
+  indisponivel: "fora do ar no site oficial",
+  "nao-aplicavel": "não se aplica a esta prova",
+};
+export type TipoDocumento = "prova" | "gabarito" | "respostas-esperadas" | "redacao-abordagem" | "criterios" | "outro";
+export type Procedencia = { pagina: string; secao: string; texto: string; coletadoEm: string; conferencia: "listado" | "head" };
+export type Documento = {
+  tipo: TipoDocumento; rotulo: string; url: string; formato: "pdf"; bytes: number | null; acesso: Acesso; procedencia: Procedencia;
+  /** Gabarito: "todas" quando um só documento traz as respostas de todas as versões. */
+  versoes?: "todas" | string[];
+  retificado?: boolean; retificadoEm?: string;
+  disciplina?: string;
+  /** "fase": o documento cobre a fase inteira, não só este dia. */
+  escopo?: "fase";
+};
+export type VersaoExame = { codigo: string; rotulo: string; prova: Documento };
+export type Lacuna = { tipo: TipoDocumento; estado: Disponibilidade; nota: string };
+
+/** Uma prova de um vestibular: vestibular + edição + fase + dia. As versões do caderno ficam dentro dela. */
+export type Exame = {
+  id: string;
+  vestibular: Exclude<Vestibular, "enem">;
+  /** Ano de ingresso (Fuvest 2026 foi aplicada em 2025). */
+  edicao: number;
+  fase: 1 | 2 | null;
+  dia: number | null;
+  /** AAAA-MM-DD, só quando um documento oficial informa. */
+  dataAplicacao: string | null;
+  dataAplicacaoFonte?: string;
+  nomeProva: string | null;
+  tipoQuestoes: "objetiva" | "discursiva" | "mista" | null;
+  /** true só quando a fonte oficial mostra que há redação neste dia; null = não verificado. */
+  redacao: boolean | null;
+  disciplinas: string[];
+  /** Cadernos. Sem versões diferentes, há um só, com código "unica". */
+  versoes: VersaoExame[];
+  complementares: Documento[];
+  lacunas: Lacuna[];
+  fonte: string;
+};
+export type InfoVestibular = {
+  id: Exclude<Vestibular, "enem">; nome: string; instituicao: string; acervo: string;
+  estado: "catalogado" | "pendente"; pendencia?: string; coletadoEm?: string; acesso?: Acesso; motivoAcesso?: string; edicoes?: number[]; exames: number;
+};
+
+export const faseRotulo = (f: 1 | 2) => `${f}ª fase`;
+export const diaExameRotulo = (d: number) => `${d}º dia`;
+/** "1ª fase" ou "2ª fase · 1º dia". */
+export function rotuloExame(e: Exame): string {
+  return [e.fase ? faseRotulo(e.fase) : null, e.dia ? diaExameRotulo(e.dia) : null].filter(Boolean).join(" · ") || "Prova";
+}
+/** "Fuvest 2026 · 1ª fase". */
+export const tituloExame = (e: Exame, comEdicao = true) => [comEdicao ? `${VESTIBULAR_ROTULO[e.vestibular]} ${e.edicao}` : null, rotuloExame(e)].filter(Boolean).join(" · ");
+export const dataBr = (iso: string) => iso.split("-").reverse().join("/");
+
+export const hostDe = (url: string) => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return "site oficial"; } };
+const TIPO_QUESTOES = { objetiva: "Questões objetivas", discursiva: "Questões discursivas", mista: "Questões objetivas e discursivas" } as const;
+
+/** O que a prova é, só com o que a fonte oficial confirma. */
+export function resumoExame(e: Exame): string {
+  const partes = [e.nomeProva, e.tipoQuestoes ? TIPO_QUESTOES[e.tipoQuestoes] : null, e.redacao ? "Redação" : null].filter(Boolean) as string[];
+  if (e.nomeProva && e.tipoQuestoes) partes.splice(0, 2, `${e.nomeProva} (${TIPO_QUESTOES[e.tipoQuestoes].toLowerCase()})`);
+  return `${partes.join(" e ")}.${e.dataAplicacao ? ` Aplicada em ${dataBr(e.dataAplicacao)}.` : ""}`;
+}
+
+
+export function descricaoExame(e: Exame): string {
+  const v = e.versoes.length > 1 ? `${e.versoes.length} versões do caderno (${e.versoes.map((x) => x.codigo).join(", ")})` : "caderno de prova";
+  const comp = e.complementares.map((c) => c.rotulo.toLowerCase());
+  return `${tituloExame(e)}: ${v}${comp.length ? `, ${[...new Set(comp)].slice(0, 3).join(", ")}` : ""}. Links para os arquivos oficiais.`;
+}
+export const documentosDoTipo = (e: Exame, tipo: TipoDocumento) => e.complementares.filter((c) => c.tipo === tipo);
+/** O gabarito que vale para uma versão: o específico dela, se houver; senão, o que cobre todas. Nunca o de outra versão. */
+export function gabaritoDaVersao(e: Exame, codigo: string): Documento | null {
+  const gs = documentosDoTipo(e, "gabarito");
+  return gs.find((g) => Array.isArray(g.versoes) && g.versoes.includes(codigo)) ?? gs.find((g) => g.versoes === "todas" || g.versoes == null) ?? null;
+}
+
+export function textoBuscaExame(e: Exame): string {
+  return semAcento([
+    VESTIBULAR_ROTULO[e.vestibular], e.edicao, rotuloExame(e), e.fase === 1 ? "primeira fase" : e.fase === 2 ? "segunda fase" : "",
+    e.dia === 1 ? "primeiro dia" : e.dia === 2 ? "segundo dia" : "", e.nomeProva ?? "", e.tipoQuestoes ?? "", e.redacao ? "redacao" : "",
+    ...e.disciplinas, ...e.versoes.map((v) => `prova ${v.codigo} versao ${v.codigo}`), ...e.complementares.map((c) => c.rotulo),
+  ].join(" "));
+}
+
+/**
+ * Filtros da biblioteca aplicados aos exames. Os filtros que só existem no Enem (cor do caderno, área, aplicação
+ * diferente da regular, versões acessíveis) tiram os exames da lista em vez de serem ignorados.
+ */
+export function filtrarExames(lista: Exame[], f: Filtros): Exame[] {
+  if (f.vestibular === "enem" || f.cor || f.area || f.acessivel || (f.modalidade != null && f.modalidade !== "regular")) return [];
+  const termos = semAcento(f.busca).split(/\s+/).filter(Boolean);
+  return lista.filter((e) =>
+    (f.vestibular == null || e.vestibular === f.vestibular) &&
+    (f.ano == null || e.edicao === f.ano) &&
+    (f.fase == null || e.fase === f.fase) &&
+    (f.dia == null || e.dia === f.dia) &&
+    (termos.length === 0 || termos.every((t) => textoBuscaExame(e).includes(t))));
+}
+
+/** Versão sugerida ao abrir o cartão: a que a busca cita ("prova K"); senão, a primeira. */
+export function versaoInicial(e: Exame, f: Filtros): VersaoExame {
+  const termos = semAcento(f.busca).split(/\s+/).filter(Boolean);
+  return e.versoes.find((v) => termos.includes(v.codigo.toLowerCase())) ?? e.versoes[0];
 }

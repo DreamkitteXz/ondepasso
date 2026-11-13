@@ -1,0 +1,469 @@
+{
+ "vestibular": "fuvest",
+ "coletadoEm": "2026-11-13",
+ "indice": "https://www.fuvest.br/acervo-vestibular/",
+ "metodo": "Páginas oficiais do acervo (uma por edição) lidas em 13/11/2026 por ferramenta de leitura de páginas, que devolve os links de cada seção. As seções 'Provas e Gabaritos', 'Simulado' e 'Competências Específicas' foram transcritas por inteiro; Documentos, Listas e Estatísticas ficaram de fora.",
+ "limites": [
+  "Os arquivos NÃO foram conferidos um a um (HEAD/tamanho): o ambiente de coleta não alcança fuvest.br diretamente. Cada item vale como 'listado na página oficial'.",
+  "A leitura passa por um modelo que transcreve os links; um erro de transcrição é possível e deve ser pego na conferência manual dos links."
+ ],
+ "fatosDeDocumentos": [
+  {
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-gabarito.pdf",
+   "fato": "Título do PDF oficial: 'Prova de Conhecimentos Gerais FUVEST 2026 23/11/2025 Retificado em 25/11/2025'",
+   "dataAplicacao": "2025-11-23",
+   "retificadoEm": "2025-11-25",
+   "origem": "título do documento nos resultados de busca em fuvest.br, 13/11/2026"
+  }
+ ],
+ "links": [
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova 2026 V1",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V1.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova 2026 V2",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V2.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova 2026 V3",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V3.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova 2026 V4",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V4.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Gabaritos de Provas da 1ª fase",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-gabarito.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Notas de Corte",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026_notas_de_corte.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Prova da 2ª fase – 1º dia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia1-prova.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Prova da 2ª fase – 1º dia – Respostas Esperadas",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia1-respostas-esperadas.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Prova da 2ª fase – 1º dia – Redação: Abordagem esperada",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia1-abordagem-esperada-redacao.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Prova da 2ª fase – 2º dia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-prova.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Respostas esperadas – Matemática",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-matematica.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Respostas esperadas – Física",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-fisica.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Respostas esperadas – Química",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-quimica.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Respostas esperadas – Biologia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-biologia.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Respostas esperadas – História",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-historia.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Respostas esperadas – Geografia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-geografia.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Simulado da 1ª fase",
+   "texto": "Prova S1",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-simulado-fase1-prova-S1.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Simulado da 1ª fase",
+   "texto": "Prova S2",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-simulado-fase1-prova-S2.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Simulado da 1ª fase",
+   "texto": "Prova S3",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-simulado-fase1-prova-S3.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Simulado da 1ª fase",
+   "texto": "Prova S4",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-simulado-fase1-prova-S4.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Simulado da 1ª fase",
+   "texto": "Gabarito",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-simulado-fase1-gabarito.pdf"
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "secao": "Simulado de Redação",
+   "texto": "Propostas de Redação e Abordagens Esperadas",
+   "url": "https://www.fuvest.br/wp-content/uploads/simulado_de_redacao_2025.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova V1",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V1.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova V2",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V2.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova V3",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V3.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova V4",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V4.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Gabarito",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_gabarito_primeira_fase.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Notas de Corte",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2025_notas_de_corte.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "1º dia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova_2fase_dia1.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "2º dia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova_2fase_dia2.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Guia de Respostas esperadas",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2025_guia_respostas.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Competências Específicas",
+   "texto": "Prova – Artes Visuais",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova_artes-visuais.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Competências Específicas",
+   "texto": "Prova – Música – São Paulo",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova-musica-sp.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Competências Específicas",
+   "texto": "Prova escrita – Arte Cênicas",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova-escrita_artes-cenicas.pdf"
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "secao": "Provas e Gabaritos › Competências Específicas",
+   "texto": "Prova prática – Arte Cênicas",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova-pratica-artes-cenicas.pdf"
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova V",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_V.pdf"
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova K",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_K.pdf"
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova Q",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_Q.pdf"
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova X",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_X.pdf"
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova Z",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_Z.pdf"
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Gabarito",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_gabarito_primeira_fase_retificado_2023-11-24.pdf"
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Notas de Corte",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2024_notas_de_corte.pdf"
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "1º Dia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_segunda_fase_prova_1dia.pdf"
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "2º Dia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_segunda_fase_prova_2dia.pdf"
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Abordagens Esperadas",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2024_2024.01.22_RESPOSTAS_USP_Guia.pdf"
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova V",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_V.pdf"
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova K",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_K.pdf"
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova Q",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_Q.pdf"
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova X",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_X.pdf"
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova Z",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_Z.pdf"
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Gabarito",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_gabarito_primeira_fase.pdf"
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Notas de Corte",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_notas_de_corte.pdf"
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "1º Dia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2023_segunda_fase_dia_1.pdf"
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "2º Dia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2023_segunda_fase_dia_2.pdf"
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "Abordagens Esperadas",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_abordagens_esperadas_2fase.pdf"
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova V",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_V.pdf"
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova K",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_K.pdf"
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova Q",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_Q.pdf"
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova X",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_X.pdf"
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Prova Z",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_Z.pdf"
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Gabarito",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_gabarito_retificado.pdf"
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+   "secao": "Provas e Gabaritos › Primeira Fase",
+   "texto": "Notas de Corte",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_notas_de_corte.pdf"
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "1º Dia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_segunda_fase_dia_1.pdf"
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
+   "secao": "Provas e Gabaritos › Segunda Fase",
+   "texto": "2º Dia",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_segunda_fase_dia_2.pdf"
+  }
+ ]
+}
