@@ -98,7 +98,18 @@ Plano, andamento e pendências: documento `claude/provas-vestibulares.md` do pro
 **Dados.**
 1. Os links das páginas oficiais do acervo ficam em `dados/vestibulares/<vestibular>-links-<data>.json`, com a seção e o texto de cada link, o método e os limites da coleta.
 2. `python3 pipeline/provas_vestibulares.py` gera `dados/saida/site/vestibulares.json` e a auditoria `dados/vestibulares/cobertura.json` (o que entrou, o que ficou de fora e por quê, lacunas). Um link de prova que nenhuma regra reconhece para o script.
-3. Sem arquivo de links, o vestibular aparece como "em preparação", com o motivo em `dados/vestibulares/<vestibular>-pendencia.json`.
+3. Sem arquivo de links, o vestibular aparece como "em preparação", com o motivo em `dados/vestibulares/<vestibular>-pendencia.json` (hoje nenhum vestibular está assim: Fuvest e Unicamp estão catalogados).
+4. Cada link pode trazer `conferido` (`http`, `tipo`, `bytes` e, quando a identidade foi confirmada, `identidade`). O pipeline passa isso para o documento: `bytes`, `procedencia.conferencia = "head"` e `procedencia.identidade`. Sem `conferido`, o documento vale só como "listado" na página oficial.
+
+**Unicamp (Comvest).** Links coletados em 13/11/2026 abrindo as páginas oficiais no navegador (`unicamp-links-2026-11-13.json`, 78 links, todos HEAD 200 e PDF). Regras em `unicamp()` no pipeline:
+- 1ª fase: um exame por edição; os cadernos vêm aos pares (`"Q e X"`), um PDF por par; o gabarito é por par (`versoes: ["Q e X"]`), exceto 2022 (um só para todos). **2023: a página não lista gabarito da 1ª fase** (lacuna `nao-encontrado`).
+- 2ª fase, 1º dia: caderno único "Redação, Língua Portuguesa e Literaturas… interdisciplinar" (o título oficial cita a Redação, então `redacao: true`), respostas esperadas de Língua Portuguesa/Interdisciplinares e expectativa da banca de Redação.
+- 2ª fase, 2º dia: três provas de área (Exatas, Biológicas, Humanas), cada uma um "caderno" do exame (`porArea(e)` troca os textos de "versão" por "área"), com respostas esperadas por área.
+- Dia dos documentos: do rótulo oficial quando existe ("1º dia", "Dia-1/Dia-2" no arquivo); nos demais, da área (2º dia) ou do título da prova (Redação/Língua Portuguesa = 1º dia), mesma estrutura que 2023 e 2025 rotulam à mão. Datas de aplicação: não coletadas (`null`).
+- Fora desta entrega: provas de habilidades específicas, provas comentadas, simulado, estatísticas.
+- O texto "as versões trazem as mesmas questões em ordens diferentes" só aparece na Fuvest: não foi conferido para a Unicamp.
+
+**Conferência da Fuvest (13/11/2026).** Os 49 links usados foram baixados pelo navegador: todos 200/PDF, com tamanho real. Identidade confirmada (metadados, capa ou cabeçalho do gabarito) nos arquivos com `identidade`. Datas de aplicação da 1ª fase vêm do cabeçalho do gabarito oficial: 12/12/2021, 04/12/2022, 19/11/2023, 17/11/2024 e 23/11/2025. Na 2ª fase nenhum documento aberto traz a data de aplicação: só há datas de publicação na página do acervo (ver `fatosDeDocumentos`), e a data fica `null`. A página de 2022 não lista respostas esperadas da 2ª fase (lacuna real). Número de questões: não conferido.
 
 **Acesso.** Os PDFs da Fuvest e da Comvest não respondem com `Access-Control-Allow-Origin`, então o leitor do site não pode abri-los. Todo documento desses vestibulares é `acesso: "oficial"`: o site só leva ao arquivo no servidor oficial, em outra aba. Não há proxy, cópia nem recorte dos arquivos.
 

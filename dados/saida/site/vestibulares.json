@@ -1,6 +1,7 @@
 {
  "geradoDe": {
-  "fuvest": "fuvest-links-2026-11-13.json"
+  "fuvest": "fuvest-links-2026-11-13.json",
+  "unicamp": "unicamp-links-2026-11-13.json"
  },
  "vestibulares": [
   {
@@ -26,9 +27,18 @@
    "nome": "Unicamp",
    "instituicao": "Unicamp (Comvest)",
    "acervo": "https://www.comvest.unicamp.br/vestibulares-anteriores/",
-   "estado": "pendente",
-   "pendencia": "O catálogo da Unicamp ainda não foi importado: as páginas do acervo da Comvest não puderam ser lidas na coleta de 13/11/2026.",
-   "exames": 0
+   "estado": "catalogado",
+   "coletadoEm": "2026-11-13",
+   "acesso": "oficial",
+   "motivoAcesso": "O servidor oficial não libera a leitura dos PDFs dentro de outros sites.",
+   "edicoes": [
+    2026,
+    2025,
+    2024,
+    2023,
+    2022
+   ],
+   "exames": 15
   }
  ],
  "exames": [
@@ -52,14 +62,15 @@
       "rotulo": "Prova V1",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V1.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 8019288,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova 2026 V1",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'Montagem V1'"
       }
      }
     },
@@ -71,14 +82,15 @@
       "rotulo": "Prova V2",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V2.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 8012341,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova 2026 V2",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'Montagem V2'"
       }
      }
     },
@@ -90,14 +102,15 @@
       "rotulo": "Prova V3",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V3.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 8012573,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova 2026 V3",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'Montagem V3'"
       }
      }
     },
@@ -109,14 +122,15 @@
       "rotulo": "Prova V4",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-prova-V4.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 8011091,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova 2026 V4",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'Montagem V4'"
       }
      }
     }
@@ -127,23 +141,24 @@
      "rotulo": "Gabarito oficial (retificado)",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase1-gabarito.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 218795,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
       "secao": "Provas e Gabaritos › Primeira Fase",
       "texto": "Gabaritos de Provas da 1ª fase",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head",
+      "identidade": "cabeçalho do gabarito aberto no visualizador: 'Prova de Conhecimentos Gerais FUVEST 2026 – 23/11/2025 – Gabarito', colunas V1 a V4"
      },
      "versoes": "todas",
      "retificado": true,
-     "retificadoEm": "2025-11-25"
+     "retificadoEm": "2025-11-26"
     }
    ],
    "lacunas": [],
    "fonte": "https://www.fuvest.br/acervo-vestibular-2026/",
-   "dataAplicacaoFonte": "Título do PDF oficial: 'Prova de Conhecimentos Gerais FUVEST 2026 23/11/2025 Retificado em 25/11/2025'"
+   "dataAplicacaoFonte": "Cabeçalho do PDF oficial: 'Prova de Conhecimentos Gerais FUVEST 2026 – 23/11/2025 – Gabarito'. A página do acervo 2026 diz 'Retificado em 26/11/2025' (o título antigo do PDF, lido de resultado de busca, dizia 25/11/2025; valem a página e o Last-Modified do arquivo, 26/11/2025)."
   },
   {
    "id": "fuvest-2026-2a-fase-1o-dia",
@@ -165,14 +180,15 @@
       "rotulo": "Prova",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia1-prova.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 2764976,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
        "secao": "Provas e Gabaritos › Segunda Fase",
        "texto": "Prova da 2ª fase – 1º dia",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "capa aberta no visualizador: 'Prova de Segunda Fase FUVEST 2026 – 1º Dia'"
       }
      }
     }
@@ -183,14 +199,14 @@
      "rotulo": "Respostas esperadas",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia1-respostas-esperadas.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 1515499,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Prova da 2ª fase – 1º dia – Respostas Esperadas",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      }
     },
     {
@@ -198,14 +214,14 @@
      "rotulo": "Redação: abordagem esperada",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia1-abordagem-esperada-redacao.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 1077365,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Prova da 2ª fase – 1º dia – Redação: Abordagem esperada",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      }
     }
    ],
@@ -239,14 +255,14 @@
       "rotulo": "Prova",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-prova.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 7038275,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
        "secao": "Provas e Gabaritos › Segunda Fase",
        "texto": "Prova da 2ª fase – 2º dia",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head"
       }
      }
     }
@@ -257,14 +273,14 @@
      "rotulo": "Respostas esperadas: Matemática",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-matematica.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 1071784,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Respostas esperadas – Matemática",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "disciplina": "matematica"
     },
@@ -273,14 +289,14 @@
      "rotulo": "Respostas esperadas: Física",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-fisica.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 1303041,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Respostas esperadas – Física",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "disciplina": "fisica"
     },
@@ -289,14 +305,14 @@
      "rotulo": "Respostas esperadas: Química",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-quimica.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 1005219,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Respostas esperadas – Química",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "disciplina": "quimica"
     },
@@ -305,14 +321,14 @@
      "rotulo": "Respostas esperadas: Biologia",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-biologia.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 901356,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Respostas esperadas – Biologia",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "disciplina": "biologia"
     },
@@ -321,14 +337,14 @@
      "rotulo": "Respostas esperadas: História",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-historia.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 780701,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Respostas esperadas – História",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "disciplina": "historia"
     },
@@ -337,14 +353,14 @@
      "rotulo": "Respostas esperadas: Geografia",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2026-fase2-dia2-respostas-esperadas-geografia.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 1763881,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2026/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Respostas esperadas – Geografia",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "disciplina": "geografia"
     }
@@ -358,7 +374,7 @@
    "edicao": 2025,
    "fase": 1,
    "dia": null,
-   "dataAplicacao": null,
+   "dataAplicacao": "2024-11-17",
    "nomeProva": "Prova de Conhecimentos Gerais",
    "tipoQuestoes": "objetiva",
    "redacao": null,
@@ -372,14 +388,15 @@
       "rotulo": "Prova V1",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V1.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 8978910,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova V1",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "capa aberta no visualizador: etiqueta V1, 34 páginas no visualizador"
       }
      }
     },
@@ -391,14 +408,15 @@
       "rotulo": "Prova V2",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V2.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 8983240,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova V2",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "capa aberta no visualizador: etiqueta V2, 34 páginas no visualizador"
       }
      }
     },
@@ -410,14 +428,15 @@
       "rotulo": "Prova V3",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V3.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 8979762,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova V3",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "capa aberta no visualizador: etiqueta V3, 34 páginas no visualizador"
       }
      }
     },
@@ -429,14 +448,15 @@
       "rotulo": "Prova V4",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_primeira_fase_prova_V4.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 8980433,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova V4",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "capa aberta no visualizador: etiqueta V4, 34 páginas no visualizador"
       }
      }
     }
@@ -447,20 +467,22 @@
      "rotulo": "Gabarito oficial",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_gabarito_primeira_fase.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 198634,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
       "secao": "Provas e Gabaritos › Primeira Fase",
       "texto": "Gabarito",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head",
+      "identidade": "cabeçalho do gabarito aberto no visualizador: 'Prova de Conhecimentos Gerais – 1ª fase – 17/11/2024 – Gabarito', colunas V1 a V4"
      },
      "versoes": "todas"
     }
    ],
    "lacunas": [],
-   "fonte": "https://www.fuvest.br/acervo-vestibular-2025/"
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "dataAplicacaoFonte": "Cabeçalho do PDF oficial: 'Prova de Conhecimentos Gerais – 1ª FASE – 17/11/2024 – Gabarito'"
   },
   {
    "id": "fuvest-2025-2a-fase-1o-dia",
@@ -482,14 +504,15 @@
       "rotulo": "Prova",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova_2fase_dia1.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 2834838,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
        "secao": "Provas e Gabaritos › Segunda Fase",
        "texto": "1º dia",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "capa aberta no visualizador: 'Prova de Segunda Fase – 1º Dia'"
       }
      }
     }
@@ -500,14 +523,14 @@
      "rotulo": "Guia de Respostas esperadas (2ª fase inteira)",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2025_guia_respostas.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 10752144,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Guia de Respostas esperadas",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "escopo": "fase"
     }
@@ -535,14 +558,14 @@
       "rotulo": "Prova",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2025_prova_2fase_dia2.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 11849725,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
        "secao": "Provas e Gabaritos › Segunda Fase",
        "texto": "2º dia",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head"
       }
      }
     }
@@ -553,14 +576,14 @@
      "rotulo": "Guia de Respostas esperadas (2ª fase inteira)",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2025_guia_respostas.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 10752144,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2025/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Guia de Respostas esperadas",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "escopo": "fase"
     }
@@ -574,7 +597,7 @@
    "edicao": 2024,
    "fase": 1,
    "dia": null,
-   "dataAplicacao": null,
+   "dataAplicacao": "2023-11-19",
    "nomeProva": "Prova de Conhecimentos Gerais",
    "tipoQuestoes": "objetiva",
    "redacao": null,
@@ -588,14 +611,15 @@
       "rotulo": "Prova V",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_V.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 7271097,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova V",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA V'"
       }
      }
     },
@@ -607,14 +631,15 @@
       "rotulo": "Prova K",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_K.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 7304834,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova K",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA K'"
       }
      }
     },
@@ -626,14 +651,15 @@
       "rotulo": "Prova Q",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_Q.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 7178036,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova Q",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA Q'"
       }
      }
     },
@@ -645,14 +671,15 @@
       "rotulo": "Prova X",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_X.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 7306143,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova X",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA X'"
       }
      }
     },
@@ -664,14 +691,15 @@
       "rotulo": "Prova Z",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_Z.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 7299245,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova Z",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA Z'"
       }
      }
     }
@@ -682,14 +710,15 @@
      "rotulo": "Gabarito oficial (retificado)",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_gabarito_primeira_fase_retificado_2023-11-24.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 479758,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
       "secao": "Provas e Gabaritos › Primeira Fase",
       "texto": "Gabarito",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head",
+      "identidade": "cabeçalho do gabarito aberto no visualizador: 'Prova de Conhecimentos Gerais – 1ª fase – 19/11/2023 – Gabarito', colunas V, K, Q, X, Z"
      },
      "versoes": "todas",
      "retificado": true,
@@ -697,7 +726,8 @@
     }
    ],
    "lacunas": [],
-   "fonte": "https://www.fuvest.br/acervo-vestibular-2024/"
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "dataAplicacaoFonte": "Cabeçalho do PDF oficial: 'Prova de Conhecimentos Gerais – 1ª FASE – 19/11/2023 – Gabarito'. Página do acervo: 'Retificado em 24/11/2023'."
   },
   {
    "id": "fuvest-2024-2a-fase-1o-dia",
@@ -719,14 +749,15 @@
       "rotulo": "Prova",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_segunda_fase_prova_1dia.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 2902800,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
        "secao": "Provas e Gabaritos › Segunda Fase",
        "texto": "1º Dia",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "capa aberta no visualizador: 'Prova de Segunda Fase – 1º Dia'"
       }
      }
     }
@@ -737,14 +768,14 @@
      "rotulo": "Abordagens Esperadas (2ª fase inteira)",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2024_2024.01.22_RESPOSTAS_USP_Guia.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 3317429,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Abordagens Esperadas",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "escopo": "fase"
     }
@@ -772,14 +803,15 @@
       "rotulo": "Prova",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_segunda_fase_prova_2dia.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 8455687,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
        "secao": "Provas e Gabaritos › Segunda Fase",
        "texto": "2º Dia",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'Fuvest 2024 – Divulgação – 2ª Fase – 2º DIA'"
       }
      }
     }
@@ -790,14 +822,14 @@
      "rotulo": "Abordagens Esperadas (2ª fase inteira)",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2024_2024.01.22_RESPOSTAS_USP_Guia.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 3317429,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2024/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Abordagens Esperadas",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "escopo": "fase"
     }
@@ -811,7 +843,7 @@
    "edicao": 2023,
    "fase": 1,
    "dia": null,
-   "dataAplicacao": null,
+   "dataAplicacao": "2022-12-04",
    "nomeProva": "Prova de Conhecimentos Gerais",
    "tipoQuestoes": "objetiva",
    "redacao": null,
@@ -825,14 +857,15 @@
       "rotulo": "Prova V",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_V.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 6469477,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova V",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA V'"
       }
      }
     },
@@ -844,14 +877,15 @@
       "rotulo": "Prova K",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_K.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 6288508,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova K",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA K'"
       }
      }
     },
@@ -863,14 +897,15 @@
       "rotulo": "Prova Q",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_Q.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 6458026,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova Q",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA Q'"
       }
      }
     },
@@ -882,14 +917,15 @@
       "rotulo": "Prova X",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_X.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 6439606,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova X",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA X'"
       }
      }
     },
@@ -901,14 +937,15 @@
       "rotulo": "Prova Z",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_Z.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 6388459,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova Z",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA Z'"
       }
      }
     }
@@ -919,20 +956,22 @@
      "rotulo": "Gabarito oficial",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_gabarito_primeira_fase.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 530692,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
       "secao": "Provas e Gabaritos › Primeira Fase",
       "texto": "Gabarito",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head",
+      "identidade": "cabeçalho do gabarito aberto no visualizador: 'Prova de Conhecimentos Gerais – 1ª fase – 04/12/2022 – Gabarito', colunas V, K, Q, X, Z"
      },
      "versoes": "todas"
     }
    ],
    "lacunas": [],
-   "fonte": "https://www.fuvest.br/acervo-vestibular-2023/"
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "dataAplicacaoFonte": "Cabeçalho do PDF oficial: 'Prova de Conhecimentos Gerais – 1ª FASE – 04/12/2022 – Gabarito'"
   },
   {
    "id": "fuvest-2023-2a-fase-1o-dia",
@@ -954,14 +993,15 @@
       "rotulo": "Prova",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2023_segunda_fase_dia_1.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 2391859,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
        "secao": "Provas e Gabaritos › Segunda Fase",
        "texto": "1º Dia",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "capa aberta no visualizador: 'Prova de Segunda Fase – 1º Dia'"
       }
      }
     }
@@ -972,14 +1012,14 @@
      "rotulo": "Abordagens Esperadas (2ª fase inteira)",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_abordagens_esperadas_2fase.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 6251228,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Abordagens Esperadas",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "escopo": "fase"
     }
@@ -1007,14 +1047,15 @@
       "rotulo": "Prova",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2023_segunda_fase_dia_2.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 8524859,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
        "secao": "Provas e Gabaritos › Segunda Fase",
        "texto": "2º Dia",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'Fuvest 2023 – Divulgação – 2ª Fase – 2º DIA'"
       }
      }
     }
@@ -1025,14 +1066,14 @@
      "rotulo": "Abordagens Esperadas (2ª fase inteira)",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_abordagens_esperadas_2fase.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 6251228,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2023/",
       "secao": "Provas e Gabaritos › Segunda Fase",
       "texto": "Abordagens Esperadas",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head"
      },
      "escopo": "fase"
     }
@@ -1046,7 +1087,7 @@
    "edicao": 2022,
    "fase": 1,
    "dia": null,
-   "dataAplicacao": null,
+   "dataAplicacao": "2021-12-12",
    "nomeProva": "Prova de Conhecimentos Gerais",
    "tipoQuestoes": "objetiva",
    "redacao": null,
@@ -1060,14 +1101,15 @@
       "rotulo": "Prova V",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_V.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 10620438,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova V",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA V'"
       }
      }
     },
@@ -1079,14 +1121,15 @@
       "rotulo": "Prova K",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_K.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 10610031,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova K",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA K'"
       }
      }
     },
@@ -1098,14 +1141,15 @@
       "rotulo": "Prova Q",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_Q.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 10596854,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova Q",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA Q'"
       }
      }
     },
@@ -1117,14 +1161,15 @@
       "rotulo": "Prova X",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_X.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 10611974,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova X",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA X'"
       }
      }
     },
@@ -1136,14 +1181,15 @@
       "rotulo": "Prova Z",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_Z.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 10601160,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
        "secao": "Provas e Gabaritos › Primeira Fase",
        "texto": "Prova Z",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'PROVA Z'"
       }
      }
     }
@@ -1154,21 +1200,23 @@
      "rotulo": "Gabarito oficial (retificado)",
      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_gabarito_retificado.pdf",
      "formato": "pdf",
-     "bytes": null,
+     "bytes": 644954,
      "acesso": "oficial",
      "procedencia": {
       "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
       "secao": "Provas e Gabaritos › Primeira Fase",
       "texto": "Gabarito",
       "coletadoEm": "2026-11-13",
-      "conferencia": "listado"
+      "conferencia": "head",
+      "identidade": "cabeçalho do gabarito aberto no visualizador: 'Prova de Conhecimentos Gerais – 1ª fase – 12/12/2021 – Gabarito', colunas V, K, Q, X, Z"
      },
      "versoes": "todas",
      "retificado": true
     }
    ],
    "lacunas": [],
-   "fonte": "https://www.fuvest.br/acervo-vestibular-2022/"
+   "fonte": "https://www.fuvest.br/acervo-vestibular-2022/",
+   "dataAplicacaoFonte": "Cabeçalho do PDF oficial: 'Prova de Conhecimentos Gerais – 1ª FASE – 12/12/2021 – Gabarito'. Arquivo marcado 'retificado' no nome."
   },
   {
    "id": "fuvest-2022-2a-fase-1o-dia",
@@ -1190,14 +1238,15 @@
       "rotulo": "Prova",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_segunda_fase_dia_1.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 777947,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
        "secao": "Provas e Gabaritos › Segunda Fase",
        "texto": "1º Dia",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "capa aberta no visualizador: 'FUVEST 2022 – 2ª Fase – Primeiro Dia'"
       }
      }
     }
@@ -1232,14 +1281,15 @@
       "rotulo": "Prova",
       "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_segunda_fase_dia_2.pdf",
       "formato": "pdf",
-      "bytes": null,
+      "bytes": 6794633,
       "acesso": "oficial",
       "procedencia": {
        "pagina": "https://www.fuvest.br/acervo-vestibular-2022/",
        "secao": "Provas e Gabaritos › Segunda Fase",
        "texto": "2º Dia",
        "coletadoEm": "2026-11-13",
-       "conferencia": "listado"
+       "conferencia": "head",
+       "identidade": "título interno do PDF (metadados): 'Fuvest 2022 – Divulgação – 2ª Fase – 2º DIA'"
       }
      }
     }
@@ -1253,6 +1303,1648 @@
     }
    ],
    "fonte": "https://www.fuvest.br/acervo-vestibular-2022/"
+  },
+  {
+   "id": "unicamp-2026-1a-fase",
+   "vestibular": "unicamp",
+   "edicao": 2026,
+   "fase": 1,
+   "dia": null,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "objetiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "Q e X",
+     "rotulo": "Provas Q e X",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas Q e X",
+      "url": "https://www.comvest.unicamp.br/vest2026/F1/f12026Q_X.pdf",
+      "formato": "pdf",
+      "bytes": 8732984,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas Q e X",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "R e Y",
+     "rotulo": "Provas R e Y",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas R e Y",
+      "url": "https://www.comvest.unicamp.br/vest2026/F1/f12026R_Y.pdf",
+      "formato": "pdf",
+      "bytes": 8731186,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas R e Y",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "S e Z",
+     "rotulo": "Provas S e Z",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas S e Z",
+      "url": "https://www.comvest.unicamp.br/vest2026/F1/f12026S_Z.pdf",
+      "formato": "pdf",
+      "bytes": 8731127,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas S e Z",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "T e W",
+     "rotulo": "Provas T e W",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas T e W",
+      "url": "https://www.comvest.unicamp.br/vest2026/F1/f12026T_W.pdf",
+      "formato": "pdf",
+      "bytes": 8739848,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas T e W",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas Q e X",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/10/Q_X-gabarito.pdf",
+     "formato": "pdf",
+     "bytes": 60513,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Provas Q e X",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "Q e X"
+     ]
+    },
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas R e Y",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/10/R_Y-gabarito.pdf",
+     "formato": "pdf",
+     "bytes": 60509,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Provas R e Y",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "R e Y"
+     ]
+    },
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas S e Z",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/10/S_Z-gabarito.pdf",
+     "formato": "pdf",
+     "bytes": 60499,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Provas S e Z",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "S e Z"
+     ]
+    },
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas T e W",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/10/T_W-gabarito.pdf",
+     "formato": "pdf",
+     "bytes": 61674,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Provas T e W",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "T e W"
+     ]
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/"
+  },
+  {
+   "id": "unicamp-2026-2a-fase-1o-dia",
+   "vestibular": "unicamp",
+   "edicao": 2026,
+   "fase": 2,
+   "dia": 1,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": true,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.comvest.unicamp.br/vest2026/F2/provas/2026F2redporingcn.pdf",
+      "formato": "pdf",
+      "bytes": 1690844,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova de Redação, Língua Portuguesa e Literaturas de Língua Portuguesa, interdisciplinar com Ciências da Natureza",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "redacao-abordagem",
+     "rotulo": "Redação: expectativa da banca",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/12/Expectativa-Banca_RED_FINAL.pdf",
+     "formato": "pdf",
+     "bytes": 183372,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Prova de Redação",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Língua Portuguesa e Interdisciplinares",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/12/Respostas-Esperadas_Dia-1.pdf",
+     "formato": "pdf",
+     "bytes": 248206,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Prova de Língua Portuguesa e Interdisciplinares",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/"
+  },
+  {
+   "id": "unicamp-2026-2a-fase-2o-dia",
+   "vestibular": "unicamp",
+   "edicao": 2026,
+   "fase": 2,
+   "dia": 2,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "Exatas",
+     "rotulo": "Ciências Exatas / Tecnológicas",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Exatas / Tecnológicas",
+      "url": "https://www.comvest.unicamp.br/vest2026/F2/provas/2026F2CE.pdf",
+      "formato": "pdf",
+      "bytes": 2453082,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "Biológicas",
+     "rotulo": "Ciências Biológicas / Saúde",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Biológicas / Saúde",
+      "url": "https://www.comvest.unicamp.br/vest2026/F2/provas/2026F2CB.pdf",
+      "formato": "pdf",
+      "bytes": 2378543,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Biológicas / Saúde",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "Humanas",
+     "rotulo": "Ciências Humanas / Artes",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Humanas / Artes",
+      "url": "https://www.comvest.unicamp.br/vest2026/F2/provas/2026F2CH.pdf",
+      "formato": "pdf",
+      "bytes": 2931036,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Humanas / Artes",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Exatas / Tecnológicas",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/12/Respostas-Esperadas_Dia-2_CET.pdf",
+     "formato": "pdf",
+     "bytes": 646311,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Biológicas / Saúde",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/12/Respostas-Esperadas_Dia-2_CBS.pdf",
+     "formato": "pdf",
+     "bytes": 381041,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Prova da área de Ciências Biológicas / Saúde",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Humanas / Artes",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/12/Respostas-Esperadas_Dia-2_CHA.pdf",
+     "formato": "pdf",
+     "bytes": 348735,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Prova da área de Ciências Humanas / Artes",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/"
+  },
+  {
+   "id": "unicamp-2025-1a-fase",
+   "vestibular": "unicamp",
+   "edicao": 2025,
+   "fase": 1,
+   "dia": null,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "objetiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "Q e Z",
+     "rotulo": "Provas Q e Z",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas Q e Z",
+      "url": "https://www.comvest.unicamp.br/vest2025/F1/f12025Q_Z.pdf",
+      "formato": "pdf",
+      "bytes": 6477811,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas Q e Z",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "R e W",
+     "rotulo": "Provas R e W",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas R e W",
+      "url": "https://www.comvest.unicamp.br/vest2025/F1/f12025R_W.pdf",
+      "formato": "pdf",
+      "bytes": 6478536,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas R e W",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "S e X",
+     "rotulo": "Provas S e X",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas S e X",
+      "url": "https://www.comvest.unicamp.br/vest2025/F1/f12025S_X.pdf",
+      "formato": "pdf",
+      "bytes": 6478475,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas S e X",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "T e Y",
+     "rotulo": "Provas T e Y",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas T e Y",
+      "url": "https://www.comvest.unicamp.br/vest2025/F1/f12025T_Y.pdf",
+      "formato": "pdf",
+      "bytes": 6477569,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas T e Y",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas Q e Z",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/10/QZ_gabarito_2025_FINAL_site.pdf",
+     "formato": "pdf",
+     "bytes": 52356,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Gabarito Q e Z",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "Q e Z"
+     ]
+    },
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas R e W",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/10/RW_gabarito_2025_FINAL_site.pdf",
+     "formato": "pdf",
+     "bytes": 52212,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Gabarito R e W",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "R e W"
+     ]
+    },
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas S e X",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/10/SX_gabarito_2025_FINAL_site.pdf",
+     "formato": "pdf",
+     "bytes": 52059,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Gabarito S e X",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "S e X"
+     ]
+    },
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas T e Y",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/10/TY_gabarito_2025_FINAL_site.pdf",
+     "formato": "pdf",
+     "bytes": 52031,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Gabarito T e Y",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "T e Y"
+     ]
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/"
+  },
+  {
+   "id": "unicamp-2025-2a-fase-1o-dia",
+   "vestibular": "unicamp",
+   "edicao": 2025,
+   "fase": 2,
+   "dia": 1,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": true,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.comvest.unicamp.br/vest2025/F2/provas/2025F2redporingcn.pdf",
+      "formato": "pdf",
+      "bytes": 2907476,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova de Redação, Língua Portuguesa e Literaturas de Língua Portuguesa, interdisciplinar com Ciências da Natureza",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "redacao-abordagem",
+     "rotulo": "Redação: expectativa da banca",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/12/Expectativa-Banca_RED_FINAL.pdf",
+     "formato": "pdf",
+     "bytes": 252049,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Prova de Redação",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Língua Portuguesa e Interdisciplinares",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/12/Respostas-Esperadas_Dia-1.pdf",
+     "formato": "pdf",
+     "bytes": 382978,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Prova – 1º dia (Língua Portuguesa e Interdisciplinares)",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/"
+  },
+  {
+   "id": "unicamp-2025-2a-fase-2o-dia",
+   "vestibular": "unicamp",
+   "edicao": 2025,
+   "fase": 2,
+   "dia": 2,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "Exatas",
+     "rotulo": "Ciências Exatas / Tecnológicas",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Exatas / Tecnológicas",
+      "url": "https://www.comvest.unicamp.br/vest2025/F2/provas/2025F2CE.pdf",
+      "formato": "pdf",
+      "bytes": 2771608,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "Biológicas",
+     "rotulo": "Ciências Biológicas / Saúde",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Biológicas / Saúde",
+      "url": "https://www.comvest.unicamp.br/vest2025/F2/provas/2025F2CB.pdf",
+      "formato": "pdf",
+      "bytes": 2336822,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Biológicas / Saúde",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "Humanas",
+     "rotulo": "Ciências Humanas / Artes",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Humanas / Artes",
+      "url": "https://www.comvest.unicamp.br/vest2025/F2/provas/2025F2CH.pdf",
+      "formato": "pdf",
+      "bytes": 2871625,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Humanas / Artes",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Exatas / Tecnológicas",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/12/Respostas-Esperadas_Dia-2_CET.pdf",
+     "formato": "pdf",
+     "bytes": 962079,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Biológicas / Saúde",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/12/Respostas-Esperadas_Dia-2_CBS.pdf",
+     "formato": "pdf",
+     "bytes": 810838,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Prova da área de Ciências Biológicas / Saúde",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Humanas / Artes",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/12/Respostas-Esperadas_Dia-2_CHA.pdf",
+     "formato": "pdf",
+     "bytes": 517075,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Prova da área de Ciências Humanas / Artes",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/"
+  },
+  {
+   "id": "unicamp-2024-1a-fase",
+   "vestibular": "unicamp",
+   "edicao": 2024,
+   "fase": 1,
+   "dia": null,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "objetiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "Q e Y",
+     "rotulo": "Provas Q e Y",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas Q e Y",
+      "url": "https://www.comvest.unicamp.br/vest2024/F1/f12024Q_Y.pdf",
+      "formato": "pdf",
+      "bytes": 6507070,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas Q e Y",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "R e Z",
+     "rotulo": "Provas R e Z",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas R e Z",
+      "url": "https://www.comvest.unicamp.br/vest2024/F1/f12024R_Z.pdf",
+      "formato": "pdf",
+      "bytes": 6500549,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas R e Z",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "S e W",
+     "rotulo": "Provas S e W",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas S e W",
+      "url": "https://www.comvest.unicamp.br/vest2024/F1/f12024S_W.pdf",
+      "formato": "pdf",
+      "bytes": 6484101,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas S e W",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "T e X",
+     "rotulo": "Provas T e X",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas T e X",
+      "url": "https://www.comvest.unicamp.br/vest2024/F1/f12024T_X.pdf",
+      "formato": "pdf",
+      "bytes": 6498273,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas T e X",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas Q e Y",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/10/Q_Y.pdf",
+     "formato": "pdf",
+     "bytes": 40486,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Provas Q e Y",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "Q e Y"
+     ]
+    },
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas R e Z",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/10/R_Z.pdf",
+     "formato": "pdf",
+     "bytes": 40480,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Provas R e Z",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "R e Z"
+     ]
+    },
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas S e W",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/10/S_W.pdf",
+     "formato": "pdf",
+     "bytes": 40477,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Provas S e W",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "S e W"
+     ]
+    },
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito: provas T e X",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/10/T_X.pdf",
+     "formato": "pdf",
+     "bytes": 40479,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Provas T e X",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": [
+      "T e X"
+     ]
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/"
+  },
+  {
+   "id": "unicamp-2024-2a-fase-1o-dia",
+   "vestibular": "unicamp",
+   "edicao": 2024,
+   "fase": 2,
+   "dia": 1,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": true,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.comvest.unicamp.br/vest2024/F2/provas/2024F2redporingcn.pdf",
+      "formato": "pdf",
+      "bytes": 2487524,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova de Redação, Língua Portuguesa e Literaturas de Língua Portuguesa, interdisciplinar com Ciências da Natureza",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Língua Portuguesa e Interdisciplinares",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/12/Respostas-Esperadas_1odia.pdf",
+     "formato": "pdf",
+     "bytes": 523878,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Questões do primeiro dia",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "redacao-abordagem",
+     "rotulo": "Redação: expectativa da banca",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/12/Expectativa-Banca_RED.pdf",
+     "formato": "pdf",
+     "bytes": 276830,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Expectativa da banca de Redação",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/"
+  },
+  {
+   "id": "unicamp-2024-2a-fase-2o-dia",
+   "vestibular": "unicamp",
+   "edicao": 2024,
+   "fase": 2,
+   "dia": 2,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "Exatas",
+     "rotulo": "Ciências Exatas / Tecnológicas",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Exatas / Tecnológicas",
+      "url": "https://www.comvest.unicamp.br/vest2024/F2/provas/2024F2CE.pdf",
+      "formato": "pdf",
+      "bytes": 3119580,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "Biológicas",
+     "rotulo": "Ciências Biológicas / Saúde",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Biológicas / Saúde",
+      "url": "https://www.comvest.unicamp.br/vest2024/F2/provas/2024F2CB.pdf",
+      "formato": "pdf",
+      "bytes": 3255587,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Biológicas / Saúde",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "Humanas",
+     "rotulo": "Ciências Humanas / Artes",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Humanas / Artes",
+      "url": "https://www.comvest.unicamp.br/vest2024/F2/provas/2024F2CH.pdf",
+      "formato": "pdf",
+      "bytes": 2118953,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Humanas / Artes",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Exatas / Tecnológicas",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/12/RespostasEsperadas_dia2_CE.pdf",
+     "formato": "pdf",
+     "bytes": 655448,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Ciências Exatas / Tecnológicas",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Biológicas / Saúde",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/12/RespostasEsperadas_dia2_CB.pdf",
+     "formato": "pdf",
+     "bytes": 460878,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Ciências Biológicas / Saúde",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Humanas / Artes",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/12/RespostasEsperadas_dia2_CH.pdf",
+     "formato": "pdf",
+     "bytes": 311091,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Ciências Humanas / Artes",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/"
+  },
+  {
+   "id": "unicamp-2023-1a-fase",
+   "vestibular": "unicamp",
+   "edicao": 2023,
+   "fase": 1,
+   "dia": null,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "objetiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "Q e Z",
+     "rotulo": "Provas Q e Z",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas Q e Z",
+      "url": "https://www.comvest.unicamp.br/vest2023/F1/f12023Q_Z.pdf",
+      "formato": "pdf",
+      "bytes": 5491877,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas Q e Z",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "R e Y",
+     "rotulo": "Provas R e Y",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas R e Y",
+      "url": "https://www.comvest.unicamp.br/vest2023/F1/f12023R_Y.pdf",
+      "formato": "pdf",
+      "bytes": 5492901,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas R e Y",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "S e X",
+     "rotulo": "Provas S e X",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas S e X",
+      "url": "https://www.comvest.unicamp.br/vest2023/F1/f12023S_X.pdf",
+      "formato": "pdf",
+      "bytes": 5613737,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas S e X",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "T e W",
+     "rotulo": "Provas T e W",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas T e W",
+      "url": "https://www.comvest.unicamp.br/vest2023/F1/f12023T_W.pdf",
+      "formato": "pdf",
+      "bytes": 5492116,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas T e W",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [],
+   "lacunas": [
+    {
+     "tipo": "gabarito",
+     "estado": "nao-encontrado",
+     "nota": "A página do acervo não lista o gabarito."
+    }
+   ],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/"
+  },
+  {
+   "id": "unicamp-2023-2a-fase-1o-dia",
+   "vestibular": "unicamp",
+   "edicao": 2023,
+   "fase": 2,
+   "dia": 1,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": true,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.comvest.unicamp.br/vest2023/F2/provas/2023F2redporingcn.pdf",
+      "formato": "pdf",
+      "bytes": 1552840,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova de Redação, Língua Portuguesa e de Literaturas de Língua Portuguesa, interdisciplinar com Ciências da Natureza",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "redacao-abordagem",
+     "rotulo": "Redação: expectativa da banca",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/12/Resposta-Esperada_RED.docx.pdf",
+     "formato": "pdf",
+     "bytes": 146175,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Redação",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Língua Portuguesa e Interdisciplinares",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/12/Respostas-Esperadas_1odia.docx.pdf",
+     "formato": "pdf",
+     "bytes": 181892,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Questões – 1º dia",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/"
+  },
+  {
+   "id": "unicamp-2023-2a-fase-2o-dia",
+   "vestibular": "unicamp",
+   "edicao": 2023,
+   "fase": 2,
+   "dia": 2,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "Exatas",
+     "rotulo": "Ciências Exatas / Tecnológicas",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Exatas / Tecnológicas",
+      "url": "https://www.comvest.unicamp.br/vest2023/F2/provas/2023F2CE.pdf",
+      "formato": "pdf",
+      "bytes": 3264159,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "Biológicas",
+     "rotulo": "Ciências Biológicas / Saúde",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Biológicas / Saúde",
+      "url": "https://www.comvest.unicamp.br/vest2023/F2/provas/2023F2CB.pdf",
+      "formato": "pdf",
+      "bytes": 4303234,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Biológicas / Saúde",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "Humanas",
+     "rotulo": "Ciências Humanas / Artes",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Humanas / Artes",
+      "url": "https://www.comvest.unicamp.br/vest2023/F2/provas/2023F2CH.pdf",
+      "formato": "pdf",
+      "bytes": 2121898,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Humanas / Artes",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Exatas / Tecnológicas",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/12/RespostasEsperadas_2odia_CE.pdf",
+     "formato": "pdf",
+     "bytes": 1672284,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Ciências Exatas / Tecnológicas – 2º dia",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Biológicas / Saúde",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/12/RespostasEsperadas_2odia_CB.pdf",
+     "formato": "pdf",
+     "bytes": 230781,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Ciências Biológicas / Saúde – 2º dia",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Humanas / Artes",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/12/RespostasEsperadas_2odia_CH.pdf",
+     "formato": "pdf",
+     "bytes": 182541,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Ciências Humanas / Artes – 2º dia",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/"
+  },
+  {
+   "id": "unicamp-2022-1a-fase",
+   "vestibular": "unicamp",
+   "edicao": 2022,
+   "fase": 1,
+   "dia": null,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "objetiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "Q e X",
+     "rotulo": "Provas Q e X",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas Q e X",
+      "url": "https://www.comvest.unicamp.br/vest2022/F1/f12022Q_X.pdf",
+      "formato": "pdf",
+      "bytes": 3553005,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas Q e X",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "R e W",
+     "rotulo": "Provas R e W",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas R e W",
+      "url": "https://www.comvest.unicamp.br/vest2022/F1/f12022R_W.pdf",
+      "formato": "pdf",
+      "bytes": 3536588,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas R e W",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "S e Z",
+     "rotulo": "Provas S e Z",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas S e Z",
+      "url": "https://www.comvest.unicamp.br/vest2022/F1/f12022S_Z.pdf",
+      "formato": "pdf",
+      "bytes": 3534799,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas S e Z",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "T e Y",
+     "rotulo": "Provas T e Y",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Provas T e Y",
+      "url": "https://www.comvest.unicamp.br/vest2022/F1/f12022T_Y.pdf",
+      "formato": "pdf",
+      "bytes": 3533953,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+       "secao": "Primeira fase › Provas",
+       "texto": "Provas T e Y",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "gabarito",
+     "rotulo": "Gabarito oficial",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2021/11/gabarito_2022_DIVULGA.pdf",
+     "formato": "pdf",
+     "bytes": 63895,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+      "secao": "Primeira fase › Gabaritos",
+      "texto": "Gabarito primeira fase",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     },
+     "versoes": "todas"
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/"
+  },
+  {
+   "id": "unicamp-2022-2a-fase-1o-dia",
+   "vestibular": "unicamp",
+   "edicao": 2022,
+   "fase": 2,
+   "dia": 1,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": true,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "unica",
+     "rotulo": "Prova",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova",
+      "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/2022F2redporingcorrecao.pdf",
+      "formato": "pdf",
+      "bytes": 1499767,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova de Redação, prova de Língua Portuguesa e Literaturas de Língua Portuguesa",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "redacao-abordagem",
+     "rotulo": "Redação: expectativa da banca",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/Resposta-Esperada_2022_RED.pdf",
+     "formato": "pdf",
+     "bytes": 126616,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Redação",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Língua Portuguesa e Interdisciplinares",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/Resposta-Esperada_LIT_PORT_INTER.pdf",
+     "formato": "pdf",
+     "bytes": 145188,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Língua Portuguesa e Literaturas de Língua Portuguesa e Interdisciplinar",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/"
+  },
+  {
+   "id": "unicamp-2022-2a-fase-2o-dia",
+   "vestibular": "unicamp",
+   "edicao": 2022,
+   "fase": 2,
+   "dia": 2,
+   "dataAplicacao": null,
+   "nomeProva": null,
+   "tipoQuestoes": "discursiva",
+   "redacao": null,
+   "disciplinas": [],
+   "versoes": [
+    {
+     "codigo": "Exatas",
+     "rotulo": "Ciências Exatas / Tecnológicas",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Exatas / Tecnológicas",
+      "url": "https://www.comvest.unicamp.br/vest2022/F2/provas/2022F2CE.pdf",
+      "formato": "pdf",
+      "bytes": 1982356,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "Biológicas",
+     "rotulo": "Ciências Biológicas / Saúde",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Biológicas / Saúde",
+      "url": "https://www.comvest.unicamp.br/vest2022/F2/provas/2022F2CB.pdf",
+      "formato": "pdf",
+      "bytes": 2120827,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Biológicas / Saúde",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    },
+    {
+     "codigo": "Humanas",
+     "rotulo": "Ciências Humanas / Artes",
+     "prova": {
+      "tipo": "prova",
+      "rotulo": "Prova: Ciências Humanas / Artes",
+      "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/CHumanas.pdf",
+      "formato": "pdf",
+      "bytes": 991078,
+      "acesso": "oficial",
+      "procedencia": {
+       "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+       "secao": "Segunda fase › Provas",
+       "texto": "Prova da área de Ciências Humanas / Artes",
+       "coletadoEm": "2026-11-13",
+       "conferencia": "head"
+      }
+     }
+    }
+   ],
+   "complementares": [
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Exatas / Tecnológicas",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/Resposta-Esperada_CE_T.pdf",
+     "formato": "pdf",
+     "bytes": 506660,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Área Ciências Exatas e Tecnológicas",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Humanas / Artes",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/Resposta-Esperada_CH_A.pdf",
+     "formato": "pdf",
+     "bytes": 256963,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Área Ciências Humanas e Artes",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    },
+    {
+     "tipo": "respostas-esperadas",
+     "rotulo": "Respostas esperadas: Ciências Biológicas / Saúde",
+     "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/Resposta-Esperada_CB_S.pdf",
+     "formato": "pdf",
+     "bytes": 522083,
+     "acesso": "oficial",
+     "procedencia": {
+      "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+      "secao": "Segunda fase › Respostas esperadas",
+      "texto": "Área Ciências Biológicas e Saúde",
+      "coletadoEm": "2026-11-13",
+      "conferencia": "head"
+     }
+    }
+   ],
+   "lacunas": [],
+   "fonte": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/"
   }
  ]
 }

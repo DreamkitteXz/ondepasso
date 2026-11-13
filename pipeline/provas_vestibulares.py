@@ -37,10 +37,27 @@ def mais_recente(v: str) -> pathlib.Path | None:
     return arqs[-1] if arqs else None
 
 def doc(link: dict, tipo: str, rotulo: str, coleta: dict, **extra) -> dict:
-    d = {"tipo": tipo, "rotulo": rotulo, "url": link["url"], "formato": "pdf", "bytes": None, "acesso": "oficial",
-         "procedencia": {"pagina": link["pagina"], "secao": link["secao"], "texto": link["texto"], "coletadoEm": coleta["coletadoEm"], "conferencia": "listado"}}
+    conf = link.get("conferido")
+    d = {"tipo": tipo, "rotulo": rotulo, "url": link["url"], "formato": "pdf", "bytes": conf["bytes"] if conf else None, "acesso": "oficial",
+         "procedencia": {"pagina": link["pagina"], "secao": link["secao"], "texto": link["texto"], "coletadoEm": coleta["coletadoEm"], "conferencia": "head" if conf else "listado"}}
+    if conf and conf.get("identidade"): d["procedencia"]["identidade"] = conf["identidade"]
     d.update({k: v for k, v in extra.items() if v is not None})
     return d
+
+def lacunas_gerais(exames: dict, v: str, aud: dict) -> None:
+    """Lacunas: o que a página oficial não traz. Estado "nao-encontrado" = não consta na página do acervo na coleta."""
+    for e in exames.values():
+        tipos = {c["tipo"] for c in e["complementares"]}
+        if not e["versoes"]:
+            e["lacunas"].append({"tipo": "prova", "estado": "nao-encontrado", "nota": "A página do acervo não lista o caderno desta prova."})
+        if e["fase"] == 1 and "gabarito" not in tipos:
+            e["lacunas"].append({"tipo": "gabarito", "estado": "nao-encontrado", "nota": "A página do acervo não lista o gabarito."})
+        if e["fase"] == 2 and "respostas-esperadas" not in tipos:
+            e["lacunas"].append({"tipo": "respostas-esperadas", "estado": "nao-encontrado", "nota": "A página do acervo desta edição não lista respostas ou abordagens esperadas da 2ª fase."})
+    for ed in EDICOES:
+        for fase, dia in ((1, None), (2, 1), (2, 2)):
+            ident = f"{v}-{ed}-{fase}a-fase" + (f"-{dia}o-dia" if dia else "")
+            if ident not in exames: aud["lacunas"].append({"exame": ident, "estado": "nao-encontrado", "nota": "Nenhum link desta prova na página do acervo."})
 
 # ---------------------------------------------------------------- Fuvest
 
@@ -112,19 +129,81 @@ def fuvest(coleta: dict, aud: dict) -> list[dict]:
         else:
             sys.exit(f"Seção sem regra: {l}")
 
-    # Lacunas: o que a página oficial não traz. Estado "nao-encontrado" = não consta na página do acervo na coleta.
-    for e in exames.values():
-        tipos = {c["tipo"] for c in e["complementares"]}
-        if not e["versoes"]:
-            e["lacunas"].append({"tipo": "prova", "estado": "nao-encontrado", "nota": "A página do acervo não lista o caderno desta prova."})
-        if e["fase"] == 1 and "gabarito" not in tipos:
-            e["lacunas"].append({"tipo": "gabarito", "estado": "nao-encontrado", "nota": "A página do acervo não lista o gabarito."})
-        if e["fase"] == 2 and "respostas-esperadas" not in tipos:
-            e["lacunas"].append({"tipo": "respostas-esperadas", "estado": "nao-encontrado", "nota": "A página do acervo desta edição não lista respostas ou abordagens esperadas da 2ª fase."})
-    for ed in EDICOES:
-        for fase, dia in ((1, None), (2, 1), (2, 2)):
-            ident = f"fuvest-{ed}-{fase}a-fase" + (f"-{dia}o-dia" if dia else "")
-            if ident not in exames: aud["lacunas"].append({"exame": ident, "estado": "nao-encontrado", "nota": "Nenhum link desta prova na página do acervo."})
+    lacunas_gerais(exames, "fuvest", aud)
+    return sorted(exames.values(), key=lambda e: (-e["edicao"], e["fase"], e["dia"] or 0))
+
+# ---------------------------------------------------------------- Unicamp (Comvest)
+
+PAR = re.compile(r"\b([QRSTWXYZ]) e ([QRSTWXYZ])\b")
+AREAS = {"exatas": ("Exatas", "Ciências Exatas / Tecnológicas"), "biológicas": ("Biológicas", "Ciências Biológicas / Saúde"),
+         "humanas": ("Humanas", "Ciências Humanas / Artes")}
+
+def unicamp(coleta: dict, aud: dict) -> list[dict]:
+    """Unicamp: 1ª fase objetiva (cadernos aos pares, "Q e X"); 2ª fase em dois dias.
+    1º dia = Redação + Língua Portuguesa/Literaturas + interdisciplinar (um caderno, cujo título oficial cita a Redação).
+    2º dia = uma prova por área (Exatas, Biológicas, Humanas), cada uma um caderno do exame.
+    O dia dos documentos vem do rótulo oficial quando ele existe ("1º dia", "Dia-2" no arquivo); nos demais, da área
+    ou do título da prova (área = 2º dia; Redação/Língua Portuguesa = 1º dia), estrutura que 2023 e 2025 rotulam à mão."""
+    exames: dict[str, dict] = {}
+
+    def exame(ed: int, fase: int, dia: int | None, pagina: str) -> dict:
+        ident = f"unicamp-{ed}-{fase}a-fase" + (f"-{dia}o-dia" if dia else "")
+        if ident not in exames:
+            exames[ident] = {"id": ident, "vestibular": "unicamp", "edicao": ed, "fase": fase, "dia": dia, "dataAplicacao": None,
+                             "nomeProva": None, "tipoQuestoes": "objetiva" if fase == 1 else "discursiva", "redacao": None, "disciplinas": [],
+                             "versoes": [], "complementares": [], "lacunas": [], "fonte": pagina}
+        return exames[ident]
+
+    def area(texto: str):
+        t = texto.lower()
+        return next((v for k, v in AREAS.items() if k in t), None)
+
+    for l in coleta["links"]:
+        ed, secao, texto = l["edicao"], l["secao"], l["texto"]
+        if ed not in EDICOES:
+            aud["fora"].append({**l, "motivo": "edição fora do recorte 2022–2026"}); continue
+        t, s = texto.lower(), secao.lower()
+        if s.startswith("primeira fase"):
+            e = exame(ed, 1, None, l["pagina"])
+            m = PAR.search(texto)
+            if "provas" in s.split("›")[-1] and m:
+                cod = f"{m.group(1)} e {m.group(2)}"
+                e["versoes"].append({"codigo": cod, "rotulo": f"Provas {cod}", "prova": doc(l, "prova", f"Provas {cod}", coleta)})
+            elif "gabarito" in s.split("›")[-1] and m:
+                cod = f"{m.group(1)} e {m.group(2)}"
+                e["complementares"].append(doc(l, "gabarito", f"Gabarito: provas {cod}", coleta, versoes=[cod]))
+            elif "gabarito" in t:  # 2022: um só documento para todas as versões
+                e["complementares"].append(doc(l, "gabarito", "Gabarito oficial", coleta, versoes="todas"))
+            else:
+                sys.exit(f"Link da 1ª fase sem regra: {l}")
+        elif s.startswith("segunda fase"):
+            sec = s.split("›")[-1].strip()
+            a = area(texto)
+            if sec.startswith("provas"):
+                if a:
+                    e = exame(ed, 2, 2, l["pagina"])
+                    e["versoes"].append({"codigo": a[0], "rotulo": a[1], "prova": doc(l, "prova", f"Prova: {a[1]}", coleta)})
+                elif "redação" in t and "língua portuguesa" in t:
+                    e = exame(ed, 2, 1, l["pagina"]); e["redacao"] = True
+                    e["versoes"].append({"codigo": "unica", "rotulo": "Prova", "prova": doc(l, "prova", "Prova", coleta)})
+                else:
+                    sys.exit(f"Prova da 2ª fase sem regra: {l}")
+            elif sec.startswith("respostas esperadas"):
+                if a:
+                    exame(ed, 2, 2, l["pagina"])["complementares"].append(doc(l, "respostas-esperadas", f"Respostas esperadas: {a[1]}", coleta))
+                elif "redação" in t or "expectativa" in t:
+                    e = exame(ed, 2, 1, l["pagina"]); e["redacao"] = True
+                    e["complementares"].append(doc(l, "redacao-abordagem", "Redação: expectativa da banca", coleta))
+                elif "1º dia" in t or "primeiro dia" in t or "língua portuguesa" in t:
+                    exame(ed, 2, 1, l["pagina"])["complementares"].append(doc(l, "respostas-esperadas", "Respostas esperadas: Língua Portuguesa e Interdisciplinares", coleta))
+                else:
+                    sys.exit(f"Resposta esperada sem regra: {l}")
+            else:
+                sys.exit(f"Seção da 2ª fase sem regra: {l}")
+        else:
+            sys.exit(f"Seção sem regra: {l}")
+
+    lacunas_gerais(exames, "unicamp", aud)
     return sorted(exames.values(), key=lambda e: (-e["edicao"], e["fase"], e["dia"] or 0))
 
 # ---------------------------------------------------------------- principal
@@ -141,8 +220,8 @@ def main() -> None:
             auditoria["vestibulares"][v] = {"estado": "pendente", **pend}
             continue
         coleta = json.loads(arq.read_text(encoding="utf-8"))
-        if v != "fuvest": sys.exit(f"Falta escrever as regras de importação de {v} (arquivo {arq.name}).")
-        exames = fuvest(coleta, aud)
+        if v not in ("fuvest", "unicamp"): sys.exit(f"Falta escrever as regras de importação de {v} (arquivo {arq.name}).")
+        exames = fuvest(coleta, aud) if v == "fuvest" else unicamp(coleta, aud)
         saida["geradoDe"][v] = arq.name
         saida["exames"] += exames
         saida["vestibulares"].append({"id": v, **meta, "estado": "catalogado", "coletadoEm": coleta["coletadoEm"], "acesso": "oficial", "motivoAcesso": MOTIVO_OFICIAL,
@@ -157,7 +236,8 @@ def main() -> None:
                                     "complementares": len({c["url"] for e in exames if e["edicao"] == ed for c in e["complementares"]})} for ed in EDICOES},
             "lacunas": aud["lacunas"] + [{"exame": e["id"], **l} for e in exames for l in e["lacunas"]],
             "fora": [{"edicao": f["edicao"], "texto": f["texto"], "secao": f["secao"], "url": f["url"], "motivo": f["motivo"]} for f in aud["fora"]],
-            "conferenciaPendente": "Conferir cada link (HEAD) e abrir os PDFs para confirmar data de aplicação, número de questões e retificações.",
+            "conferenciaPendente": "Links com HEAD 200 em 13/11/2026; identidade confirmada só nos arquivos com 'identidade' na procedência. Falta: número de questões, data de aplicação da 2ª fase e abrir os demais PDFs." if v == "fuvest"
+                else "Links com HEAD 200 em 13/11/2026. Falta abrir os PDFs para confirmar versão, número de questões, datas de aplicação e o gabarito da 1ª fase de 2023.",
         }
         if usados + len(aud["fora"]) != len(coleta["links"]): sys.exit(f"{v}: {len(coleta['links'])} links coletados, {usados} usados + {len(aud['fora'])} fora. Algum link sumiu.")
     ids = [e["id"] for e in saida["exames"]]

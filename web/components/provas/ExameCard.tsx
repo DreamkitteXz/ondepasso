@@ -4,7 +4,7 @@
 // Estes arquivos não abrem no leitor do site (o servidor oficial não libera): os botões levam ao site oficial.
 import { useEffect, useState } from "react";
 import type { Documento, Exame, VersaoExame } from "@/lib/provas-tipos";
-import { DISPONIBILIDADE_ROTULO, VESTIBULAR_ROTULO, gabaritoDaVersao, hostDe as host, resumoExame, rotuloExame } from "@/lib/provas-tipos";
+import { DISPONIBILIDADE_ROTULO, VESTIBULAR_ROTULO, gabaritoDaVersao, hostDe as host, porArea, resumoExame, rotuloExame } from "@/lib/provas-tipos";
 import { registrar } from "@/lib/analytics";
 
 export const Fora = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5" /></svg>;
@@ -46,7 +46,7 @@ export function ExameCard({ e, inicial, salvas, aoSalvar }: Props) {
 
         {varias && (
           <fieldset className="seletor-cor">
-            <legend>Versão do seu caderno</legend>
+            <legend>{porArea(e) ? "Área da sua prova" : "Versão do seu caderno"}</legend>
             <div className="amostras">
               {e.versoes.map((v) => (
                 <label key={v.codigo} className={`amostra versao${v.codigo === sel.codigo ? " marcada" : ""}`}>
@@ -60,7 +60,7 @@ export function ExameCard({ e, inicial, salvas, aoSalvar }: Props) {
 
         {e.versoes.length > 0 && (
           <div className="prova-acoes">
-            <LinkOficial d={sel.prova} exame={e.id} className="botao">Abrir {varias ? `a prova ${sel.codigo}` : "a prova"} no site oficial</LinkOficial>
+            <LinkOficial d={sel.prova} exame={e.id} className="botao">Abrir {porArea(e) ? `a prova de ${sel.rotulo}` : varias ? `a prova ${sel.codigo}` : "a prova"} no site oficial</LinkOficial>
             {gabarito && <LinkOficial d={gabarito} exame={e.id} className="botao botao-contorno">{gabarito.retificado ? "Gabarito retificado" : "Gabarito"}</LinkOficial>}
           </div>
         )}

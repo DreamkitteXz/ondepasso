@@ -2,7 +2,7 @@
 // com link para o arquivo oficial. Não há leitor: o servidor oficial não libera a leitura dentro de outros sites.
 import { Manchete } from "@/components/Manchete";
 import type { Exame, InfoVestibular } from "@/lib/provas-tipos";
-import { DISPONIBILIDADE_ROTULO, VESTIBULAR_ROTULO, dataBr, descricaoExame, gabaritoDaVersao, hostDe as host, resumoExame, rotuloExame, tituloExame } from "@/lib/provas-tipos";
+import { DISPONIBILIDADE_ROTULO, VESTIBULAR_ROTULO, dataBr, descricaoExame, gabaritoDaVersao, hostDe as host, porArea, resumoExame, rotuloExame, tituloExame } from "@/lib/provas-tipos";
 import { SITE } from "@/lib/site";
 import { BotaoSalvar } from "@/components/provas/AcoesProva";
 import { LinkOficial } from "@/components/provas/ExameCard";
@@ -43,7 +43,7 @@ export function PaginaExame({ e, info, outras }: { e: Exame; info: InfoVestibula
           <ul className="prova-fatos">
             <li><span>Edição</span><strong>Ingresso em {e.edicao}</strong></li>
             <li><span>Aplicação</span><strong>{e.dataAplicacao ? dataBr(e.dataAplicacao) : "Data não conferida"}</strong></li>
-            <li><span>Cadernos</span><strong>{varias ? `${e.versoes.length} versões (${e.versoes.map((v) => v.codigo).join(", ")})` : e.versoes.length ? "Versão única" : "Não encontrado"}</strong></li>
+            <li><span>Cadernos</span><strong>{varias ? `${e.versoes.length} ${porArea(e) ? "provas de área" : "versões"} (${e.versoes.map((v) => v.codigo).join(", ")})` : e.versoes.length ? "Versão única" : "Não encontrado"}</strong></li>
             <li><span>{e.tipoQuestoes === "discursiva" ? "Respostas esperadas" : "Gabarito"}</span><strong>{(e.tipoQuestoes === "discursiva" ? outros.some((c) => c.tipo === "respostas-esperadas") : gabaritos.length > 0) ? "Oficial, disponível" : "Não encontrado no acervo"}</strong></li>
           </ul>
           <div className="prova-acoes"><BotaoSalvar id={e.id} /></div>
@@ -57,14 +57,16 @@ export function PaginaExame({ e, info, outras }: { e: Exame; info: InfoVestibula
       <div className="prova-grade">
         <section className="exame-bloco" aria-labelledby="t-cadernos">
           <h2 id="t-cadernos">{varias ? "Cadernos de prova" : "Caderno de prova"}</h2>
-          {varias && <p className="miudo">As versões trazem as mesmas questões em ordens diferentes. Abra a versão que você fez (ou qualquer uma, para estudar) e use a coluna dela no gabarito.</p>}
+          {varias && (porArea(e)
+            ? <p className="miudo">Cada área tem a sua prova. Abra a da área que você fez.</p>
+            : e.vestibular === "fuvest" && <p className="miudo">As versões trazem as mesmas questões em ordens diferentes. Abra a versão que você fez (ou qualquer uma, para estudar) e use a coluna dela no gabarito.</p>)}
           {e.versoes.length === 0 ? <p className="exame-falta">Caderno de prova: {DISPONIBILIDADE_ROTULO["nao-encontrado"]}.</p> : (
             <ul className="exame-lista">
               {e.versoes.map((v) => {
                 const g = gabaritoDaVersao(e, v.codigo);
                 return (
                   <li key={v.codigo}>
-                    <LinkOficial d={v.prova} exame={e.id} className="botao botao-contorno">{varias ? `Prova ${v.codigo}` : "Abrir a prova"}</LinkOficial>
+                    <LinkOficial d={v.prova} exame={e.id} className="botao botao-contorno">{porArea(e) ? `Prova de ${v.rotulo}` : varias ? `Prova ${v.codigo}` : "Abrir a prova"}</LinkOficial>
                     {varias && g && <span className="miudo">Gabarito: {g.versoes === "todas" ? `coluna ${v.codigo} do gabarito oficial` : g.rotulo}</span>}
                   </li>
                 );

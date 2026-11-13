@@ -4,10 +4,12 @@
    "estado": "catalogado",
    "arquivo": "fuvest-links-2026-11-13.json",
    "coletadoEm": "2026-11-13",
-   "metodo": "Páginas oficiais do acervo (uma por edição) lidas em 13/11/2026 por ferramenta de leitura de páginas, que devolve os links de cada seção. As seções 'Provas e Gabaritos', 'Simulado' e 'Competências Específicas' foram transcritas por inteiro; Documentos, Listas e Estatísticas ficaram de fora.",
+   "metodo": "Páginas oficiais do acervo (uma por edição) lidas em 13/11/2026 por ferramenta de leitura de páginas, que devolve os links de cada seção. As seções 'Provas e Gabaritos', 'Simulado' e 'Competências Específicas' foram transcritas por inteiro; Documentos, Listas e Estatísticas ficaram de fora. CONFERÊNCIA (13/11/2026, navegador embutido do app desktop): os 49 links usados foram baixados pelo navegador a partir de fuvest.br e todos responderam 200 application/pdf; 'conferido.bytes' é o tamanho real. 'conferido.identidade' diz como a identidade foi confirmada (metadados do PDF, capa ou cabeçalho do gabarito aberto no visualizador); sem esse campo, só existência, tipo e tamanho foram conferidos.",
    "limites": [
-    "Os arquivos NÃO foram conferidos um a um (HEAD/tamanho): o ambiente de coleta não alcança fuvest.br diretamente. Cada item vale como 'listado na página oficial'.",
-    "A leitura passa por um modelo que transcreve os links; um erro de transcrição é possível e deve ser pego na conferência manual dos links."
+    "Número de questões NÃO conferido (o visualizador do painel não expõe texto e a contagem de páginas dos metadados não é confiável).",
+    "Só os arquivos com 'conferido.identidade' tiveram a identidade (edição, versão, dia, gabarito) confirmada; os demais (respostas esperadas, abordagens, guias, prova do 2º dia de 2025 e 2026) têm só HEAD/tamanho e o rótulo da página oficial.",
+    "Datas de aplicação confirmadas só para a 1ª fase (cabeçalho do gabarito). Para a 2ª fase só há datas de publicação do documento (ver fatosDeDocumentos); nenhuma data de aplicação foi inferida.",
+    "Os 15 links 'fora' (simulados, competências específicas, notas de corte) não foram verificados."
    ],
    "linksColetados": 64,
    "linksUsados": 49,
@@ -182,15 +184,83 @@
      "motivo": "não é prova nem gabarito"
     }
    ],
-   "conferenciaPendente": "Conferir cada link (HEAD) e abrir os PDFs para confirmar data de aplicação, número de questões e retificações."
+   "conferenciaPendente": "Links com HEAD 200 em 13/11/2026; identidade confirmada só nos arquivos com 'identidade' na procedência. Falta: número de questões, data de aplicação da 2ª fase e abrir os demais PDFs."
   },
   "unicamp": {
-   "estado": "pendente",
-   "motivo": "O catálogo da Unicamp ainda não foi importado: as páginas do acervo da Comvest não puderam ser lidas na coleta de 13/11/2026.",
-   "registradoEm": "2026-11-13",
-   "detalhe": "As páginas https://www.comvest.unicamp.br/vestibulares-anteriores/ e https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/ recusam a ferramenta de leitura usada na coleta (robots.txt), e o ambiente não alcança o site por outro caminho. Nenhum link foi transcrito, para não registrar documento não confirmado.",
-   "comoResolver": "Abrir as páginas do acervo num navegador comum, salvar os links das provas de ingresso 2022 a 2026 (1ª e 2ª fases, todas as versões, gabaritos, expectativas de resposta e redação) em dados/vestibulares/unicamp-links-<data>.json, no mesmo formato do arquivo da Fuvest, e escrever as regras de importação em pipeline/provas_vestibulares.py.",
-   "condicoesDeUso": "A Comvest publica condições de reprodução parcial das provas. Antes de qualquer leitura integrada, conferir essas condições; até lá, o acesso é só pelo link oficial."
+   "estado": "catalogado",
+   "arquivo": "unicamp-links-2026-11-13.json",
+   "coletadoEm": "2026-11-13",
+   "metodo": "Páginas oficiais da Comvest abertas no navegador embutido do app desktop do usuário (como usuário normal, sem contornar robots.txt) em 13/11/2026; links lidos do DOM de cada página (não transcritos por modelo). Cada URL foi checada com requisição HEAD feita pelo próprio navegador a partir de www.comvest.unicamp.br: todas responderam 200 application/pdf; 'bytes' é o content-length. Os PDFs não foram abertos para conferir conteúdo, versão ou número de questões.",
+   "limites": [
+    "Conteúdo dos PDFs não conferido (só existência, tipo e tamanho).",
+    "Edição = ano de ingresso (Vestibular 2026 = provas aplicadas em 2025), como no arquivo da Fuvest.",
+    "2024: os links vêm da seção 'Provas do Vestibular 2024' da página do Vestibular 2025 (a página própria de 2024 não foi aberta).",
+    "2023: a página de provas diz 'a prova e o gabarito da primeira fase', mas não lista gabarito da 1ª fase separado; nenhum link de gabarito 2023 foi coletado.",
+    "Fora do escopo e não coletados: Provas de Habilidades Específicas (2022 tem 5 PDFs; 2023–2026 não verificados), provas comentadas, simulado, estatísticas/abstenção, relatórios.",
+    "Ingresso 2023: a página de provas lista 'respostas esperadas' sob o nome de 2º dia, sem separar Dia 1 de redação além dos itens listados."
+   ],
+   "linksColetados": 78,
+   "linksUsados": 78,
+   "linksFora": 0,
+   "exames": 15,
+   "cadernos": 40,
+   "porEdicao": {
+    "2026": {
+     "exames": [
+      "unicamp-2026-1a-fase",
+      "unicamp-2026-2a-fase-1o-dia",
+      "unicamp-2026-2a-fase-2o-dia"
+     ],
+     "cadernos": 8,
+     "complementares": 9
+    },
+    "2025": {
+     "exames": [
+      "unicamp-2025-1a-fase",
+      "unicamp-2025-2a-fase-1o-dia",
+      "unicamp-2025-2a-fase-2o-dia"
+     ],
+     "cadernos": 8,
+     "complementares": 9
+    },
+    "2024": {
+     "exames": [
+      "unicamp-2024-1a-fase",
+      "unicamp-2024-2a-fase-1o-dia",
+      "unicamp-2024-2a-fase-2o-dia"
+     ],
+     "cadernos": 8,
+     "complementares": 9
+    },
+    "2023": {
+     "exames": [
+      "unicamp-2023-1a-fase",
+      "unicamp-2023-2a-fase-1o-dia",
+      "unicamp-2023-2a-fase-2o-dia"
+     ],
+     "cadernos": 8,
+     "complementares": 5
+    },
+    "2022": {
+     "exames": [
+      "unicamp-2022-1a-fase",
+      "unicamp-2022-2a-fase-1o-dia",
+      "unicamp-2022-2a-fase-2o-dia"
+     ],
+     "cadernos": 8,
+     "complementares": 6
+    }
+   },
+   "lacunas": [
+    {
+     "exame": "unicamp-2023-1a-fase",
+     "tipo": "gabarito",
+     "estado": "nao-encontrado",
+     "nota": "A página do acervo não lista o gabarito."
+    }
+   ],
+   "fora": [],
+   "conferenciaPendente": "Links com HEAD 200 em 13/11/2026. Falta abrir os PDFs para confirmar versão, número de questões, datas de aplicação e o gabarito da 1ª fase de 2023."
   }
  }
 }

@@ -241,7 +241,7 @@ export const DISPONIBILIDADE_ROTULO: Record<Disponibilidade, string> = {
   "nao-aplicavel": "não se aplica a esta prova",
 };
 export type TipoDocumento = "prova" | "gabarito" | "respostas-esperadas" | "redacao-abordagem" | "criterios" | "outro";
-export type Procedencia = { pagina: string; secao: string; texto: string; coletadoEm: string; conferencia: "listado" | "head" };
+export type Procedencia = { pagina: string; secao: string; texto: string; coletadoEm: string; conferencia: "listado" | "head"; /** Como a identidade do arquivo foi confirmada (metadados, capa, cabeçalho do gabarito); ausente = só existência e tamanho. */ identidade?: string };
 export type Documento = {
   tipo: TipoDocumento; rotulo: string; url: string; formato: "pdf"; bytes: number | null; acesso: Acesso; procedencia: Procedencia;
   /** Gabarito: "todas" quando um só documento traz as respostas de todas as versões. */
@@ -303,10 +303,12 @@ export function resumoExame(e: Exame): string {
 
 
 export function descricaoExame(e: Exame): string {
-  const v = e.versoes.length > 1 ? `${e.versoes.length} versões do caderno (${e.versoes.map((x) => x.codigo).join(", ")})` : "caderno de prova";
+  const v = e.versoes.length > 1 ? `${e.versoes.length} ${porArea(e) ? "provas de área" : "versões do caderno"} (${e.versoes.map((x) => x.codigo).join(", ")})` : "caderno de prova";
   const comp = e.complementares.map((c) => c.rotulo.toLowerCase());
   return `${tituloExame(e)}: ${v}${comp.length ? `, ${[...new Set(comp)].slice(0, 3).join(", ")}` : ""}. Links para os arquivos oficiais.`;
 }
+/** Unicamp, 2ª fase, 2º dia: os "cadernos" são provas de áreas diferentes (Exatas, Biológicas, Humanas), não versões da mesma prova. */
+export const porArea = (e: Exame) => e.vestibular === "unicamp" && e.fase === 2 && e.dia === 2;
 export const documentosDoTipo = (e: Exame, tipo: TipoDocumento) => e.complementares.filter((c) => c.tipo === tipo);
 /** O gabarito que vale para uma versão: o específico dela, se houver; senão, o que cobre todas. Nunca o de outra versão. */
 export function gabaritoDaVersao(e: Exame, codigo: string): Documento | null {

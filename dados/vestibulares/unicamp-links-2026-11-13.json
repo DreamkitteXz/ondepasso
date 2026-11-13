@@ -1,0 +1,952 @@
+{
+ "vestibular": "unicamp",
+ "coletadoEm": "2026-11-13",
+ "indice": "https://www.comvest.unicamp.br/vestibulares-anteriores/",
+ "metodo": "Páginas oficiais da Comvest abertas no navegador embutido do app desktop do usuário (como usuário normal, sem contornar robots.txt) em 13/11/2026; links lidos do DOM de cada página (não transcritos por modelo). Cada URL foi checada com requisição HEAD feita pelo próprio navegador a partir de www.comvest.unicamp.br: todas responderam 200 application/pdf; 'bytes' é o content-length. Os PDFs não foram abertos para conferir conteúdo, versão ou número de questões.",
+ "limites": [
+  "Conteúdo dos PDFs não conferido (só existência, tipo e tamanho).",
+  "Edição = ano de ingresso (Vestibular 2026 = provas aplicadas em 2025), como no arquivo da Fuvest.",
+  "2024: os links vêm da seção 'Provas do Vestibular 2024' da página do Vestibular 2025 (a página própria de 2024 não foi aberta).",
+  "2023: a página de provas diz 'a prova e o gabarito da primeira fase', mas não lista gabarito da 1ª fase separado; nenhum link de gabarito 2023 foi coletado.",
+  "Fora do escopo e não coletados: Provas de Habilidades Específicas (2022 tem 5 PDFs; 2023–2026 não verificados), provas comentadas, simulado, estatísticas/abstenção, relatórios.",
+  "Ingresso 2023: a página de provas lista 'respostas esperadas' sob o nome de 2º dia, sem separar Dia 1 de redação além dos itens listados."
+ ],
+ "links": [
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas Q e X",
+   "url": "https://www.comvest.unicamp.br/vest2026/F1/f12026Q_X.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 8732984
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas R e Y",
+   "url": "https://www.comvest.unicamp.br/vest2026/F1/f12026R_Y.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 8731186
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas S e Z",
+   "url": "https://www.comvest.unicamp.br/vest2026/F1/f12026S_Z.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 8731127
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas T e W",
+   "url": "https://www.comvest.unicamp.br/vest2026/F1/f12026T_W.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 8739848
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Provas Q e X",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/10/Q_X-gabarito.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 60513
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Provas R e Y",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/10/R_Y-gabarito.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 60509
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Provas S e Z",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/10/S_Z-gabarito.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 60499
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Provas T e W",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/10/T_W-gabarito.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 61674
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+   "url": "https://www.comvest.unicamp.br/vest2026/F2/provas/2026F2CE.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 2453082
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Biológicas / Saúde",
+   "url": "https://www.comvest.unicamp.br/vest2026/F2/provas/2026F2CB.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 2378543
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Humanas / Artes",
+   "url": "https://www.comvest.unicamp.br/vest2026/F2/provas/2026F2CH.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 2931036
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova de Redação, Língua Portuguesa e Literaturas de Língua Portuguesa, interdisciplinar com Ciências da Natureza",
+   "url": "https://www.comvest.unicamp.br/vest2026/F2/provas/2026F2redporingcn.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 1690844
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/12/Respostas-Esperadas_Dia-2_CET.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 646311
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Prova da área de Ciências Biológicas / Saúde",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/12/Respostas-Esperadas_Dia-2_CBS.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 381041
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Prova da área de Ciências Humanas / Artes",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/12/Respostas-Esperadas_Dia-2_CHA.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 348735
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Prova de Redação",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/12/Expectativa-Banca_RED_FINAL.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 183372
+   }
+  },
+  {
+   "edicao": 2026,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2026/vestibular-2026/provas-e-gabaritos-vestibular-2026/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Prova de Língua Portuguesa e Interdisciplinares",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2025/12/Respostas-Esperadas_Dia-1.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 248206
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas Q e Z",
+   "url": "https://www.comvest.unicamp.br/vest2025/F1/f12025Q_Z.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 6477811
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas R e W",
+   "url": "https://www.comvest.unicamp.br/vest2025/F1/f12025R_W.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 6478536
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas S e X",
+   "url": "https://www.comvest.unicamp.br/vest2025/F1/f12025S_X.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 6478475
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas T e Y",
+   "url": "https://www.comvest.unicamp.br/vest2025/F1/f12025T_Y.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 6477569
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Gabarito Q e Z",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/10/QZ_gabarito_2025_FINAL_site.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 52356
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Gabarito R e W",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/10/RW_gabarito_2025_FINAL_site.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 52212
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Gabarito S e X",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/10/SX_gabarito_2025_FINAL_site.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 52059
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Gabarito T e Y",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/10/TY_gabarito_2025_FINAL_site.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 52031
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+   "url": "https://www.comvest.unicamp.br/vest2025/F2/provas/2025F2CE.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 2771608
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Biológicas / Saúde",
+   "url": "https://www.comvest.unicamp.br/vest2025/F2/provas/2025F2CB.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 2336822
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Humanas / Artes",
+   "url": "https://www.comvest.unicamp.br/vest2025/F2/provas/2025F2CH.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 2871625
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova de Redação, Língua Portuguesa e Literaturas de Língua Portuguesa, interdisciplinar com Ciências da Natureza",
+   "url": "https://www.comvest.unicamp.br/vest2025/F2/provas/2025F2redporingcn.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 2907476
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/12/Respostas-Esperadas_Dia-2_CET.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 962079
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Prova da área de Ciências Biológicas / Saúde",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/12/Respostas-Esperadas_Dia-2_CBS.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 810838
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Prova da área de Ciências Humanas / Artes",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/12/Respostas-Esperadas_Dia-2_CHA.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 517075
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Prova de Redação",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/12/Expectativa-Banca_RED_FINAL.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 252049
+   }
+  },
+  {
+   "edicao": 2025,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Prova – 1º dia (Língua Portuguesa e Interdisciplinares)",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2024/12/Respostas-Esperadas_Dia-1.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 382978
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas Q e Y",
+   "url": "https://www.comvest.unicamp.br/vest2024/F1/f12024Q_Y.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 6507070
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas R e Z",
+   "url": "https://www.comvest.unicamp.br/vest2024/F1/f12024R_Z.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 6500549
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas S e W",
+   "url": "https://www.comvest.unicamp.br/vest2024/F1/f12024S_W.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 6484101
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas T e X",
+   "url": "https://www.comvest.unicamp.br/vest2024/F1/f12024T_X.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 6498273
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Provas Q e Y",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/10/Q_Y.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 40486
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Provas R e Z",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/10/R_Z.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 40480
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Provas S e W",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/10/S_W.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 40477
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Provas T e X",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/10/T_X.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 40479
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+   "url": "https://www.comvest.unicamp.br/vest2024/F2/provas/2024F2CE.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 3119580
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Biológicas / Saúde",
+   "url": "https://www.comvest.unicamp.br/vest2024/F2/provas/2024F2CB.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 3255587
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Humanas / Artes",
+   "url": "https://www.comvest.unicamp.br/vest2024/F2/provas/2024F2CH.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 2118953
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova de Redação, Língua Portuguesa e Literaturas de Língua Portuguesa, interdisciplinar com Ciências da Natureza",
+   "url": "https://www.comvest.unicamp.br/vest2024/F2/provas/2024F2redporingcn.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 2487524
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Ciências Exatas / Tecnológicas",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/12/RespostasEsperadas_dia2_CE.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 655448
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Ciências Biológicas / Saúde",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/12/RespostasEsperadas_dia2_CB.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 460878
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Ciências Humanas / Artes",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/12/RespostasEsperadas_dia2_CH.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 311091
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Questões do primeiro dia",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/12/Respostas-Esperadas_1odia.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 523878
+   }
+  },
+  {
+   "edicao": 2024,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2025/vestibular-2025/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Expectativa da banca de Redação",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/12/Expectativa-Banca_RED.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 276830
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas Q e Z",
+   "url": "https://www.comvest.unicamp.br/vest2023/F1/f12023Q_Z.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 5491877
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas R e Y",
+   "url": "https://www.comvest.unicamp.br/vest2023/F1/f12023R_Y.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 5492901
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas S e X",
+   "url": "https://www.comvest.unicamp.br/vest2023/F1/f12023S_X.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 5613737
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas T e W",
+   "url": "https://www.comvest.unicamp.br/vest2023/F1/f12023T_W.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 5492116
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+   "url": "https://www.comvest.unicamp.br/vest2023/F2/provas/2023F2CE.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 3264159
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Biológicas / Saúde",
+   "url": "https://www.comvest.unicamp.br/vest2023/F2/provas/2023F2CB.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 4303234
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Humanas / Artes",
+   "url": "https://www.comvest.unicamp.br/vest2023/F2/provas/2023F2CH.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 2121898
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova de Redação, Língua Portuguesa e de Literaturas de Língua Portuguesa, interdisciplinar com Ciências da Natureza",
+   "url": "https://www.comvest.unicamp.br/vest2023/F2/provas/2023F2redporingcn.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 1552840
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Redação",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/12/Resposta-Esperada_RED.docx.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 146175
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Questões – 1º dia",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/12/Respostas-Esperadas_1odia.docx.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 181892
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Ciências Exatas / Tecnológicas – 2º dia",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/12/RespostasEsperadas_2odia_CE.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 1672284
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Ciências Biológicas / Saúde – 2º dia",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/12/RespostasEsperadas_2odia_CB.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 230781
+   }
+  },
+  {
+   "edicao": 2023,
+   "pagina": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/provas/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Ciências Humanas / Artes – 2º dia",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/12/RespostasEsperadas_2odia_CH.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 182541
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas Q e X",
+   "url": "https://www.comvest.unicamp.br/vest2022/F1/f12022Q_X.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 3553005
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas R e W",
+   "url": "https://www.comvest.unicamp.br/vest2022/F1/f12022R_W.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 3536588
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas S e Z",
+   "url": "https://www.comvest.unicamp.br/vest2022/F1/f12022S_Z.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 3534799
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+   "secao": "Primeira fase › Provas",
+   "texto": "Provas T e Y",
+   "url": "https://www.comvest.unicamp.br/vest2022/F1/f12022T_Y.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 3533953
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+   "secao": "Primeira fase › Gabaritos",
+   "texto": "Gabarito primeira fase",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2021/11/gabarito_2022_DIVULGA.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 63895
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova de Redação, prova de Língua Portuguesa e Literaturas de Língua Portuguesa",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/2022F2redporingcorrecao.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 1499767
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Exatas / Tecnológicas",
+   "url": "https://www.comvest.unicamp.br/vest2022/F2/provas/2022F2CE.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 1982356
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Biológicas / Saúde",
+   "url": "https://www.comvest.unicamp.br/vest2022/F2/provas/2022F2CB.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 2120827
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/provas-2022/",
+   "secao": "Segunda fase › Provas",
+   "texto": "Prova da área de Ciências Humanas / Artes",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/CHumanas.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 991078
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Redação",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/Resposta-Esperada_2022_RED.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 126616
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Língua Portuguesa e Literaturas de Língua Portuguesa e Interdisciplinar",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/Resposta-Esperada_LIT_PORT_INTER.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 145188
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Área Ciências Exatas e Tecnológicas",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/Resposta-Esperada_CE_T.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 506660
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Área Ciências Humanas e Artes",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/Resposta-Esperada_CH_A.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 256963
+   }
+  },
+  {
+   "edicao": 2022,
+   "pagina": "https://www.comvest.unicamp.br/vestibulares-anteriores/ingresso-2022/vestibular-2022/respostas-esperadas-2022/",
+   "secao": "Segunda fase › Respostas esperadas",
+   "texto": "Área Ciências Biológicas e Saúde",
+   "url": "https://www.comvest.unicamp.br/wp-content/uploads/2022/01/Resposta-Esperada_CB_S.pdf",
+   "conferido": {
+    "http": 200,
+    "tipo": "application/pdf",
+    "bytes": 522083
+   }
+  }
+ ]
+}

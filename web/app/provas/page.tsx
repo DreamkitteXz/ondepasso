@@ -8,10 +8,10 @@ import { Manchete } from "@/components/Manchete";
 import { agrupar, dataBr as dataBrasil, tituloExame } from "@/lib/provas-tipos";
 
 export const metadata: Metadata = {
-  title: "Provas anteriores do Enem e da Fuvest com gabarito",
-  description: "Provas oficiais do Enem (2021 a 2025) para ler online ou baixar em PDF, com gabarito do Inep, e o catálogo das provas da Fuvest (2022 a 2026), 1ª e 2ª fases, com gabaritos e respostas esperadas oficiais.",
+  title: "Provas anteriores do Enem, da Fuvest e da Unicamp com gabarito",
+  description: "Provas oficiais do Enem (2021 a 2025) para ler online ou baixar em PDF, com gabarito do Inep, e o catálogo das provas da Fuvest e da Unicamp (ingresso de 2022 a 2026), 1ª e 2ª fases, com gabaritos e respostas esperadas oficiais.",
   alternates: { canonical: "/provas/" },
-  openGraph: { title: "Provas anteriores do Enem e da Fuvest · onde passo", description: "Leia as provas oficiais do Enem como um caderno de verdade, com gabarito, e encontre as da Fuvest por edição, fase e versão.", url: `${SITE}/provas/` },
+  openGraph: { title: "Provas anteriores do Enem, da Fuvest e da Unicamp · onde passo", description: "Leia as provas oficiais do Enem como um caderno de verdade, com gabarito, e encontre as da Fuvest e da Unicamp por edição, fase e versão.", url: `${SITE}/provas/` },
 };
 
 const dataBr = (iso: string) => iso.split("-").reverse().join("/");
@@ -24,7 +24,7 @@ export default function PaginaProvas() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "CollectionPage", name: "Provas anteriores do Enem e da Fuvest", url: `${SITE}/provas/`, inLanguage: "pt-BR",
+        "@type": "CollectionPage", name: "Provas anteriores do Enem, da Fuvest e da Unicamp", url: `${SITE}/provas/`, inLanguage: "pt-BR",
         description: metadata.description, isAccessibleForFree: true,
         mainEntity: { "@type": "ItemList", numberOfItems: provas.length + exames.length, itemListElement: [...provas.map((p) => ({ id: p.id, nome: tituloProva(p) })), ...exames.map((e) => ({ id: e.id, nome: tituloExame(e) }))].map((x, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/provas/${x.id}/`, name: x.nome })) },
       },
