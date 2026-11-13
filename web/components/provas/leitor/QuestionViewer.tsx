@@ -19,6 +19,8 @@ type Props = {
   r: RenderizadorPdf; provaId: string; dia: 1 | 2; idiomaCaderno: IdiomaQuestao; gabarito: Arquivo | null; fonte: string;
   largura: number; inicial?: string; aoMudar: (chave: string) => void; aoVerNoCaderno: (pagina: number) => void;
   revisar: number[]; alternarRevisar: (q: number) => void;
+  /** Questões cuja resposta já foi aberta ("12", "3-espanhol"); `aoVerResposta` registra mais uma. */
+  vistas: string[]; aoVerResposta: (chave: string) => void;
 };
 
 export const QuestionViewer = forwardRef<ApiQuestoes, Props>(function QuestionViewer(p, ref) {
@@ -67,6 +69,7 @@ export const QuestionViewer = forwardRef<ApiQuestoes, Props>(function QuestionVi
     setMostrar(true);
     if (!q) return;
     registrar("enem_resposta_vista", { prova: p.provaId });
+    p.aoVerResposta(chave(q));
     if (gab.estado !== "parado" || !p.gabarito) return;
     setGab({ estado: "lendo", dados: null });
     try {
@@ -124,7 +127,7 @@ export const QuestionViewer = forwardRef<ApiQuestoes, Props>(function QuestionVi
           <label className="questao-ir">
             <span className="sr-only">Ir para a questão</span>
             <select value={atual ?? ""} onChange={(e) => { const k = lista.findIndex((x) => chave(x) === e.target.value); ir(k); }}>
-              {lista.map((x) => <option key={chave(x)} value={chave(x)}>Questão {String(x.numero).padStart(2, "0")}{p.revisar.includes(x.numero) ? " ★" : ""}</option>)}
+              {lista.map((x) => <option key={chave(x)} value={chave(x)}>Questão {String(x.numero).padStart(2, "0")}{p.revisar.includes(x.numero) ? " ★" : ""}{p.vistas.includes(chave(x)) ? " ✓" : ""}</option>)}
             </select>
           </label>
         </div>

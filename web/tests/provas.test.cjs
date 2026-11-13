@@ -122,3 +122,56 @@ test('catálogo da Unicamp: 2022 a 2026, cadernos aos pares na 1ª fase e uma pr
   assert.ok(un.every((e) => [...e.versoes.map((v) => v.prova), ...e.complementares].every((d) => d.bytes > 0 && d.procedencia.conferencia === 'head')));
   assert.equal(T.tituloExame(por['unicamp-2026-2a-fase-2o-dia']), 'Unicamp 2026 · 2ª fase · 2º dia');
 });
+
+test('banco de questões do Enem: um caderno de referência por aplicação/dia, sem repetir questão', () => {
+  const qs = grupos.flatMap(T.questoesDoGrupo);
+  const d1 = grupos.filter((g) => g.dia === 1).length, d2 = grupos.filter((g) => g.dia === 2).length;
+  assert.equal(qs.length, d1 * 95 + d2 * 90); // 1º dia: 01–05 em inglês e em espanhol
+  assert.equal(new Set(qs.map((q) => q.chave)).size, qs.length);
+  // referência = menor número entre as cores (nunca Libras/braile)
+  for (const g of grupos) {
+    const ref = T.cadernosReferencia(g);
+    assert.equal(ref.geral.variante, null);
+    assert.equal(ref.geral.caderno, Math.min(...g.cores.map((p) => p.caderno)));
+  }
+  // área pelo número oficial; 1–5 com idioma
+  const um = qs.filter((q) => q.grupo === grupos.find((g) => g.ano === 2025 && g.modalidade === 'regular' && g.dia === 1).chave);
+  assert.deepEqual(um.filter((q) => q.numero === 3).map((q) => q.idioma), ['ingles', 'espanhol']);
+  assert.equal(um.find((q) => q.numero === 46).area, 'humanas');
+  assert.equal(um.find((q) => q.numero === 46).idioma, null);
+  // digital: inglês e espanhol vêm de cadernos diferentes
+  const dig = grupos.find((g) => g.modalidade === 'digital' && g.dia === 1);
+  const q1 = T.questoesDoGrupo(dig).filter((q) => q.numero === 1);
+  assert.equal(new Set(q1.map((q) => q.provaId)).size, 2);
+  assert.match(q1.find((q) => q.idioma === 'espanhol').provaId, /espanhol/);
+});
+
+test('banco de questões: filtros, marcas do navegador e URL', () => {
+  const qs = grupos.flatMap(T.questoesDoGrupo);
+  const F = T.FILTROS_QUESTOES_VAZIOS;
+  const vazio = new Map();
+  const reg = T.filtrarQuestoes(qs, F, vazio);
+  assert.ok(reg.every((q) => q.modalidade === 'regular' && q.idioma !== 'espanhol'));
+  const g25 = grupos.filter((g) => g.ano === 2025 && g.modalidade === 'regular');
+  assert.equal(T.filtrarQuestoes(qs, { ...F, ano: 2025 }, vazio).length, g25.length * 90);
+  assert.ok(T.filtrarQuestoes(qs, { ...F, area: 'matematica' }, vazio).every((q) => q.numero >= 136));
+  assert.equal(T.filtrarQuestoes(qs, { ...F, ano: 2025, numero: 136 }, vazio).length, 1);
+  const esp = T.filtrarQuestoes(qs, { ...F, ano: 2025, area: 'linguagens', idioma: 'espanhol' }, vazio);
+  assert.equal(esp.filter((q) => q.numero <= 5).every((q) => q.idioma === 'espanhol'), true);
+  // marcas: revisar é por número no caderno; vistas por chave (com idioma)
+  const alvo = qs.find((q) => q.ano === 2024 && q.modalidade === 'regular' && q.numero === 3 && q.idioma === 'espanhol');
+  const marcas = new Map([[alvo.provaId, { revisar: [100], vistas: ['3-espanhol'] }]]);
+  assert.deepEqual(T.filtrarQuestoes(qs, { ...F, situacao: 'vistas', idioma: 'espanhol' }, marcas).map((q) => q.chave), [alvo.chave]);
+  assert.equal(T.filtrarQuestoes(qs, { ...F, situacao: 'vistas' }, marcas).length, 0); // em inglês, a 3 não foi vista
+  assert.equal(T.filtrarQuestoes(qs, { ...F, situacao: 'revisar' }, marcas).length, 0); // 100 não é do 1º dia
+  const naoVistas = T.filtrarQuestoes(qs, { ...F, situacao: 'nao-vistas', idioma: 'espanhol' }, marcas);
+  assert.equal(naoVistas.length, T.filtrarQuestoes(qs, { ...F, idioma: 'espanhol' }, marcas).length - 1);
+  // URL ida e volta; padrão = regular, inglês, todas
+  const f = { ano: 2023, modalidade: null, area: 'humanas', idioma: 'espanhol', situacao: 'revisar', numero: 50 };
+  const url = T.filtrosQuestoesParaUrl(f);
+  assert.deepEqual(T.filtrosQuestoesDaUrl(new URLSearchParams(url)), f);
+  assert.equal(T.filtrosQuestoesParaUrl(F), '');
+  assert.deepEqual(T.filtrosQuestoesDaUrl(new URLSearchParams('?questao=999&area=x&situacao=y')), F);
+  assert.deepEqual(T.lerChaveQuestao('3-espanhol'), { numero: 3, idioma: 'espanhol' });
+  assert.equal(T.lerChaveQuestao('181'), null);
+});

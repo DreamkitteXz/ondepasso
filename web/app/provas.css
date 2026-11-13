@@ -588,3 +588,48 @@ fieldset.seletor-cor, fieldset.seletor-idioma { border: 0; margin: 0; padding: 0
   .questao-nav { flex-wrap: wrap; }
   .questao-nav .link-botao { order: 3; width: 100%; text-align: center; }
 }
+
+/* ---------------------------------------------------------------- banco de questões (/provas/questoes/) */
+.area-linguagens { --area: #6E8CFF; } .area-humanas { --area: #E8B04B; } .area-natureza { --area: #3DD68C; } .area-matematica { --area: #F07A6B; }
+.banco-convite { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 8px 0 24px; padding: 16px 20px; border-radius: var(--raio); border: 1px solid color-mix(in srgb, var(--verde) 35%, transparent); background: var(--verde-tint); color: var(--fg-1); text-decoration: none; transition: border-color .2s, background .2s; }
+.banco-convite:hover { border-color: var(--verde); background: color-mix(in srgb, var(--verde) 20%, transparent); }
+.banco-convite-texto { display: grid; gap: 2px; }
+.banco-convite-texto span { color: var(--fg-2); font-size: 14px; }
+.banco-convite-seta { font-size: 22px; color: var(--verde); }
+.banco-convite:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.banco { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; min-width: 0; }
+.banco > * { min-width: 0; }
+.banco-controles .controle-extra { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+.banco-controles .controle-select { flex-wrap: wrap; }
+.banco-controles { display: flex !important; flex-wrap: wrap; align-items: center; gap: 12px 16px; grid-template-areas: none !important; }
+.banco-controles > * { grid-area: auto !important; }
+.banco-controles .controle-anos, .banco-controles .controle-extra { flex-basis: 100%; }
+.banco-controles .controle-dias { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.banco-areas button, .banco-controles .controle-dias button { display: inline-flex; align-items: center; gap: 6px; }
+.banco-ponto { width: 8px; height: 8px; border-radius: 50%; background: var(--area); }
+.banco-controles .controle-select input { width: 92px; height: 40px; padding: 0 12px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--panel); color: var(--fg-1); font: inherit; font-size: 14px; }
+.banco-controles .controle-select input:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.banco-controles small { color: var(--fg-3); font-weight: 500; }
+.banco-prova { padding: 18px 20px 20px; border: 1px solid var(--line-1); border-radius: var(--raio); background: var(--panel); }
+.banco-prova header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 14px; }
+.banco-prova h2 { margin: 0; font-family: var(--serif); font-size: 22px; font-weight: 500; }
+.banco-prova h2 small { font-family: var(--sans); font-size: 14px; color: var(--fg-3); }
+.banco-prova .miudo { margin: 0; color: var(--fg-3); font-size: 13px; }
+.banco-prova .miudo a { color: var(--fg-2); text-decoration: underline; text-underline-offset: 2px; }
+.banco-grade { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(46px, 1fr)); gap: 6px; }
+.banco-q { position: relative; display: grid; place-items: center; height: 40px; border-radius: 9px; border: 1px solid var(--line-1); border-bottom: 3px solid var(--area); background: var(--panel-2); color: var(--fg-1); font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; text-decoration: none; transition: transform .15s, background .15s, border-color .15s; }
+.banco-q:hover { background: var(--panel-3); border-color: var(--line-2); border-bottom-color: var(--area); transform: translateY(-1px); }
+.banco-q:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.banco-q.vista { background: color-mix(in srgb, var(--area) 16%, var(--panel-2)); color: var(--fg-2); }
+.banco-q.vista::after { content: "✓"; position: absolute; top: 2px; left: 5px; font-size: 9px; color: var(--fg-3); }
+.banco-marca { position: absolute; top: 1px; right: 4px; font-size: 10px; color: var(--ambar); }
+.banco-mais { display: flex; justify-content: center; }
+@media (prefers-reduced-motion: reduce) { .banco-q { transition: none; } .banco-q:hover { transform: none; } }
+@media (max-width: 560px) {
+  .banco-prova { padding: 14px; }
+  .banco-controles .controle-extra { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .banco-controles .controle-select { display: grid; gap: 4px; font-size: 12px; }
+  .banco-controles .controle-select select, .banco-controles .controle-select input { width: 100%; }
+  .banco-grade { grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)); }
+  .banco-convite { padding: 14px 16px; }
+}

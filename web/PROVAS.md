@@ -84,6 +84,16 @@ O tipo `QuestaoIndexada` em `lib/provas-tipos.ts` já descreve o formato. O filt
 - O texto da página fica disponível para leitores de tela.
 - Os links para as versões NVDA e DOSVOX do Inep aparecem quando existem.
 
+## Banco de questões (`/provas/questoes/`, Etapa 3)
+
+- Lista única de todas as questões do Enem: 2.405 em 26 provas. Cada questão é um link para o leitor já no modo por questão (`/provas/<id>/#questao-136`, `#questao-3-espanhol`).
+- **Sem repetição entre cores:** as cores de um dia trazem as mesmas questões em outra ordem, sem vínculo oficial entre elas. Por isso a lista usa o caderno de referência de cada aplicação/dia, o de menor número entre as cores (`cadernosReferencia`), nunca Libras/braile. Nos digitais há um caderno por idioma. Ligar questões de cores diferentes pelo número estaria errado, então não é feito.
+- **Filtros** (na URL): ano, aplicação (padrão: regular), área (pela numeração oficial: 1–45, 46–90, 91–135, 136–180), língua estrangeira das 01–05, número e situação. A situação pode ser todas, para revisar, resposta vista ou ainda não vista. "Disciplina e assunto" fica desabilitado, "em preparação", até existir classificação revisada.
+- **Marcas** ficam só no navegador, no mesmo `Estudo` do leitor. "Para revisar" usa as marcas do índice e do modo por questão. "Resposta vista" (`Estudo.vistas`) é gravada quando a pessoa clica em "Ver resposta". Os contadores contam só o que a lista mostra.
+- **Link de questão:** abrir pelo link usa o modo por questão só naquela visita, sem trocar o modo preferido salvo. Ao navegar, o endereço acompanha a questão, então dá para compartilhar.
+- **Acesso:** a biblioteca `/provas/` tem um convite para a lista, e ela está no sitemap.
+- **Ainda não feito:** disciplina/assunto (classificação + revisão), vínculo explícito da mesma questão entre cores, e banco de questões de Fuvest/Unicamp, que estão sem recortes.
+
 ## Testes
 
 ```bash
@@ -105,7 +115,8 @@ O teste cobre:
 
 Modo por questão:
 - `npm test` roda `tests/questoes.test.cjs`, com regras do mapa em páginas sintéticas: colunas, continuação, apoio, seções, idiomas, faixas sem marca d'água, cadernos digitais, contracapa e questão faltando.
-- `tests/questoes.e2e.mjs` é o teste de ponta a ponta. Usa cadernos e gabaritos **sintéticos** com a diagramação do Enem, servidos no lugar dos do Inep. Cobre separação, recorte, "Ver resposta", anulada, idioma, texto de apoio, revisar, retomar onde parou, "Ver no caderno", celular e o aviso quando o mapa não fecha. Os PDFs sintéticos não são versionados; o gerador é `tests/fixtures/gerar_cadernos_sinteticos.py`.
+- `tests/questoes.e2e.mjs` é o teste de ponta a ponta. Também cobre o banco de questões: filtros, link para a questão, marcas na volta, espanhol, estado vazio e celular.
+   Usa cadernos e gabaritos **sintéticos** com a diagramação do Enem, servidos no lugar dos do Inep. Cobre separação, recorte, "Ver resposta", anulada, idioma, texto de apoio, revisar, retomar onde parou, "Ver no caderno", celular e o aviso quando o mapa não fecha. Os PDFs sintéticos não são versionados; o gerador é `tests/fixtures/gerar_cadernos_sinteticos.py`.
 
 ## Outros vestibulares (Fuvest, Unicamp)
 

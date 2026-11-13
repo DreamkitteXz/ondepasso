@@ -48,6 +48,11 @@ export default function PaginaProvas() {
         <div className="fato fato-verde"><strong data-conta={provas.filter((p) => p.gabarito).length}>{provas.filter((p) => p.gabarito).length}</strong><span>com gabarito oficial do Inep</span></div>
       </div>
 
+      <a className="banco-convite" href="/provas/questoes/">
+        <span className="banco-convite-texto"><strong>Estude questão por questão</strong><span>Todas as questões do Enem por ano e área, com a resposta escondida até você pedir.</span></span>
+        <span className="banco-convite-seta" aria-hidden="true">→</span>
+      </a>
+
       <ExamLibrary provas={provas} exames={exames} vestibulares={vestibulares} />
 
       <section className="provas-sobre" aria-labelledby="t-sobre">

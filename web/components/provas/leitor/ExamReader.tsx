@@ -35,7 +35,8 @@ const digitando = (el: EventTarget | null, tecla: string) => {
   return true;
 };
 
-export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; aoFechar?: () => void }) {
+/** `questaoInicial`: abre direto no modo por questão, nessa questão ("12" ou "3-espanhol"), vindo da lista de questões. */
+export default function ExamReader({ prova, aoFechar, questaoInicial }: { prova: ProvaLeitor; aoFechar?: () => void; questaoInicial?: string }) {
   const raiz = useRef<HTMLDivElement>(null);
   const palco = useRef<HTMLDivElement>(null);
   const mesa = useRef<HTMLDivElement>(null); // área rolável do livro (quando ampliado)
@@ -64,6 +65,8 @@ export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; ao
   const [mapeando, setMapeando] = useState<number | null>(null);
   const [visivel, setVisivel] = useState(true);
   const [aviso, setAviso] = useState<string | null>(null);
+  // Aberto por link de questão: o modo por questão vale para esta visita, sem trocar a preferência salva da pessoa.
+  const modoForcado = useRef(!!questaoInicial);
   const zoomRef = useRef(zoom);
   zoomRef.current = zoom;
 
@@ -73,12 +76,12 @@ export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; ao
     const reduzir = prefereMenosMovimento();
     setAnimacoes(p.animacoes ?? !reduzir);
     setSom(p.som);
-    setModo(p.modo ?? "livro");
+    setModo(questaoInicial ? "questao" : p.modo ?? "livro");
     const e = lerEstudo(prova.id);
     setEstudo(e);
-    if (e.ultimaPagina && e.ultimaPagina > 1) { setPagina(e.ultimaPagina); setAviso(`Você parou na página ${e.ultimaPagina}.`); }
-  }, [prova.id]);
-  useEffect(() => { salvarPreferencias({ modo, animacoes, som }); }, [modo, animacoes, som]);
+    if (!questaoInicial && e.ultimaPagina && e.ultimaPagina > 1) { setPagina(e.ultimaPagina); setAviso(`Você parou na página ${e.ultimaPagina}.`); }
+  }, [prova.id, questaoInicial]);
+  useEffect(() => { salvarPreferencias({ modo: modoForcado.current ? lerPreferencias().modo ?? "livro" : modo, animacoes, som }); }, [modo, animacoes, som]);
   // O aviso "você parou na página" some sozinho depois de um tempo.
   useEffect(() => { if (!aviso) return; const t = setTimeout(() => setAviso(null), 12000); return () => clearTimeout(t); }, [aviso]);
   const atualizarEstudo = useCallback((f: (e: Estudo) => Estudo) => setEstudo((e) => { const n = f(e); salvarEstudo(prova.id, n); return n; }), [prova.id]);
@@ -314,6 +317,7 @@ export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; ao
 
   const mudarModo = (m: ModoLeitor) => {
     if (m === modo) return;
+    modoForcado.current = false;
     setModo(m);
     registrar("enem_modo_leitura_alterado", { prova: prova.id, modo: m });
   };
@@ -381,8 +385,10 @@ export default function ExamReader({ prova, aoFechar }: { prova: ProvaLeitor; ao
           ) : docAtual === "questao" ? (
             <div className="leitura-rolagem">
               <QuestionViewer ref={questoes} r={r} provaId={prova.id} dia={prova.dia} idiomaCaderno={prova.idioma} gabarito={prova.gabarito} fonte={prova.titulo}
-                largura={layout.larguraLeitura} inicial={estudo.ultimaQuestao} aoMudar={(k) => atualizarEstudo((e) => ({ ...e, ultimaQuestao: k }))}
-                aoVerNoCaderno={(n) => { setModo("livro"); mudarPagina(n); registrar("enem_modo_leitura_alterado", { prova: prova.id, modo: "livro" }); }}
+                largura={layout.larguraLeitura} inicial={questaoInicial ?? estudo.ultimaQuestao}
+                aoMudar={(k) => { atualizarEstudo((e) => ({ ...e, ultimaQuestao: k })); if (/^#(ler|questao-)/.test(location.hash)) history.replaceState(null, "", `#questao-${k}`); }}
+                vistas={estudo.vistas ?? []} aoVerResposta={(k) => atualizarEstudo((e) => ({ ...e, vistas: [k, ...(e.vistas ?? []).filter((x) => x !== k)].slice(0, 200) }))}
+                aoVerNoCaderno={(n) => { modoForcado.current = false; setModo("livro"); mudarPagina(n); registrar("enem_modo_leitura_alterado", { prova: prova.id, modo: "livro" }); }}
                 revisar={estudo.revisar} alternarRevisar={(q) => atualizarEstudo((e) => ({ ...e, revisar: e.revisar.includes(q) ? e.revisar.filter((x) => x !== q) : [...e.revisar, q] }))} />
             </div>
           ) : docAtual === "leitura" ? (

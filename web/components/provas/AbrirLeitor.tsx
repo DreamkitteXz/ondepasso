@@ -16,10 +16,17 @@ const ExamReader = dynamic(() => import("./leitor/ExamReader"), {
   ),
 });
 
+/** "#questao-12" ou "#questao-3-espanhol" (links da lista de questões) abrem o leitor direto no modo por questão. */
+const questaoDoHash = (h: string) => { const m = h.match(/^#questao-(\d{1,3}(?:-(?:ingles|espanhol))?)$/); return m ? m[1] : undefined; };
+
 export function AbrirLeitor({ p, leitor }: { p: Prova; leitor: ProvaLeitor }) {
   const [aberto, setAberto] = useState(false);
+  const [questao, setQuestao] = useState<string | undefined>();
   useEffect(() => {
-    const ver = () => { if (location.hash === "#ler") setAberto(true); };
+    const ver = () => {
+      const q = questaoDoHash(location.hash);
+      if (q) { setQuestao(q); setAberto(true); } else if (location.hash === "#ler") setAberto(true);
+    };
     ver();
     window.addEventListener("hashchange", ver);
     return () => window.removeEventListener("hashchange", ver);
@@ -31,7 +38,7 @@ export function AbrirLeitor({ p, leitor }: { p: Prova; leitor: ProvaLeitor }) {
 
   return (
     <section id="leitor" className="leitor-ancora" aria-label="Leitor da prova">
-      {aberto && <ExamReader prova={leitor} aoFechar={() => { setAberto(false); history.replaceState(null, "", location.pathname + location.search); }} />}
+      {aberto && <ExamReader key={questao ?? "caderno"} prova={leitor} questaoInicial={questao} aoFechar={() => { setAberto(false); setQuestao(undefined); history.replaceState(null, "", location.pathname + location.search); }} />}
       {(
         <div className="leitor-convite">
           <div className="convite-livro" aria-hidden="true" style={{ ["--cor-caderno" as string]: p.corHex }}>

@@ -222,6 +222,106 @@ export function cadernoInicial(g: Grupo, f: Filtros): Prova {
   return g.cores[0] ?? todos[0];
 }
 
+// ---------------------------------------------------------------- banco de questões do Enem (/provas/questoes/)
+
+/**
+ * Uma questão do Enem na lista geral. As cores de um mesmo dia trazem as mesmas questões em outra ordem, e não há
+ * vínculo oficial entre elas: para não repetir (nem ligar pelo número, o que estaria errado), a lista usa o caderno de
+ * referência de cada aplicação/dia, o de menor número entre as cores (nos digitais, um por idioma).
+ */
+export type QuestaoItem = {
+  chave: string; provaId: string; grupo: string; ano: number; modalidade: Modalidade; dia: 1 | 2;
+  numero: number; idioma: "ingles" | "espanhol" | null; area: Area;
+};
+/** "12" ou "3-espanhol": identifica a questão dentro de um caderno (mesmo formato do leitor). */
+export const chaveQuestao = (numero: number, idioma: "ingles" | "espanhol" | null) => `${numero}${idioma ? `-${idioma}` : ""}`;
+export function lerChaveQuestao(k: string): { numero: number; idioma: "ingles" | "espanhol" | null } | null {
+  const m = k.match(/^(\d{1,3})(?:-(ingles|espanhol))?$/);
+  if (!m) return null;
+  const numero = Number(m[1]);
+  if (numero < 1 || numero > 180) return null;
+  return { numero, idioma: (m[2] as "ingles" | "espanhol" | undefined) ?? null };
+}
+
+/** Caderno(s) de referência de uma aplicação/dia: o de menor número entre as cores (no digital, o de cada idioma). */
+export function cadernosReferencia(g: Grupo): { geral: Prova; espanhol: Prova | null } | null {
+  const geral = g.cores.find((p) => p.idioma !== "espanhol") ?? g.cores[0];
+  if (!geral) return null;
+  return { geral, espanhol: g.cores.find((p) => p.idioma === "espanhol") ?? null };
+}
+
+export function questoesDoGrupo(g: Grupo): QuestaoItem[] {
+  const ref = cadernosReferencia(g);
+  if (!ref) return [];
+  const [de, ate] = g.dia === 1 ? [1, 90] : [91, 180];
+  const base = { grupo: g.chave, ano: g.ano, modalidade: g.modalidade, dia: g.dia };
+  const item = (p: Prova, numero: number, idioma: "ingles" | "espanhol" | null): QuestaoItem =>
+    ({ ...base, chave: `${p.id}#${chaveQuestao(numero, idioma)}`, provaId: p.id, numero, idioma, area: areaDaQuestao(numero)! });
+  const out: QuestaoItem[] = [];
+  for (let n = de; n <= ate; n++) {
+    if (g.dia === 1 && n <= 5) {
+      // Língua estrangeira: no impresso, as duas estão no mesmo caderno; no digital, cada uma no seu.
+      const esp = ref.espanhol ?? (ref.geral.idioma ? null : ref.geral);
+      if (ref.geral.idioma !== "espanhol") out.push(item(ref.geral, n, "ingles"));
+      if (esp) out.push(item(esp, n, "espanhol"));
+    } else out.push(item(ref.geral, n, null));
+  }
+  return out;
+}
+
+export type SituacaoQuestao = "todas" | "revisar" | "vistas" | "nao-vistas";
+export type FiltrosQuestoes = {
+  ano: number | null; modalidade: Modalidade | null; area: Area | null;
+  /** Língua estrangeira das questões 1 a 5 do 1º dia: as da outra língua saem da lista. */
+  idioma: "ingles" | "espanhol";
+  situacao: SituacaoQuestao;
+  numero: number | null;
+};
+export const FILTROS_QUESTOES_VAZIOS: FiltrosQuestoes = { ano: null, modalidade: "regular", area: null, idioma: "ingles", situacao: "todas", numero: null };
+/** O que a pessoa marcou em cada caderno (vem do armazenamento do leitor). */
+export type MarcasCaderno = { revisar: number[]; vistas: string[] };
+
+export function filtrarQuestoes(lista: QuestaoItem[], f: FiltrosQuestoes, marcas: Map<string, MarcasCaderno>): QuestaoItem[] {
+  return lista.filter((q) => {
+    if (f.ano != null && q.ano !== f.ano) return false;
+    if (f.modalidade != null && q.modalidade !== f.modalidade) return false;
+    if (f.area != null && q.area !== f.area) return false;
+    if (q.idioma && q.idioma !== f.idioma) return false;
+    if (f.numero != null && q.numero !== f.numero) return false;
+    const m = marcas.get(q.provaId);
+    const vista = !!m?.vistas.includes(chaveQuestao(q.numero, q.idioma));
+    if (f.situacao === "revisar" && !m?.revisar.includes(q.numero)) return false;
+    if (f.situacao === "vistas" && !vista) return false;
+    if (f.situacao === "nao-vistas" && vista) return false;
+    return true;
+  });
+}
+
+const SITUACOES: SituacaoQuestao[] = ["todas", "revisar", "vistas", "nao-vistas"];
+export function filtrosQuestoesDaUrl(q: URLSearchParams): FiltrosQuestoes {
+  const n = (k: string) => { const v = Number(q.get(k)); return Number.isInteger(v) && v > 0 ? v : null; };
+  const mod = q.get("modalidade"), area = q.get("area"), sit = q.get("situacao") as SituacaoQuestao | null, num = n("questao");
+  return {
+    ano: n("ano"),
+    modalidade: mod === "todas" ? null : mod && mod in MODALIDADE_CURTA ? (mod as Modalidade) : "regular",
+    area: area && area in AREA_ROTULO ? (area as Area) : null,
+    idioma: q.get("idioma") === "espanhol" ? "espanhol" : "ingles",
+    situacao: sit && SITUACOES.includes(sit) ? sit : "todas",
+    numero: num != null && num <= 180 ? num : null,
+  };
+}
+export function filtrosQuestoesParaUrl(f: FiltrosQuestoes): string {
+  const q = new URLSearchParams();
+  if (f.ano) q.set("ano", String(f.ano));
+  if (f.modalidade !== "regular") q.set("modalidade", f.modalidade ?? "todas");
+  if (f.area) q.set("area", f.area);
+  if (f.idioma !== "ingles") q.set("idioma", f.idioma);
+  if (f.situacao !== "todas") q.set("situacao", f.situacao);
+  if (f.numero) q.set("questao", String(f.numero));
+  const s = q.toString();
+  return s ? `?${s}` : "";
+}
+
 // ---------------------------------------------------------------- outros vestibulares (Fuvest, Unicamp)
 
 export type Vestibular = "enem" | "fuvest" | "unicamp";

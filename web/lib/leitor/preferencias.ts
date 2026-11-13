@@ -24,8 +24,9 @@ export const prefereMenosMovimento = () => typeof window !== "undefined" && wind
 
 // ---------------------------------------------------------------- estudo (por prova)
 
-/** `ultimaQuestao`: onde a pessoa parou no modo por questão ("12" ou "3-espanhol"). */
-export type Estudo = { marcadores: number[]; revisar: number[]; ultimaPagina: number | null; ultimaQuestao?: string; em?: number };
+/** `ultimaQuestao`: onde a pessoa parou no modo por questão ("12" ou "3-espanhol"); `vistas`: questões cuja resposta ela já abriu. */
+export type Estudo = { marcadores: number[]; revisar: number[]; ultimaPagina: number | null; ultimaQuestao?: string; vistas?: string[]; em?: number };
+const RE_CHAVE = /^\d{1,3}(-(ingles|espanhol))?$/;
 const chaveEstudo = (id: string) => `ondepasso.estudo.${id}`;
 
 export function lerEstudo(id: string): Estudo {
@@ -33,7 +34,9 @@ export function lerEstudo(id: string): Estudo {
     const v = JSON.parse(localStorage.getItem(chaveEstudo(id)) ?? "{}") as Partial<Estudo>;
     const nums = (a: unknown) => (Array.isArray(a) ? a.filter((n) => Number.isInteger(n) && n > 0 && n < 1000) : []) as number[];
     return { marcadores: nums(v.marcadores), revisar: nums(v.revisar), ultimaPagina: Number.isInteger(v.ultimaPagina) ? (v.ultimaPagina as number) : null,
-      ultimaQuestao: typeof v.ultimaQuestao === "string" && /^\d{1,3}(-(ingles|espanhol))?$/.test(v.ultimaQuestao) ? v.ultimaQuestao : undefined, em: typeof v.em === "number" ? v.em : undefined };
+      ultimaQuestao: typeof v.ultimaQuestao === "string" && RE_CHAVE.test(v.ultimaQuestao) ? v.ultimaQuestao : undefined,
+      vistas: Array.isArray(v.vistas) ? v.vistas.filter((k): k is string => typeof k === "string" && RE_CHAVE.test(k)).slice(0, 200) : [],
+      em: typeof v.em === "number" ? v.em : undefined };
   } catch { return { marcadores: [], revisar: [], ultimaPagina: null }; }
 }
 export function salvarEstudo(id: string, e: Estudo) {
@@ -52,6 +55,18 @@ export function leiturasRecentes(): { id: string; pagina: number; em: number }[]
     }
   } catch {}
   return out.sort((a, b) => b.em - a.em);
+}
+
+/** Marcas de todos os cadernos guardados neste navegador (para a lista geral de questões). */
+export function estudosSalvos(): Map<string, Estudo> {
+  const out = new Map<string, Estudo>();
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k?.startsWith("ondepasso.estudo.")) out.set(k.slice("ondepasso.estudo.".length), lerEstudo(k.slice("ondepasso.estudo.".length)));
+    }
+  } catch {}
+  return out;
 }
 
 // ---------------------------------------------------------------- provas salvas (favoritas)

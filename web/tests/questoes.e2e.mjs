@@ -139,6 +139,73 @@ const browser = await chromium.launch();
   await ctx.close();
 }
 
+// ------------------------------------------------------------ banco de questões (/provas/questoes/)
+{
+  const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  await servir(ctx);
+  const page = await ctx.newPage();
+  page.on("pageerror", (e) => erros.push(`banco: ${e.message}`));
+  page.on("console", (m) => { if (m.type() === "error") erros.push(`console: ${m.text().slice(0, 200)}`); });
+  await page.goto(`${BASE}/provas/`);
+  ok(await page.locator("a.banco-convite[href='/provas/questoes/']").count() === 1, "a biblioteca leva à lista de questões");
+  await page.goto(`${BASE}/provas/questoes/`);
+  await page.waitForSelector(".banco[data-pronto]");
+  const contagem = () => page.locator(".banco .biblioteca-contagem").innerText();
+  ok(/^900 questões em 10 provas/.test(await contagem()), `padrão: só a aplicação regular, um idioma (${await contagem()})`);
+  ok(await page.locator(".banco-prova").count() === 6, "mostra 6 provas por vez");
+  await page.getByRole("group", { name: "Ano" }).getByRole("button", { name: "2025" }).click();
+  await page.getByRole("group", { name: "Área" }).getByRole("button", { name: /Matemática/ }).click();
+  ok(/^45 questões em 1 prova/.test(await contagem()), `2025 + Matemática: ${await contagem()}`);
+  ok(/ano=2025/.test(page.url()) && /area=matematica/.test(page.url()), "filtros na URL");
+  await page.screenshot({ path: `${SAIDA}/06-banco.png` });
+  const link = page.getByRole("link", { name: /^Questão 136, Matemática/ });
+  ok(/\/provas\/enem-2025-segundo-dia-caderno-5-amarelo\/#questao-136$/.test(await link.getAttribute("href")), "a questão aponta para o caderno de referência, já na questão");
+  await link.click();
+  await page.waitForSelector(".questao-trecho.estado-pronta canvas", { timeout: 30000 });
+  ok(/Questão 136/.test(await titulo(page)), `o link abre o leitor no modo por questão, na 136 (${await titulo(page)})`);
+  await page.getByRole("button", { name: "Ver resposta" }).click();
+  await page.waitForSelector(".gabarito-resposta", { timeout: 15000 });
+  await page.getByRole("button", { name: /Marcar para revisar/ }).click();
+  await page.getByRole("button", { name: "Próxima ›" }).click();
+  await page.waitForTimeout(400);
+  ok(/#questao-137$/.test(page.url()), "o endereço acompanha a questão (dá para compartilhar)");
+  const pref = await page.evaluate(() => JSON.parse(localStorage.getItem("ondepasso.leitor") ?? localStorage.getItem("ondepasso.leitor.preferencias") ?? "{}").modo ?? null);
+  ok(pref !== "questao", `abrir por link de questão não troca o modo preferido da pessoa (${pref})`);
+  await page.goto(`${BASE}/provas/questoes/?ano=2025&area=matematica`);
+  await page.waitForSelector(".banco[data-pronto]");
+  const q136 = page.getByRole("link", { name: /^Questão 136, Matemática/ });
+  ok(/marcada para revisar, resposta vista/.test(await q136.getAttribute("aria-label")), `de volta à lista, a 136 aparece marcada e vista (${await q136.getAttribute("aria-label")})`);
+  await page.getByRole("group", { name: "Situação" }).getByRole("button", { name: /Resposta vista/ }).click();
+  ok(/^1 questão em 1 prova/.test(await contagem()), `filtro “Resposta vista”: ${await contagem()}`);
+  await page.getByRole("group", { name: "Situação" }).getByRole("button", { name: /Para revisar/ }).click();
+  ok(/^1 questão/.test(await contagem()), "filtro “Para revisar”");
+  await page.screenshot({ path: `${SAIDA}/07-banco-marcadas.png` });
+  // Espanhol: a 03 em espanhol abre com o idioma certo
+  await page.goto(`${BASE}/provas/questoes/?ano=2025&area=linguagens&idioma=espanhol`);
+  await page.waitForSelector(".banco[data-pronto]");
+  await page.getByRole("link", { name: /^Questão 3 \(espanhol\)/ }).click();
+  await page.waitForSelector(".questao-trecho.estado-pronta canvas", { timeout: 30000 });
+  ok(/Questão 03.*Espanhol/s.test(await titulo(page)), `link da 03 em espanhol abre em espanhol (${await titulo(page)})`);
+  // Vazio
+  await page.goto(`${BASE}/provas/questoes/?situacao=revisar&ano=2021`);
+  await page.waitForSelector(".banco[data-pronto]");
+  ok(await page.locator(".biblioteca-vazia").count() === 1, "estado vazio explica como marcar");
+  await ctx.close();
+}
+{
+  const ctx = await browser.newContext({ ...devices["iPhone 13"] });
+  const page = await ctx.newPage();
+  await page.goto(`${BASE}/provas/questoes/`);
+  await page.waitForSelector(".banco[data-pronto]");
+  ok(!(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1)), "lista sem rolagem horizontal no celular");
+  const borda = await page.evaluate(() => Math.max(...[...document.querySelectorAll(".banco-prova, .banco-controles .controle-extra, .banco-q")].map((e) => e.getBoundingClientRect().right)));
+  ok(borda <= (await page.evaluate(() => window.innerWidth)) + 1, `nada da lista passa da borda da tela (${Math.round(borda)}px)`);
+  const larg = await page.locator(".banco-q").first().evaluate((a) => a.getBoundingClientRect().width);
+  ok(larg >= 40, `números com área de toque confortável no celular (${Math.round(larg)}px)`);
+  await page.screenshot({ path: `${SAIDA}/08-banco-celular.png` });
+  await ctx.close();
+}
+
 await browser.close();
 ok(erros.length === 0, `sem erros de página/console${erros.length ? `: ${erros.slice(0, 5).join(" | ")}` : ""}`);
 console.log(falhas ? `\n${falhas} falha(s)` : "\ntudo ok");
