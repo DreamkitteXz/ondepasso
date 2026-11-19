@@ -133,3 +133,26 @@ test('página de uma coluna com cabeçalhos só na esquerda continua sendo de um
   assert.equal(m.completo, true, m.problemas.join('; '));
   assert.ok(m.questoes.find((x) => x.numero === 100).regioes[0].w > 400);
 });
+
+test('2026: letras do cabeçalho com largura 0 no PDF ("Q|U|ES T|Ã|O|05") ainda formam o cabeçalho', () => {
+  // Como vem nos cadernos de 2026 do Inep: algumas letras soltas com width 0 e espaços de largura quase nula.
+  const s = Q.segmentar([{ s: 'Q', x: 57.5, y: 100, w: 0, h: 11 }, { s: 'U', x: 65.5, y: 100, w: 0, h: 11 }, { s: 'ES T', x: 73.1, y: 100, w: 11.5, h: 11 },
+    { s: ' ', x: 78.5, y: 100, w: 1, h: 0 }, { s: 'Ã', x: 89.3, y: 100, w: 0, h: 11 }, { s: 'O', x: 96.3, y: 100, w: 0, h: 11 }, { s: '05', x: 106.4, y: 100, w: 11.2, h: 11 },
+    { s: 'texto da outra coluna', x: 328, y: 100, w: 200, h: 11 }]);
+  assert.equal(s.length, 2);
+  assert.equal(Q.numeroCabecalho(s[0].t), 5);
+  // itens sem texto continuam fora
+  assert.equal(Q.segmentar([{ s: ' ', x: 10, y: 10, w: 0, h: 11 }, { s: 'x', x: 10, y: 10, w: 0, h: 0 }]).length, 0);
+});
+
+test('2026: título de língua estrangeira quebrado ("Q" + "uestõ es de 01 a 05 ( opç ã" + "o espanhol)") marca o idioma', () => {
+  const p2 = pagina(2, [...marca(), seg(70, 63, 92, 'Questões de 01 a 45'), seg(70, 76, 158, 'Questões de 01 a 05 (opção inglês)'),
+    ...[1, 2, 3, 4, 5].flatMap((q, k) => [cab(65, 100 + k * 115, q), ...linhas(65, 116 + k * 115, 190 + k * 115, 480)])]);
+  const p3 = pagina(3, [...marca(), seg(70, 50, 158, 'Questõ es de 01 a 05 ( opç ã o espanhol)'),
+    ...[1, 2, 3, 4, 5].flatMap((q, k) => [cab(65, 80 + k * 120, q), ...linhas(65, 96 + k * 120, 180 + k * 120, 480)])]);
+  const m = Q.mapearQuestoes([pagina(1, []), p2, p3], 1);
+  const q = (num, idioma) => m.questoes.find((x) => x.numero === num && x.idioma === idioma);
+  for (let n = 1; n <= 5; n++) { assert.ok(q(n, 'ingles'), `${n} inglês`); assert.ok(q(n, 'espanhol'), `${n} espanhol`); }
+  assert.equal(q(1, 'espanhol').regioes[0].pagina, 3);
+  assert.equal(q(5, 'ingles').regioes.length, 1);
+});

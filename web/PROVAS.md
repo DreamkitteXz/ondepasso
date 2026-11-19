@@ -78,6 +78,9 @@ O tipo `QuestaoIndexada` em `lib/provas-tipos.ts` já descreve o formato. O filt
   - **Visual:** 12 questões conferidas a olho. Incluem coluna dupla, largura total, questão partida entre colunas, texto de apoio (06–10 de 2025), espanhol, a 45 antes da redação, a última do caderno (2021 e 2022 reaplicação) e uma digital.
   - **Defeito conhecido:** em 2021–2022, um recorte que começa no topo da coluna direita pode trazer, no canto, um pedaço do texto vertical decorativo da página ("…do Ensino Médio").
   - **Escopo da amostra:** as demais cores de cada aplicação têm a mesma diagramação, mas não foram abertas uma a uma.
+- **2026 (branch `enem-2026`, 18/11/2026, ainda não publicado):** os PDFs de 2026 gravam algumas letras do cabeçalho ("Q", "U", "Ã", "O" de "QUESTÃO 05") e do título "Questões de 01 a 05 (opção espanhol)" com largura 0. `segmentar` descartava texto de largura 0, então o cabeçalho sumia. Correção: largura estimada pela altura da fonte para esses pedaços, e títulos de seção/idioma comparados sem espaços.
+  - Com o código publicado: 2 de 12 cadernos de 2026 fecham. Com só a correção de largura: 10 de 12 (os cadernos 1 e 2 do 1º dia ainda falhavam no idioma das questões 01–05, o que a segunda correção resolve nos testes unitários).
+  - **Pendente antes de publicar:** rodar de novo a amostra de 60 cadernos de 2021–2025 + os 12 de 2026 com as duas correções, comparando o mapa antes e depois (a rodada de 18/11 foi interrompida aos 46 de 72 porque o computador desconectou).
 
 **Acessibilidade:**
 - Tudo funciona por teclado: ← e →, e Esc fecha o painel ou sai da tela cheia. As teclas não são capturadas em campos de texto.

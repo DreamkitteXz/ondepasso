@@ -25,9 +25,24 @@ export type MapaQuestoes = { questoes: QuestaoMapa[]; completo: boolean; esperad
 
 type ItemTexto = { s: string; x: number; y: number; w: number; h: number };
 
+/**
+ * Largura de um pedaço de texto. Nos cadernos de 2026 o PDF do Inep grava algumas letras soltas do cabeçalho
+ * ("Q", "U", "Ã", "O" de "QUESTÃO 05") com largura 0; sem largura elas sumiam e o cabeçalho não era achado.
+ * Para essas, estima a largura pela altura da fonte (≈0,6 da altura por caractere).
+ */
+function largura(i: ItemTexto): number {
+  if (i.w > 0) return i.w;
+  const t = i.s.trim();
+  return t && i.h > 0 ? i.h * 0.6 * t.length : 0;
+}
+
 /** Junta os pedaços de texto em segmentos: mesma linha (topo a até 2 pt) e encostados (vão de até 6 pt). */
 export function segmentar(itens: ItemTexto[]): Segmento[] {
-  const its = itens.filter((i) => i.s && i.s.trim() && i.w > 0).sort((a, b) => a.y + a.h - (b.y + b.h) || a.x - b.x);
+  const its = itens
+    .filter((i) => i.s && i.s.trim())
+    .map((i) => ({ ...i, w: largura(i) }))
+    .filter((i) => i.w > 0)
+    .sort((a, b) => a.y + a.h - (b.y + b.h) || a.x - b.x);
   const linhas: ItemTexto[][] = [];
   for (const i of its) {
     const base = i.y + i.h;
@@ -63,7 +78,8 @@ const ehFaixa = (t: string) => /^(ENEM\s*20\d\d){2,}/i.test(t.replace(/\s+/g, ""
 const RE_APOIO = /^textos?\s+(para|referentes?\s+[àa]s?|de\s+apoio\s+para)\s+(as\s+)?quest/i;
 function marcadorSecao(t: string): boolean {
   const s = t.trim().normalize("NFC");
-  if (/^quest[õo]es\s+de\s+\d+\s+a\s+\d+/i.test(s)) return true;
+  // Sem espaços: em 2026 o título vem quebrado em pedaços ("Q" + "uestõ es de 01 a 05 ( opç ã" + "o espanhol)").
+  if (/^quest[õo]esde\d+a\d+/i.test(s.replace(/\s+/g, ""))) return true;
   if (/^proposta\s+de\s+reda/i.test(s) || /^instru[çc][õo]es\s+para\s+a\s+reda/i.test(s)) return true;
   return s === s.toUpperCase() && /TECNOLOGIAS$/.test(s) && !/\|/.test(s) && s.length < 80;
 }
@@ -176,9 +192,10 @@ export function mapearQuestoes(paginas: PaginaTexto[], dia: 1 | 2, idiomaCaderno
       const fim = (f.eventos[k + 1]?.y ?? f.base + 3) - 3;
       fechar();
       if (e.tipo === "secao") {
-        if (/ingl[êe]s/i.test(e.texto)) idiomaSecao = "ingles";
-        else if (/espanhol/i.test(e.texto)) idiomaSecao = "espanhol";
-        else if (!/^quest[õo]es\s+de\s+0?1\s+a/i.test(e.texto)) idiomaSecao = null;
+        const compacto = e.texto.normalize("NFC").replace(/\s+/g, "");
+        if (/ingl[êe]s/i.test(compacto)) idiomaSecao = "ingles";
+        else if (/espanhol/i.test(compacto)) idiomaSecao = "espanhol";
+        else if (!/^quest[õo]esde0?1a/i.test(compacto)) idiomaSecao = null;
         return;
       }
       const ini = e.y - 3;
