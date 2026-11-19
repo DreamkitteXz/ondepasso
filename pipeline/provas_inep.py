@@ -21,7 +21,7 @@ import json, pathlib, re, sys, unicodedata
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 PASTA = RAIZ / "dados" / "inep"
 FONTE = "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos"
-ANOS = [2025, 2024, 2023, 2022, 2021]
+ANOS = [2026, 2025, 2024, 2023, 2022, 2021]
 
 data = sys.argv[1] if len(sys.argv) > 1 else sorted(p.stem.split("links-")[1] for p in PASTA.glob("provas-links-*.json"))[-1]
 links = json.loads((PASTA / f"provas-links-{data}.json").read_text(encoding="utf-8"))
@@ -40,7 +40,8 @@ def arquivo(url: str) -> dict | None:
     return {"url": url, "bytes": v[1], "formato": "pdf" if nome.lower().endswith(".pdf") else "txt"}
 
 CORES = {"azul": "#2F6FD0", "amarelo": "#E2B53B", "branco": "#ECEAE4", "verde": "#3BA55C", "rosa": "#E07AA8",
-         "cinza": "#8C8F94", "laranja": "#E8833A", "roxo": "#8A5CC7"}
+         "cinza": "#8C8F94", "laranja": "#E8833A", "roxo": "#8A5CC7",
+         "marrom": "#8B5A3C"}
 AREAS_DIA = {1: ["linguagens", "humanas"], 2: ["natureza", "matematica"]}
 
 def modalidade(secao: str) -> tuple[str, str]:

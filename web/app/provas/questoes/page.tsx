@@ -8,7 +8,7 @@ import { QuestionBank } from "@/components/provas/QuestionBank";
 
 export const metadata: Metadata = {
   title: "Questões do Enem por ano e área, com resposta oficial",
-  description: "Todas as questões das provas oficiais do Enem de 2021 a 2025, por ano, aplicação e área. Cada questão abre recortada do caderno oficial do Inep, com a resposta escondida até você pedir.",
+  description: "Todas as questões das provas oficiais do Enem de 2021 a 2026, por ano, aplicação e área. Cada questão abre recortada do caderno oficial do Inep, com a resposta escondida até você pedir.",
   alternates: { canonical: "/provas/questoes/" },
   openGraph: { title: "Questões do Enem · onde passo", description: "Estude o Enem questão por questão, direto do caderno oficial do Inep.", url: `${SITE}/provas/questoes/` },
 };

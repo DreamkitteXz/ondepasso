@@ -11,8 +11,12 @@ const F = T.FILTROS_VAZIOS;
 const grupos = T.agrupar(enem.provas);
 
 test('Enem não regrediu: mesmos cadernos, ids e agrupamento', () => {
-  assert.equal(enem.provas.length, 144);
-  assert.equal(new Set(enem.provas.map((p) => p.id)).size, 144);
+  // 144 cadernos de 2021–2025 + 12 de 2026 (aplicação regular, publicada pelo Inep em 18/11/2026)
+  assert.equal(enem.provas.length, 156);
+  assert.equal(new Set(enem.provas.map((p) => p.id)).size, 156);
+  const de2026 = enem.provas.filter((p) => p.ano === 2026);
+  assert.equal(de2026.length, 12);
+  assert.ok(de2026.every((p) => p.modalidade === 'regular' && p.gabarito && /\/2026_GB_impresso_D[12]_CD\d+\.pdf$/.test(p.gabarito.url)));
   assert.ok(enem.provas.some((p) => p.id === 'enem-2025-primeiro-dia-caderno-1-azul'));
   assert.equal(T.filtrarGrupos(grupos, F).length, grupos.length);
   assert.equal(T.filtrarGrupos(grupos, { ...F, vestibular: 'enem' }).length, grupos.length);

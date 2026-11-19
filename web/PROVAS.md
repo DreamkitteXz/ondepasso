@@ -1,6 +1,6 @@
 # Biblioteca de provas (`/provas`)
 
-Biblioteca das provas oficiais do Enem (2021 a 2025), com um leitor que folheia como um caderno, e catálogo das provas de outros vestibulares (hoje: Fuvest, ingresso 2022 a 2026), com link para o site oficial. A parte de outros vestibulares está na seção [Outros vestibulares](#outros-vestibulares-fuvest-unicamp), no fim.
+Biblioteca das provas oficiais do Enem (2021 a 2026), com um leitor que folheia como um caderno, e catálogo das provas de outros vestibulares (hoje: Fuvest, ingresso 2022 a 2026), com link para o site oficial. A parte de outros vestibulares está na seção [Outros vestibulares](#outros-vestibulares-fuvest-unicamp), no fim.
 
 ## Rotas
 
@@ -13,20 +13,22 @@ Ficam no sitemap (`app/sitemap.ts`) e na navegação principal ("Provas").
 
 ## De onde vêm os dados
 
-1. A página oficial [Provas e Gabaritos do Inep](https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos) foi lida aba por aba (2021 a 2025). O resultado está em `dados/inep/provas-links-<data>.json`, com ano, seção (aplicação), cabeçalho do caderno, texto e URL de cada link.
+1. A página oficial [Provas e Gabaritos do Inep](https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos) foi lida aba por aba (2021 a 2025 em 08/11/2026; 2026 em 18/11/2026, no navegador, no dia em que o Inep publicou). O resultado está em `dados/inep/provas-links-<data>.json`, com ano, seção (aplicação), cabeçalho do caderno, texto e URL de cada link.
 2. Cada arquivo foi conferido com `HEAD` em `download.inep.gov.br`, e o resultado está em `dados/inep/provas-verificacao-<data>.json` (status, tamanho e tipo).
    - Dois links da página estão em `http://`; foram reconferidos em `https://`.
    - Dois estão fora do ar (404): `2025_GB_impresso_D6_CD11.pdf` e `2024_PV_impresso_D2_CD12_Superampliada.pdf`. Eles aparecem como indisponíveis.
 3. `python3 pipeline/provas_inep.py` gera `dados/saida/site/provas.json`, com um item por caderno: prova, gabarito do **mesmo bloco** do Inep (ano + aplicação + dia + caderno, nunca só pela cor) e versões acessíveis (ampliada, superampliada, ledor, NVDA, DOSVOX).
 
-Hoje: 144 cadernos, 143 com gabarito e 89 versões acessíveis.
+Hoje: 156 cadernos, 155 com gabarito e 103 versões acessíveis.
 
-**Para atualizar** (por exemplo, quando o Inep publicar 2026):
+**2026 (18/11/2026).** O Inep publicou só a aplicação regular: 12 cadernos (1º dia: 1 Azul, 2 Amarelo, 3 Branco, 4 Verde, 9 Marrom braile/ledor, 10 Roxo Libras; 2º dia: 5 Amarelo, 6 Cinza, 7 Azul, 8 Verde, 11 Marrom braile/ledor, 12 Roxo Libras), todos com gabarito e os 38 links com HEAD 200. A cor nova "Marrom" (cadernos 9 e 11, antes Laranja) entrou em `CORES`. A reaplicação/PPL de 2026 ainda não saiu: quando sair, repita a coleta só da aba 2026 e salve com a data nova.
+
+**Para atualizar** (por exemplo, quando o Inep publicar a reaplicação de 2026 ou o Enem 2027):
 1. Repita a coleta e a conferência.
 2. Salve os dois JSON com a data nova.
 3. Ponha o ano em `ANOS` no pipeline e rode o script.
 
-Não publique 2026 antes de os arquivos estarem na página oficial.
+Não publique um ano antes de os arquivos estarem na página oficial.
 
 **Hospedagem e licença.** Os PDFs não são copiados para o site: o leitor abre o arquivo direto do servidor do Inep, que libera CORS para `ondepasso.com.br` (conferido em 08/11/2026) e responde a pedidos por intervalo. O portal do Inep publica o conteúdo sob CC BY-ND 3.0. O site mostra a fonte em toda página e não altera os arquivos.
 
@@ -53,7 +55,7 @@ Não publique 2026 antes de os arquivos estarem na página oficial.
 **Índice de questões e gabarito.** São feitos no navegador, a partir do texto oficial:
 - **Índice:** procura "Questão NN" em cada página. Só aparece se encontrar a sequência inteira do caderno: 1–90 no 1º dia, 91–180 no 2º.
 - **Gabarito:** lê a tabela do PDF do gabarito pelas posições do texto. A consulta por número só aparece se todas as questões tiverem letra A–E (ou "anulada") e as questões 1–5 do 1º dia tiverem inglês e espanhol.
-- O leitor de gabarito foi conferido em 08/11/2026 contra os 143 gabaritos oficiais (2021–2025): todos lidos por inteiro. Isso inclui questões anuladas ("Anulado", "anulada") e números que o PDF quebra em pedaços ("12"+"1" em 2021–2023).
+- O leitor de gabarito foi conferido em 08/11/2026 contra os 143 gabaritos oficiais (2021–2025): todos lidos por inteiro. Em 18/11/2026, os 12 de 2026 também: lidos por inteiro, com a questão anulada do 2º dia (Matemática) reconhecida em cada cor. Isso inclui questões anuladas ("Anulado", "anulada") e números que o PDF quebra em pedaços ("12"+"1" em 2021–2023).
 - Sem leitura completa, fica só o PDF. Nenhuma resposta é inventada.
 - Acertos não viram nota (TRI).
 

@@ -1,7 +1,8 @@
 {
- "verificadoEm": "2026-11-08",
+ "verificadoEm": "2026-11-18",
  "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
  "anos": [
+  2026,
   2025,
   2024,
   2023,
@@ -9,6 +10,492 @@
   2021
  ],
  "provas": [
+  {
+   "ano": 2026,
+   "dia": 1,
+   "caderno": 1,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D1_CD1.pdf",
+    "bytes": 3400792,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D1_CD1.pdf",
+    "bytes": 169274,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-primeiro-dia-caderno-1-azul"
+  },
+  {
+   "ano": 2026,
+   "dia": 1,
+   "caderno": 2,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D1_CD2.pdf",
+    "bytes": 3411640,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D1_CD2.pdf",
+    "bytes": 170016,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-primeiro-dia-caderno-2-amarelo"
+  },
+  {
+   "ano": 2026,
+   "dia": 1,
+   "caderno": 3,
+   "cor": "branco",
+   "corRotulo": "Branco",
+   "corHex": "#ECEAE4",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D1_CD3.pdf",
+    "bytes": 3401058,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D1_CD3.pdf",
+    "bytes": 169879,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-primeiro-dia-caderno-3-branco"
+  },
+  {
+   "ano": 2026,
+   "dia": 1,
+   "caderno": 4,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D1_CD4.pdf",
+    "bytes": 3400974,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D1_CD4.pdf",
+    "bytes": 169807,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-primeiro-dia-caderno-4-verde"
+  },
+  {
+   "ano": 2026,
+   "dia": 1,
+   "caderno": 9,
+   "cor": "marrom",
+   "corRotulo": "Marrom",
+   "corHex": "#8B5A3C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D1_CD9.pdf",
+    "bytes": 3458673,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D1_CD9.pdf",
+    "bytes": 170109,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D1_CD9_ampliada.pdf",
+     "bytes": 5515695,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D1_CD9_superampliada.pdf",
+     "bytes": 7792835,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "ledor",
+     "rotulo": "Ledor",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D1_CD9_ledor.pdf",
+     "bytes": 2834348,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA)",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_Dia_1_P1_LC_CH_Caderno_09_Marrom_NVDA.pdf",
+     "bytes": 3517254,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_Dia_1_P1_LC_CH_Caderno_09_Marrom_DOSVOX.txt",
+     "bytes": 118123,
+     "formato": "txt"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-primeiro-dia-caderno-9-marrom-braile-ledor"
+  },
+  {
+   "ano": 2026,
+   "dia": 1,
+   "caderno": 10,
+   "cor": "roxo",
+   "corRotulo": "Roxo",
+   "corHex": "#8A5CC7",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "linguagens",
+    "humanas"
+   ],
+   "questoes": 90,
+   "redacao": true,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D1_CD10.pdf",
+    "bytes": 3376557,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D1_CD10.pdf",
+    "bytes": 169537,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D1_CD10_ampliada.pdf",
+     "bytes": 5578255,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D1_CD10_superampliada.pdf",
+     "bytes": 7872407,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-primeiro-dia-caderno-10-roxo-libras"
+  },
+  {
+   "ano": 2026,
+   "dia": 2,
+   "caderno": 5,
+   "cor": "amarelo",
+   "corRotulo": "Amarelo",
+   "corHex": "#E2B53B",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D2_CD5.pdf",
+    "bytes": 2803997,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D2_CD5.pdf",
+    "bytes": 173656,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-segundo-dia-caderno-5-amarelo"
+  },
+  {
+   "ano": 2026,
+   "dia": 2,
+   "caderno": 6,
+   "cor": "cinza",
+   "corRotulo": "Cinza",
+   "corHex": "#8C8F94",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D2_CD6.pdf",
+    "bytes": 2785222,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D2_CD6.pdf",
+    "bytes": 173230,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-segundo-dia-caderno-6-cinza"
+  },
+  {
+   "ano": 2026,
+   "dia": 2,
+   "caderno": 7,
+   "cor": "azul",
+   "corRotulo": "Azul",
+   "corHex": "#2F6FD0",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D2_CD7.pdf",
+    "bytes": 2805289,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D2_CD7.pdf",
+    "bytes": 173056,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-segundo-dia-caderno-7-azul"
+  },
+  {
+   "ano": 2026,
+   "dia": 2,
+   "caderno": 8,
+   "cor": "verde",
+   "corRotulo": "Verde",
+   "corHex": "#3BA55C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": null,
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D2_CD8.pdf",
+    "bytes": 2812588,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D2_CD8.pdf",
+    "bytes": 173594,
+    "formato": "pdf"
+   },
+   "versoes": [],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-segundo-dia-caderno-8-verde"
+  },
+  {
+   "ano": 2026,
+   "dia": 2,
+   "caderno": 11,
+   "cor": "marrom",
+   "corRotulo": "Marrom",
+   "corHex": "#8B5A3C",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "braile-ledor",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D2_CD11.pdf",
+    "bytes": 2746430,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D2_CD11.pdf",
+    "bytes": 173646,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D2_CD11_ampliada.pdf",
+     "bytes": 4412919,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D2_CD11_superampliada.pdf",
+     "bytes": 5670317,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "ledor",
+     "rotulo": "Ledor",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D2_CD11_ledor.pdf",
+     "bytes": 2290311,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "nvda",
+     "rotulo": "Leitor de tela (NVDA)",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_Dia_2_P1_CN_MT_Caderno_11_Marrom_NVDA.pdf",
+     "bytes": 3150964,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "dosvox",
+     "rotulo": "Texto para DOSVOX",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_Dia_2_P1_CN_MT_Caderno_11_Marrom_DOSVOX.txt",
+     "bytes": 98156,
+     "formato": "txt"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-segundo-dia-caderno-11-marrom-braile-ledor"
+  },
+  {
+   "ano": 2026,
+   "dia": 2,
+   "caderno": 12,
+   "cor": "roxo",
+   "corRotulo": "Roxo",
+   "corHex": "#8A5CC7",
+   "modalidade": "regular",
+   "modalidadeRotulo": "Aplicação regular",
+   "variante": "libras",
+   "idioma": null,
+   "areas": [
+    "natureza",
+    "matematica"
+   ],
+   "questoes": 90,
+   "redacao": false,
+   "prova": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D2_CD12.pdf",
+    "bytes": 2776096,
+    "formato": "pdf"
+   },
+   "gabarito": {
+    "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_GB_impresso_D2_CD12.pdf",
+    "bytes": 173096,
+    "formato": "pdf"
+   },
+   "versoes": [
+    {
+     "tipo": "ampliada",
+     "rotulo": "Ampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D2_CD12_ampliada.pdf",
+     "bytes": 4685144,
+     "formato": "pdf"
+    },
+    {
+     "tipo": "superampliada",
+     "rotulo": "Superampliada",
+     "url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2026_PV_impresso_D2_CD12_superampliada.pdf",
+     "bytes": 5985315,
+     "formato": "pdf"
+    }
+   ],
+   "indisponiveis": [],
+   "fonte": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+   "id": "enem-2026-segundo-dia-caderno-12-roxo-libras"
+  },
   {
    "ano": 2025,
    "dia": 1,

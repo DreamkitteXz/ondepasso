@@ -9,7 +9,7 @@ import { agrupar, dataBr as dataBrasil, tituloExame } from "@/lib/provas-tipos";
 
 export const metadata: Metadata = {
   title: "Provas anteriores do Enem, da Fuvest e da Unicamp com gabarito",
-  description: "Provas oficiais do Enem (2021 a 2025) para ler online ou baixar em PDF, com gabarito do Inep, e o catálogo das provas da Fuvest e da Unicamp (ingresso de 2022 a 2026), 1ª e 2ª fases, com gabaritos e respostas esperadas oficiais.",
+  description: "Provas oficiais do Enem (2021 a 2026) para ler online ou baixar em PDF, com gabarito do Inep, e o catálogo das provas da Fuvest e da Unicamp (ingresso de 2022 a 2026), 1ª e 2ª fases, com gabaritos e respostas esperadas oficiais.",
   alternates: { canonical: "/provas/" },
   openGraph: { title: "Provas anteriores do Enem, da Fuvest e da Unicamp · onde passo", description: "Leia as provas oficiais do Enem como um caderno de verdade, com gabarito, e encontre as da Fuvest e da Unicamp por edição, fase e versão.", url: `${SITE}/provas/` },
 };
