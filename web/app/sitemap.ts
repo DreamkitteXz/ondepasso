@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { indice, curso } from "@/lib/dados";
 import { slugOferta } from "@/lib/rotas";
 import { universidades } from "@/lib/universidades";
+import { proprias } from "@/lib/vestibular-proprio";
 import { acervo } from "@/lib/provas";
 
 export const dynamic = "force-static";
@@ -23,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...acervo().provas.map((p) => ({ url: `${SITE}/provas/${p.id}/`, lastModified: new Date(acervo().verificadoEm), priority: p.modalidade === "regular" ? 0.7 : 0.5 })),
     ...acervo().exames.map((e) => ({ url: `${SITE}/provas/${e.id}/`, priority: 0.6 })),
     ...universidades().lista.map((u) => ({ url: `${SITE}/universidades/${u.slug}/`, lastModified, priority: 0.7 })),
+    ...proprias().map((u) => ({ url: `${SITE}/universidades/${u.slug}/`, lastModified: new Date(u.geradoEm), priority: 0.8 })),
     ...cursos.flatMap((c) => [
       { url: `${SITE}/curso/${c.slug}/`, lastModified, priority: 0.8 },
       ...curso(c.slug).ofertas.map((o) => ({ url: `${SITE}/curso/${c.slug}/${slugOferta(o)}/`, lastModified, priority: 0.6 })),

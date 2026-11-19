@@ -6,7 +6,7 @@ import type { ResumoUni } from "@/lib/universidades";
 
 const POR_PAGINA = 30;
 const norm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
-const TIPOS: [string, string][] = [["", "Federais e estaduais"], ["Pública federal", "Só federais"], ["Pública estadual", "Só estaduais"], ["Pública municipal", "Só municipais"]];
+const TIPOS: [string, string][] = [["", "Federais e estaduais"], ["Pública federal", "Só federais"], ["Pública estadual", "Só estaduais"], ["Pública municipal", "Só municipais"], ["proprio", "Vestibular próprio (USP, Unicamp)"]];
 const TIPO_CURTO: Record<string, string> = { "Pública federal": "Federal", "Pública estadual": "Estadual", "Pública municipal": "Municipal" };
 type GeoUnis = { w: number; h: number; ufs: { uf: string; nome: string; d: string }[] };
 
@@ -26,7 +26,7 @@ export function ListaUniversidades({ unis, estados, geo }: { unis: ResumoUni[]; 
   const vis = useMemo(() => {
     const q = norm(busca.trim());
     return unis
-      .filter((u) => (!uf || u.ufs.includes(uf)) && (!tipo || u.tipo === tipo) && (!q || norm(u.sigla).includes(q) || norm(u.nome).includes(q)))
+      .filter((u) => (!uf || u.ufs.includes(uf)) && (!tipo || (tipo === "proprio" ? !!u.proprio : u.tipo === tipo)) && (!q || norm(u.sigla).includes(q) || norm(u.nome).includes(q)))
       .sort((a, b) => (uf ? (b.porUf[uf] ?? 0) - (a.porUf[uf] ?? 0) : b.ofertas - a.ofertas) || a.sigla.localeCompare(b.sigla, "pt-BR"));
   }, [unis, busca, uf, tipo]);
   const nomeUf = estados.find((e) => e.uf === uf)?.nome;
@@ -99,14 +99,23 @@ export function ListaUniversidades({ unis, estados, geo }: { unis: ResumoUni[]; 
                 <span className="uc2-topo">
                   <span className="uc2-tipo">{TIPO_CURTO[u.tipo] ?? u.tipo}</span>
                   <span className="uc2-ufs">{u.ufs.length > 3 ? `${u.ufs.length} estados` : u.ufs.join(" · ")}</span>
+                  {u.proprio && <span className="uc2-proprio">Fora do Sisu</span>}
                 </span>
                 <strong className="uc2-sigla">{u.sigla}</strong>
                 <span className="uc2-nome">{u.nome}</span>
                 <span className="uc2-fatos">
-                  <span><b>{u.ofertas}</b> {u.ofertas === 1 ? "opção" : "opções"}</span>
+                  {u.proprio
+                    ? <span><b>{u.ofertas}</b> cursos · <b>{u.proprio.vagas.toLocaleString("pt-BR")}</b> vagas</span>
+                    : <span><b>{u.ofertas}</b> {u.ofertas === 1 ? "opção" : "opções"}</span>}
                   <span><b>{u.cidades}</b> {u.cidades === 1 ? "cidade" : "cidades"}</span>
                 </span>
-                {u.min != null && u.max != null
+                {u.proprio
+                  ? <span className="uc2-faixa uc2-faixa-propria">
+                      {u.proprio.min != null && u.proprio.max != null
+                        ? <span className="uc2-nums"><b>{u.proprio.min}</b><em>acertos de {u.proprio.questoes} · 1ª fase {u.proprio.vestibular} {u.proprio.edicao}</em><b>{u.proprio.max}</b></span>
+                        : <span className="uc2-sem">Cortes do {u.proprio.vestibular} {u.proprio.edicao}</span>}
+                    </span>
+                  : u.min != null && u.max != null
                   ? <span className="uc2-faixa">
                       <span className="uc2-trilho" aria-hidden="true" style={{ ["--a" as string]: `${a.toFixed(1)}%`, ["--b" as string]: `${Math.max(b, a + 1.5).toFixed(1)}%` }} />
                       <span className="uc2-nums"><b>{Math.floor(u.min)}</b><em>cortes da ampla</em><b>{Math.ceil(u.max)}</b></span>
