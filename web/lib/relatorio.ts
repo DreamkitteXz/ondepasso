@@ -9,8 +9,13 @@ export type LinhaBase = [number, string, string, string, string, number[], numbe
 export type BaseCalc = { ano: number; cursos: { curso: string; slug: string; g: number }[]; grupos: string[]; mods: { cod: string; nome: string }[]; linhas: LinhaBase[] };
 /** Qualidade (Inep), quando o pipeline tiver os dados: conceito Enade, CPC e IGC da instituição, de 1 a 5. */
 export type Qualidade = { enade?: number; cpc?: number; igc?: number; ano?: number };
-/** [turno, grau, categoria, bônus regional %, cortes dos anos anteriores por modalidade (ordem de `anosAntes`), [vagas, inscritos] do último ano por modalidade, qualidade] */
-export type LinhaRel = [string, string, string, number, Record<string, (number | null)[]>, Record<string, [number, number]>, Qualidade?];
+/**
+ * Extras de uma opção: c = campus; v = vagas dos anos anteriores por modalidade (ordem de `anosAntes`), só quando
+ * diferem das do último ano (sinal de que a oferta mudou e o corte antigo compara menos); q = qualidade (Inep).
+ */
+export type ExtraRel = { c?: string; v?: Record<string, (number | null)[]>; q?: Qualidade };
+/** [turno, grau, categoria, bônus regional %, cortes dos anos anteriores por modalidade (ordem de `anosAntes`), [vagas, inscritos] do último ano por modalidade, extras] */
+export type LinhaRel = [string, string, string, number, Record<string, (number | null)[]>, Record<string, [number, number]>, ExtraRel?];
 export type DadosRelatorio = { ano: number; anosAntes: number[]; linhas: LinhaRel[] };
 
 export type Faixa = "segura" | "provavel" | "limite" | "ousada" | "fora";
@@ -44,6 +49,10 @@ export type Opcao = {
   /** Maior variação entre dois anos seguidos; null se só há um corte. */
   oscilacao: number | null;
   vagas: number | null; inscritos: number | null; porVaga: number | null; bonus: number;
+  /** Campus, quando a base tem. */
+  campus: string | null;
+  /** Vagas desta modalidade nos anos anteriores, só quando mudaram em relação ao último ano. */
+  vagasAntes: { ano: number; vagas: number }[];
   faixa: Faixa; alertas: Alerta[]; q?: Qualidade;
 };
 export type Filtro = { ufs: string[]; grupos: number[]; turnos: string[] };
@@ -70,7 +79,8 @@ export function analisar(calc: BaseCalc, rel: DadosRelatorio, n: number[], mod: 
     const c = calc.cursos[ci];
     const r = rel.linhas[i];
     if (!c || !r) return;
-    const [turno, grau, categoria, bonus, antes, conc, q] = r;
+    const [turno, grau, categoria, bonus, antes, conc, extra] = r;
+    const q = extra?.q;
     if (filtro.ufs.length && !filtro.ufs.includes(uf)) return;
     if (filtro.grupos.length && !filtro.grupos.includes(c.g)) return;
     if (filtro.turnos.length && !filtro.turnos.includes(turno)) return;
@@ -82,6 +92,8 @@ export function analisar(calc: BaseCalc, rel: DadosRelatorio, n: number[], mod: 
     const variacao = difs.length ? difs[difs.length - 1] : null;
     const oscilacao = difs.length ? Math.max(...difs.map(Math.abs)) : null;
     const [vagas, inscritos] = conc[mod] ?? [0, 0];
+    const vagasAntes: Opcao["vagasAntes"] = [];
+    (extra?.v?.[mod] ?? []).forEach((v, k) => { if (v != null && v !== vagas) vagasAntes.push({ ano: rel.anosAntes[k], vagas: v }); });
     const porVaga = vagas > 0 && inscritos > 0 ? inscritos / vagas : null;
     const folga = media - corte;
     const faixa = faixaDe(folga, oscilacao, minimo);
@@ -92,7 +104,7 @@ export function analisar(calc: BaseCalc, rel: DadosRelatorio, n: number[], mod: 
     if (vagas > 0 && vagas <= 2) alertas.push("poucas-vagas");
     if (hist.length === 1) alertas.push("sem-historico");
     out.push({ i, curso: c.curso, slug: c.slug, rota, ies, cidade, uf, g: c.g, turno, grau, categoria, media, simples, ganho: media - simples, corte, folga, minimo,
-      hist, variacao, oscilacao, vagas: vagas || null, inscritos: inscritos || null, porVaga, bonus, faixa, alertas, ...(q ? { q } : {}) });
+      hist, variacao, oscilacao, vagas: vagas || null, inscritos: inscritos || null, porVaga, bonus, campus: extra?.c ?? null, vagasAntes, faixa, alertas, ...(q ? { q } : {}) });
   });
   return out;
 }

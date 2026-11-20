@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { indice, curso } from "./dados";
 import { MODS } from "./mapa";
-import type { DadosRelatorio, LinhaRel, Qualidade } from "./relatorio";
+import type { DadosRelatorio, ExtraRel, LinhaRel, Qualidade } from "./relatorio";
 
 /** Opcional: dados/saida/site/qualidade.json, { "<id da oferta>": { enade, cpc, igc, ano } }, gerado pelo pipeline do Inep. */
 function qualidade(): Record<string, Qualidade> {
@@ -20,15 +20,21 @@ export function dadosRelatorio(): DadosRelatorio {
   for (const it of idx.cursos) {
     for (const o of curso(it.slug).ofertas) {
       const doAno = o.cortes[String(ano)] ?? {};
-      const antes: LinhaRel[4] = {}; const conc: LinhaRel[5] = {};
+      const antes: LinhaRel[4] = {}; const conc: LinhaRel[5] = {}; const vagasAntes: Record<string, (number | null)[]> = {};
       for (const cod of MODS) {
         if (doAno[cod]?.corte == null) continue;
         const h = anosAntes.map((a) => o.cortes[String(a)]?.[cod]?.corte ?? null);
         if (h.some((v) => v != null)) antes[cod] = h;
         conc[cod] = [doAno[cod].vagas ?? 0, doAno[cod].inscritos ?? 0];
+        // Vagas de antes só entram quando mudaram: aí o corte antigo compara menos com o de hoje.
+        const va = anosAntes.map((a) => o.cortes[String(a)]?.[cod]?.vagas ?? null);
+        if (va.some((v) => v != null && v !== (doAno[cod].vagas ?? 0))) vagasAntes[cod] = va;
       }
-      const linha: LinhaRel = [o.turno, o.grau, o.categoria, o.bonus_regional_pct ?? 0, antes, conc];
-      if (q[o.id]) linha.push(q[o.id]);
+      const extra: ExtraRel = {};
+      if (o.campus) extra.c = o.campus;
+      if (Object.keys(vagasAntes).length) extra.v = vagasAntes;
+      if (q[o.id]) extra.q = q[o.id];
+      const linha: LinhaRel = [o.turno, o.grau, o.categoria, o.bonus_regional_pct ?? 0, antes, conc, extra];
       linhas.push(linha);
     }
   }

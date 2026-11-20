@@ -23,7 +23,7 @@ export default function TermosRelatorio() {
     <section className="cartao estado-comparacao">
       <h2>O que o relatório não é</h2>
       <p><strong>Não é previsão nem garantia de aprovação.</strong> As faixas (“com folga”, “acima do corte”, “no limite”, “aposta”) comparam a sua média com as notas de corte da chamada regular de edições anteriores do Sisu. Os cortes de uma nova edição só existem depois das inscrições e podem ser bem diferentes.</p>
-      <p>A sugestão de 1ª e 2ª opção é uma leitura dos números, não uma orientação profissional. A escolha do curso é sua. O onde passo não é um site oficial: confira sempre vagas, pesos, notas mínimas e regras no <a className="link-sublinhado" href="https://acessounico.mec.gov.br/">portal do Sisu</a> e no edital de cada universidade.</p>
+      <p>A sugestão de 1ª e 2ª opção é uma leitura dos números e das preferências que você informa, não uma orientação profissional. Os cenários de aumento do corte são simulações, não previsões. A escolha do curso é sua. O onde passo não é um site oficial: confira sempre vagas, pesos, notas mínimas e regras no <a className="link-sublinhado" href="https://acessounico.mec.gov.br/">portal do Sisu</a> e no edital de cada universidade.</p>
     </section>
 
     <section className="cartao estado-comparacao">

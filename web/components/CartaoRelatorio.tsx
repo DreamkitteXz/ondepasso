@@ -12,8 +12,8 @@ export function CartaoRelatorio({ origem }: { origem: "calculadora" | "oferta" }
     <aside className="cartao-relatorio" aria-label="Relatório completo">
       <div>
         <p className="cr-rotulo">Relatório para o Sisu 2027</p>
-        <strong>{acesso ? "Seu relatório está liberado" : "Em quais dessas opções vale apostar?"}</strong>
-        <p>{acesso ? "Veja a estratégia de 1ª e 2ª opção, o risco de cada escolha e a comparação lado a lado." : `O relatório cruza as suas notas com 3 anos de cortes, a concorrência e os pesos de cada curso, e sugere a 1ª e a 2ª opção. R$ ${PRECO_TEXTO}, pagamento único.`}</p>
+        <strong>{acesso ? "Seu relatório está liberado" : "Monte o seu plano de 1ª e 2ª opção"}</strong>
+        <p>{acesso ? "Veja o seu plano: 1ª e 2ª opção explicadas, margens, cenários e finalistas lado a lado." : `Com o que você quer cursar e onde pode estudar, o relatório compara suas notas com 3 anos de cortes e explica cada sugestão de 1ª e 2ª opção. R$ ${PRECO_TEXTO}, pagamento único.`}</p>
       </div>
       <a className="botao botao-pilula" href="/relatorio/" onClick={() => registrar("en_relatorio_oferta_clicada", { origem })}>{acesso ? "Abrir meu relatório" : "Ver a prévia grátis"}<SetaBotao /></a>
     </aside>
