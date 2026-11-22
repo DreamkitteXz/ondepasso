@@ -1,0 +1,5 @@
+# Enviado ao ElevenLabs: modelo eleven_v4, voz "Eduardo - Streamer & Brasileiro" (R2wd0DF39XU6eENe9jkF), take A (31,8 s).
+# Tempos por palavra: transcrição do ElevenLabs (scribe v1) → src/relatorio01/narracao.json.
+# As tags [..] orientam a interpretação e não são faladas.
+
+[curious] Você já sabe o que vai colocar na segunda opção do Sisu? [short pause] Escolher só pelo corte mais alto é arriscado... e a segunda opção tem que ser um curso que você faria mesmo. [pause] [warmly] Por isso eu criei o relatório do Onde Passo. Você diz o que quer cursar e onde pode estudar... e ele monta a sua primeira e segunda opção, explicando cada uma: a margem sobre o corte, e o que acontece se o corte subir. [short pause] Depois, você compara as finalistas lado a lado... e salva o plano em PDF. [pause] [excited] Dá pra simular agora, com a nota estimada do gabarito. A prévia é grátis.

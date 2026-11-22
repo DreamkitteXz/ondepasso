@@ -3,6 +3,7 @@ import { Folder } from "remotion";
 import { OndePassoVideo } from "./compositions/OndePassoVideo";
 import { OndePassoVertical } from "./compositions/OndePassoVertical";
 import { OndePassoTikTok01 } from "./tiktok/OndePassoTikTok01";
+import { OndePassoRelatorio01 } from "./relatorio01/OndePassoRelatorio01";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -12,6 +13,7 @@ export const RemotionRoot: React.FC = () => (
     </Folder>
     <Folder name="tiktok">
       <OndePassoTikTok01 />
+      <OndePassoRelatorio01 />
     </Folder>
   </>
 );
