@@ -31,6 +31,7 @@ export function ReaderSettings({ animacoes, som, modo, mudar, zoom, mudarZoom }:
         <legend>Modo</legend>
         <label><input type="radio" name="modo-leitor" checked={modo === "livro"} onChange={() => mudar({ modo: "livro" })} /> Livro (duas páginas no computador)</label>
         <label><input type="radio" name="modo-leitor" checked={modo === "leitura"} onChange={() => mudar({ modo: "leitura" })} /> Leitura (rolagem contínua)</label>
+        <label><input type="radio" name="modo-leitor" checked={modo === "questao"} onChange={() => mudar({ modo: "questao" })} /> Por questão (uma de cada vez, resposta escondida)</label>
       </fieldset>
       <p className="miudo">Atalhos: ← e → mudam de página; Esc sai da tela cheia. No celular, use dois dedos para dar zoom. Suas escolhas ficam só neste aparelho.</p>
     </div>

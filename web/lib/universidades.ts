@@ -24,7 +24,11 @@ export type Universidade = {
   campi: Campus[]; cursos: CursoUni[]; comCorte: number; min: number | null; max: number | null;
   site: string | null; fotos: Foto[];
 };
-export type ResumoUni = Pick<Universidade, "slug" | "sigla" | "nome" | "tipo" | "ufs" | "comCorte" | "min" | "max"> & { cidades: number; ofertas: number; porUf: Record<string, number> };
+export type ResumoUni = Pick<Universidade, "slug" | "sigla" | "nome" | "tipo" | "ufs" | "comCorte" | "min" | "max"> & {
+  cidades: number; ofertas: number; porUf: Record<string, number>;
+  /** Universidades fora do Sisu (USP, Unicamp): cortes em acertos na 1ª fase do vestibular próprio. */
+  proprio?: { vestibular: string; edicao: number; questoes: number; min: number | null; max: number | null; vagas: number };
+};
 
 const TIPO: Record<string, string> = { "Pública Federal": "Pública federal", "Pública Estadual": "Pública estadual", "Pública Municipal": "Pública municipal" };
 const RAIZ = path.join(process.cwd(), "..");
@@ -85,7 +89,7 @@ export function resumoUniversidades(): ResumoUni[] {
 }
 
 /** Contorno do estado (ou do Brasil, se a instituição tiver campi em mais de um estado) para o mapa "Onde fica". */
-export function contorno(u: Universidade) {
+export function contorno(u: Pick<Universidade, "ufs">) {
   if (u.ufs.length === 1) { const e = GEO.ufs.find((g) => g.uf === u.ufs[0]); if (e) return { ufs: [{ uf: e.uf, d: e.d }], box: e.box as [number, number, number, number] }; }
   return { ufs: GEO.ufs.map((g) => ({ uf: g.uf, d: g.d })), box: [0, 0, GEO.w, GEO.h] as [number, number, number, number] };
 }

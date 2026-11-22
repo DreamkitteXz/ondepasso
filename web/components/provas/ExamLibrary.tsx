@@ -2,11 +2,12 @@
 // Biblioteca de provas: uma prova por dia de cada aplicação (as cores ficam dentro do cartão), organizada por ano.
 // O HTML estático já traz todas as provas (bom para o Google); os filtros só escondem no navegador e ficam na URL.
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
-import type { Filtros, Grupo, Prova } from "@/lib/provas-tipos";
-import { FILTROS_VAZIOS, MODALIDADE_CURTA, agrupar, cadernoInicial, filtrarGrupos, filtrosDaUrl, filtrosParaUrl, tituloProva } from "@/lib/provas-tipos";
+import type { Exame, Filtros, Grupo, InfoVestibular, Prova } from "@/lib/provas-tipos";
+import { FILTROS_VAZIOS, MODALIDADE_CURTA, VESTIBULAR_ROTULO, agrupar, cadernoInicial, filtrarExames, filtrarGrupos, filtrosDaUrl, filtrosParaUrl, tituloExame, tituloProva, versaoInicial } from "@/lib/provas-tipos";
 import { alternarFavorita, leiturasRecentes, lerFavoritas } from "@/lib/leitor/preferencias";
 import { registrar, registrarUmaVez } from "@/lib/analytics";
 import { ExamCard } from "./ExamCard";
+import { ExameCard } from "./ExameCard";
 import { ExamFilters } from "./ExamFilters";
 
 const assinarFav = (cb: () => void) => { window.addEventListener("ondepasso:favoritas", cb); window.addEventListener("storage", cb); return () => { window.removeEventListener("ondepasso:favoritas", cb); window.removeEventListener("storage", cb); }; };
@@ -14,14 +15,15 @@ let favCache = ""; let favLista: string[] = [];
 const lerFavSnapshot = () => { const l = lerFavoritas(); const k = l.join(","); if (k !== favCache) { favCache = k; favLista = l; } return favLista; };
 const SEM: string[] = [];
 
-function SuasProvas({ provas, salvas }: { provas: Prova[]; salvas: string[] }) {
+function SuasProvas({ provas, exames, salvas }: { provas: Prova[]; exames: Exame[]; salvas: string[] }) {
   const [recente, setRecente] = useState<{ p: Prova; pagina: number } | null>(null);
   useEffect(() => {
     const r = leiturasRecentes().map((x) => ({ p: provas.find((p) => p.id === x.id), pagina: x.pagina })).find((x) => x.p);
     if (r?.p) setRecente({ p: r.p, pagina: r.pagina });
   }, [provas]);
   const lista = salvas.map((id) => provas.find((p) => p.id === id)).filter((p): p is Prova => !!p && p.id !== recente?.p.id);
-  if (!recente && lista.length === 0) return null;
+  const listaExames = salvas.map((id) => exames.find((e) => e.id === id)).filter((e): e is Exame => !!e);
+  if (!recente && lista.length === 0 && listaExames.length === 0) return null;
   return (
     <section className="suas-provas" aria-label="Suas provas">
       {recente && (
@@ -30,7 +32,7 @@ function SuasProvas({ provas, salvas }: { provas: Prova[]; salvas: string[] }) {
           <span><strong>Continuar lendo</strong><span>{tituloProva(recente.p)}, página {recente.pagina}</span></span>
         </a>
       )}
-      {lista.length > 0 && (
+      {lista.length + listaExames.length > 0 && (
         <div className="salvas">
           <span>Salvas</span>
           <ul>
@@ -40,6 +42,12 @@ function SuasProvas({ provas, salvas }: { provas: Prova[]; salvas: string[] }) {
                 <button type="button" aria-label={`Tirar ${tituloProva(p)} das salvas`} onClick={() => alternarFavorita(p.id)}>×</button>
               </li>
             ))}
+            {listaExames.map((e) => (
+              <li key={e.id}>
+                <a href={`/provas/${e.id}/`}>{tituloExame(e)}</a>
+                <button type="button" aria-label={`Tirar ${tituloExame(e)} das salvas`} onClick={() => alternarFavorita(e.id)}>×</button>
+              </li>
+            ))}
           </ul>
         </div>
       )}
@@ -47,7 +55,7 @@ function SuasProvas({ provas, salvas }: { provas: Prova[]; salvas: string[] }) {
   );
 }
 
-export function ExamLibrary({ provas }: { provas: Prova[] }) {
+export function ExamLibrary({ provas, exames = [], vestibulares = [] }: { provas: Prova[]; exames?: Exame[]; vestibulares?: InfoVestibular[] }) {
   const [f, setF] = useState<Filtros>(FILTROS_VAZIOS);
   const [pronto, setPronto] = useState(false);
   const salvas = useSyncExternalStore(assinarFav, lerFavSnapshot, () => SEM);
@@ -77,7 +85,20 @@ export function ExamLibrary({ provas }: { provas: Prova[] }) {
 
   const todos = useMemo(() => agrupar(provas), [provas]);
   const grupos = useMemo(() => filtrarGrupos(todos, f), [todos, f]);
-  const anos = useMemo(() => [...new Set(provas.map((p) => p.ano))].sort((a, b) => b - a), [provas]);
+  const examesVisiveis = useMemo(() => filtrarExames(exames, f), [exames, f]);
+  const anosEnem = useMemo(() => [...new Set(provas.map((p) => p.ano))], [provas]);
+  // Edições que existem no vestibular escolhido (sem escolha, todas).
+  const anos = useMemo(() => [...new Set([
+    ...(f.vestibular == null || f.vestibular === "enem" ? provas.map((p) => p.ano) : []),
+    ...exames.filter((e) => f.vestibular == null || e.vestibular === f.vestibular).map((e) => e.edicao),
+  ])].sort((a, b) => b - a), [provas, exames, f.vestibular]);
+  // Outros vestibulares: uma seção por vestibular e edição, na ordem do catálogo (edição mais recente primeiro).
+  const porEdicao = useMemo(() => {
+    const m = new Map<string, Exame[]>();
+    for (const e of examesVisiveis) { const k = `${e.vestibular}-${e.edicao}`; if (!m.has(k)) m.set(k, []); m.get(k)!.push(e); }
+    return [...m.values()];
+  }, [examesVisiveis]);
+  const total = todos.length + exames.length, visiveis = grupos.length + examesVisiveis.length;
   const porAno = useMemo(() => {
     const m = new Map<number, { principais: Grupo[]; outras: Grupo[] }>();
     for (const g of grupos) {
@@ -86,20 +107,23 @@ export function ExamLibrary({ provas }: { provas: Prova[] }) {
     }
     return [...m.entries()];
   }, [grupos]);
-  const filtrando = grupos.length !== todos.length;
+  const filtrando = visiveis !== total;
 
   return (
     <div className="biblioteca" data-pronto={pronto ? "1" : undefined}>
-      <SuasProvas provas={provas} salvas={salvas} />
-      <ExamFilters f={f} anos={anos} mudar={mudar} />
+      <SuasProvas provas={provas} exames={exames} salvas={salvas} />
+      <ExamFilters f={f} anos={anos} anosEnem={anosEnem} vestibulares={vestibulares} mudar={mudar} />
       <p className="biblioteca-contagem" role="status" aria-live="polite">
-        {filtrando ? <>{grupos.length} de {todos.length} provas <button type="button" className="link-botao" onClick={limpar}>Limpar filtros</button></> : `${todos.length} provas, ${provas.length} cadernos`}
+        {filtrando ? <>{visiveis} de {total} provas <button type="button" className="link-botao" onClick={limpar}>Limpar filtros</button></> : exames.length ? `${total} provas: ${todos.length} do Enem${vestibulares.filter((v) => v.exames > 0).map((v) => ` e ${v.exames} da ${v.nome}`).join("")}` : `${todos.length} provas, ${provas.length} cadernos`}
       </p>
 
-      {grupos.length === 0 ? (
+      {visiveis === 0 ? (
         <div className="biblioteca-vazia">
           <p><strong>Nenhuma prova com esses filtros.</strong></p>
-          <p>A aplicação digital só existiu em 2021 e 2022, e a de Belém só em 2025. Tente outro ano ou limpe os filtros.</p>
+          <p>{f.vestibular && f.vestibular !== "enem"
+            ? `O catálogo da ${VESTIBULAR_ROTULO[f.vestibular]} vai de ${Math.min(...exames.filter((e) => e.vestibular === f.vestibular).map((e) => e.edicao))} a ${Math.max(...exames.filter((e) => e.vestibular === f.vestibular).map((e) => e.edicao))}. Tente outra edição ou limpe os filtros.`
+            : f.fase != null ? "O Enem não tem fases, e os filtros de cor, área e aplicação valem só para ele. Tire um dos filtros ou limpe todos."
+            : "A aplicação digital só existiu em 2021 e 2022, e a de Belém só em 2025. Tente outro ano ou limpe os filtros."}</p>
           <button type="button" className="botao botao-contorno" onClick={limpar}>Limpar filtros</button>
         </div>
       ) : (
@@ -131,6 +155,19 @@ export function ExamLibrary({ provas }: { provas: Prova[] }) {
           </section>
         ))
       )}
+      {visiveis > 0 && porEdicao.map((lista) => {
+        const { vestibular, edicao } = lista[0];
+        return (
+          <section key={`${vestibular}-${edicao}`} className="ano ano-vestibular" aria-labelledby={`ed-${vestibular}-${edicao}`}>
+            <h2 id={`ed-${vestibular}-${edicao}`} className="ano-numero"><span className="ano-rotulo">{VESTIBULAR_ROTULO[vestibular]} </span><span>{edicao}</span></h2>
+            <div className="ano-provas">
+              <div className="principais exames">
+                {lista.map((e) => <ExameCard key={e.id} e={e} inicial={versaoInicial(e, f)} salvas={salvas} aoSalvar={alternarFavorita} />)}
+              </div>
+            </div>
+          </section>
+        );
+      })}
     </div>
   );
 }

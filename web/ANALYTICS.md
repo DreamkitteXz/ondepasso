@@ -51,7 +51,9 @@ Regras garantidas pelo código:
 | `enem_pagina_virada` | Marcos de leitura, cada um uma vez por prova: primeira virada, metade e fim. Nunca a cada página. | `prova`, `marco` (`primeira` · `metade` · `fim`) |
 | `enem_gabarito_aberto` | Gabarito aberto no leitor, como PDF ou na consulta por número. | `prova`, `modo` (`leitor` · `pdf` · `consulta`) |
 | `enem_pdf_baixado` | Clique em baixar PDF (prova ou gabarito). | `prova`, `arquivo` (`prova` · `gabarito`), `origem` (`biblioteca` · `pagina` · `leitor`) |
-| `enem_modo_leitura_alterado` | Troca entre modo livro e modo leitura. | `prova`, `modo` |
+| `enem_modo_leitura_alterado` | Troca entre os modos livro, leitura e por questão. | `prova`, `modo` (`livro` · `leitura` · `questao`) |
+| `enem_questoes_mapeadas` | O modo por questão terminou de separar as questões do caderno (uma vez por abertura). | `prova`, `resultado` (`completo` · `incompleto`) |
+| `enem_resposta_vista` | Clique em "Ver resposta" no modo por questão. O número da questão não é enviado. | `prova` |
 
 ★ evento principal (conversão).
 

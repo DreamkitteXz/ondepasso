@@ -1,0 +1,4068 @@
+{
+ "sigla": "USP",
+ "slug": "usp",
+ "nome": "Universidade de São Paulo",
+ "tipo": "Pública estadual",
+ "site": "https://www5.usp.br/",
+ "vestibular": {
+  "id": "fuvest",
+  "nome": "Vestibular Fuvest (Fuvest)",
+  "edicao": 2027,
+  "site": "https://www.fuvest.br/",
+  "taxa": "R$ 228,00"
+ },
+ "geradoEm": "2026-11-19",
+ "prova": {
+  "questoes": 80,
+  "minimo": 24,
+  "unidade": "acertos",
+  "fase": "1ª fase",
+  "nota": "Na Fuvest, o corte é a nota do último convocado para a 2ª fase em cada carreira e modalidade. São chamados até 4 candidatos por vaga, e quem fizer menos de 24 acertos (30% da prova) é eliminado. Em 2027 a 1ª fase passou de 90 para 80 questões, então os cortes não se comparam com os de anos anteriores."
+ },
+ "modalidades": [
+  {
+   "cod": "AC",
+   "nome": "Ampla concorrência"
+  },
+  {
+   "cod": "EP",
+   "nome": "Escola pública"
+  },
+  {
+   "cod": "PPI",
+   "nome": "Escola pública · pretos, pardos e indígenas"
+  }
+ ],
+ "ingresso": [
+  {
+   "nome": "Vestibular Fuvest",
+   "vagas": 8147,
+   "detalhe": "4.888 na ampla, 2.053 para escola pública e 1.206 para escola pública PPI",
+   "texto": "Prova própria em duas fases. Você escolhe uma carreira e até quatro cursos dela, em ordem de preferência.",
+   "link": "https://www.fuvest.br/"
+  },
+  {
+   "nome": "Enem-USP",
+   "vagas": 1500,
+   "detalhe": "684 na ampla, 512 para escola pública e 304 para escola pública PPI",
+   "texto": "Usa as notas do Enem com pesos definidos por curso. Tem inscrição própria no site da Fuvest, fora do Sisu; a abertura está prevista para novembro de 2026.",
+   "link": "https://www.fuvest.br/"
+  },
+  {
+   "nome": "Provão Paulista Seriado",
+   "vagas": 1500,
+   "detalhe": "Só para quem cursa o ensino médio na rede pública de São Paulo",
+   "texto": "Avaliação feita ao longo das três séries do ensino médio. A escolha de cursos acontece no portal do Provão Paulista.",
+   "link": null
+  }
+ ],
+ "cotas": [
+  "Todas as pessoas inscritas concorrem às vagas de ampla concorrência.",
+  "Escola pública (EP): para quem cursou todo o ensino médio em escola pública brasileira.",
+  "PPI: para pessoas pretas, pardas ou indígenas que cursaram todo o ensino médio em escola pública, independentemente da renda."
+ ],
+ "calendario": [
+  {
+   "data": "2026-08-17",
+   "fim": "2026-10-09",
+   "evento": "Inscrições do vestibular"
+  },
+  {
+   "data": "2026-11-01",
+   "evento": "1ª fase (80 questões)"
+  },
+  {
+   "data": "2026-11-12",
+   "evento": "Notas de corte da 1ª fase"
+  },
+  {
+   "data": "2026-11-23",
+   "evento": "Convocados para a 2ª fase e locais de prova"
+  },
+  {
+   "data": "2026-12-06",
+   "fim": "2026-12-07",
+   "evento": "2ª fase"
+  },
+  {
+   "data": "2026-12-08",
+   "fim": "2026-12-11",
+   "evento": "Provas de competências específicas (Música, Artes Cênicas e Artes Visuais)"
+  },
+  {
+   "data": "2027-01-26",
+   "evento": "1ª chamada"
+  }
+ ],
+ "unidades": {
+  "FOB": "Faculdade de Odontologia de Bauru",
+  "FMBRU": "Faculdade de Medicina de Bauru",
+  "EEL": "Escola de Engenharia de Lorena",
+  "ESALQ": "Escola Superior de Agricultura Luiz de Queiroz",
+  "FZEA": "Faculdade de Zootecnia e Engenharia de Alimentos",
+  "EEFERP": "Escola de Educação Física e Esporte de Ribeirão Preto",
+  "EERP": "Escola de Enfermagem de Ribeirão Preto",
+  "FCFRP": "Faculdade de Ciências Farmacêuticas de Ribeirão Preto",
+  "FDRP": "Faculdade de Direito de Ribeirão Preto",
+  "FEARP": "Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto",
+  "FFCLRP": "Faculdade de Filosofia, Ciências e Letras de Ribeirão Preto",
+  "FMRP": "Faculdade de Medicina de Ribeirão Preto",
+  "FORP": "Faculdade de Odontologia de Ribeirão Preto",
+  "EESC": "Escola de Engenharia de São Carlos",
+  "IAU": "Instituto de Arquitetura e Urbanismo",
+  "ICMC": "Instituto de Ciências Matemáticas e de Computação",
+  "IFSC": "Instituto de Física de São Carlos",
+  "IQSC": "Instituto de Química de São Carlos",
+  "EACH": "Escola de Artes, Ciências e Humanidades",
+  "ECA": "Escola de Comunicações e Artes",
+  "EE": "Escola de Enfermagem",
+  "EEFE": "Escola de Educação Física e Esporte",
+  "EP": "Escola Politécnica",
+  "FAU": "Faculdade de Arquitetura e Urbanismo",
+  "FCF": "Faculdade de Ciências Farmacêuticas",
+  "FE": "Faculdade de Educação",
+  "FD": "Faculdade de Direito",
+  "FEA": "Faculdade de Economia, Administração, Contabilidade e Atuária",
+  "FFLCH": "Faculdade de Filosofia, Letras e Ciências Humanas",
+  "FM": "Faculdade de Medicina",
+  "FMVZ": "Faculdade de Medicina Veterinária e Zootecnia",
+  "FO": "Faculdade de Odontologia",
+  "FSP": "Faculdade de Saúde Pública",
+  "IAG": "Instituto de Astronomia, Geofísica e Ciências Atmosféricas",
+  "IB": "Instituto de Biociências",
+  "ICB": "Instituto de Ciências Biomédicas",
+  "IF": "Instituto de Física",
+  "IGc": "Instituto de Geociências",
+  "IME": "Instituto de Matemática, Estatística e Ciência da Computação",
+  "IO": "Instituto Oceanográfico",
+  "IP": "Instituto de Psicologia",
+  "IQ": "Instituto de Química",
+  "IRI": "Instituto de Relações Internacionais"
+ },
+ "carreiras": [
+  {
+   "cod": 101,
+   "nome": "Biotecnologia",
+   "area": "Biológicas",
+   "vagas": 43,
+   "inscritos": 370,
+   "corte": {
+    "AC": 47,
+    "EP": 37,
+    "PPI": 27
+   }
+  },
+  {
+   "cod": 102,
+   "nome": "Ciências Biológicas",
+   "area": "Biológicas",
+   "vagas": 139,
+   "inscritos": 1701,
+   "corte": {
+    "AC": 49,
+    "EP": 41,
+    "PPI": 30
+   }
+  },
+  {
+   "cod": 103,
+   "nome": "Ciências Biomédicas",
+   "area": "Biológicas",
+   "vagas": 48,
+   "inscritos": 1221,
+   "corte": {
+    "AC": 54,
+    "EP": 45,
+    "PPI": 37
+   }
+  },
+  {
+   "cod": 104,
+   "nome": "Ciências dos Alimentos",
+   "area": "Biológicas",
+   "vagas": 29,
+   "inscritos": 69,
+   "corte": {
+    "AC": 25,
+    "EP": 24,
+    "PPI": null
+   }
+  },
+  {
+   "cod": 105,
+   "nome": "Educação Física",
+   "area": "Biológicas",
+   "vagas": 159,
+   "inscritos": 1041,
+   "corte": {
+    "AC": 37,
+    "EP": 28,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 106,
+   "nome": "Enfermagem",
+   "area": "Biológicas",
+   "vagas": 155,
+   "inscritos": 925,
+   "corte": {
+    "AC": 39,
+    "EP": 27,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 107,
+   "nome": "Farmácia",
+   "area": "Biológicas",
+   "vagas": 166,
+   "inscritos": 1959,
+   "corte": {
+    "AC": 50,
+    "EP": 41,
+    "PPI": 28
+   }
+  },
+  {
+   "cod": 108,
+   "nome": "Fisioterapia",
+   "area": "Biológicas",
+   "vagas": 48,
+   "inscritos": 1078,
+   "corte": {
+    "AC": 51,
+    "EP": 43,
+    "PPI": 36
+   }
+  },
+  {
+   "cod": 109,
+   "nome": "Fonoaudiologia",
+   "area": "Biológicas",
+   "vagas": 70,
+   "inscritos": 804,
+   "corte": {
+    "AC": 45,
+    "EP": 36,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 110,
+   "nome": "Gerontologia",
+   "area": "Biológicas",
+   "vagas": 43,
+   "inscritos": 330,
+   "corte": {
+    "AC": 40,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 111,
+   "nome": "Medicina",
+   "area": "Biológicas",
+   "vagas": 244,
+   "inscritos": 18607,
+   "corte": {
+    "AC": 68,
+    "EP": 61,
+    "PPI": 51
+   }
+  },
+  {
+   "cod": 112,
+   "nome": "Medicina Veterinária",
+   "area": "Biológicas",
+   "vagas": 102,
+   "inscritos": 1786,
+   "corte": {
+    "AC": 50,
+    "EP": 41,
+    "PPI": 32
+   }
+  },
+  {
+   "cod": 113,
+   "nome": "Nutrição",
+   "area": "Biológicas",
+   "vagas": 79,
+   "inscritos": 872,
+   "corte": {
+    "AC": 45,
+    "EP": 37,
+    "PPI": 27
+   }
+  },
+  {
+   "cod": 114,
+   "nome": "Obstetrícia",
+   "area": "Biológicas",
+   "vagas": 43,
+   "inscritos": 194,
+   "corte": {
+    "AC": 34,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 115,
+   "nome": "Odontologia",
+   "area": "Biológicas",
+   "vagas": 191,
+   "inscritos": 1855,
+   "corte": {
+    "AC": 46,
+    "EP": 34,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 116,
+   "nome": "Psicologia (Ribeirão Preto)",
+   "area": "Biológicas",
+   "vagas": 30,
+   "inscritos": 1124,
+   "corte": {
+    "AC": 58,
+    "EP": 48,
+    "PPI": 40
+   }
+  },
+  {
+   "cod": 117,
+   "nome": "Psicologia (São Paulo)",
+   "area": "Biológicas",
+   "vagas": 51,
+   "inscritos": 2597,
+   "corte": {
+    "AC": 59,
+    "EP": 51,
+    "PPI": 44
+   }
+  },
+  {
+   "cod": 118,
+   "nome": "Saúde Pública",
+   "area": "Biológicas",
+   "vagas": 29,
+   "inscritos": 84,
+   "corte": {
+    "AC": 24,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 119,
+   "nome": "Terapia Ocupacional",
+   "area": "Biológicas",
+   "vagas": 34,
+   "inscritos": 463,
+   "corte": {
+    "AC": 47,
+    "EP": 40,
+    "PPI": 31
+   }
+  },
+  {
+   "cod": 120,
+   "nome": "Zootecnia",
+   "area": "Biológicas",
+   "vagas": 28,
+   "inscritos": 180,
+   "corte": {
+    "AC": 36,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 201,
+   "nome": "Engenharia Agronômica, Bioquímica e Florestal",
+   "area": "Biológicas e Exatas",
+   "vagas": 203,
+   "inscritos": 1462,
+   "corte": {
+    "AC": 42,
+    "EP": 26,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 301,
+   "nome": "Ciências da Natureza",
+   "area": "Exatas",
+   "vagas": 43,
+   "inscritos": 83,
+   "corte": {
+    "AC": 25,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 302,
+   "nome": "Ciências Exatas",
+   "area": "Exatas",
+   "vagas": 36,
+   "inscritos": 108,
+   "corte": {
+    "AC": 27,
+    "EP": 26,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 303,
+   "nome": "Computação",
+   "area": "Exatas",
+   "vagas": 281,
+   "inscritos": 3679,
+   "corte": {
+    "AC": 52,
+    "EP": 44,
+    "PPI": 34
+   }
+  },
+  {
+   "cod": 304,
+   "nome": "Engenharia Aeronáutica",
+   "area": "Exatas",
+   "vagas": 29,
+   "inscritos": 605,
+   "corte": {
+    "AC": 62,
+    "EP": 49,
+    "PPI": 33
+   }
+  },
+  {
+   "cod": 305,
+   "nome": "Engenharia Ambiental",
+   "area": "Exatas",
+   "vagas": 100,
+   "inscritos": 411,
+   "corte": {
+    "AC": 41,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 306,
+   "nome": "Engenharia Civil",
+   "area": "Exatas",
+   "vagas": 43,
+   "inscritos": 590,
+   "corte": {
+    "AC": 51,
+    "EP": 39,
+    "PPI": 27
+   }
+  },
+  {
+   "cod": 307,
+   "nome": "Engenharia de Materiais",
+   "area": "Exatas",
+   "vagas": 105,
+   "inscritos": 441,
+   "corte": {
+    "AC": 43,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 308,
+   "nome": "Engenharia Elétrica e de Computação",
+   "area": "Exatas",
+   "vagas": 111,
+   "inscritos": 1533,
+   "corte": {
+    "AC": 57,
+    "EP": 45,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 309,
+   "nome": "Engenharia Física, de Produção e Química",
+   "area": "Exatas",
+   "vagas": 174,
+   "inscritos": 1059,
+   "corte": {
+    "AC": 44,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 310,
+   "nome": "Engenharia Mecânica, Mecatrônica e de Produção",
+   "area": "Exatas",
+   "vagas": 111,
+   "inscritos": 2084,
+   "corte": {
+    "AC": 57,
+    "EP": 43,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 311,
+   "nome": "Engenharias (Poli)",
+   "area": "Exatas",
+   "vagas": 547,
+   "inscritos": 5396,
+   "corte": {
+    "AC": 57,
+    "EP": 41,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 312,
+   "nome": "Engenharias FZEA",
+   "area": "Exatas",
+   "vagas": 100,
+   "inscritos": 334,
+   "corte": {
+    "AC": 34,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 313,
+   "nome": "Física, Meteorologia, Geofísica, Astronomia, Estatística e Matemática",
+   "area": "Exatas",
+   "vagas": 443,
+   "inscritos": 2135,
+   "corte": {
+    "AC": 43,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 314,
+   "nome": "Física Médica",
+   "area": "Exatas",
+   "vagas": 49,
+   "inscritos": 233,
+   "corte": {
+    "AC": 42,
+    "EP": 26,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 315,
+   "nome": "Geociências e Educação Ambiental",
+   "area": "Exatas",
+   "vagas": 29,
+   "inscritos": 48,
+   "corte": {
+    "AC": 24,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 316,
+   "nome": "Geologia",
+   "area": "Exatas",
+   "vagas": 37,
+   "inscritos": 195,
+   "corte": {
+    "AC": 41,
+    "EP": 26,
+    "PPI": 25
+   }
+  },
+  {
+   "cod": 317,
+   "nome": "Informática Biomédica",
+   "area": "Exatas",
+   "vagas": 15,
+   "inscritos": 94,
+   "corte": {
+    "AC": 41,
+    "EP": 25,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 318,
+   "nome": "Licenciatura em Matemática e Física",
+   "area": "Exatas",
+   "vagas": 189,
+   "inscritos": 599,
+   "corte": {
+    "AC": 32,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 319,
+   "nome": "Oceanografia",
+   "area": "Exatas",
+   "vagas": 29,
+   "inscritos": 152,
+   "corte": {
+    "AC": 38,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 320,
+   "nome": "Química (Ribeirão Preto)",
+   "area": "Exatas",
+   "vagas": 73,
+   "inscritos": 236,
+   "corte": {
+    "AC": 32,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 321,
+   "nome": "Química (São Paulo e São Carlos)",
+   "area": "Exatas",
+   "vagas": 129,
+   "inscritos": 683,
+   "corte": {
+    "AC": 41,
+    "EP": 29,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 322,
+   "nome": "Sistemas de Informação",
+   "area": "Exatas",
+   "vagas": 37,
+   "inscritos": 452,
+   "corte": {
+    "AC": 47,
+    "EP": 40,
+    "PPI": 30
+   }
+  },
+  {
+   "cod": 501,
+   "nome": "Administração, Contabilidade, Economia e Finanças (Ribeirão Preto)",
+   "area": "Humanas",
+   "vagas": 194,
+   "inscritos": 1836,
+   "corte": {
+    "AC": 47,
+    "EP": 34,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 502,
+   "nome": "Administração, Atuária, Contabilidade e Economia (FEA)",
+   "area": "Humanas",
+   "vagas": 429,
+   "inscritos": 5443,
+   "corte": {
+    "AC": 53,
+    "EP": 42,
+    "PPI": 30
+   }
+  },
+  {
+   "cod": 503,
+   "nome": "Ciências Econômicas e Administração (Esalq)",
+   "area": "Humanas",
+   "vagas": 58,
+   "inscritos": 602,
+   "corte": {
+    "AC": 46,
+    "EP": 33,
+    "PPI": 26
+   }
+  },
+  {
+   "cod": 504,
+   "nome": "Arquitetura (FAU)",
+   "area": "Humanas",
+   "vagas": 109,
+   "inscritos": 1881,
+   "corte": {
+    "AC": 53,
+    "EP": 44,
+    "PPI": 34
+   }
+  },
+  {
+   "cod": 505,
+   "nome": "Arquitetura (IAU)",
+   "area": "Humanas",
+   "vagas": 33,
+   "inscritos": 387,
+   "corte": {
+    "AC": 50,
+    "EP": 38,
+    "PPI": 27
+   }
+  },
+  {
+   "cod": 506,
+   "nome": "Artes Cênicas",
+   "area": "Humanas",
+   "vagas": 30,
+   "inscritos": 392,
+   "corte": {
+    "AC": 46,
+    "EP": 38,
+    "PPI": 29
+   }
+  },
+  {
+   "cod": 507,
+   "nome": "Artes Visuais",
+   "area": "Humanas",
+   "vagas": 30,
+   "inscritos": 595,
+   "corte": {
+    "AC": 51,
+    "EP": 43,
+    "PPI": 35
+   }
+  },
+  {
+   "cod": 508,
+   "nome": "Audiovisual",
+   "area": "Humanas",
+   "vagas": 25,
+   "inscritos": 770,
+   "corte": {
+    "AC": 55,
+    "EP": 49,
+    "PPI": 42
+   }
+  },
+  {
+   "cod": 509,
+   "nome": "Biblioteconomia e Ciência da Informação",
+   "area": "Humanas",
+   "vagas": 60,
+   "inscritos": 372,
+   "corte": {
+    "AC": 42,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 510,
+   "nome": "Ciências Sociais",
+   "area": "Humanas",
+   "vagas": 154,
+   "inscritos": 871,
+   "corte": {
+    "AC": 42,
+    "EP": 29,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 511,
+   "nome": "Design",
+   "area": "Humanas",
+   "vagas": 29,
+   "inscritos": 476,
+   "corte": {
+    "AC": 51,
+    "EP": 44,
+    "PPI": 36
+   }
+  },
+  {
+   "cod": 512,
+   "nome": "Direito",
+   "area": "Humanas",
+   "vagas": 408,
+   "inscritos": 9069,
+   "corte": {
+    "AC": 56,
+    "EP": 47,
+    "PPI": 38
+   }
+  },
+  {
+   "cod": 513,
+   "nome": "Editoração",
+   "area": "Humanas",
+   "vagas": 12,
+   "inscritos": 69,
+   "corte": {
+    "AC": 44,
+    "EP": 35,
+    "PPI": 28
+   }
+  },
+  {
+   "cod": 514,
+   "nome": "Educomunicação",
+   "area": "Humanas",
+   "vagas": 21,
+   "inscritos": 77,
+   "corte": {
+    "AC": 32,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 515,
+   "nome": "Filosofia",
+   "area": "Humanas",
+   "vagas": 126,
+   "inscritos": 494,
+   "corte": {
+    "AC": 36,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 516,
+   "nome": "Geografia",
+   "area": "Humanas",
+   "vagas": 126,
+   "inscritos": 441,
+   "corte": {
+    "AC": 35,
+    "EP": 25,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 517,
+   "nome": "Gestão Ambiental",
+   "area": "Humanas",
+   "vagas": 115,
+   "inscritos": 299,
+   "corte": {
+    "AC": 24,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 518,
+   "nome": "Gestão de Políticas Públicas",
+   "area": "Humanas",
+   "vagas": 86,
+   "inscritos": 430,
+   "corte": {
+    "AC": 38,
+    "EP": 27,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 519,
+   "nome": "História",
+   "area": "Humanas",
+   "vagas": 198,
+   "inscritos": 1043,
+   "corte": {
+    "AC": 41,
+    "EP": 27,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 520,
+   "nome": "Jornalismo",
+   "area": "Humanas",
+   "vagas": 42,
+   "inscritos": 1153,
+   "corte": {
+    "AC": 52,
+    "EP": 47,
+    "PPI": 42
+   }
+  },
+  {
+   "cod": 521,
+   "nome": "Letras",
+   "area": "Humanas",
+   "vagas": 619,
+   "inscritos": 2045,
+   "corte": {
+    "AC": 32,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 522,
+   "nome": "Marketing",
+   "area": "Humanas",
+   "vagas": 86,
+   "inscritos": 629,
+   "corte": {
+    "AC": 40,
+    "EP": 32,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 523,
+   "nome": "Música (ECA)",
+   "area": "Humanas",
+   "vagas": 50,
+   "inscritos": 289,
+   "corte": {
+    "AC": 40,
+    "EP": 27,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 524,
+   "nome": "Música (Ribeirão Preto)",
+   "area": "Humanas",
+   "vagas": 30,
+   "inscritos": 81,
+   "corte": {
+    "AC": 29,
+    "EP": 25,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 525,
+   "nome": "Pedagogia (São Paulo)",
+   "area": "Humanas",
+   "vagas": 132,
+   "inscritos": 647,
+   "corte": {
+    "AC": 35,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 526,
+   "nome": "Pedagogia (Ribeirão Preto)",
+   "area": "Humanas",
+   "vagas": 37,
+   "inscritos": 150,
+   "corte": {
+    "AC": 32,
+    "EP": 24,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 527,
+   "nome": "Publicidade e Propaganda",
+   "area": "Humanas",
+   "vagas": 36,
+   "inscritos": 874,
+   "corte": {
+    "AC": 49,
+    "EP": 44,
+    "PPI": 39
+   }
+  },
+  {
+   "cod": 528,
+   "nome": "Relações Internacionais",
+   "area": "Humanas",
+   "vagas": 42,
+   "inscritos": 1461,
+   "corte": {
+    "AC": 56,
+    "EP": 48,
+    "PPI": 38
+   }
+  },
+  {
+   "cod": 529,
+   "nome": "Relações Públicas",
+   "area": "Humanas",
+   "vagas": 36,
+   "inscritos": 471,
+   "corte": {
+    "AC": 47,
+    "EP": 41,
+    "PPI": 33
+   }
+  },
+  {
+   "cod": 530,
+   "nome": "Têxtil e Moda",
+   "area": "Humanas",
+   "vagas": 43,
+   "inscritos": 406,
+   "corte": {
+    "AC": 41,
+    "EP": 34,
+    "PPI": 24
+   }
+  },
+  {
+   "cod": 531,
+   "nome": "Turismo",
+   "area": "Humanas",
+   "vagas": 107,
+   "inscritos": 206,
+   "corte": {
+    "AC": 24,
+    "EP": 24,
+    "PPI": 24
+   }
+  }
+ ],
+ "cursos": [
+  {
+   "id": "101-01",
+   "carreira": 101,
+   "nome": "Biotecnologia",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "102-02",
+   "carreira": 102,
+   "nome": "Ciências Biológicas",
+   "unidade": "FFCLRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "8 a 10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 18,
+    "EP": 8,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "102-03",
+   "carreira": 102,
+   "nome": "Ciências Biológicas",
+   "unidade": "IB",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 7
+   }
+  },
+  {
+   "id": "102-04",
+   "carreira": 102,
+   "nome": "Ciências Biológicas",
+   "unidade": "IB",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "12 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 7
+   }
+  },
+  {
+   "id": "102-05",
+   "carreira": 102,
+   "nome": "Ciências Biológicas",
+   "unidade": "ESALQ",
+   "campus": "Campus Luiz de Queiroz (Esalq)",
+   "cidade": "Piracicaba",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "103-06",
+   "carreira": 103,
+   "nome": "Ciências Biomédicas",
+   "unidade": "FMRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 11,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "103-07",
+   "carreira": 103,
+   "nome": "Ciências Biomédicas",
+   "unidade": "ICB",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "104-08",
+   "carreira": 104,
+   "nome": "Ciências dos Alimentos",
+   "unidade": "ESALQ",
+   "campus": "Campus Luiz de Queiroz (Esalq)",
+   "cidade": "Piracicaba",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "105-09",
+   "carreira": 105,
+   "nome": "Educação Física",
+   "unidade": "EEFERP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "105-10",
+   "carreira": 105,
+   "nome": "Educação Física",
+   "unidade": "EEFE",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 44,
+    "EP": 18,
+    "PPI": 11
+   }
+  },
+  {
+   "id": "105-11",
+   "carreira": 105,
+   "nome": "Educação Física e Saúde",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "106-12",
+   "carreira": 106,
+   "nome": "Enfermagem",
+   "unidade": "EERP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 35,
+    "EP": 15,
+    "PPI": 9
+   }
+  },
+  {
+   "id": "106-13",
+   "carreira": 106,
+   "nome": "Enfermagem",
+   "unidade": "EERP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "106-14",
+   "carreira": 106,
+   "nome": "Enfermagem",
+   "unidade": "EE",
+   "campus": "Quadrilátero da Saúde",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 a 9 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 35,
+    "EP": 15,
+    "PPI": 9
+   }
+  },
+  {
+   "id": "107-15",
+   "carreira": 107,
+   "nome": "Farmácia",
+   "unidade": "FCFRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 35,
+    "EP": 14,
+    "PPI": 9
+   }
+  },
+  {
+   "id": "107-16",
+   "carreira": 107,
+   "nome": "Farmácia",
+   "unidade": "FCF",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 33,
+    "EP": 13,
+    "PPI": 8
+   }
+  },
+  {
+   "id": "107-17",
+   "carreira": 107,
+   "nome": "Farmácia",
+   "unidade": "FCF",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 33,
+    "EP": 13,
+    "PPI": 8
+   }
+  },
+  {
+   "id": "108-18",
+   "carreira": 108,
+   "nome": "Fisioterapia",
+   "unidade": "FMRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "108-19",
+   "carreira": 108,
+   "nome": "Fisioterapia",
+   "unidade": "FM",
+   "campus": "Quadrilátero da Saúde",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 11,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "109-20",
+   "carreira": 109,
+   "nome": "Fonoaudiologia",
+   "unidade": "FOB",
+   "campus": "Campus de Bauru",
+   "cidade": "Bauru",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 16,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "109-21",
+   "carreira": 109,
+   "nome": "Fonoaudiologia",
+   "unidade": "FMRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 13,
+    "EP": 6,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "109-22",
+   "carreira": 109,
+   "nome": "Fonoaudiologia",
+   "unidade": "FM",
+   "campus": "Quadrilátero da Saúde",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "110-23",
+   "carreira": 110,
+   "nome": "Gerontologia",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Vespertino",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "111-24",
+   "carreira": 111,
+   "nome": "Medicina",
+   "unidade": "FMBRU",
+   "campus": "Campus de Bauru",
+   "cidade": "Bauru",
+   "periodo": "Integral",
+   "duracao": "12 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "111-25",
+   "carreira": 111,
+   "nome": "Medicina",
+   "unidade": "FMRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "12 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 44,
+    "EP": 18,
+    "PPI": 11
+   }
+  },
+  {
+   "id": "111-26",
+   "carreira": 111,
+   "nome": "Medicina",
+   "unidade": "FM",
+   "campus": "Quadrilátero da Saúde",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "12 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 77,
+    "EP": 32,
+    "PPI": 19
+   }
+  },
+  {
+   "id": "112-27",
+   "carreira": 112,
+   "nome": "Medicina Veterinária",
+   "unidade": "FZEA",
+   "campus": "Campus Fernando Costa",
+   "cidade": "Pirassununga",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "112-28",
+   "carreira": 112,
+   "nome": "Medicina Veterinária",
+   "unidade": "FMVZ",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 35,
+    "EP": 15,
+    "PPI": 9
+   }
+  },
+  {
+   "id": "113-29",
+   "carreira": 113,
+   "nome": "Nutrição",
+   "unidade": "FSP",
+   "campus": "Quadrilátero da Saúde",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "113-30",
+   "carreira": 113,
+   "nome": "Nutrição",
+   "unidade": "FSP",
+   "campus": "Quadrilátero da Saúde",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "113-31",
+   "carreira": 113,
+   "nome": "Nutrição e Metabolismo",
+   "unidade": "FMRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "114-32",
+   "carreira": 114,
+   "nome": "Obstetrícia",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "9 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "115-33",
+   "carreira": 115,
+   "nome": "Odontologia",
+   "unidade": "FOB",
+   "campus": "Campus de Bauru",
+   "cidade": "Bauru",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "115-34",
+   "carreira": 115,
+   "nome": "Odontologia",
+   "unidade": "FORP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 35,
+    "EP": 15,
+    "PPI": 9
+   }
+  },
+  {
+   "id": "115-35",
+   "carreira": 115,
+   "nome": "Odontologia",
+   "unidade": "FO",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 36,
+    "EP": 15,
+    "PPI": 9
+   }
+  },
+  {
+   "id": "115-36",
+   "carreira": 115,
+   "nome": "Odontologia",
+   "unidade": "FO",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "12 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "116-37",
+   "carreira": 116,
+   "nome": "Psicologia",
+   "unidade": "FFCLRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 18,
+    "EP": 8,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "117-38",
+   "carreira": 117,
+   "nome": "Psicologia",
+   "unidade": "IP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 a 10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 31,
+    "EP": 13,
+    "PPI": 7
+   }
+  },
+  {
+   "id": "118-39",
+   "carreira": 118,
+   "nome": "Saúde Pública",
+   "unidade": "FSP",
+   "campus": "Quadrilátero da Saúde",
+   "cidade": "São Paulo",
+   "periodo": "Vespertino",
+   "duracao": "8 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "119-40",
+   "carreira": 119,
+   "nome": "Terapia Ocupacional",
+   "unidade": "FMRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 9,
+    "EP": 4,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "119-41",
+   "carreira": 119,
+   "nome": "Terapia Ocupacional",
+   "unidade": "FM",
+   "campus": "Quadrilátero da Saúde",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 11,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "120-42",
+   "carreira": 120,
+   "nome": "Zootecnia",
+   "unidade": "FZEA",
+   "campus": "Campus Fernando Costa",
+   "cidade": "Pirassununga",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas",
+   "vagas": {
+    "AC": 17,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "201-01",
+   "carreira": 201,
+   "nome": "Engenharia Agronômica",
+   "unidade": "ESALQ",
+   "campus": "Campus Luiz de Queiroz (Esalq)",
+   "cidade": "Piracicaba",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas e Exatas",
+   "vagas": {
+    "AC": 88,
+    "EP": 37,
+    "PPI": 21
+   }
+  },
+  {
+   "id": "201-02",
+   "carreira": 201,
+   "nome": "Engenharia Bioquímica",
+   "unidade": "EEL",
+   "campus": "Campus de Lorena",
+   "cidade": "Lorena",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas e Exatas",
+   "vagas": {
+    "AC": 17,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "201-03",
+   "carreira": 201,
+   "nome": "Engenharia Florestal",
+   "unidade": "ESALQ",
+   "campus": "Campus Luiz de Queiroz (Esalq)",
+   "cidade": "Piracicaba",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Biológicas e Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "301-01",
+   "carreira": 301,
+   "nome": "Ciências da Natureza",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "302-02",
+   "carreira": 302,
+   "nome": "Ciências Exatas (habilitação em Física, Química ou Matemática)",
+   "unidade": "IFSC/ICMC/IQSC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "303-03",
+   "carreira": 303,
+   "nome": "Ciência da Computação",
+   "unidade": "FFCLRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 9,
+    "EP": 4,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "303-04",
+   "carreira": 303,
+   "nome": "Ciência da Computação",
+   "unidade": "IME",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 35,
+    "EP": 16,
+    "PPI": 7
+   }
+  },
+  {
+   "id": "303-05",
+   "carreira": 303,
+   "nome": "Ciência de Dados",
+   "unidade": "ICMC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 9,
+    "EP": 4,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "303-06",
+   "carreira": 303,
+   "nome": "Ciências de Computação",
+   "unidade": "ICMC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 37,
+    "EP": 15,
+    "PPI": 10
+   }
+  },
+  {
+   "id": "303-07",
+   "carreira": 303,
+   "nome": "Sistemas de Informação",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "303-08",
+   "carreira": 303,
+   "nome": "Sistemas de Informação",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 53,
+    "EP": 22,
+    "PPI": 13
+   }
+  },
+  {
+   "id": "304-09",
+   "carreira": 304,
+   "nome": "Engenharia Aeronáutica",
+   "unidade": "EESC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "305-10",
+   "carreira": 305,
+   "nome": "Engenharia Ambiental",
+   "unidade": "EEL",
+   "campus": "Campus de Lorena",
+   "cidade": "Lorena",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 17,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "305-11",
+   "carreira": 305,
+   "nome": "Engenharia Ambiental",
+   "unidade": "EESC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "305-12",
+   "carreira": 305,
+   "nome": "Engenharia Ambiental",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "306-13",
+   "carreira": 306,
+   "nome": "Engenharia Civil",
+   "unidade": "EESC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "307-14",
+   "carreira": 307,
+   "nome": "Engenharia Metalúrgica, de Materiais ou Nuclear",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 24,
+    "EP": 10,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "307-15",
+   "carreira": 307,
+   "nome": "Engenharia de Materiais",
+   "unidade": "EEL",
+   "campus": "Campus de Lorena",
+   "cidade": "Lorena",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 17,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "307-16",
+   "carreira": 307,
+   "nome": "Engenharia de Materiais e Manufatura",
+   "unidade": "EESC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "308-17",
+   "carreira": 308,
+   "nome": "Engenharia de Computação",
+   "unidade": "EESC/ICMC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "308-18",
+   "carreira": 308,
+   "nome": "Engenharia Elétrica: ênfase em Eletrônica",
+   "unidade": "EESC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "308-19",
+   "carreira": 308,
+   "nome": "Engenharia Elétrica: ênfase em Sistemas de Energia e Automação",
+   "unidade": "EESC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "309-20",
+   "carreira": 309,
+   "nome": "Engenharia de Produção",
+   "unidade": "EEL",
+   "campus": "Campus de Lorena",
+   "cidade": "Lorena",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 17,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "309-21",
+   "carreira": 309,
+   "nome": "Engenharia Física",
+   "unidade": "EEL",
+   "campus": "Campus de Lorena",
+   "cidade": "Lorena",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 17,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "309-22",
+   "carreira": 309,
+   "nome": "Engenharia Química",
+   "unidade": "EEL",
+   "campus": "Campus de Lorena",
+   "cidade": "Lorena",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 35,
+    "EP": 15,
+    "PPI": 9
+   }
+  },
+  {
+   "id": "309-23",
+   "carreira": 309,
+   "nome": "Engenharia Química",
+   "unidade": "EEL",
+   "campus": "Campus de Lorena",
+   "cidade": "Lorena",
+   "periodo": "Noturno",
+   "duracao": "12 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 35,
+    "EP": 15,
+    "PPI": 9
+   }
+  },
+  {
+   "id": "310-24",
+   "carreira": 310,
+   "nome": "Engenharia de Produção",
+   "unidade": "EESC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "310-25",
+   "carreira": 310,
+   "nome": "Engenharia Mecânica",
+   "unidade": "EESC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "310-26",
+   "carreira": 310,
+   "nome": "Engenharia Mecatrônica",
+   "unidade": "EESC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "311-27",
+   "carreira": 311,
+   "nome": "Engenharia de Minas ou de Petróleo",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 28,
+    "EP": 12,
+    "PPI": 7
+   }
+  },
+  {
+   "id": "311-28",
+   "carreira": 311,
+   "nome": "Engenharia Civil",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 59,
+    "EP": 25,
+    "PPI": 15
+   }
+  },
+  {
+   "id": "311-29",
+   "carreira": 311,
+   "nome": "Engenharia de Computação",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 32,
+    "EP": 13,
+    "PPI": 8
+   }
+  },
+  {
+   "id": "311-30",
+   "carreira": 311,
+   "nome": "Engenharia de Produção",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 33,
+    "EP": 14,
+    "PPI": 8
+   }
+  },
+  {
+   "id": "311-31",
+   "carreira": 311,
+   "nome": "Engenharia Elétrica",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 49,
+    "EP": 21,
+    "PPI": 12
+   }
+  },
+  {
+   "id": "311-32",
+   "carreira": 311,
+   "nome": "Engenharia Mecânica",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 31,
+    "EP": 13,
+    "PPI": 8
+   }
+  },
+  {
+   "id": "311-33",
+   "carreira": 311,
+   "nome": "Engenharia Mecatrônica",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 7
+   }
+  },
+  {
+   "id": "311-34",
+   "carreira": 311,
+   "nome": "Engenharia Naval e Oceânica",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 19,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "311-35",
+   "carreira": 311,
+   "nome": "Engenharia Química",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 7
+   }
+  },
+  {
+   "id": "311-71",
+   "carreira": 311,
+   "nome": "Engenharia Eletrônica e de Sistemas Computacionais",
+   "unidade": "EP",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 25,
+    "EP": 10,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "312-36",
+   "carreira": 312,
+   "nome": "Engenharia de Alimentos",
+   "unidade": "FZEA",
+   "campus": "Campus Fernando Costa",
+   "cidade": "Pirassununga",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 17,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "312-37",
+   "carreira": 312,
+   "nome": "Engenharia de Alimentos",
+   "unidade": "FZEA",
+   "campus": "Campus Fernando Costa",
+   "cidade": "Pirassununga",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "312-38",
+   "carreira": 312,
+   "nome": "Engenharia de Biossistemas",
+   "unidade": "FZEA",
+   "campus": "Campus Fernando Costa",
+   "cidade": "Pirassununga",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "313-39",
+   "carreira": 313,
+   "nome": "Astronomia",
+   "unidade": "IAG",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 8,
+    "EP": 4,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "313-40",
+   "carreira": 313,
+   "nome": "Estatística",
+   "unidade": "IME",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "313-41",
+   "carreira": 313,
+   "nome": "Estatística e Ciência de Dados",
+   "unidade": "ICMC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 6,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "313-42",
+   "carreira": 313,
+   "nome": "Física",
+   "unidade": "IFSC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "313-43",
+   "carreira": 313,
+   "nome": "Física",
+   "unidade": "IF",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "313-44",
+   "carreira": 313,
+   "nome": "Física",
+   "unidade": "IF",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 33,
+    "EP": 14,
+    "PPI": 8
+   }
+  },
+  {
+   "id": "313-45",
+   "carreira": 313,
+   "nome": "Física Biomolecular",
+   "unidade": "IFSC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "8 a 9 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "313-46",
+   "carreira": 313,
+   "nome": "Física Computacional",
+   "unidade": "IFSC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "313-47",
+   "carreira": 313,
+   "nome": "Geofísica",
+   "unidade": "IAG",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 13,
+    "EP": 6,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "313-48",
+   "carreira": 313,
+   "nome": "Matemática",
+   "unidade": "ICMC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "313-49",
+   "carreira": 313,
+   "nome": "Matemática",
+   "unidade": "IME",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "313-51",
+   "carreira": 313,
+   "nome": "Matemática Aplicada a Negócios",
+   "unidade": "FFCLRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 20,
+    "EP": 8,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "313-52",
+   "carreira": 313,
+   "nome": "Matemática Aplicada e Computação Científica",
+   "unidade": "ICMC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 9,
+    "EP": 3,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "313-53",
+   "carreira": 313,
+   "nome": "Matemática Aplicada e Computacional",
+   "unidade": "IME",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 9,
+    "EP": 4,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "313-72",
+   "carreira": 313,
+   "nome": "Matemática Aplicada e Computacional",
+   "unidade": "IME",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "313-54",
+   "carreira": 313,
+   "nome": "Meteorologia",
+   "unidade": "IAG",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 13,
+    "EP": 6,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "314-55",
+   "carreira": 314,
+   "nome": "Física Médica",
+   "unidade": "FFCLRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 8,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "314-56",
+   "carreira": 314,
+   "nome": "Física Médica",
+   "unidade": "IF/FM",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 11,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "315-57",
+   "carreira": 315,
+   "nome": "Geociências e Educação Ambiental",
+   "unidade": "IGc",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "316-58",
+   "carreira": 316,
+   "nome": "Geologia",
+   "unidade": "IGc",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "317-59",
+   "carreira": 317,
+   "nome": "Informática Biomédica",
+   "unidade": "FMRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 9,
+    "EP": 4,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "318-60",
+   "carreira": 318,
+   "nome": "Física (licenciatura)",
+   "unidade": "IF",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "318-61",
+   "carreira": 318,
+   "nome": "Física (licenciatura)",
+   "unidade": "IF",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "318-62",
+   "carreira": 318,
+   "nome": "Matemática (licenciatura)",
+   "unidade": "IME",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "318-63",
+   "carreira": 318,
+   "nome": "Matemática (licenciatura)",
+   "unidade": "IME",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 44,
+    "EP": 18,
+    "PPI": 11
+   }
+  },
+  {
+   "id": "319-64",
+   "carreira": 319,
+   "nome": "Oceanografia",
+   "unidade": "IO",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "320-65",
+   "carreira": 320,
+   "nome": "Química",
+   "unidade": "FFCLRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "320-66",
+   "carreira": 320,
+   "nome": "Química",
+   "unidade": "FFCLRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 18,
+    "EP": 8,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "321-67",
+   "carreira": 321,
+   "nome": "Química",
+   "unidade": "IQ",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "321-68",
+   "carreira": 321,
+   "nome": "Química",
+   "unidade": "IQ",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "321-69",
+   "carreira": 321,
+   "nome": "Química (habilitação fundamental ou tecnológica)",
+   "unidade": "IQSC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "7 a 8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "322-70",
+   "carreira": 322,
+   "nome": "Sistemas de Informação",
+   "unidade": "ICMC",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Exatas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "501-01",
+   "carreira": 501,
+   "nome": "Administração",
+   "unidade": "FEARP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Matutino",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 7
+   }
+  },
+  {
+   "id": "501-02",
+   "carreira": 501,
+   "nome": "Administração",
+   "unidade": "FEARP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 20,
+    "EP": 8,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "501-03",
+   "carreira": 501,
+   "nome": "Ciências Contábeis",
+   "unidade": "FEARP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 20,
+    "EP": 8,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "501-04",
+   "carreira": 501,
+   "nome": "Ciências Econômicas",
+   "unidade": "FEARP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 7
+   }
+  },
+  {
+   "id": "501-05",
+   "carreira": 501,
+   "nome": "Finanças e Negócios",
+   "unidade": "FEARP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 24,
+    "EP": 10,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "502-06",
+   "carreira": 502,
+   "nome": "Administração",
+   "unidade": "FEA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 44,
+    "EP": 18,
+    "PPI": 11
+   }
+  },
+  {
+   "id": "502-07",
+   "carreira": 502,
+   "nome": "Administração",
+   "unidade": "FEA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 49,
+    "EP": 19,
+    "PPI": 12
+   }
+  },
+  {
+   "id": "502-08",
+   "carreira": 502,
+   "nome": "Ciências Atuariais",
+   "unidade": "FEA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 22,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "502-09",
+   "carreira": 502,
+   "nome": "Ciências Contábeis",
+   "unidade": "FEA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 66,
+    "EP": 27,
+    "PPI": 16
+   }
+  },
+  {
+   "id": "502-10",
+   "carreira": 502,
+   "nome": "Ciências Econômicas",
+   "unidade": "FEA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 39,
+    "EP": 16,
+    "PPI": 10
+   }
+  },
+  {
+   "id": "502-11",
+   "carreira": 502,
+   "nome": "Ciências Econômicas",
+   "unidade": "FEA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 39,
+    "EP": 16,
+    "PPI": 10
+   }
+  },
+  {
+   "id": "503-12",
+   "carreira": 503,
+   "nome": "Administração",
+   "unidade": "ESALQ",
+   "campus": "Campus Luiz de Queiroz (Esalq)",
+   "cidade": "Piracicaba",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "503-13",
+   "carreira": 503,
+   "nome": "Ciências Econômicas",
+   "unidade": "ESALQ",
+   "campus": "Campus Luiz de Queiroz (Esalq)",
+   "cidade": "Piracicaba",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "504-14",
+   "carreira": 504,
+   "nome": "Arquitetura e Urbanismo",
+   "unidade": "FAU",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 66,
+    "EP": 27,
+    "PPI": 16
+   }
+  },
+  {
+   "id": "505-15",
+   "carreira": 505,
+   "nome": "Arquitetura e Urbanismo",
+   "unidade": "IAU",
+   "campus": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 20,
+    "EP": 8,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "506-16",
+   "carreira": 506,
+   "nome": "Artes Cênicas",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 15,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "507-17",
+   "carreira": 507,
+   "nome": "Artes Visuais",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 15,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "508-18",
+   "carreira": 508,
+   "nome": "Audiovisual",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 15,
+    "EP": 6,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "509-19",
+   "carreira": 509,
+   "nome": "Biblioteconomia e Ciência da Informação",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 9,
+    "EP": 4,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "509-20",
+   "carreira": 509,
+   "nome": "Biblioteconomia e Ciência da Informação",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 9,
+    "EP": 4,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "509-21",
+   "carreira": 509,
+   "nome": "Biblioteconomia e Ciência da Informação",
+   "unidade": "FFCLRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 18,
+    "EP": 8,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "510-22",
+   "carreira": 510,
+   "nome": "Ciências Sociais",
+   "unidade": "FFLCH",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 48,
+    "EP": 21,
+    "PPI": 12
+   }
+  },
+  {
+   "id": "510-23",
+   "carreira": 510,
+   "nome": "Ciências Sociais",
+   "unidade": "FFLCH",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Vespertino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 43,
+    "EP": 19,
+    "PPI": 11
+   }
+  },
+  {
+   "id": "511-24",
+   "carreira": 511,
+   "nome": "Design",
+   "unidade": "FAU",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 17,
+    "EP": 7,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "512-25",
+   "carreira": 512,
+   "nome": "Direito",
+   "unidade": "FD",
+   "campus": "Quadrilátero da Saúde",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 99,
+    "EP": 41,
+    "PPI": 24
+   }
+  },
+  {
+   "id": "512-26",
+   "carreira": 512,
+   "nome": "Direito",
+   "unidade": "FD",
+   "campus": "Quadrilátero da Saúde",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 103,
+    "EP": 43,
+    "PPI": 25
+   }
+  },
+  {
+   "id": "512-27",
+   "carreira": 512,
+   "nome": "Direito",
+   "unidade": "FDRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 44,
+    "EP": 18,
+    "PPI": 11
+   }
+  },
+  {
+   "id": "513-28",
+   "carreira": 513,
+   "nome": "Comunicação Social: Editoração",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 7,
+    "EP": 3,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "514-29",
+   "carreira": 514,
+   "nome": "Educomunicação",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "515-30",
+   "carreira": 515,
+   "nome": "Filosofia",
+   "unidade": "FFLCH",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 39,
+    "EP": 18,
+    "PPI": 10
+   }
+  },
+  {
+   "id": "515-31",
+   "carreira": 515,
+   "nome": "Filosofia",
+   "unidade": "FFLCH",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Vespertino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 35,
+    "EP": 15,
+    "PPI": 9
+   }
+  },
+  {
+   "id": "516-32",
+   "carreira": 516,
+   "nome": "Geografia",
+   "unidade": "FFLCH",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 39,
+    "EP": 18,
+    "PPI": 10
+   }
+  },
+  {
+   "id": "516-33",
+   "carreira": 516,
+   "nome": "Geografia",
+   "unidade": "FFLCH",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Vespertino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 35,
+    "EP": 15,
+    "PPI": 9
+   }
+  },
+  {
+   "id": "517-34",
+   "carreira": 517,
+   "nome": "Gestão Ambiental",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "517-35",
+   "carreira": 517,
+   "nome": "Gestão Ambiental",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "517-36",
+   "carreira": 517,
+   "nome": "Gestão Ambiental",
+   "unidade": "ESALQ",
+   "campus": "Campus Luiz de Queiroz (Esalq)",
+   "cidade": "Piracicaba",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 18,
+    "EP": 7,
+    "PPI": 4
+   }
+  },
+  {
+   "id": "518-37",
+   "carreira": 518,
+   "nome": "Gestão de Políticas Públicas",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "518-38",
+   "carreira": 518,
+   "nome": "Gestão de Políticas Públicas",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "519-39",
+   "carreira": 519,
+   "nome": "História",
+   "unidade": "FFLCH",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 61,
+    "EP": 27,
+    "PPI": 15
+   }
+  },
+  {
+   "id": "519-40",
+   "carreira": 519,
+   "nome": "História",
+   "unidade": "FFLCH",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Vespertino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 56,
+    "EP": 25,
+    "PPI": 14
+   }
+  },
+  {
+   "id": "520-41",
+   "carreira": 520,
+   "nome": "Jornalismo",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "520-42",
+   "carreira": 520,
+   "nome": "Jornalismo",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "9 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "521-43",
+   "carreira": 521,
+   "nome": "Letras",
+   "unidade": "FFLCH",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 ou 10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 184,
+    "EP": 79,
+    "PPI": 45
+   }
+  },
+  {
+   "id": "521-44",
+   "carreira": 521,
+   "nome": "Letras",
+   "unidade": "FFLCH",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 ou 10 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 186,
+    "EP": 79,
+    "PPI": 46
+   }
+  },
+  {
+   "id": "522-45",
+   "carreira": 522,
+   "nome": "Marketing",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "522-46",
+   "carreira": 522,
+   "nome": "Marketing",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "523-47",
+   "carreira": 523,
+   "nome": "Música",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 a 12 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 5,
+    "EP": 3,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "523-48",
+   "carreira": 523,
+   "nome": "Música: Canto e Arte Lírica",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 a 12 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 1,
+    "EP": 1,
+    "PPI": 1
+   }
+  },
+  {
+   "id": "523-49",
+   "carreira": 523,
+   "nome": "Música: Composição ou Regência",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "10 a 18 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 6,
+    "EP": 2,
+    "PPI": 1
+   }
+  },
+  {
+   "id": "523-50",
+   "carreira": 523,
+   "nome": "Música: Cordas (viola, violino ou violoncelo)",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 a 12 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 3,
+    "EP": 2,
+    "PPI": 1
+   }
+  },
+  {
+   "id": "523-51",
+   "carreira": 523,
+   "nome": "Música: Cordas Dedilhadas (violão ou viola brasileira)",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 a 12 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 1,
+    "EP": 1,
+    "PPI": 1
+   }
+  },
+  {
+   "id": "523-52",
+   "carreira": 523,
+   "nome": "Música: Sopro",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 a 12 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 6,
+    "EP": 4,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "523-53",
+   "carreira": 523,
+   "nome": "Música: Teclado (piano)",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 a 12 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 2,
+    "EP": 1,
+    "PPI": 1
+   }
+  },
+  {
+   "id": "523-54",
+   "carreira": 523,
+   "nome": "Música: Percussão",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Integral",
+   "duracao": "8 a 12 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 1,
+    "EP": 1,
+    "PPI": 1
+   }
+  },
+  {
+   "id": "524-55",
+   "carreira": 524,
+   "nome": "Música",
+   "unidade": "FFCLRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Integral",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 15,
+    "EP": 9,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "525-56",
+   "carreira": 525,
+   "nome": "Pedagogia",
+   "unidade": "FE",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 52,
+    "EP": 22,
+    "PPI": 14
+   }
+  },
+  {
+   "id": "525-57",
+   "carreira": 525,
+   "nome": "Pedagogia",
+   "unidade": "FE",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Vespertino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 7
+   }
+  },
+  {
+   "id": "526-58",
+   "carreira": 526,
+   "nome": "Pedagogia",
+   "unidade": "FFCLRP",
+   "campus": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 22,
+    "EP": 10,
+    "PPI": 5
+   }
+  },
+  {
+   "id": "527-59",
+   "carreira": 527,
+   "nome": "Comunicação Social: Publicidade e Propaganda",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 9,
+    "EP": 4,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "527-60",
+   "carreira": 527,
+   "nome": "Comunicação Social: Publicidade e Propaganda",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "528-61",
+   "carreira": 528,
+   "nome": "Relações Internacionais",
+   "unidade": "IRI",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "528-62",
+   "carreira": 528,
+   "nome": "Relações Internacionais",
+   "unidade": "IRI",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Vespertino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "529-63",
+   "carreira": 529,
+   "nome": "Relações Públicas",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 9,
+    "EP": 4,
+    "PPI": 2
+   }
+  },
+  {
+   "id": "529-64",
+   "carreira": 529,
+   "nome": "Relações Públicas",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  },
+  {
+   "id": "530-65",
+   "carreira": 530,
+   "nome": "Têxtil e Moda",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Matutino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "531-66",
+   "carreira": 531,
+   "nome": "Lazer e Turismo",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Vespertino",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "531-67",
+   "carreira": 531,
+   "nome": "Lazer e Turismo",
+   "unidade": "EACH",
+   "campus": "USP Leste",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 26,
+    "EP": 11,
+    "PPI": 6
+   }
+  },
+  {
+   "id": "531-68",
+   "carreira": 531,
+   "nome": "Turismo",
+   "unidade": "ECA",
+   "campus": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "periodo": "Noturno",
+   "duracao": "8 semestres",
+   "area": "Humanas",
+   "vagas": {
+    "AC": 13,
+    "EP": 5,
+    "PPI": 3
+   }
+  }
+ ],
+ "campi": [
+  {
+   "nome": "Butantã (Cidade Universitária)",
+   "cidade": "São Paulo",
+   "uf": "SP",
+   "n": 86,
+   "lat": -23.5329,
+   "lon": -46.6395
+  },
+  {
+   "nome": "Campus de Ribeirão Preto",
+   "cidade": "Ribeirão Preto",
+   "uf": "SP",
+   "n": 28,
+   "lat": -21.1699,
+   "lon": -47.8099
+  },
+  {
+   "nome": "Campus de São Carlos",
+   "cidade": "São Carlos",
+   "uf": "SP",
+   "n": 22,
+   "lat": -22.0174,
+   "lon": -47.886
+  },
+  {
+   "nome": "USP Leste",
+   "cidade": "São Paulo",
+   "uf": "SP",
+   "n": 16,
+   "lat": -23.5329,
+   "lon": -46.6395
+  },
+  {
+   "nome": "Quadrilátero da Saúde",
+   "cidade": "São Paulo",
+   "uf": "SP",
+   "n": 10,
+   "lat": -23.5329,
+   "lon": -46.6395
+  },
+  {
+   "nome": "Campus Luiz de Queiroz (Esalq)",
+   "cidade": "Piracicaba",
+   "uf": "SP",
+   "n": 7,
+   "lat": -22.7338,
+   "lon": -47.6476
+  },
+  {
+   "nome": "Campus de Lorena",
+   "cidade": "Lorena",
+   "uf": "SP",
+   "n": 7,
+   "lat": -22.7334,
+   "lon": -45.1197
+  },
+  {
+   "nome": "Campus Fernando Costa",
+   "cidade": "Pirassununga",
+   "uf": "SP",
+   "n": 5,
+   "lat": -21.996,
+   "lon": -47.4257
+  },
+  {
+   "nome": "Campus de Bauru",
+   "cidade": "Bauru",
+   "uf": "SP",
+   "n": 3,
+   "lat": -22.3246,
+   "lon": -49.0871
+  }
+ ],
+ "provas": "/provas/?vestibular=fuvest",
+ "fontes": [
+  {
+   "titulo": "Fuvest · Guia de Carreiras do Vestibular 2027 (vagas por curso)",
+   "url": "https://www.fuvest.br/?p=69431"
+  },
+  {
+   "titulo": "Fuvest · Notas de corte da 1ª fase do Vestibular 2027",
+   "url": "https://www.fuvest.br/wp-content/uploads/fuvest2027-notas-de-corte.pdf"
+  },
+  {
+   "titulo": "Fuvest · Página do Vestibular 2027 (calendário e taxa)",
+   "url": "https://www.fuvest.br/?p=69431"
+  }
+ ],
+ "conferencia": "Vagas por curso conferidas contra o total da carreira na tabela de notas de corte (74 de 74 iguais) e contra o total de 8.147 vagas. A soma por modalidade dá EP 2.054 e PPI 1.205, uma vaga de diferença em relação ao total declarado no guia (2.053 e 1.206)."
+}

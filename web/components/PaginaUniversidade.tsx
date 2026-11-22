@@ -181,7 +181,7 @@ function Delta({ d, sem }: { d: number | null; sem: boolean }) {
   return <Variacao d={d} />;
 }
 
-function Creditos({ u, className }: { u: Universidade; className: string }) {
+export function Creditos({ u, className }: { u: Pick<Universidade, "fotos">; className: string }) {
   return (
     <p className={`uni-creditos ${className}`}>
       Fotos: {u.fotos.map((f, i) => (
@@ -192,7 +192,7 @@ function Creditos({ u, className }: { u: Universidade; className: string }) {
 }
 
 /** Carrossel por rolagem (scroll-snap): funciona com o dedo, o trackpad e o teclado; as bolinhas só indicam e pulam. */
-function Carrossel({ u }: { u: Universidade }) {
+export function Carrossel({ u }: { u: Pick<Universidade, "fotos" | "sigla"> }) {
   const [atual, setAtual] = useState(0);
   const varias = u.fotos.length > 1;
   return (
@@ -216,7 +216,7 @@ function Carrossel({ u }: { u: Universidade }) {
   );
 }
 
-function OndeFica({ u, contorno }: { u: Universidade; contorno: { ufs: { uf: string; d: string }[]; box: [number, number, number, number] } }) {
+export function OndeFica({ u, contorno, unidade = ["opção", "opções"] }: { u: Pick<Universidade, "sigla" | "ufs" | "campi">; contorno: { ufs: { uf: string; d: string }[]; box: [number, number, number, number] }; unidade?: [string, string] }) {
   const [x, y, w, h] = contorno.box; const m = Math.max(w, h) * 0.06;
   const vb = [x - m, y - m, w + 2 * m, h + 2 * m];
   const unid = vb[2] / 318;
@@ -239,7 +239,7 @@ function OndeFica({ u, contorno }: { u: Universidade; contorno: { ufs: { uf: str
       </div>
       <ul className="uni-campi">
         {u.campi.map((c) => (
-          <li key={`${c.nome}|${c.cidade}`}><strong>{c.nome}</strong><span>{c.cidade}/{c.uf} · {plural(c.n, "opção", "opções")}</span></li>
+          <li key={`${c.nome}|${c.cidade}`}><strong>{c.nome}</strong><span>{c.cidade}/{c.uf} · {plural(c.n, unidade[0], unidade[1])}</span></li>
         ))}
       </ul>
     </section>

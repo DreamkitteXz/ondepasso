@@ -612,6 +612,60 @@ button.linha:hover, button.linha.ativa { background: var(--panel-2); }
 .uni-lado > .botao { width: 100%; }
 .uni-lado > .miudo { margin: 0; line-height: 1.45; }
 
+/* Universidades com vestibular próprio (USP, Unicamp): mesmo esqueleto da página da universidade */
+.proprio-etiqueta { justify-self: start; margin: 0 0 4px; font-size: 10.5px; line-height: 1.5; color: var(--fg-2); }
+.proprio-aviso { margin: 0; font-size: 14px; line-height: 1.5; color: var(--fg-2); max-width: 62ch; }
+.proprio-form { display: grid; gap: 10px; }
+.proprio-form .botao:disabled { opacity: .4; cursor: default; }
+.proprio-nota .resumo { display: grid; gap: 8px; }
+.proprio-nota .link-mudo { justify-self: start; }
+.proprio-mod { margin: 0; font-size: 13px; color: var(--fg-3); }
+.proprio-cabeca { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 12px; flex-wrap: wrap; }
+.proprio-cabeca h2 { margin: 0; font: 600 20px/1.2 var(--serif); letter-spacing: -.01em; }
+.proprio-titulo-cursos { padding-top: 8px; }
+.proprio-ingresso { display: grid; gap: 12px; padding: 20px; margin: 0; }
+.proprio-ingresso ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.proprio-ingresso li { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 14px; padding: 14px 0; border-top: 1px solid var(--line-1); }
+.proprio-ingresso li:first-child { border-top: 0; padding-top: 4px; }
+.pi-vagas { display: grid; align-content: start; font-size: 24px; font-weight: 600; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.pi-vagas span { font-size: 12px; font-weight: 400; color: var(--fg-3); }
+.proprio-ingresso h3 { margin: 0 0 4px; font-size: 15px; font-weight: 600; }
+.proprio-ingresso h3 a { color: inherit; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+.proprio-ingresso p { margin: 0; font-size: 14px; line-height: 1.45; color: var(--fg-2); }
+.proprio-ingresso p.miudo { margin-top: 4px; font-size: 12.5px; color: var(--fg-3); }
+.proprio-controles { display: grid; gap: 10px; }
+.proprio-controles .uni-filtros select { min-width: 0; }
+.proprio-cursos .uc-nome .meta + .meta { color: var(--fg-4); }
+.proprio-cursos .uc-delta .variacao { cursor: help; }
+@media (max-width: 1023px) { .proprio-controles .uni-filtros .uni-ordem { grid-column: 1 / -1; } .proprio-controles .uni-filtros .miudo { justify-self: start; } }
+.proprio-nota-corte { margin: 0; line-height: 1.5; color: var(--fg-3); }
+.proprio-calendario, .proprio-cotas { display: grid; gap: 10px; padding: 20px; margin: 0; }
+.proprio-calendario h2, .proprio-cotas h2 { margin: 0; font-size: 16px; }
+.proprio-calendario ol { list-style: none; margin: 0; padding: 0; }
+.proprio-calendario li { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 10px 0; border-top: 1px solid var(--line-1); font-size: 14px; line-height: 1.4; }
+.proprio-calendario li:first-child { border-top: 0; }
+.pc-data { font-variant-numeric: tabular-nums; color: var(--fg-2); font-weight: 500; }
+.proprio-calendario li.passou { color: var(--fg-4); }
+.proprio-calendario li.passou .pc-data { color: var(--fg-4); font-weight: 400; }
+.proprio-calendario li.agora .pc-data, .proprio-calendario li.agora em { color: var(--verde); font-style: normal; font-weight: 600; }
+.proprio-calendario .miudo { margin: 0; font-size: 12.5px; color: var(--fg-3); }
+.proprio-cotas ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: 14px; line-height: 1.45; color: var(--fg-2); }
+.proprio-provas { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 20px; margin: 0; color: inherit; }
+.proprio-provas > span:first-child { display: grid; gap: 2px; }
+.proprio-provas strong { font-size: 15px; font-weight: 600; }
+.proprio-provas:hover { border-color: var(--line-2); }
+.proprio-fontes { display: grid; gap: 6px; line-height: 1.45; }
+.proprio-fontes p, .proprio-fontes ul { margin: 0; }
+.proprio-fontes ul { padding-left: 16px; display: grid; gap: 4px; }
+.proprio-fontes a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.uc2-proprio { margin-left: auto; padding: 3px 9px; border-radius: 999px; background: var(--verde-tint); color: var(--verde); font-weight: 600; letter-spacing: .08em; }
+.uc2-faixa-propria .uc2-nums em { text-align: center; }
+@media (min-width: 1024px) {
+  .proprio-controles { grid-template-columns: minmax(0, 1fr); }
+  .proprio-ingresso { padding: 24px; }
+  .proprio-cabeca h2 { font-size: 24px; }
+}
+
 @media (min-width: 1024px) {
   .pagina-unis, .pagina-uni { gap: 24px; padding: 8px 0 40px; }
   .unis-grade, .uni-grade { grid-template-columns: minmax(0, 1fr) 360px; gap: 32px; }

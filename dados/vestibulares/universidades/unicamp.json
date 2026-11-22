@@ -1,0 +1,1780 @@
+{
+ "sigla": "Unicamp",
+ "slug": "unicamp",
+ "nome": "Universidade Estadual de Campinas",
+ "tipo": "Pública estadual",
+ "site": "https://www.unicamp.br/",
+ "vestibular": {
+  "id": "unicamp",
+  "nome": "Vestibular Unicamp (Comvest)",
+  "edicao": 2027,
+  "site": "https://www.comvest.unicamp.br/",
+  "taxa": "R$ 230,00"
+ },
+ "geradoEm": "2026-11-19",
+ "prova": {
+  "questoes": 72,
+  "minimo": null,
+  "unidade": "acertos",
+  "fase": "1ª fase",
+  "nota": "Na Unicamp, o corte é o número de acertos do último convocado para a 2ª fase em cada curso. O valor mostrado é o de candidatos não cotistas sem bônus do PAAIS; quem tem PAAIS ou concorre pelas cotas tem cortes próprios, publicados pela Comvest. Cursos com poucos inscritos por vaga podem ter cortes muito baixos."
+ },
+ "modalidades": [
+  {
+   "cod": "NC0",
+   "nome": "Não cotistas, sem PAAIS"
+  }
+ ],
+ "ingresso": [
+  {
+   "nome": "Vestibular Unicamp",
+   "vagas": 2523,
+   "detalhe": "Ampla concorrência e reserva de 15% a 27,2% das vagas para pessoas pretas e pardas",
+   "texto": "Prova própria em duas fases, organizada pela Comvest. Você escolhe até dois cursos da mesma área.",
+   "link": "https://www.comvest.unicamp.br/"
+  },
+  {
+   "nome": "Enem-Unicamp",
+   "vagas": 330,
+   "detalhe": "Mais 101 vagas adicionais",
+   "texto": "Usa as notas do Enem, com inscrição própria na Comvest. Em 2026, as inscrições foram de 1º a 20 de outubro.",
+   "link": "https://www.comvest.unicamp.br/"
+  },
+  {
+   "nome": "Provão Paulista Seriado",
+   "vagas": 326,
+   "detalhe": "Só para quem cursa o ensino médio na rede pública de São Paulo",
+   "texto": "Avaliação feita ao longo das três séries do ensino médio.",
+   "link": null
+  },
+  {
+   "nome": "Vagas olímpicas e Vestibular Indígena",
+   "vagas": 179,
+   "detalhe": "121 para medalhistas de olimpíadas e 58 no Vestibular Indígena, além de vagas adicionais",
+   "texto": "Seleções com regras próprias, publicadas pela Comvest.",
+   "link": "https://www.comvest.unicamp.br/"
+  }
+ ],
+ "cotas": [
+  "Reserva de vagas para pessoas autodeclaradas pretas e pardas: no mínimo 15% e até 27,2% das vagas de cada curso no vestibular.",
+  "PAAIS: quem cursou o ensino médio em escola pública ganha 40 pontos; o fundamental II, 20; os dois ciclos, 60. O bônus é somado à nota da 1ª fase e à da 2ª.",
+  "Vagas não preenchidas nas cotas voltam para a ampla concorrência."
+ ],
+ "calendario": [
+  {
+   "data": "2026-08-03",
+   "fim": "2026-08-31",
+   "evento": "Inscrições do vestibular"
+  },
+  {
+   "data": "2026-10-18",
+   "evento": "1ª fase (72 questões)"
+  },
+  {
+   "data": "2026-11-12",
+   "evento": "Notas de corte e convocados para a 2ª fase"
+  },
+  {
+   "data": "2026-11-29",
+   "fim": "2026-11-30",
+   "evento": "2ª fase"
+  },
+  {
+   "data": "2026-12-02",
+   "fim": "2026-12-04",
+   "evento": "Habilidades específicas (Artes Cênicas, Artes Visuais e Dança)"
+  },
+  {
+   "data": "2027-01-25",
+   "evento": "1ª chamada"
+  },
+  {
+   "data": "2027-02-22",
+   "evento": "Início das aulas"
+  }
+ ],
+ "cursos": [
+  {
+   "id": "administracao-noturno",
+   "nome": "Administração",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Noturno",
+   "area": "Humanas e Artes",
+   "vagasTotal": 120,
+   "vagas": 93,
+   "ampla": [
+    60,
+    75
+   ],
+   "reservaPP": [
+    18,
+    33
+   ],
+   "corte": 40,
+   "corteAnterior": 33,
+   "habilidades": false
+  },
+  {
+   "id": "administracao-publica-noturno",
+   "nome": "Administração Pública",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Noturno",
+   "area": "Humanas e Artes",
+   "vagasTotal": 60,
+   "vagas": 47,
+   "ampla": [
+    31,
+    38
+   ],
+   "reservaPP": [
+    9,
+    16
+   ],
+   "corte": 33,
+   "corteAnterior": 19,
+   "habilidades": false
+  },
+  {
+   "id": "arquitetura-e-urbanismo-noturno",
+   "nome": "Arquitetura e Urbanismo",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Humanas e Artes",
+   "vagasTotal": 30,
+   "vagas": 24,
+   "ampla": [
+    16,
+    19
+   ],
+   "reservaPP": [
+    5,
+    8
+   ],
+   "corte": 51,
+   "corteAnterior": 48,
+   "habilidades": false
+  },
+  {
+   "id": "artes-cenicas-integral",
+   "nome": "Artes Cênicas",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 25,
+   "vagas": 22,
+   "ampla": [
+    13,
+    16
+   ],
+   "reservaPP": [
+    6,
+    9
+   ],
+   "corte": 41,
+   "corteAnterior": 39,
+   "habilidades": true
+  },
+  {
+   "id": "artes-visuais-integral",
+   "nome": "Artes Visuais",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 30,
+   "vagas": 30,
+   "ampla": [
+    19,
+    22
+   ],
+   "reservaPP": [
+    8,
+    11
+   ],
+   "corte": 43,
+   "corteAnterior": 43,
+   "habilidades": true
+  },
+  {
+   "id": "ciencia-da-computacao-noturno",
+   "nome": "Ciência da Computação",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 50,
+   "vagas": 40,
+   "ampla": [
+    26,
+    32
+   ],
+   "reservaPP": [
+    8,
+    14
+   ],
+   "corte": 54,
+   "corteAnterior": 53,
+   "habilidades": false
+  },
+  {
+   "id": "ciencias-biologicas-licenciatura-noturno",
+   "nome": "Ciências Biológicas (licenciatura)",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Biológicas e Saúde",
+   "vagasTotal": 45,
+   "vagas": 33,
+   "ampla": [
+    21,
+    26
+   ],
+   "reservaPP": [
+    7,
+    12
+   ],
+   "corte": 39,
+   "corteAnterior": 36,
+   "habilidades": false
+  },
+  {
+   "id": "ciencias-biologicas-integral",
+   "nome": "Ciências Biológicas",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Biológicas e Saúde",
+   "vagasTotal": 45,
+   "vagas": 33,
+   "ampla": [
+    21,
+    26
+   ],
+   "reservaPP": [
+    7,
+    12
+   ],
+   "corte": 48,
+   "corteAnterior": 46,
+   "habilidades": false
+  },
+  {
+   "id": "ciencias-do-esporte-integral",
+   "nome": "Ciências do Esporte",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Integral",
+   "area": "Biológicas e Saúde",
+   "vagasTotal": 60,
+   "vagas": 46,
+   "ampla": [
+    30,
+    37
+   ],
+   "reservaPP": [
+    9,
+    16
+   ],
+   "corte": 36,
+   "corteAnterior": 30,
+   "habilidades": false
+  },
+  {
+   "id": "ciencias-economicas-integral",
+   "nome": "Ciências Econômicas",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 70,
+   "vagas": 56,
+   "ampla": [
+    37,
+    45
+   ],
+   "reservaPP": [
+    11,
+    19
+   ],
+   "corte": 50,
+   "corteAnterior": 48,
+   "habilidades": false
+  },
+  {
+   "id": "ciencias-economicas-noturno",
+   "nome": "Ciências Econômicas",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Humanas e Artes",
+   "vagasTotal": 35,
+   "vagas": 28,
+   "ampla": [
+    18,
+    23
+   ],
+   "reservaPP": [
+    5,
+    10
+   ],
+   "corte": 48,
+   "corteAnterior": 46,
+   "habilidades": false
+  },
+  {
+   "id": "ciencias-sociais-integral",
+   "nome": "Ciências Sociais",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 60,
+   "vagas": 46,
+   "ampla": [
+    30,
+    37
+   ],
+   "reservaPP": [
+    9,
+    16
+   ],
+   "corte": 37,
+   "corteAnterior": 37,
+   "habilidades": false
+  },
+  {
+   "id": "ciencias-sociais-noturno",
+   "nome": "Ciências Sociais",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Humanas e Artes",
+   "vagasTotal": 60,
+   "vagas": 46,
+   "ampla": [
+    30,
+    37
+   ],
+   "reservaPP": [
+    9,
+    16
+   ],
+   "corte": 34,
+   "corteAnterior": 34,
+   "habilidades": false
+  },
+  {
+   "id": "comunicacao-social-midialogia-integral",
+   "nome": "Comunicação Social: Midialogia",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 30,
+   "vagas": 24,
+   "ampla": [
+    16,
+    19
+   ],
+   "reservaPP": [
+    5,
+    8
+   ],
+   "corte": 46,
+   "corteAnterior": 44,
+   "habilidades": false
+  },
+  {
+   "id": "curso-51-fisica-matematica-engenharia-fisica-e-afins-integral",
+   "nome": "Curso 51: Física, Matemática, Engenharia Física e afins",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 170,
+   "vagas": 121,
+   "ampla": [
+    75,
+    95
+   ],
+   "reservaPP": [
+    26,
+    46
+   ],
+   "corte": 45,
+   "corteAnterior": 43,
+   "habilidades": false
+  },
+  {
+   "id": "danca-integral",
+   "nome": "Dança",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 25,
+   "vagas": 25,
+   "ampla": [
+    16,
+    19
+   ],
+   "reservaPP": [
+    6,
+    9
+   ],
+   "corte": 29,
+   "corteAnterior": 29,
+   "habilidades": true
+  },
+  {
+   "id": "educacao-fisica-integral",
+   "nome": "Educação Física",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Biológicas e Saúde",
+   "vagasTotal": 50,
+   "vagas": 40,
+   "ampla": [
+    26,
+    32
+   ],
+   "reservaPP": [
+    8,
+    14
+   ],
+   "corte": 39,
+   "corteAnterior": 34,
+   "habilidades": false
+  },
+  {
+   "id": "educacao-fisica-noturno",
+   "nome": "Educação Física",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Biológicas e Saúde",
+   "vagasTotal": 50,
+   "vagas": 40,
+   "ampla": [
+    26,
+    32
+   ],
+   "reservaPP": [
+    8,
+    14
+   ],
+   "corte": 31,
+   "corteAnterior": 35,
+   "habilidades": false
+  },
+  {
+   "id": "enfermagem-integral",
+   "nome": "Enfermagem",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Biológicas e Saúde",
+   "vagasTotal": 40,
+   "vagas": 29,
+   "ampla": [
+    18,
+    23
+   ],
+   "reservaPP": [
+    6,
+    11
+   ],
+   "corte": 42,
+   "corteAnterior": 39,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-agricola-integral",
+   "nome": "Engenharia Agrícola",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 70,
+   "vagas": 52,
+   "ampla": [
+    33,
+    41
+   ],
+   "reservaPP": [
+    11,
+    19
+   ],
+   "corte": 34,
+   "corteAnterior": 32,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-ambiental-noturno",
+   "nome": "Engenharia Ambiental",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 60,
+   "vagas": 44,
+   "ampla": [
+    28,
+    35
+   ],
+   "reservaPP": [
+    9,
+    16
+   ],
+   "corte": 16,
+   "corteAnterior": 29,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-civil-integral",
+   "nome": "Engenharia Civil",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 80,
+   "vagas": 62,
+   "ampla": [
+    40,
+    50
+   ],
+   "reservaPP": [
+    12,
+    22
+   ],
+   "corte": 45,
+   "corteAnterior": 43,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-de-alimentos-integral",
+   "nome": "Engenharia de Alimentos",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 80,
+   "vagas": 60,
+   "ampla": [
+    38,
+    48
+   ],
+   "reservaPP": [
+    12,
+    22
+   ],
+   "corte": 30,
+   "corteAnterior": 30,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-de-alimentos-noturno",
+   "nome": "Engenharia de Alimentos",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 35,
+   "vagas": 24,
+   "ampla": [
+    14,
+    19
+   ],
+   "reservaPP": [
+    5,
+    10
+   ],
+   "corte": 33,
+   "corteAnterior": 28,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-de-computacao-integral",
+   "nome": "Engenharia de Computação",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 90,
+   "vagas": 63,
+   "ampla": [
+    39,
+    49
+   ],
+   "reservaPP": [
+    14,
+    24
+   ],
+   "corte": 56,
+   "corteAnterior": 55,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-de-controle-e-automacao-noturno",
+   "nome": "Engenharia de Controle e Automação",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 50,
+   "vagas": 33,
+   "ampla": [
+    19,
+    25
+   ],
+   "reservaPP": [
+    8,
+    14
+   ],
+   "corte": 45,
+   "corteAnterior": 43,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-de-manufatura-integral",
+   "nome": "Engenharia de Manufatura",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 60,
+   "vagas": 45,
+   "ampla": [
+    29,
+    36
+   ],
+   "reservaPP": [
+    9,
+    16
+   ],
+   "corte": 20,
+   "corteAnterior": 32,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-de-producao-integral",
+   "nome": "Engenharia de Produção",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 60,
+   "vagas": 45,
+   "ampla": [
+    29,
+    36
+   ],
+   "reservaPP": [
+    9,
+    16
+   ],
+   "corte": 50,
+   "corteAnterior": 48,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-de-telecomunicacoes-integral",
+   "nome": "Engenharia de Telecomunicações",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 55,
+   "vagas": 37,
+   "ampla": [
+    22,
+    29
+   ],
+   "reservaPP": [
+    8,
+    15
+   ],
+   "corte": 25,
+   "corteAnterior": 19,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-de-transportes-noturno",
+   "nome": "Engenharia de Transportes",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 55,
+   "vagas": 37,
+   "ampla": [
+    22,
+    29
+   ],
+   "reservaPP": [
+    8,
+    15
+   ],
+   "corte": 21,
+   "corteAnterior": 18,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-eletrica-integral",
+   "nome": "Engenharia Elétrica",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 70,
+   "vagas": 49,
+   "ampla": [
+    30,
+    38
+   ],
+   "reservaPP": [
+    11,
+    19
+   ],
+   "corte": 53,
+   "corteAnterior": 49,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-eletrica-noturno",
+   "nome": "Engenharia Elétrica",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 40,
+   "vagas": 28,
+   "ampla": [
+    17,
+    22
+   ],
+   "reservaPP": [
+    6,
+    11
+   ],
+   "corte": 45,
+   "corteAnterior": 43,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-mecanica-integral",
+   "nome": "Engenharia Mecânica",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 125,
+   "vagas": 91,
+   "ampla": [
+    57,
+    72
+   ],
+   "reservaPP": [
+    19,
+    34
+   ],
+   "corte": 52,
+   "corteAnterior": 47,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-quimica-integral",
+   "nome": "Engenharia Química",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 60,
+   "vagas": 47,
+   "ampla": [
+    31,
+    38
+   ],
+   "reservaPP": [
+    9,
+    16
+   ],
+   "corte": 52,
+   "corteAnterior": 49,
+   "habilidades": false
+  },
+  {
+   "id": "engenharia-quimica-noturno",
+   "nome": "Engenharia Química",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 40,
+   "vagas": 31,
+   "ampla": [
+    20,
+    25
+   ],
+   "reservaPP": [
+    6,
+    11
+   ],
+   "corte": 45,
+   "corteAnterior": 42,
+   "habilidades": false
+  },
+  {
+   "id": "estatistica-integral",
+   "nome": "Estatística",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 70,
+   "vagas": 49,
+   "ampla": [
+    30,
+    38
+   ],
+   "reservaPP": [
+    11,
+    19
+   ],
+   "corte": 40,
+   "corteAnterior": 34,
+   "habilidades": false
+  },
+  {
+   "id": "estudos-literarios-integral",
+   "nome": "Estudos Literários",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 20,
+   "vagas": 16,
+   "ampla": [
+    11,
+    13
+   ],
+   "reservaPP": [
+    3,
+    5
+   ],
+   "corte": 36,
+   "corteAnterior": 36,
+   "habilidades": false
+  },
+  {
+   "id": "farmacia-integral",
+   "nome": "Farmácia",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Biológicas e Saúde",
+   "vagasTotal": 40,
+   "vagas": 32,
+   "ampla": [
+    21,
+    26
+   ],
+   "reservaPP": [
+    6,
+    11
+   ],
+   "corte": 48,
+   "corteAnterior": 45,
+   "habilidades": false
+  },
+  {
+   "id": "filosofia-integral",
+   "nome": "Filosofia",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 38,
+   "vagas": 28,
+   "ampla": [
+    18,
+    22
+   ],
+   "reservaPP": [
+    6,
+    10
+   ],
+   "corte": 31,
+   "corteAnterior": 30,
+   "habilidades": false
+  },
+  {
+   "id": "fisica-licenciatura-noturno",
+   "nome": "Física (licenciatura)",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 40,
+   "vagas": 28,
+   "ampla": [
+    17,
+    22
+   ],
+   "reservaPP": [
+    6,
+    11
+   ],
+   "corte": 21,
+   "corteAnterior": 26,
+   "habilidades": false
+  },
+  {
+   "id": "fonoaudiologia-integral",
+   "nome": "Fonoaudiologia",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Biológicas e Saúde",
+   "vagasTotal": 30,
+   "vagas": 22,
+   "ampla": [
+    14,
+    17
+   ],
+   "reservaPP": [
+    5,
+    8
+   ],
+   "corte": 45,
+   "corteAnterior": 41,
+   "habilidades": false
+  },
+  {
+   "id": "geografia-integral",
+   "nome": "Geografia",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 20,
+   "vagas": 16,
+   "ampla": [
+    11,
+    13
+   ],
+   "reservaPP": [
+    3,
+    5
+   ],
+   "corte": 39,
+   "corteAnterior": 38,
+   "habilidades": false
+  },
+  {
+   "id": "geografia-noturno",
+   "nome": "Geografia",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Humanas e Artes",
+   "vagasTotal": 30,
+   "vagas": 24,
+   "ampla": [
+    16,
+    19
+   ],
+   "reservaPP": [
+    5,
+    8
+   ],
+   "corte": 32,
+   "corteAnterior": 35,
+   "habilidades": false
+  },
+  {
+   "id": "geologia-integral",
+   "nome": "Geologia",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 30,
+   "vagas": 24,
+   "ampla": [
+    16,
+    16
+   ],
+   "reservaPP": [
+    8,
+    8
+   ],
+   "corte": 38,
+   "corteAnterior": 36,
+   "habilidades": false
+  },
+  {
+   "id": "historia-integral",
+   "nome": "História",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 50,
+   "vagas": 36,
+   "ampla": [
+    22,
+    28
+   ],
+   "reservaPP": [
+    8,
+    14
+   ],
+   "corte": 42,
+   "corteAnterior": 43,
+   "habilidades": false
+  },
+  {
+   "id": "inteligencia-artificial-e-ciencia-de-dados-integral",
+   "nome": "Inteligência Artificial e Ciência de Dados",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 40,
+   "vagas": 30,
+   "ampla": [
+    19,
+    24
+   ],
+   "reservaPP": [
+    6,
+    11
+   ],
+   "corte": 45,
+   "corteAnterior": null,
+   "habilidades": false
+  },
+  {
+   "id": "letras-portugues-licenciatura-integral",
+   "nome": "Letras: Português (licenciatura)",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 30,
+   "vagas": 24,
+   "ampla": [
+    16,
+    19
+   ],
+   "reservaPP": [
+    5,
+    8
+   ],
+   "corte": 41,
+   "corteAnterior": 41,
+   "habilidades": false
+  },
+  {
+   "id": "letras-portugues-licenciatura-noturno",
+   "nome": "Letras: Português (licenciatura)",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Humanas e Artes",
+   "vagasTotal": 30,
+   "vagas": 24,
+   "ampla": [
+    16,
+    19
+   ],
+   "reservaPP": [
+    5,
+    8
+   ],
+   "corte": 40,
+   "corteAnterior": 38,
+   "habilidades": false
+  },
+  {
+   "id": "licenciatura-integrada-quimica-fisica-noturno",
+   "nome": "Licenciatura Integrada Química/Física",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 30,
+   "vagas": 24,
+   "ampla": [
+    16,
+    19
+   ],
+   "reservaPP": [
+    5,
+    8
+   ],
+   "corte": 37,
+   "corteAnterior": 13,
+   "habilidades": false
+  },
+  {
+   "id": "linguistica-integral",
+   "nome": "Linguística",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 20,
+   "vagas": 16,
+   "ampla": [
+    10,
+    13
+   ],
+   "reservaPP": [
+    3,
+    6
+   ],
+   "corte": 38,
+   "corteAnterior": 35,
+   "habilidades": false
+  },
+  {
+   "id": "matematica-licenciatura-noturno",
+   "nome": "Matemática (licenciatura)",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 70,
+   "vagas": 49,
+   "ampla": [
+    30,
+    38
+   ],
+   "reservaPP": [
+    11,
+    19
+   ],
+   "corte": 21,
+   "corteAnterior": 24,
+   "habilidades": false
+  },
+  {
+   "id": "medicina-integral",
+   "nome": "Medicina",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Biológicas e Saúde",
+   "vagasTotal": 110,
+   "vagas": 86,
+   "ampla": [
+    56,
+    69
+   ],
+   "reservaPP": [
+    17,
+    30
+   ],
+   "corte": 62,
+   "corteAnterior": 60,
+   "habilidades": false
+  },
+  {
+   "id": "musica-erudita-canto-integral",
+   "nome": "Música Erudita: Canto",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-clarineta-integral",
+   "nome": "Música Erudita: Clarineta",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-contrabaixo-integral",
+   "nome": "Música Erudita: Contrabaixo",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-flauta-integral",
+   "nome": "Música Erudita: Flauta",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-percussao-integral",
+   "nome": "Música Erudita: Percussão",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-piano-integral",
+   "nome": "Música Erudita: Piano",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-trombone-integral",
+   "nome": "Música Erudita: Trombone",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-trompa-integral",
+   "nome": "Música Erudita: Trompa",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-trompete-integral",
+   "nome": "Música Erudita: Trompete",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-viola-integral",
+   "nome": "Música Erudita: Viola",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-violao-integral",
+   "nome": "Música Erudita: Violão",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-violino-integral",
+   "nome": "Música Erudita: Violino",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-erudita-violoncelo-integral",
+   "nome": "Música Erudita: Violoncelo",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 2,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-popular-bateria-integral",
+   "nome": "Música Popular: Bateria",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 1,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-popular-canto-integral",
+   "nome": "Música Popular: Canto",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 1,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-popular-contrabaixo-integral",
+   "nome": "Música Popular: Contrabaixo",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 1,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-popular-guitarra-integral",
+   "nome": "Música Popular: Guitarra",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 1,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-popular-piano-integral",
+   "nome": "Música Popular: Piano",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 1,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-popular-saxofone-integral",
+   "nome": "Música Popular: Saxofone",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 1,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-popular-violao-integral",
+   "nome": "Música Popular: Violão",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 2,
+   "vagas": 1,
+   "ampla": null,
+   "reservaPP": null,
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-composicao-integral",
+   "nome": "Música: Composição",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 5,
+   "vagas": 4,
+   "ampla": [
+    3,
+    3
+   ],
+   "reservaPP": [
+    1,
+    1
+   ],
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-licenciatura-integral",
+   "nome": "Música: Licenciatura",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 17,
+   "vagas": 12,
+   "ampla": [
+    7,
+    10
+   ],
+   "reservaPP": [
+    2,
+    5
+   ],
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "musica-regencia-integral",
+   "nome": "Música: Regência",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 3,
+   "vagas": 2,
+   "ampla": [
+    1,
+    1
+   ],
+   "reservaPP": [
+    1,
+    1
+   ],
+   "corte": null,
+   "corteAnterior": null,
+   "habilidades": true
+  },
+  {
+   "id": "nutricao-integral",
+   "nome": "Nutrição",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Integral",
+   "area": "Biológicas e Saúde",
+   "vagasTotal": 60,
+   "vagas": 44,
+   "ampla": [
+    28,
+    35
+   ],
+   "reservaPP": [
+    9,
+    16
+   ],
+   "corte": 42,
+   "corteAnterior": 40,
+   "habilidades": false
+  },
+  {
+   "id": "odontologia-integral",
+   "nome": "Odontologia",
+   "cidade": "Piracicaba",
+   "campus": "Campus de Piracicaba",
+   "periodo": "Integral",
+   "area": "Biológicas e Saúde",
+   "vagasTotal": 80,
+   "vagas": 60,
+   "ampla": [
+    38,
+    48
+   ],
+   "reservaPP": [
+    12,
+    22
+   ],
+   "corte": 45,
+   "corteAnterior": 40,
+   "habilidades": false
+  },
+  {
+   "id": "pedagogia-licenciatura-integral",
+   "nome": "Pedagogia (licenciatura)",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 45,
+   "vagas": 36,
+   "ampla": [
+    24,
+    29
+   ],
+   "reservaPP": [
+    7,
+    12
+   ],
+   "corte": 30,
+   "corteAnterior": 31,
+   "habilidades": false
+  },
+  {
+   "id": "pedagogia-licenciatura-noturno",
+   "nome": "Pedagogia (licenciatura)",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Humanas e Artes",
+   "vagasTotal": 45,
+   "vagas": 36,
+   "ampla": [
+    24,
+    29
+   ],
+   "reservaPP": [
+    7,
+    12
+   ],
+   "corte": 35,
+   "corteAnterior": 32,
+   "habilidades": false
+  },
+  {
+   "id": "quimica-integral",
+   "nome": "Química",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 70,
+   "vagas": 49,
+   "ampla": [
+    30,
+    38
+   ],
+   "reservaPP": [
+    11,
+    19
+   ],
+   "corte": 40,
+   "corteAnterior": 38,
+   "habilidades": false
+  },
+  {
+   "id": "quimica-tecnologica-noturno",
+   "nome": "Química Tecnológica",
+   "cidade": "Campinas",
+   "campus": "Barão Geraldo",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 50,
+   "vagas": 36,
+   "ampla": [
+    22,
+    28
+   ],
+   "reservaPP": [
+    8,
+    14
+   ],
+   "corte": 31,
+   "corteAnterior": 31,
+   "habilidades": false
+  },
+  {
+   "id": "relacoes-internacionais-integral",
+   "nome": "Relações Internacionais",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Integral",
+   "area": "Humanas e Artes",
+   "vagasTotal": 60,
+   "vagas": 46,
+   "ampla": [
+    30,
+    37
+   ],
+   "reservaPP": [
+    9,
+    16
+   ],
+   "corte": 46,
+   "corteAnterior": null,
+   "habilidades": false
+  },
+  {
+   "id": "sistemas-de-informacao-integral",
+   "nome": "Sistemas de Informação",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Integral",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 50,
+   "vagas": 33,
+   "ampla": [
+    19,
+    25
+   ],
+   "reservaPP": [
+    8,
+    14
+   ],
+   "corte": 43,
+   "corteAnterior": 42,
+   "habilidades": false
+  },
+  {
+   "id": "tecnologia-em-analise-e-desenvolvimento-de-sistemas-noturno",
+   "nome": "Tecnologia em Análise e Desenvolvimento de Sistemas",
+   "cidade": "Limeira",
+   "campus": "Campus de Limeira",
+   "periodo": "Noturno",
+   "area": "Exatas e Tecnológicas",
+   "vagasTotal": 50,
+   "vagas": 33,
+   "ampla": [
+    19,
+    25
+   ],
+   "reservaPP": [
+    8,
+    14
+   ],
+   "corte": 39,
+   "corteAnterior": 38,
+   "habilidades": false
+  }
+ ],
+ "campi": [
+  {
+   "nome": "Barão Geraldo",
+   "cidade": "Campinas",
+   "uf": "SP",
+   "n": 70,
+   "lat": -22.9053,
+   "lon": -47.0659
+  },
+  {
+   "nome": "Campus de Limeira",
+   "cidade": "Limeira",
+   "uf": "SP",
+   "n": 13,
+   "lat": -22.566,
+   "lon": -47.397
+  },
+  {
+   "nome": "Campus de Piracicaba",
+   "cidade": "Piracicaba",
+   "uf": "SP",
+   "n": 1,
+   "lat": -22.7338,
+   "lon": -47.6476
+  }
+ ],
+ "provas": "/provas/?vestibular=unicamp",
+ "fontes": [
+  {
+   "titulo": "Comvest · Manual do Ingresso do Vestibular Unicamp 2027 (vagas por curso e calendário)",
+   "url": "https://www.comvest.unicamp.br/"
+  },
+  {
+   "titulo": "Comvest · Notas de corte da 1ª fase do Vestibular Unicamp 2027",
+   "url": "https://www.comvest.unicamp.br/"
+  }
+ ],
+ "conferencia": "Vagas por curso conferidas contra os totais oficiais (2.523 no vestibular e 3.358 em todas as formas de ingresso). Cortes de 2027 conferidos em duas transcrições independentes da tabela da Comvest (61 de 61 iguais)."
+}

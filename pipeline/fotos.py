@@ -54,6 +54,11 @@ def instituicoes() -> dict:
         for o in json.loads((SITE / "curso" / f"{item['slug']}.json").read_text(encoding="utf-8"))["ofertas"]:
             i = out.setdefault(o["ies"], {"nome": o["ies_nome"], "cidades": set()})
             i["cidades"].add(o["municipio"])
+    # Universidades fora do Sisu, com vestibular próprio (USP e Unicamp): dados/vestibulares/universidades/*.json
+    for arq in sorted((RAIZ / "dados" / "vestibulares" / "universidades").glob("*.json")):
+        u = json.loads(arq.read_text(encoding="utf-8"))
+        i = out.setdefault(u["sigla"], {"nome": u["nome"], "cidades": set()})
+        i["cidades"].update(c["cidade"] for c in u["campi"])
     return {k: {"nome": v["nome"], "cidades": sorted(v["cidades"])} for k, v in sorted(out.items())}
 
 
