@@ -5,8 +5,8 @@
   "main": "worker.ts",
   "compatibility_date": "2026-10-30",
   "routes": [{ "pattern": "ondepasso.com.br/api/relatorio/*", "zone_name": "ondepasso.com.br" }],
-  // Troque pelo id criado com: npx wrangler kv namespace create RELATORIO
-  "kv_namespaces": [{ "binding": "KV", "id": "TROQUE_PELO_ID_DO_KV" }],
+  // Namespace "RELATORIO" criado em 22/11/2026 (npx wrangler kv namespace create RELATORIO). O binding no código é KV.
+  "kv_namespaces": [{ "binding": "KV", "id": "5eb0372a8138498998cca276905aad16" }],
   "vars": {
     "PRECO": "15.90",
     "VALIDADE": "2027-02-28",
